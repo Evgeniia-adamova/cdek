@@ -49,11 +49,45 @@ def _collect_samples(
 
 
 def _build_fer_model():
+    import importlib
+
     try:
-        from fer import FER  # type: ignore
+        fer_module = importlib.import_module("fer")
+    except Exception as exc:
+        return None, {
+            "ok": False,
+            "reason": f"import fer failed: {exc}",
+        }
+
+    constructors = []
+    try:
+        constructors.append(("fer.FER", getattr(fer_module, "FER")))
     except Exception:
-        return None
-    return FER(mtcnn=False)
+        pass
+
+    try:
+        fer_submodule = importlib.import_module("fer.fer")
+        constructors.append(("fer.fer.FER", getattr(fer_submodule, "FER")))
+    except Exception:
+        pass
+
+    for ctor_name, ctor in constructors:
+        try:
+            model = ctor(mtcnn=False)
+            return model, {
+                "ok": True,
+                "constructor": ctor_name,
+                "module_path": getattr(fer_module, "__file__", None),
+            }
+        except Exception:
+            continue
+
+    return None, {
+        "ok": False,
+        "reason": "FER class not found in installed fer package",
+        "module_path": getattr(fer_module, "__file__", None),
+        "available_attrs_head": sorted(dir(fer_module))[:40],
+    }
 
 
 def run_emotion_baseline_fer(
@@ -61,10 +95,15 @@ def run_emotion_baseline_fer(
     output_path: str = "extracted_frames_v2/emotion_baseline_fer.json",
     max_per_person: int = 300,
 ) -> Dict[str, Any]:
-    model = _build_fer_model()
+    model, model_info = _build_fer_model()
     if model is None:
         raise RuntimeError(
-            "Пакет 'fer' не установлен. Установите в ноутбуке: !pip install fer"
+            "Не удалось инициализировать FER.\n"
+            f"DIAGNOSTICS: {model_info}\n"
+            "Попробуйте в ноутбуке:\n"
+            "  1) !pip uninstall -y fer\n"
+            "  2) !pip install fer\n"
+            "  3) перезапустите kernel"
         )
 
     samples = _collect_samples(analysis_path, max_per_person=max_per_person)
@@ -153,6 +192,7 @@ def run_emotion_baseline_fer(
 
     result = {
         "model": "fer",
+        "model_info": model_info,
         "analysis_path": analysis_path,
         "total_predictions": len(predictions),
         "elapsed_sec": round(elapsed, 3),
