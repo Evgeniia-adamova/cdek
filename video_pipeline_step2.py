@@ -1,6 +1,6 @@
 import json
 import os
-from collections import defaultdict
+from collections import Counter, defaultdict
 from dataclasses import dataclass
 from typing import Any, Dict, List, Optional, Tuple
 
@@ -388,6 +388,140 @@ def summarize_persons(frame_records: List[Dict[str, Any]]) -> Dict[str, Dict[str
     return dict(sorted(summary.items()))
 
 
+def _detection_feature(
+    det: Dict[str, Any],
+    width: int,
+    height: int,
+) -> np.ndarray:
+    width = max(1, width)
+    height = max(1, height)
+    frame_area = max(1.0, float(width * height))
+
+    center = det.get("center", {})
+    cx = float(center.get("x", 0.0)) / float(width)
+    cy = float(center.get("y", 0.0)) / float(height)
+
+    area = max(1.0, float(det.get("area", 1.0)))
+    log_area = float(np.log1p(area) / np.log1p(frame_area))
+
+    emb = det.get("embedding_preview", [])
+    emb = [float(v) for v in emb[:8]]
+    if len(emb) < 8:
+        emb.extend([0.0] * (8 - len(emb)))
+
+    return np.array([cx, cy, log_area] + emb, dtype=np.float32)
+
+
+def consolidate_people_kmeans(
+    frame_records: List[Dict[str, Any]],
+    video_metadata: Dict[str, Any],
+    expected_people: int = 2,
+) -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
+    if expected_people <= 1:
+        return frame_records, {"applied": False, "reason": "expected_people <= 1"}
+
+    refs: List[Tuple[int, int, Dict[str, Any]]] = []
+    for frame_idx, fr in enumerate(frame_records):
+        for det_idx, det in enumerate(fr.get("detections", [])):
+            refs.append((frame_idx, det_idx, det))
+
+    if len(refs) < 2:
+        return frame_records, {"applied": False, "reason": "not enough detections"}
+
+    width = int(video_metadata.get("width", 0) or 1)
+    height = int(video_metadata.get("height", 0) or 1)
+    features = np.vstack([_detection_feature(det, width, height) for _, _, det in refs]).astype(np.float32)
+
+    k = min(expected_people, len(refs))
+    if k < 2:
+        return frame_records, {"applied": False, "reason": "k < 2"}
+
+    criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 100, 0.01)
+    _, labels, _ = cv2.kmeans(
+        features,
+        k,
+        None,
+        criteria,
+        10,
+        cv2.KMEANS_PP_CENTERS,
+    )
+    label_values = [int(v) for v in labels.flatten().tolist()]
+
+    raw_summary = summarize_persons(frame_records)
+    dominant_raw_id = max(
+        raw_summary.items(),
+        key=lambda kv: kv[1]["frames_seen"],
+    )[0]
+
+    label_counts = Counter(label_values)
+    dominant_label_votes = Counter(
+        lbl
+        for (_, _, det), lbl in zip(refs, label_values)
+        if det.get("person_id") == dominant_raw_id
+    )
+    dominant_label = (
+        dominant_label_votes.most_common(1)[0][0]
+        if dominant_label_votes
+        else label_counts.most_common(1)[0][0]
+    )
+
+    ordered_labels = [dominant_label] + [
+        lbl
+        for lbl, _ in label_counts.most_common()
+        if lbl != dominant_label
+    ]
+    label_to_person: Dict[int, str] = {
+        lbl: f"P{idx + 1:03d}" for idx, lbl in enumerate(ordered_labels)
+    }
+
+    ref_label_map: Dict[Tuple[int, int], int] = {}
+    raw_to_canonical_counts: Dict[str, Dict[str, int]] = defaultdict(lambda: defaultdict(int))
+    for (frame_idx, det_idx, det), lbl in zip(refs, label_values):
+        ref_label_map[(frame_idx, det_idx)] = lbl
+        canon = label_to_person[lbl]
+        raw = str(det.get("person_id", "UNKNOWN"))
+        raw_to_canonical_counts[raw][canon] += 1
+
+    consolidated_frames: List[Dict[str, Any]] = []
+    for frame_idx, fr in enumerate(frame_records):
+        detections = fr.get("detections", [])
+        best_by_label: Dict[int, Dict[str, Any]] = {}
+
+        for det_idx, det in enumerate(detections):
+            lbl = ref_label_map[(frame_idx, det_idx)]
+            current = best_by_label.get(lbl)
+            if current is None or float(det.get("area", 0.0)) > float(current.get("area", 0.0)):
+                det_copy = dict(det)
+                det_copy["source_person_id"] = det.get("person_id")
+                det_copy["person_id"] = label_to_person[lbl]
+                det_copy["cluster_label"] = int(lbl)
+                best_by_label[lbl] = det_copy
+
+        new_detections = sorted(best_by_label.values(), key=lambda d: d["person_id"])
+        fr["detections"] = new_detections
+        fr["person_ids"] = sorted({d["person_id"] for d in new_detections})
+        fr["face_count"] = len(new_detections)
+        consolidated_frames.append(fr)
+
+    consolidated_summary = summarize_persons(consolidated_frames)
+
+    raw_to_canonical = {
+        raw_id: dict(sorted(canon_map.items()))
+        for raw_id, canon_map in sorted(raw_to_canonical_counts.items())
+    }
+    info = {
+        "applied": True,
+        "method": "kmeans_detections",
+        "expected_people": expected_people,
+        "raw_unique_ids": len(raw_summary),
+        "consolidated_unique_ids": len(consolidated_summary),
+        "dominant_raw_id": dominant_raw_id,
+        "label_to_person": {str(lbl): pid for lbl, pid in sorted(label_to_person.items())},
+        "raw_to_canonical_votes": raw_to_canonical,
+    }
+    return consolidated_frames, info
+
+
 def run_step2(
     manifest_path: str = "extracted_frames_v2/frame_manifest_step1.json",
     output_path: str = "extracted_frames_v2/analysis_step2.json",
@@ -395,6 +529,7 @@ def run_step2(
     comments: Optional[List[Dict[str, Any]]] = None,
     save_face_crops: bool = True,
     crops_dir: str = "extracted_frames_v2/faces_by_person",
+    expected_people: Optional[int] = None,
 ) -> Dict[str, Any]:
     manifest = load_manifest(manifest_path)
     frame_records: List[Dict[str, Any]] = manifest.get("frames", [])
@@ -456,6 +591,14 @@ def run_step2(
         fr["person_ids"] = sorted({d["person_id"] for d in assigned})
         enriched_frames.append(fr)
 
+    consolidation_info: Optional[Dict[str, Any]] = None
+    if expected_people is not None and expected_people > 1:
+        enriched_frames, consolidation_info = consolidate_people_kmeans(
+            frame_records=enriched_frames,
+            video_metadata=manifest.get("video_metadata", {}),
+            expected_people=expected_people,
+        )
+
     intervals = aggregate_intervals(enriched_frames, interval_sec=interval_sec)
     interval_comparison = compare_intervals(intervals)
     person_summary = summarize_persons(enriched_frames)
@@ -467,12 +610,15 @@ def run_step2(
             "detector": "haar_frontalface_default",
             "tracking": "appearance+spatial matching",
             "comments_linked": bool(comments),
+            "expected_people": expected_people,
         },
         "frames": enriched_frames,
         "intervals": intervals,
         "interval_comparison": interval_comparison,
         "person_summary": person_summary,
     }
+    if consolidation_info is not None:
+        result["consolidation"] = consolidation_info
     save_json(result, output_path)
 
     total_faces = int(sum(fr.get("face_count", 0) for fr in enriched_frames))
@@ -481,6 +627,12 @@ def run_step2(
     print(f"Total face detections: {total_faces}")
     print(f"Unique person IDs: {len(person_summary)} -> {list(person_summary.keys())}")
     print(f"Intervals: {len(intervals)} (interval_sec={interval_sec})")
+    if consolidation_info is not None and consolidation_info.get("applied"):
+        print(
+            "Consolidation: "
+            f"{consolidation_info['raw_unique_ids']} -> "
+            f"{consolidation_info['consolidated_unique_ids']} IDs"
+        )
     print(f"Saved analysis: {output_path}")
 
     return result
