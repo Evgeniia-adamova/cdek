@@ -30,7 +30,7 @@ def format_timestamp(seconds: float) -> str:
 def read_video_metadata(video_path: str) -> VideoMetadata:
     cap = cv2.VideoCapture(video_path)
     if not cap.isOpened():
-        raise FileNotFoundError(f"Не удалось открыть видео: {video_path}")
+        raise FileNotFoundError(f"Failed to open video: {video_path}")
 
     raw_fps = cap.get(cv2.CAP_PROP_FPS)
     fps = float(raw_fps) if raw_fps and raw_fps > 0 else 25.0
@@ -87,7 +87,7 @@ def extract_frames_with_timestamps(
 
     cap = cv2.VideoCapture(video_path)
     if not cap.isOpened():
-        raise FileNotFoundError(f"Не удалось открыть видео: {video_path}")
+        raise FileNotFoundError(f"Failed to open video: {video_path}")
 
     records: List[Dict[str, Any]] = []
 
@@ -109,7 +109,7 @@ def extract_frames_with_timestamps(
                 "timestamp_sec": round(timestamp_sec, 6),
                 "timestamp": format_timestamp(timestamp_sec),
                 "image_path": file_path,
-                # Поля для следующих шагов анализа:
+                # Fields for subsequent analysis steps:
                 "interval_id": None,
                 "person_ids": [],
                 "comments": [],
@@ -146,15 +146,15 @@ def run_step1(
     max_frames: Optional[int] = 200,
     output_dir: str = "extracted_frames_v2",
 ) -> Dict[str, Any]:
-    # Шаг 1: отдельный этап чтения FPS и метаданных.
+    # Step 1: separate stage for reading FPS and metadata.
     metadata = read_video_metadata(video_path)
     print("=== STEP 1: VIDEO METADATA ===")
-    print(f"Видео: {metadata.video_path}")
-    print(f"FPS (из метаданных): {metadata.fps:.3f}")
-    print(f"Кадров всего: {metadata.frame_count}")
-    print(f"Разрешение: {metadata.width}x{metadata.height}")
+    print(f"Video: {metadata.video_path}")
+    print(f"FPS (from metadata): {metadata.fps:.3f}")
+    print(f"Total frames: {metadata.frame_count}")
+    print(f"Resolution: {metadata.width}x{metadata.height}")
     if metadata.duration_sec is not None:
-        print(f"Длительность: {metadata.duration_sec:.2f} сек")
+        print(f"Duration: {metadata.duration_sec:.2f} sec")
 
     frame_indices = build_sampling_plan(
         metadata=metadata,
@@ -165,9 +165,9 @@ def run_step1(
     )
 
     print("\n=== STEP 1: SAMPLING PLAN ===")
-    print(f"Интервал между сэмплами: {interval_sec} сек")
-    print(f"Шаг в кадрах (расчет через FPS): {max(1, int(round(interval_sec * metadata.fps)))}")
-    print(f"Кадров к извлечению: {len(frame_indices)}")
+    print(f"Sample interval: {interval_sec} sec")
+    print(f"Step in frames (calculated via FPS): {max(1, int(round(interval_sec * metadata.fps)))}")
+    print(f"Frames to extract: {len(frame_indices)}")
 
     frame_records = extract_frames_with_timestamps(
         video_path=video_path,
@@ -178,10 +178,10 @@ def run_step1(
     manifest_path = save_step1_manifest(metadata, frame_records, output_dir=output_dir)
 
     print("\n=== STEP 1: RESULT ===")
-    print(f"Извлечено кадров: {len(frame_records)}")
+    print(f"Frames extracted: {len(frame_records)}")
     print(f"Manifest: {manifest_path}")
     if frame_records:
-        print("Пример записи:")
+        print("Sample record:")
         print(frame_records[0])
 
     return {

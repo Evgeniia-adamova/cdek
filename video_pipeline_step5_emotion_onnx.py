@@ -169,7 +169,7 @@ def run_emotion_baseline_onnx(
     model_path = ensure_ferplus_onnx(model_path=model_path)
     samples = collect_samples(analysis_path=analysis_path, max_per_person=max_per_person)
     if not samples:
-        raise RuntimeError("Нет face crop файлов для инференса эмоций.")
+        raise RuntimeError("No face crop files for emotion inference.")
 
     sess = ort.InferenceSession(model_path, providers=["CPUExecutionProvider"])
     input_name = sess.get_inputs()[0].name

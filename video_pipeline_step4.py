@@ -30,7 +30,7 @@ def format_timestamp(seconds: float) -> str:
 def read_video_metadata(video_path: str) -> VideoMetadata:
     cap = cv2.VideoCapture(video_path)
     if not cap.isOpened():
-        raise FileNotFoundError(f"Не удалось открыть видео: {video_path}")
+        raise FileNotFoundError(f"Failed to open video: {video_path}")
 
     raw_fps = cap.get(cv2.CAP_PROP_FPS)
     fps = float(raw_fps) if raw_fps and raw_fps > 0 else 25.0
@@ -78,7 +78,7 @@ def build_balanced_sampling_plan(
             frame_idx = min(max(0, frame_idx), max(0, metadata.frame_count - 1))
             frame_indices.append(frame_idx)
 
-    # Удаляем дубликаты, которые иногда появляются на коротком финальном интервале.
+    # Remove duplicates that sometimes appear on a short final interval.
     frame_indices = sorted(set(frame_indices))
 
     if max_frames is not None and max_frames > 0 and len(frame_indices) > max_frames:
@@ -100,7 +100,7 @@ def extract_frames(
     os.makedirs(output_dir, exist_ok=True)
     cap = cv2.VideoCapture(video_path)
     if not cap.isOpened():
-        raise FileNotFoundError(f"Не удалось открыть видео: {video_path}")
+        raise FileNotFoundError(f"Failed to open video: {video_path}")
 
     records: List[Dict[str, Any]] = []
     for sample_index, frame_idx in enumerate(frame_indices):
@@ -187,15 +187,15 @@ def run_step4(
     )
 
     print("=== STEP 4: DENSE + BALANCED SAMPLING ===")
-    print(f"Видео: {video_path}")
+    print(f"Video: {video_path}")
     print(f"FPS: {metadata.fps:.3f}")
-    print(f"Длительность: {metadata.duration_sec:.2f} сек")
-    print(f"Интервал для баланса: {interval_sec} сек")
-    print(f"Кадров на интервал: {frames_per_interval}")
-    print(f"Итоговых кадров: {len(frame_records)}")
+    print(f"Duration: {metadata.duration_sec:.2f} sec")
+    print(f"Interval for balance: {interval_sec} sec")
+    print(f"Frames per interval: {frames_per_interval}")
+    print(f"Total frames: {len(frame_records)}")
     if frame_records:
         print(
-            "Покрытие времени: "
+            "Time coverage: "
             f"{frame_records[0]['timestamp']} -> {frame_records[-1]['timestamp']}"
         )
     print(f"Manifest: {manifest_path}")

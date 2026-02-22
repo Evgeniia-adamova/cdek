@@ -182,17 +182,17 @@ def run_emotion_baseline_fer(
     model, model_info = _build_fer_model()
     if model is None:
         raise RuntimeError(
-            "Не удалось инициализировать FER.\n"
+            "Failed to initialize FER.\n"
             f"DIAGNOSTICS: {model_info}\n"
-            "Попробуйте в ноутбуке:\n"
+            "Try in the notebook:\n"
             "  1) !pip uninstall -y fer\n"
             "  2) !pip install fer\n"
-            "  3) перезапустите kernel"
+            "  3) restart the kernel"
         )
 
     samples = _collect_samples(analysis_path, max_per_person=max_per_person)
     if not samples:
-        raise RuntimeError("Нет face crop файлов для инференса эмоций.")
+        raise RuntimeError("No face crop files for emotion inference.")
 
     started = time.time()
     predictions: List[Dict[str, Any]] = []
@@ -202,7 +202,7 @@ def run_emotion_baseline_fer(
         if image is None:
             continue
 
-        # FER на crop без дополнительного детектора.
+        # FER on crop without additional detector.
         try:
             emotions = model.detect_emotions(image)
         except Exception:
@@ -261,12 +261,12 @@ def run_emotion_baseline_transformers(
         from transformers import pipeline  # type: ignore
     except Exception as exc:
         raise RuntimeError(
-            "Не найден transformers. Установите: !pip install transformers pillow"
+            "transformers not found. Install: !pip install transformers pillow"
         ) from exc
 
     samples = _collect_samples(analysis_path, max_per_person=max_per_person)
     if not samples:
-        raise RuntimeError("Нет face crop файлов для инференса эмоций.")
+        raise RuntimeError("No face crop files for emotion inference.")
 
     clf = pipeline("image-classification", model=model_name, device="cpu")
 
@@ -281,7 +281,7 @@ def run_emotion_baseline_transformers(
         try:
             out = clf(image_rgb, top_k=1)
         except TypeError:
-            # Совместимость со старыми версиями transformers.
+            # Compatibility with older versions of transformers.
             out = clf(image_rgb)
         except Exception:
             out = []

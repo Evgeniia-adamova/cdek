@@ -537,7 +537,7 @@ def run_step2(
 
     detector = build_detector()
     if detector.empty():
-        raise RuntimeError("Haar Cascade не загружен.")
+        raise RuntimeError("Haar Cascade failed to load.")
 
     if save_face_crops:
         os.makedirs(crops_dir, exist_ok=True)
