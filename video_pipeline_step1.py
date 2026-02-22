@@ -146,7 +146,7 @@ def run_step1(
     max_frames: Optional[int] = 200,
     output_dir: str = "extracted_frames_v2",
 ) -> Dict[str, Any]:
-    # Step 1: separate stage for reading FPS and metadata.
+    # Step 1: separate stage of reading FPS and metadata.
     metadata = read_video_metadata(video_path)
     print("=== STEP 1: VIDEO METADATA ===")
     print(f"Video: {metadata.video_path}")
@@ -165,8 +165,8 @@ def run_step1(
     )
 
     print("\n=== STEP 1: SAMPLING PLAN ===")
-    print(f"Sample interval: {interval_sec} sec")
-    print(f"Step in frames (calculated via FPS): {max(1, int(round(interval_sec * metadata.fps)))}")
+    print(f"Interval between samples: {interval_sec} sec")
+    print(f"Step in frames (FPS-based): {max(1, int(round(interval_sec * metadata.fps)))}")
     print(f"Frames to extract: {len(frame_indices)}")
 
     frame_records = extract_frames_with_timestamps(

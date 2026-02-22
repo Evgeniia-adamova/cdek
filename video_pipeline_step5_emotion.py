@@ -184,10 +184,10 @@ def run_emotion_baseline_fer(
         raise RuntimeError(
             "Failed to initialize FER.\n"
             f"DIAGNOSTICS: {model_info}\n"
-            "Try in the notebook:\n"
+            "Try in notebook:\n"
             "  1) !pip uninstall -y fer\n"
             "  2) !pip install fer\n"
-            "  3) restart the kernel"
+            "  3) restart kernel"
         )
 
     samples = _collect_samples(analysis_path, max_per_person=max_per_person)
@@ -281,7 +281,7 @@ def run_emotion_baseline_transformers(
         try:
             out = clf(image_rgb, top_k=1)
         except TypeError:
-            # Compatibility with older versions of transformers.
+            # Compatibility with older transformers versions.
             out = clf(image_rgb)
         except Exception:
             out = []
