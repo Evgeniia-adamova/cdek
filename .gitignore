@@ -1,0 +1,23 @@
+# Local env with secrets (copy from .env.example, never commit)
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+venv/
+.venv/
+env/
+
+# Pipeline outputs and downloaded data
+data/video_from_bucket.*
+extracted_frames_v2/
+extracted_frames_v3_dense/
+models/
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
