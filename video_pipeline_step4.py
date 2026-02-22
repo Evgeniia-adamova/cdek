@@ -78,7 +78,7 @@ def build_balanced_sampling_plan(
             frame_idx = min(max(0, frame_idx), max(0, metadata.frame_count - 1))
             frame_indices.append(frame_idx)
 
-    # Remove duplicates that sometimes appear on a short final interval.
+    # Remove duplicates that sometimes appear on short final interval.
     frame_indices = sorted(set(frame_indices))
 
     if max_frames is not None and max_frames > 0 and len(frame_indices) > max_frames:
