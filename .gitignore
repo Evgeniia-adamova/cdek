@@ -10,8 +10,8 @@ venv/
 .venv/
 env/
 
-# Pipeline outputs and downloaded data
-data/video_from_bucket.*
+# Pipeline outputs and downloaded data (data/ is tracked; large downloads excluded below if needed)
+# data/video_from_bucket.webm
 extracted_frames_v2/
 extracted_frames_v3_dense/
 models/

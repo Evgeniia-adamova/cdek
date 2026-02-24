@@ -1,0 +1,2731 @@
+{
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 5.0,
+      "text": "Здравствуйте.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 5.0,
+      "end": 8.040000000000001,
+      "text": "Здравствуйте. Подскажите, пожалуйста, меня хорошо видно",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 8.040000000000001,
+      "end": 11.040000000000001,
+      "text": "слышно?",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 11.040000000000001,
+      "end": 17.04,
+      "text": "Алло, Елена.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 17.04,
+      "end": 26.560000000000002,
+      "text": "Елена, подскажите, меня хорошо слышно?",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 26.56,
+      "end": 33.56,
+      "text": "Алло.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 33.56,
+      "end": 36.56,
+      "text": "Алло.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 36.56,
+      "end": 43.56,
+      "text": "Так выключено.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 43.56,
+      "end": 48.56,
+      "text": "Так у меня есть.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 48.56,
+      "end": 55.56,
+      "text": "Мишка.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 55.56,
+      "end": 66.56,
+      "text": "Елена, подскажите, пожалуйста, слышите меня?",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 66.56,
+      "end": 70.56,
+      "text": "Меня хорошо слышно?",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 70.56,
+      "end": 73.56,
+      "text": "Все, замечательно.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 73.56,
+      "end": 76.56,
+      "text": "Теперь тоже вас услышало.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 76.56,
+      "end": 80.56,
+      "text": "Так, подскажите, пожалуйста.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 80.56,
+      "end": 83.56,
+      "text": "Как вам будет комфортнее, чтобы вы подключили демонстрацию",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 83.56,
+      "end": 86.56,
+      "text": "или меня подключить?",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 86.56,
+      "end": 92.56,
+      "text": "Вы подключите, пожалуйста.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 92.56,
+      "end": 99.56,
+      "text": "Ммм, буквально секундочку.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 99.56,
+      "end": 109.56,
+      "text": "Ммм.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 109.56,
+      "end": 113.56,
+      "text": "Так, мы сами сегодня будем рассматривать ваш личный кабинет.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 113.56,
+      "end": 117.56,
+      "text": "На всякий случай представлюсь меня зовут Полина.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 118.56,
+      "end": 121.56,
+      "text": "Как мы входим в первую очередь в личный кабинет?",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 121.56,
+      "end": 125.56,
+      "text": "Здесь необходимо нам в своем вести логин, либо имаеваш логин.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 125.56,
+      "end": 133.56,
+      "text": "Это ваш номер договора.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 133.56,
+      "end": 136.56,
+      "text": "Далее, соответственно, вы вставляете не помню пароль.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 136.56,
+      "end": 138.56,
+      "text": "Вот сюда вот кнопочку.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 138.56,
+      "end": 145.56,
+      "text": "Чтобы вам пришел пароль для восстановления на почту.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 145.56,
+      "end": 152.56,
+      "text": "Я, соответственно, пока покажу на тестом варианте.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 152.56,
+      "end": 159.56,
+      "text": "Так, подскажите, пожалуйста, как будете осуществлять поставки?",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 159.56,
+      "end": 168.56,
+      "text": "Вы продаете через авиты, в интернет-магазин или на маркет-плейсе?",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 168.56,
+      "end": 173.56,
+      "text": "Поставки не будет.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 173.56,
+      "end": 177.56,
+      "text": "Просто на правку патруки через дек будет.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 177.56,
+      "end": 179.56,
+      "text": "Черезов, Саран.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 179.56,
+      "end": 181.56,
+      "text": "Ммм, все, поняла, правильно?",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 181.56,
+      "end": 185.56,
+      "text": "Понимаю, что документы хотите отправлять?",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 185.56,
+      "end": 187.56,
+      "text": "Нет, не, вещи.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 187.56,
+      "end": 188.56,
+      "text": "Ммм, хорошо.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 188.56,
+      "end": 196.56,
+      "text": "Когда смотрите вам для вашей доставки, необходимо будет нажать новый заказ.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 196.56,
+      "end": 199.56,
+      "text": "Те, что он у нас прогрузится.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 199.56,
+      "end": 203.56,
+      "text": "Так как у вас тип договора к у, он называется доставка.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 203.56,
+      "end": 205.56,
+      "text": "Далее, соответственно, дополнительный тип.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 205.56,
+      "end": 207.56,
+      "text": "Нам здесь выбирать не нужно.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 207.56,
+      "end": 209.56,
+      "text": "Кем вы являетесь?",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 209.56,
+      "end": 211.56,
+      "text": "А правителем, получателем третьей стороной.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 211.56,
+      "end": 215.56,
+      "text": "Здесь вы выбираете подходящий для себя вариант.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 215.56,
+      "end": 218.56,
+      "text": "То есть, либо вы будете отправлять, либо получать либо третьей стороной.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 218.56,
+      "end": 221.56,
+      "text": "То есть, это осуществлять доставку между кем-то.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 221.56,
+      "end": 226.56,
+      "text": "Например, между у коллегами, между родственниками и так далее.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 226.56,
+      "end": 230.56,
+      "text": "Далее, оплата ставим под договору.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 230.56,
+      "end": 233.56,
+      "text": "То есть, чтобы с вашего счета списывалось,",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 233.56,
+      "end": 237.56,
+      "text": "город отправителя это откуда вы будете отправлять.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 237.56,
+      "end": 241.56,
+      "text": "То есть, это либо вы от себя отправляете, либо вам отправляют откуда вы.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 241.56,
+      "end": 244.56,
+      "text": "А откуда планируете отправлять?",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 246.56,
+      "end": 248.56,
+      "text": "Вы сейчас меня спрашиваете?",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 248.56,
+      "end": 250.56,
+      "text": "Да, спрашиваем.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 250.56,
+      "end": 253.56,
+      "text": "Да, на момент город есть синтки.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 253.56,
+      "end": 255.56,
+      "text": "Угу.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 261.56,
+      "end": 264.56,
+      "text": "Угу, тес у нас прогрузит.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 283.56,
+      "end": 285.56,
+      "text": "Да, секунду.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 285.56,
+      "end": 287.56,
+      "text": "Да, секунду.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 309.56,
+      "end": 313.56,
+      "text": "Угу, куда отправлять будете?",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 314.56,
+      "end": 317.56,
+      "text": "Бород ярца в Смоленской области.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 322.56,
+      "end": 323.56,
+      "text": "Так, далее.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 323.56,
+      "end": 327.56,
+      "text": "Видим, что у нас есть информация об отправителя и об получателя.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 327.56,
+      "end": 332.56,
+      "text": "Отправитель, если вы, то, соответственно, все данные ваши автоматически подтягиваются.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 332.56,
+      "end": 334.56,
+      "text": "Получателя нужно будет указывать.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 334.56,
+      "end": 337.56,
+      "text": "Если, соответственно, меняем, что вы будете получать,",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 337.56,
+      "end": 341.56,
+      "text": "а кто-то другой отправляет, то вам, соответственно, нужно будет заполнить данные.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 341.56,
+      "end": 345.56,
+      "text": "Отправителя, а получателям будете выступать вы.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 345.56,
+      "end": 349.56,
+      "text": "Получателю будет юр лицо или физлицо.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 349.56,
+      "end": 351.56,
+      "text": "Получателю?",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 351.56,
+      "end": 353.56,
+      "text": "Физлицо.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 353.56,
+      "end": 355.56,
+      "text": "Угу, хорошо.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 355.56,
+      "end": 360.56,
+      "text": "Здесь, соответственно, с вами, вводим его ФИО.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 360.56,
+      "end": 363.56,
+      "text": "К примеру, Иванов и Иванович.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 363.56,
+      "end": 367.56,
+      "text": "Нужно водить ФИО полностью и контактные номер телефоны.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 367.56,
+      "end": 371.56,
+      "text": "Для того, чтобы в случае необходимости, мы смогли с получателем связаться.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 371.56,
+      "end": 376.56,
+      "text": "Далее мы с вами заполняем информацию о грузом месте.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 376.56,
+      "end": 380.56,
+      "text": "Что конкретно планируете отправлять?",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 380.56,
+      "end": 382.56,
+      "text": "Вещи.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 382.56,
+      "end": 385.56,
+      "text": "Вещи личного характера, возможно.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 385.56,
+      "end": 387.56,
+      "text": "Да.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 387.56,
+      "end": 392.56,
+      "text": "Соответственно, здесь мы с вами, тогда указываем вес коробки.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 392.56,
+      "end": 396.56,
+      "text": "То есть грузоместо – это коробка с вещами внутри.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 396.56,
+      "end": 399.56,
+      "text": "Допустим, она будет 21 килограмм.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 399.56,
+      "end": 404.56,
+      "text": "Будет, например, 30 на 30 к примеру.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 404.56,
+      "end": 407.56,
+      "text": "Далее, описание груза.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 407.56,
+      "end": 411.56,
+      "text": "Здесь мы заполняем максимально подробно.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 411.56,
+      "end": 416.56,
+      "text": "То есть, селищные вещи, например,",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 416.56,
+      "end": 418.56,
+      "text": "где же то.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 418.56,
+      "end": 421.56,
+      "text": "Сезонное зимнее.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 421.56,
+      "end": 423.56,
+      "text": "Вот так вот.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 423.56,
+      "end": 426.56,
+      "text": "Для чего это необходимо, чтобы в случае,",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 426.56,
+      "end": 429.56,
+      "text": "а если вдруг с грузом что-то случилось,",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 429.56,
+      "end": 433.56,
+      "text": "чтобы мы смогли его идентифицировать, что это действительно ваш груз.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 433.56,
+      "end": 436.56,
+      "text": "Далее мы сохраняем изменение.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 436.56,
+      "end": 441.56,
+      "text": "Видим, что у нас здесь с вами при необходимости также указывается объемный вес.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 441.56,
+      "end": 444.56,
+      "text": "Оплаты всегда считаются по объемному весу,",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 444.56,
+      "end": 446.56,
+      "text": "то есть по большему весу.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 446.56,
+      "end": 450.56,
+      "text": "Это тот максимум, который может уместиться в эту коробку.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 450.56,
+      "end": 452.56,
+      "text": "Далее мы с вами соответственно выбираем тарифы.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 452.56,
+      "end": 455.56,
+      "text": "Здесь у нас есть два варианта.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 455.56,
+      "end": 457.56,
+      "text": "Откуда и куда? Откуда?",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 457.56,
+      "end": 461.56,
+      "text": "Принести в ПВЗ либо заберет курьер.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 461.56,
+      "end": 465.56,
+      "text": "Принести в ПВЗ это вы относите коробку в ПВЗ.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 465.56,
+      "end": 468.56,
+      "text": "Там, допустим, если вы не уверены в габаритах и в весе,",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 468.56,
+      "end": 471.56,
+      "text": "и делай еще раз перемиряю.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 471.56,
+      "end": 474.56,
+      "text": "И соответственно, вносит изменение.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 474.56,
+      "end": 477.56,
+      "text": "Если курьер, то соответственно к вам курьер приезжает на адрес,",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 477.56,
+      "end": 479.56,
+      "text": "чтобы забрать в этот груз.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 479.56,
+      "end": 483.56,
+      "text": "Также куда доставить ПВЗ по стамат курьером?",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 483.56,
+      "end": 486.56,
+      "text": "Тут как получать у любудет комфортнее.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 486.56,
+      "end": 488.56,
+      "text": "То есть либо также ПВЗ либо курьером.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 488.56,
+      "end": 492.56,
+      "text": "По стаматы принимают не все габариты грузов.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 492.56,
+      "end": 495.56,
+      "text": "То есть здесь нужно будет это учитывать.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 496.56,
+      "end": 500.56,
+      "text": "Самый оптимальный вариант для нас сейчас это express склад склад.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 500.56,
+      "end": 503.56,
+      "text": "Соответственно, здесь он идет 6 дней",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 503.56,
+      "end": 506.56,
+      "text": "и самый оптимальный по цене для нас.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 507.56,
+      "end": 512.56,
+      "text": "Далее, соответственно, дополнительные услуги, если они вам необходимо.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 512.56,
+      "end": 517.56,
+      "text": "Это внутреннее облишетка, сама коробка, стрыч, пленка, пупырка.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 519.56,
+      "end": 522.56,
+      "text": "То есть здесь по необходимости заполняете.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 522.56,
+      "end": 529.56,
+      "text": "Если вам это ничего не нужно, то соответственно ничего далее не добавляем.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 531.56,
+      "end": 533.56,
+      "text": "Информация об отправлении.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 533.56,
+      "end": 536.56,
+      "text": "Здесь вы можете посмотреть ли себя ближайшие ПВЗ,",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 536.56,
+      "end": 539.56,
+      "text": "где вам будет комфортнее куда отнести.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 539.56,
+      "end": 544.56,
+      "text": "Также пункты куда доставляем, здесь можно выбрать конкретный адрес.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 547.56,
+      "end": 550.56,
+      "text": "Принести в ПВЗ можно любой.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 550.56,
+      "end": 553.56,
+      "text": "Забрать можно будет только из какого-то конкретного ПВЗ.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 553.56,
+      "end": 557.56,
+      "text": "Если это крупный габаритный груз, то соответственно, допустим,",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 557.56,
+      "end": 560.56,
+      "text": "более 35 килограмм, то нужно будет проверять.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 560.56,
+      "end": 562.56,
+      "text": "Может ли ПВЗ принять такой груз?",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 562.56,
+      "end": 564.56,
+      "text": "То есть здесь в видне весто 100 килограмм.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 564.56,
+      "end": 567.56,
+      "text": "Соответственно, более 35 он точно примет.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 568.56,
+      "end": 570.56,
+      "text": "Его соответственно выбираем.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 570.56,
+      "end": 573.56,
+      "text": "Всё, по факту, вот наша накладная создана.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 574.56,
+      "end": 579.56,
+      "text": "Тлотюшки, тебе на голову в таком доме и вскопировали,",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 579.56,
+      "end": 581.56,
+      "text": "как обеспечали.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 581.56,
+      "end": 583.56,
+      "text": "Здесь выставки.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 583.56,
+      "end": 585.56,
+      "text": "Я про голову в одной тлотюшки, всяко ведомости.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 585.56,
+      "end": 587.56,
+      "text": "Леньше, без зата-платы, про голову.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 587.56,
+      "end": 588.56,
+      "text": "Алло, Полинг.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 588.56,
+      "end": 590.56,
+      "text": "Да, я вас слышу.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 590.56,
+      "end": 594.56,
+      "text": "Скажите, а вот данный момент я могу туда накладную создать на месте,",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 594.56,
+      "end": 596.56,
+      "text": "когда я до веду.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 596.56,
+      "end": 602.56,
+      "text": "Да, в случае необходимости вы соответственно также переходите на сайт,",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 602.56,
+      "end": 606.56,
+      "text": "с телефона, вместе с коллегами из ПВЗ.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 606.56,
+      "end": 607.56,
+      "text": "Можно это создать.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 607.56,
+      "end": 611.56,
+      "text": "Либо, соответственно, также с нами на связи через нашу с вами",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 611.56,
+      "end": 613.56,
+      "text": "переписку в мессенджере.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 615.56,
+      "end": 616.56,
+      "text": "Ихи такой вопрос.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 616.56,
+      "end": 620.56,
+      "text": "Смотрите, я, если у меня положила насчёт сумму.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 620.56,
+      "end": 621.56,
+      "text": "Вот.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 621.56,
+      "end": 625.56,
+      "text": "А она сразу приходит для людей, что они там искали.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 625.56,
+      "end": 629.56,
+      "text": "В течение трёх дней, но в любом случае вы уже сейчас можете",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 629.56,
+      "end": 632.56,
+      "text": "составлять накладные и соответственно отправлять.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 632.56,
+      "end": 635.56,
+      "text": "То есть я могу сегодня сходить, отправить,",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 635.56,
+      "end": 638.56,
+      "text": "да, потом автоматом там всё спишется.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 638.56,
+      "end": 639.56,
+      "text": "Да, да, спишется.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 639.56,
+      "end": 640.56,
+      "text": "Попробуйте денег с лошади.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 640.56,
+      "end": 643.56,
+      "text": "Смотрите, что очень важно.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 643.56,
+      "end": 645.56,
+      "text": "Списывается, она только при вручении игру,",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 645.56,
+      "end": 647.56,
+      "text": "то есть как только груз будет вручен.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 647.56,
+      "end": 650.56,
+      "text": "Здесь у нас с вами доставка будет идти шейз дней.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 652.56,
+      "end": 654.56,
+      "text": "Соответственно, только через шейз дней будет",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 654.56,
+      "end": 657.56,
+      "text": "это списание после того, как человек его получит.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 658.56,
+      "end": 659.56,
+      "text": "Влекалепно.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 659.56,
+      "end": 663.56,
+      "text": "А вот я сейчас когда сдам груст,",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 663.56,
+      "end": 665.56,
+      "text": "я уже буду знать на какую сумму, да?",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 665.56,
+      "end": 666.56,
+      "text": "Какая сумма спишется?",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 666.56,
+      "end": 667.56,
+      "text": "Да.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 667.56,
+      "end": 669.56,
+      "text": "Если, например, кажется, она будет больше,",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 669.56,
+      "end": 670.56,
+      "text": "я должна буду дополнить.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 672.56,
+      "end": 676.56,
+      "text": "Смотрите, если она выйдет более того аванса,",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 676.56,
+      "end": 678.56,
+      "text": "который вы ранее в насилие,",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 678.56,
+      "end": 680.56,
+      "text": "если не ошибаюсь, то это 490,",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 680.56,
+      "end": 681.56,
+      "text": "она сили, верно?",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 682.56,
+      "end": 683.56,
+      "text": "Ну да.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 683.56,
+      "end": 685.56,
+      "text": "Вот, соответственно, если больше этого,",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 685.56,
+      "end": 687.56,
+      "text": "то, соответственно, да, нужно будет еще",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 687.56,
+      "end": 689.56,
+      "text": "направить остатки.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 689.56,
+      "end": 691.56,
+      "text": "Но я не думаю, что будет.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 691.56,
+      "end": 692.56,
+      "text": "Смотрите, что это было.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 694.56,
+      "end": 696.56,
+      "text": "Соответственно, в любом случае,",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 696.56,
+      "end": 700.56,
+      "text": "если вдруг вы хотите еще допустим положить средства,",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 700.56,
+      "end": 702.56,
+      "text": "в независимости от того,",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 702.56,
+      "end": 704.56,
+      "text": "что у вас есть сейчас, вы также можете написать нам.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 704.56,
+      "end": 706.56,
+      "text": "Раз неделю составляются счита,",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 706.56,
+      "end": 709.56,
+      "text": "соответственно, направляется вам на почту для оплаты.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 712.56,
+      "end": 713.56,
+      "text": "Поняла.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 713.56,
+      "end": 715.56,
+      "text": "Не обложите, чтобы они там лежали.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 717.56,
+      "end": 718.56,
+      "text": "Поняла, поняла.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 719.56,
+      "end": 722.56,
+      "text": "Подскажите, пожалуйста, есть ли еще",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 722.56,
+      "end": 724.56,
+      "text": "какой-то вопрос по личному кабинету?",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 726.56,
+      "end": 727.56,
+      "text": "Нет.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 727.56,
+      "end": 728.56,
+      "text": "Спасибо.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 728.56,
+      "end": 730.56,
+      "text": "Когда, смотрите, еще пару моментов.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 730.56,
+      "end": 733.56,
+      "text": "Когда мы с вами создаем накладную,",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 733.56,
+      "end": 736.56,
+      "text": "после этого у нас появляется списки заказов,",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 736.56,
+      "end": 738.56,
+      "text": "номер нашего отправления и, соответственно,",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 738.56,
+      "end": 740.56,
+      "text": "можно распечатать накладную и штрих код.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 741.56,
+      "end": 743.56,
+      "text": "Все на отправляе всегда должны быть проморокированы.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 743.56,
+      "end": 745.56,
+      "text": "Если пойдете, соответственно, составляйте ПВЗ,",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 745.56,
+      "end": 747.56,
+      "text": "вы можете прямо там коллег попросить",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 747.56,
+      "end": 750.56,
+      "text": "распечатать и штрих код и накладную.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 751.56,
+      "end": 753.56,
+      "text": "Также, соответственно, очень важно просить их",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 753.56,
+      "end": 755.56,
+      "text": "при необходимости перемирять груст.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 755.56,
+      "end": 757.56,
+      "text": "То есть это взвесить его еще раз",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 757.56,
+      "end": 760.56,
+      "text": "и сравнить губориты верные или вы указали заранее.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 761.56,
+      "end": 763.56,
+      "text": "Вот этот номер вашего заказа",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 763.56,
+      "end": 765.56,
+      "text": "это по факту номер накладной и номер отправления.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 767.56,
+      "end": 769.56,
+      "text": "Если будут какие-то вопросы, вы его спокойно копируете",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 769.56,
+      "end": 771.56,
+      "text": "и можете писать нам в мессеншер.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 771.56,
+      "end": 772.56,
+      "text": "Там, допустим, не совсем понимаю,",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 772.56,
+      "end": 774.56,
+      "text": "где находится мое отправление, например.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 776.56,
+      "end": 779.56,
+      "text": "Или если нужно внести какие-то корректировки.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 781.56,
+      "end": 783.56,
+      "text": "С его поняла, хорошо.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 784.56,
+      "end": 786.56,
+      "text": "Замечательно тогда, Елена.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 786.56,
+      "end": 788.56,
+      "text": "Если будут еще какие-то вопросы возникает,",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 788.56,
+      "end": 790.56,
+      "text": "будем ожидать их у нас в мессеншере.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 790.56,
+      "end": 791.56,
+      "text": "Так говорились?",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 792.56,
+      "end": 793.56,
+      "text": "Моговорились.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 793.56,
+      "end": 795.56,
+      "text": "Замечательно тогда.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 796.56,
+      "end": 798.56,
+      "text": "Спасибо вам, что подключились.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 798.56,
+      "end": 800.56,
+      "text": "Тогда хорошего дня и удачной отправки.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 802.56,
+      "end": 803.56,
+      "text": "Почти от свидания.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    },
+    {
+      "start": 803.56,
+      "end": 804.56,
+      "text": "До свидания.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "unknown",
+        "score": 0.0,
+        "error": "transformers/torch not installed"
+      }
+    }
+  ],
+  "speaker_roles": {},
+  "diarization_fallback_used": true,
+  "note": "Speakers assigned by alternating segment order (client, company_representative). For real diarization set HUGGINGFACE_TOKEN and run again."
+}

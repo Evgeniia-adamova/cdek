@@ -2,7 +2,7 @@
 # coding: utf-8
 """
 Transcribe audio to text using OpenAI Whisper (runs locally, no API key).
-Use this as an alternative to Yandex SpeechKit for speech-to-text.
+Outputs plain text and timestamped segments (JSON + readable .timestamped.txt).
 
 Usage:
     pip install openai-whisper
@@ -10,12 +10,23 @@ Usage:
     Default audio: data/video_from_bucket_audio.ogg
 
 Output:
-    Saves text to <audio_stem>.txt in the same folder as the audio (e.g. data/video_from_bucket_audio.txt).
+    - <stem>.txt          : full text only
+    - <stem>_segments.json: segments with start, end, text (for diarization/sentiment)
+    - <stem>.timestamped.txt: human-readable [HH:MM:SS.mmm - HH:MM:SS.mmm] text
 """
 
+import json
 import sys
 from pathlib import Path
-from typing import Any, Dict, Optional, Union
+from typing import Any, Dict, List, Optional, Union
+
+
+def _format_ts(seconds: float) -> str:
+    """Format seconds as HH:MM:SS.mmm"""
+    h = int(seconds // 3600)
+    m = int((seconds % 3600) // 60)
+    s = seconds % 60
+    return f"{h:02d}:{m:02d}:{s:06.3f}"
 
 
 def transcribe(
@@ -24,19 +35,13 @@ def transcribe(
     language: str = "ru",
     output_path: Optional[Union[str, Path]] = None,
     verbose: bool = True,
+    save_timestamps: bool = True,
 ) -> Dict[str, Any]:
     """
-    Transcribe audio file to text using Whisper.
-
-    Args:
-        audio_path: Path to audio file (.ogg, .wav, .mp3, etc.).
-        model_name: Whisper model: "tiny", "base", "small", "medium", "large".
-        language: Language code (e.g. "ru" for Russian).
-        output_path: Where to save .txt. If None, uses <audio_stem>.txt next to audio.
-        verbose: Whether to print progress.
+    Transcribe audio file to text using Whisper. Saves full text and timestamped segments.
 
     Returns:
-        Dict with "text", "language", "output_path", "segments" (if needed).
+        Dict with "text", "language", "output_path", "segments" (list of {start, end, text}).
     """
     try:
         import whisper
@@ -51,15 +56,36 @@ def transcribe(
     result = model.transcribe(str(path), language=language, verbose=verbose)
 
     text = (result.get("text") or "").strip()
-    out = output_path or path.with_suffix(".txt")
-    out = Path(out)
-    out.write_text(text, encoding="utf-8")
+    segments_raw = result.get("segments") or []
+    segments: List[Dict[str, Any]] = [
+        {"start": s["start"], "end": s["end"], "text": (s.get("text") or "").strip()}
+        for s in segments_raw
+        if (s.get("text") or "").strip()
+    ]
+
+    base = path.parent / path.stem
+    out_txt = output_path or (base.with_suffix(".txt"))
+    out_txt = Path(out_txt)
+    out_txt.write_text(text, encoding="utf-8")
+
+    if save_timestamps and segments:
+        out_json = base.parent / f"{base.name}_segments.json"
+        out_json.write_text(
+            json.dumps({"language": result.get("language", language), "segments": segments}, ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
+        out_ts_txt = base.parent / f"{base.name}.timestamped.txt"
+        lines = []
+        for s in segments:
+            line = f"[{_format_ts(s['start'])} - {_format_ts(s['end'])}] {s['text']}"
+            lines.append(line)
+        out_ts_txt.write_text("\n".join(lines), encoding="utf-8")
 
     return {
         "text": text,
         "language": result.get("language", language),
-        "output_path": str(out),
-        "segments": result.get("segments", []),
+        "output_path": str(out_txt),
+        "segments": segments,
     }
 
 
@@ -87,6 +113,11 @@ def main() -> int:
     )
     print("\n=== Transcription ===")
     print("Output file:", result["output_path"])
+    if result.get("segments"):
+        seg_path = audio_path.parent / f"{audio_path.stem}_segments.json"
+        ts_path = audio_path.parent / f"{audio_path.stem}.timestamped.txt"
+        print("Segments (JSON):", seg_path)
+        print("Timestamped txt:", ts_path)
     print("Text length:", len(result["text"]), "chars")
     print("\n--- Text ---")
     print(result["text"])
