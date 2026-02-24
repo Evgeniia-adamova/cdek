@@ -61,8 +61,8 @@ def main():
     os.makedirs(DATA_V3, exist_ok=True)
 
     # --- Face detection + emotion ---
-    from face_detection import run_step1, run_step2, run_step3, run_step4
-    from emotion_recognition import run_emotion_baseline_onnx, run_step6_emotion_report
+    from app.backend.face_detection import run_step1, run_step2, run_step3, run_step4
+    from app.backend.emotion_recognition import run_emotion_baseline_onnx, run_step6_emotion_report
 
     print("\n=== FRAME EXTRACTION + FACE DETECTION (v2) ===")
     step1_out = run_step1(
@@ -134,7 +134,7 @@ def main():
 
     # --- Text extraction (Whisper) ---
     print("\n=== TEXT EXTRACTION (Whisper) ===")
-    from text_extraction import transcribe
+    from app.backend.text_extraction import transcribe
     transcribe(
         ogg_path,
         model_name="base",
@@ -150,7 +150,7 @@ def main():
 
     # --- Text analysis (diarization + sentiment) ---
     print("\n=== TEXT ANALYSIS (diarization + sentiment) ===")
-    from text_analysis import run_diarize_sentiment
+    from app.backend.text_analysis import run_diarize_sentiment
     result = run_diarize_sentiment(ogg_path, segments_path)
     print("Output JSON:", result["output_json"])
     print("Output TXT:", result["output_txt"])

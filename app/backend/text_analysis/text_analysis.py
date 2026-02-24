@@ -176,7 +176,7 @@ def main() -> int:
         load_dotenv()
     except ImportError:
         pass
-    script_dir = Path(__file__).resolve().parent.parent
+    script_dir = Path(__file__).resolve().parent.parent.parent.parent  # project root (app/backend/text_analysis -> root)
     data_dir = script_dir / "data"
     default_audio = data_dir / "video_from_bucket_audio.ogg"
     default_segments = data_dir / "video_from_bucket_audio_segments.json"

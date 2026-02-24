@@ -2,7 +2,7 @@
 Emotion recognition module: ONNX FER+ inference, report, and visualization.
 """
 
-from emotion_recognition.emotion_recognition import (
+from app.backend.emotion_recognition.emotion_recognition import (
     run_emotion_baseline_onnx,
     run_step6_emotion_report,
     run_emotion_visual,

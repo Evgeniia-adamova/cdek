@@ -43,8 +43,8 @@ DATA_V3 = str(DATA_DIR / "v3_dense")
 
 def main():
     from app.speech_processor import get_video_path_from_bucket
-    from face_detection import run_step1, run_step2, run_step3, run_step4
-    from emotion_recognition import run_emotion_baseline_onnx, run_step6_emotion_report
+    from app.backend.face_detection import run_step1, run_step2, run_step3, run_step4
+    from app.backend.emotion_recognition import run_emotion_baseline_onnx, run_step6_emotion_report
 
     os.makedirs(DATA_V2, exist_ok=True)
     os.makedirs(DATA_V3, exist_ok=True)

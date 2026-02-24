@@ -3,7 +3,7 @@ Face detection module: frame extraction, face detection, tracking, enrichment.
 Merged from pipeline steps 1–4 (metadata, sampling, detection, consolidation, extended analytics).
 """
 
-from face_detection.face_detection import (
+from app.backend.face_detection.face_detection import (
     run_step1,
     run_step2,
     run_step3,

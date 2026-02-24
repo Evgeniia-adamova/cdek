@@ -1,7 +1,7 @@
 """
 Text analysis module: diarization + sentiment on transcript segments.
 """
-from text_analysis.text_analysis import (
+from app.backend.text_analysis.text_analysis import (
     load_segments,
     diarize_audio,
     assign_speaker_to_segment,

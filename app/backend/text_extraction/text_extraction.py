@@ -73,7 +73,7 @@ def transcribe(
 
 
 def main() -> int:
-    script_dir = Path(__file__).resolve().parent.parent  # project root
+    script_dir = Path(__file__).resolve().parent.parent.parent.parent  # project root (app/backend/text_extraction -> root)
     default_audio = script_dir / "data" / "video_from_bucket_audio.ogg"
 
     if len(sys.argv) > 1:
@@ -83,7 +83,7 @@ def main() -> int:
 
     if not audio_path.is_file():
         print(f"Error: audio file not found: {audio_path}", file=sys.stderr)
-        print("Usage: python -m text_extraction.text_extraction [path_to_audio]", file=sys.stderr)
+        print("Usage: python -m app.backend.text_extraction.text_extraction [path_to_audio]", file=sys.stderr)
         return 1
 
     print("Loading Whisper model (base)...")
