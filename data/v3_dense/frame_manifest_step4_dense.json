@@ -1,0 +1,4879 @@
+{
+  "video_metadata": {
+    "video_path": "C:\\Users\\linas\\Desktop\\cdek\\data\\video_from_bucket.webm",
+    "fps": 22.916666666666668,
+    "frame_count": 18565,
+    "width": 1920,
+    "height": 1080,
+    "duration_sec": 810.1090909090909
+  },
+  "sampling": {
+    "strategy": "balanced_interval_sampling",
+    "interval_sec": 10.0,
+    "frames_per_interval": 6,
+    "total_samples": 486,
+    "fps_based": true
+  },
+  "frames": [
+    {
+      "sample_index": 0,
+      "frame_index": 33,
+      "timestamp_sec": 1.44,
+      "timestamp": "00:00:01.440",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00000_f000033.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 1,
+      "frame_index": 65,
+      "timestamp_sec": 2.836364,
+      "timestamp": "00:00:02.836",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00001_f000065.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 2,
+      "frame_index": 98,
+      "timestamp_sec": 4.276364,
+      "timestamp": "00:00:04.276",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00002_f000098.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 3,
+      "frame_index": 131,
+      "timestamp_sec": 5.716364,
+      "timestamp": "00:00:05.716",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00003_f000131.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 4,
+      "frame_index": 164,
+      "timestamp_sec": 7.156364,
+      "timestamp": "00:00:07.156",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00004_f000164.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 5,
+      "frame_index": 196,
+      "timestamp_sec": 8.552727,
+      "timestamp": "00:00:08.553",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00005_f000196.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 6,
+      "frame_index": 262,
+      "timestamp_sec": 11.432727,
+      "timestamp": "00:00:11.433",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00006_f000262.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 7,
+      "frame_index": 295,
+      "timestamp_sec": 12.872727,
+      "timestamp": "00:00:12.873",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00007_f000295.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 8,
+      "frame_index": 327,
+      "timestamp_sec": 14.269091,
+      "timestamp": "00:00:14.269",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00008_f000327.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 9,
+      "frame_index": 360,
+      "timestamp_sec": 15.709091,
+      "timestamp": "00:00:15.709",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00009_f000360.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 10,
+      "frame_index": 393,
+      "timestamp_sec": 17.149091,
+      "timestamp": "00:00:17.149",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00010_f000393.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 11,
+      "frame_index": 426,
+      "timestamp_sec": 18.589091,
+      "timestamp": "00:00:18.589",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00011_f000426.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 12,
+      "frame_index": 491,
+      "timestamp_sec": 21.425455,
+      "timestamp": "00:00:21.425",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00012_f000491.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 13,
+      "frame_index": 524,
+      "timestamp_sec": 22.865455,
+      "timestamp": "00:00:22.865",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00013_f000524.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 14,
+      "frame_index": 557,
+      "timestamp_sec": 24.305455,
+      "timestamp": "00:00:24.305",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00014_f000557.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 15,
+      "frame_index": 589,
+      "timestamp_sec": 25.701818,
+      "timestamp": "00:00:25.702",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00015_f000589.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 16,
+      "frame_index": 622,
+      "timestamp_sec": 27.141818,
+      "timestamp": "00:00:27.142",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00016_f000622.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 17,
+      "frame_index": 655,
+      "timestamp_sec": 28.581818,
+      "timestamp": "00:00:28.582",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00017_f000655.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 18,
+      "frame_index": 720,
+      "timestamp_sec": 31.418182,
+      "timestamp": "00:00:31.418",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00018_f000720.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 19,
+      "frame_index": 753,
+      "timestamp_sec": 32.858182,
+      "timestamp": "00:00:32.858",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00019_f000753.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 20,
+      "frame_index": 786,
+      "timestamp_sec": 34.298182,
+      "timestamp": "00:00:34.298",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00020_f000786.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 21,
+      "frame_index": 818,
+      "timestamp_sec": 35.694545,
+      "timestamp": "00:00:35.695",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00021_f000818.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 22,
+      "frame_index": 851,
+      "timestamp_sec": 37.134545,
+      "timestamp": "00:00:37.135",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00022_f000851.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 23,
+      "frame_index": 884,
+      "timestamp_sec": 38.574545,
+      "timestamp": "00:00:38.575",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00023_f000884.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 24,
+      "frame_index": 949,
+      "timestamp_sec": 41.410909,
+      "timestamp": "00:00:41.411",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00024_f000949.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 25,
+      "frame_index": 982,
+      "timestamp_sec": 42.850909,
+      "timestamp": "00:00:42.851",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00025_f000982.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 26,
+      "frame_index": 1015,
+      "timestamp_sec": 44.290909,
+      "timestamp": "00:00:44.291",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00026_f001015.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 27,
+      "frame_index": 1048,
+      "timestamp_sec": 45.730909,
+      "timestamp": "00:00:45.731",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00027_f001048.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 28,
+      "frame_index": 1080,
+      "timestamp_sec": 47.127273,
+      "timestamp": "00:00:47.127",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00028_f001080.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 29,
+      "frame_index": 1113,
+      "timestamp_sec": 48.567273,
+      "timestamp": "00:00:48.567",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00029_f001113.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 30,
+      "frame_index": 1179,
+      "timestamp_sec": 51.447273,
+      "timestamp": "00:00:51.447",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00030_f001179.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 31,
+      "frame_index": 1211,
+      "timestamp_sec": 52.843636,
+      "timestamp": "00:00:52.844",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00031_f001211.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 32,
+      "frame_index": 1244,
+      "timestamp_sec": 54.283636,
+      "timestamp": "00:00:54.284",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00032_f001244.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 33,
+      "frame_index": 1277,
+      "timestamp_sec": 55.723636,
+      "timestamp": "00:00:55.724",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00033_f001277.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 34,
+      "frame_index": 1310,
+      "timestamp_sec": 57.163636,
+      "timestamp": "00:00:57.164",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00034_f001310.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 35,
+      "frame_index": 1342,
+      "timestamp_sec": 58.56,
+      "timestamp": "00:00:58.560",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00035_f001342.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 36,
+      "frame_index": 1408,
+      "timestamp_sec": 61.44,
+      "timestamp": "00:01:01.440",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00036_f001408.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 37,
+      "frame_index": 1440,
+      "timestamp_sec": 62.836364,
+      "timestamp": "00:01:02.836",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00037_f001440.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 38,
+      "frame_index": 1473,
+      "timestamp_sec": 64.276364,
+      "timestamp": "00:01:04.276",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00038_f001473.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 39,
+      "frame_index": 1506,
+      "timestamp_sec": 65.716364,
+      "timestamp": "00:01:05.716",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00039_f001506.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 40,
+      "frame_index": 1539,
+      "timestamp_sec": 67.156364,
+      "timestamp": "00:01:07.156",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00040_f001539.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 41,
+      "frame_index": 1571,
+      "timestamp_sec": 68.552727,
+      "timestamp": "00:01:08.553",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00041_f001571.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 42,
+      "frame_index": 1637,
+      "timestamp_sec": 71.432727,
+      "timestamp": "00:01:11.433",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00042_f001637.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 43,
+      "frame_index": 1670,
+      "timestamp_sec": 72.872727,
+      "timestamp": "00:01:12.873",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00043_f001670.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 44,
+      "frame_index": 1702,
+      "timestamp_sec": 74.269091,
+      "timestamp": "00:01:14.269",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00044_f001702.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 45,
+      "frame_index": 1735,
+      "timestamp_sec": 75.709091,
+      "timestamp": "00:01:15.709",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00045_f001735.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 46,
+      "frame_index": 1768,
+      "timestamp_sec": 77.149091,
+      "timestamp": "00:01:17.149",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00046_f001768.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 47,
+      "frame_index": 1801,
+      "timestamp_sec": 78.589091,
+      "timestamp": "00:01:18.589",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00047_f001801.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 48,
+      "frame_index": 1866,
+      "timestamp_sec": 81.425455,
+      "timestamp": "00:01:21.425",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00048_f001866.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 49,
+      "frame_index": 1899,
+      "timestamp_sec": 82.865455,
+      "timestamp": "00:01:22.865",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00049_f001899.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 50,
+      "frame_index": 1932,
+      "timestamp_sec": 84.305455,
+      "timestamp": "00:01:24.305",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00050_f001932.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 51,
+      "frame_index": 1964,
+      "timestamp_sec": 85.701818,
+      "timestamp": "00:01:25.702",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00051_f001964.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 52,
+      "frame_index": 1997,
+      "timestamp_sec": 87.141818,
+      "timestamp": "00:01:27.142",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00052_f001997.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 53,
+      "frame_index": 2030,
+      "timestamp_sec": 88.581818,
+      "timestamp": "00:01:28.582",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00053_f002030.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 54,
+      "frame_index": 2095,
+      "timestamp_sec": 91.418182,
+      "timestamp": "00:01:31.418",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00054_f002095.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 55,
+      "frame_index": 2128,
+      "timestamp_sec": 92.858182,
+      "timestamp": "00:01:32.858",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00055_f002128.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 56,
+      "frame_index": 2161,
+      "timestamp_sec": 94.298182,
+      "timestamp": "00:01:34.298",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00056_f002161.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 57,
+      "frame_index": 2193,
+      "timestamp_sec": 95.694545,
+      "timestamp": "00:01:35.695",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00057_f002193.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 58,
+      "frame_index": 2226,
+      "timestamp_sec": 97.134545,
+      "timestamp": "00:01:37.135",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00058_f002226.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 59,
+      "frame_index": 2259,
+      "timestamp_sec": 98.574545,
+      "timestamp": "00:01:38.575",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00059_f002259.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 60,
+      "frame_index": 2324,
+      "timestamp_sec": 101.410909,
+      "timestamp": "00:01:41.411",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00060_f002324.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 61,
+      "frame_index": 2357,
+      "timestamp_sec": 102.850909,
+      "timestamp": "00:01:42.851",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00061_f002357.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 62,
+      "frame_index": 2390,
+      "timestamp_sec": 104.290909,
+      "timestamp": "00:01:44.291",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00062_f002390.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 63,
+      "frame_index": 2423,
+      "timestamp_sec": 105.730909,
+      "timestamp": "00:01:45.731",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00063_f002423.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 64,
+      "frame_index": 2455,
+      "timestamp_sec": 107.127273,
+      "timestamp": "00:01:47.127",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00064_f002455.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 65,
+      "frame_index": 2488,
+      "timestamp_sec": 108.567273,
+      "timestamp": "00:01:48.567",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00065_f002488.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 66,
+      "frame_index": 2554,
+      "timestamp_sec": 111.447273,
+      "timestamp": "00:01:51.447",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00066_f002554.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 67,
+      "frame_index": 2586,
+      "timestamp_sec": 112.843636,
+      "timestamp": "00:01:52.844",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00067_f002586.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 68,
+      "frame_index": 2619,
+      "timestamp_sec": 114.283636,
+      "timestamp": "00:01:54.284",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00068_f002619.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 69,
+      "frame_index": 2652,
+      "timestamp_sec": 115.723636,
+      "timestamp": "00:01:55.724",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00069_f002652.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 70,
+      "frame_index": 2685,
+      "timestamp_sec": 117.163636,
+      "timestamp": "00:01:57.164",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00070_f002685.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 71,
+      "frame_index": 2717,
+      "timestamp_sec": 118.56,
+      "timestamp": "00:01:58.560",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00071_f002717.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 72,
+      "frame_index": 2783,
+      "timestamp_sec": 121.44,
+      "timestamp": "00:02:01.440",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00072_f002783.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 73,
+      "frame_index": 2815,
+      "timestamp_sec": 122.836364,
+      "timestamp": "00:02:02.836",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00073_f002815.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 74,
+      "frame_index": 2848,
+      "timestamp_sec": 124.276364,
+      "timestamp": "00:02:04.276",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00074_f002848.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 75,
+      "frame_index": 2881,
+      "timestamp_sec": 125.716364,
+      "timestamp": "00:02:05.716",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00075_f002881.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 76,
+      "frame_index": 2914,
+      "timestamp_sec": 127.156364,
+      "timestamp": "00:02:07.156",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00076_f002914.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 77,
+      "frame_index": 2946,
+      "timestamp_sec": 128.552727,
+      "timestamp": "00:02:08.553",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00077_f002946.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 78,
+      "frame_index": 3012,
+      "timestamp_sec": 131.432727,
+      "timestamp": "00:02:11.433",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00078_f003012.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 79,
+      "frame_index": 3045,
+      "timestamp_sec": 132.872727,
+      "timestamp": "00:02:12.873",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00079_f003045.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 80,
+      "frame_index": 3077,
+      "timestamp_sec": 134.269091,
+      "timestamp": "00:02:14.269",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00080_f003077.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 81,
+      "frame_index": 3110,
+      "timestamp_sec": 135.709091,
+      "timestamp": "00:02:15.709",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00081_f003110.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 82,
+      "frame_index": 3143,
+      "timestamp_sec": 137.149091,
+      "timestamp": "00:02:17.149",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00082_f003143.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 83,
+      "frame_index": 3176,
+      "timestamp_sec": 138.589091,
+      "timestamp": "00:02:18.589",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00083_f003176.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 84,
+      "frame_index": 3241,
+      "timestamp_sec": 141.425455,
+      "timestamp": "00:02:21.425",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00084_f003241.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 85,
+      "frame_index": 3274,
+      "timestamp_sec": 142.865455,
+      "timestamp": "00:02:22.865",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00085_f003274.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 86,
+      "frame_index": 3307,
+      "timestamp_sec": 144.305455,
+      "timestamp": "00:02:24.305",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00086_f003307.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 87,
+      "frame_index": 3339,
+      "timestamp_sec": 145.701818,
+      "timestamp": "00:02:25.702",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00087_f003339.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 88,
+      "frame_index": 3372,
+      "timestamp_sec": 147.141818,
+      "timestamp": "00:02:27.142",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00088_f003372.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 89,
+      "frame_index": 3405,
+      "timestamp_sec": 148.581818,
+      "timestamp": "00:02:28.582",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00089_f003405.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 90,
+      "frame_index": 3470,
+      "timestamp_sec": 151.418182,
+      "timestamp": "00:02:31.418",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00090_f003470.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 91,
+      "frame_index": 3503,
+      "timestamp_sec": 152.858182,
+      "timestamp": "00:02:32.858",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00091_f003503.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 92,
+      "frame_index": 3536,
+      "timestamp_sec": 154.298182,
+      "timestamp": "00:02:34.298",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00092_f003536.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 93,
+      "frame_index": 3568,
+      "timestamp_sec": 155.694545,
+      "timestamp": "00:02:35.695",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00093_f003568.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 94,
+      "frame_index": 3601,
+      "timestamp_sec": 157.134545,
+      "timestamp": "00:02:37.135",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00094_f003601.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 95,
+      "frame_index": 3634,
+      "timestamp_sec": 158.574545,
+      "timestamp": "00:02:38.575",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00095_f003634.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 96,
+      "frame_index": 3699,
+      "timestamp_sec": 161.410909,
+      "timestamp": "00:02:41.411",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00096_f003699.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 97,
+      "frame_index": 3732,
+      "timestamp_sec": 162.850909,
+      "timestamp": "00:02:42.851",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00097_f003732.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 98,
+      "frame_index": 3765,
+      "timestamp_sec": 164.290909,
+      "timestamp": "00:02:44.291",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00098_f003765.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 99,
+      "frame_index": 3798,
+      "timestamp_sec": 165.730909,
+      "timestamp": "00:02:45.731",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00099_f003798.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 100,
+      "frame_index": 3830,
+      "timestamp_sec": 167.127273,
+      "timestamp": "00:02:47.127",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00100_f003830.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 101,
+      "frame_index": 3863,
+      "timestamp_sec": 168.567273,
+      "timestamp": "00:02:48.567",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00101_f003863.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 102,
+      "frame_index": 3929,
+      "timestamp_sec": 171.447273,
+      "timestamp": "00:02:51.447",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00102_f003929.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 103,
+      "frame_index": 3961,
+      "timestamp_sec": 172.843636,
+      "timestamp": "00:02:52.844",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00103_f003961.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 104,
+      "frame_index": 3994,
+      "timestamp_sec": 174.283636,
+      "timestamp": "00:02:54.284",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00104_f003994.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 105,
+      "frame_index": 4027,
+      "timestamp_sec": 175.723636,
+      "timestamp": "00:02:55.724",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00105_f004027.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 106,
+      "frame_index": 4060,
+      "timestamp_sec": 177.163636,
+      "timestamp": "00:02:57.164",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00106_f004060.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 107,
+      "frame_index": 4092,
+      "timestamp_sec": 178.56,
+      "timestamp": "00:02:58.560",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00107_f004092.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 108,
+      "frame_index": 4158,
+      "timestamp_sec": 181.44,
+      "timestamp": "00:03:01.440",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00108_f004158.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 109,
+      "frame_index": 4190,
+      "timestamp_sec": 182.836364,
+      "timestamp": "00:03:02.836",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00109_f004190.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 110,
+      "frame_index": 4223,
+      "timestamp_sec": 184.276364,
+      "timestamp": "00:03:04.276",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00110_f004223.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 111,
+      "frame_index": 4256,
+      "timestamp_sec": 185.716364,
+      "timestamp": "00:03:05.716",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00111_f004256.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 112,
+      "frame_index": 4289,
+      "timestamp_sec": 187.156364,
+      "timestamp": "00:03:07.156",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00112_f004289.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 113,
+      "frame_index": 4321,
+      "timestamp_sec": 188.552727,
+      "timestamp": "00:03:08.553",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00113_f004321.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 114,
+      "frame_index": 4387,
+      "timestamp_sec": 191.432727,
+      "timestamp": "00:03:11.433",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00114_f004387.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 115,
+      "frame_index": 4420,
+      "timestamp_sec": 192.872727,
+      "timestamp": "00:03:12.873",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00115_f004420.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 116,
+      "frame_index": 4452,
+      "timestamp_sec": 194.269091,
+      "timestamp": "00:03:14.269",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00116_f004452.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 117,
+      "frame_index": 4485,
+      "timestamp_sec": 195.709091,
+      "timestamp": "00:03:15.709",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00117_f004485.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 118,
+      "frame_index": 4518,
+      "timestamp_sec": 197.149091,
+      "timestamp": "00:03:17.149",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00118_f004518.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 119,
+      "frame_index": 4551,
+      "timestamp_sec": 198.589091,
+      "timestamp": "00:03:18.589",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00119_f004551.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 120,
+      "frame_index": 4616,
+      "timestamp_sec": 201.425455,
+      "timestamp": "00:03:21.425",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00120_f004616.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 121,
+      "frame_index": 4649,
+      "timestamp_sec": 202.865455,
+      "timestamp": "00:03:22.865",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00121_f004649.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 122,
+      "frame_index": 4682,
+      "timestamp_sec": 204.305455,
+      "timestamp": "00:03:24.305",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00122_f004682.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 123,
+      "frame_index": 4714,
+      "timestamp_sec": 205.701818,
+      "timestamp": "00:03:25.702",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00123_f004714.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 124,
+      "frame_index": 4747,
+      "timestamp_sec": 207.141818,
+      "timestamp": "00:03:27.142",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00124_f004747.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 125,
+      "frame_index": 4780,
+      "timestamp_sec": 208.581818,
+      "timestamp": "00:03:28.582",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00125_f004780.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 126,
+      "frame_index": 4845,
+      "timestamp_sec": 211.418182,
+      "timestamp": "00:03:31.418",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00126_f004845.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 127,
+      "frame_index": 4878,
+      "timestamp_sec": 212.858182,
+      "timestamp": "00:03:32.858",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00127_f004878.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 128,
+      "frame_index": 4911,
+      "timestamp_sec": 214.298182,
+      "timestamp": "00:03:34.298",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00128_f004911.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 129,
+      "frame_index": 4943,
+      "timestamp_sec": 215.694545,
+      "timestamp": "00:03:35.695",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00129_f004943.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 130,
+      "frame_index": 4976,
+      "timestamp_sec": 217.134545,
+      "timestamp": "00:03:37.135",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00130_f004976.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 131,
+      "frame_index": 5009,
+      "timestamp_sec": 218.574545,
+      "timestamp": "00:03:38.575",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00131_f005009.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 132,
+      "frame_index": 5074,
+      "timestamp_sec": 221.410909,
+      "timestamp": "00:03:41.411",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00132_f005074.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 133,
+      "frame_index": 5107,
+      "timestamp_sec": 222.850909,
+      "timestamp": "00:03:42.851",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00133_f005107.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 134,
+      "frame_index": 5140,
+      "timestamp_sec": 224.290909,
+      "timestamp": "00:03:44.291",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00134_f005140.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 135,
+      "frame_index": 5173,
+      "timestamp_sec": 225.730909,
+      "timestamp": "00:03:45.731",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00135_f005173.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 136,
+      "frame_index": 5205,
+      "timestamp_sec": 227.127273,
+      "timestamp": "00:03:47.127",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00136_f005205.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 137,
+      "frame_index": 5238,
+      "timestamp_sec": 228.567273,
+      "timestamp": "00:03:48.567",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00137_f005238.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 138,
+      "frame_index": 5304,
+      "timestamp_sec": 231.447273,
+      "timestamp": "00:03:51.447",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00138_f005304.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 139,
+      "frame_index": 5336,
+      "timestamp_sec": 232.843636,
+      "timestamp": "00:03:52.844",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00139_f005336.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 140,
+      "frame_index": 5369,
+      "timestamp_sec": 234.283636,
+      "timestamp": "00:03:54.284",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00140_f005369.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 141,
+      "frame_index": 5402,
+      "timestamp_sec": 235.723636,
+      "timestamp": "00:03:55.724",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00141_f005402.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 142,
+      "frame_index": 5435,
+      "timestamp_sec": 237.163636,
+      "timestamp": "00:03:57.164",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00142_f005435.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 143,
+      "frame_index": 5467,
+      "timestamp_sec": 238.56,
+      "timestamp": "00:03:58.560",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00143_f005467.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 144,
+      "frame_index": 5533,
+      "timestamp_sec": 241.44,
+      "timestamp": "00:04:01.440",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00144_f005533.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 145,
+      "frame_index": 5565,
+      "timestamp_sec": 242.836364,
+      "timestamp": "00:04:02.836",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00145_f005565.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 146,
+      "frame_index": 5598,
+      "timestamp_sec": 244.276364,
+      "timestamp": "00:04:04.276",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00146_f005598.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 147,
+      "frame_index": 5631,
+      "timestamp_sec": 245.716364,
+      "timestamp": "00:04:05.716",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00147_f005631.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 148,
+      "frame_index": 5664,
+      "timestamp_sec": 247.156364,
+      "timestamp": "00:04:07.156",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00148_f005664.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 149,
+      "frame_index": 5696,
+      "timestamp_sec": 248.552727,
+      "timestamp": "00:04:08.553",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00149_f005696.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 150,
+      "frame_index": 5762,
+      "timestamp_sec": 251.432727,
+      "timestamp": "00:04:11.433",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00150_f005762.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 151,
+      "frame_index": 5795,
+      "timestamp_sec": 252.872727,
+      "timestamp": "00:04:12.873",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00151_f005795.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 152,
+      "frame_index": 5827,
+      "timestamp_sec": 254.269091,
+      "timestamp": "00:04:14.269",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00152_f005827.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 153,
+      "frame_index": 5860,
+      "timestamp_sec": 255.709091,
+      "timestamp": "00:04:15.709",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00153_f005860.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 154,
+      "frame_index": 5893,
+      "timestamp_sec": 257.149091,
+      "timestamp": "00:04:17.149",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00154_f005893.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 155,
+      "frame_index": 5926,
+      "timestamp_sec": 258.589091,
+      "timestamp": "00:04:18.589",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00155_f005926.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 156,
+      "frame_index": 5991,
+      "timestamp_sec": 261.425455,
+      "timestamp": "00:04:21.425",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00156_f005991.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 157,
+      "frame_index": 6024,
+      "timestamp_sec": 262.865455,
+      "timestamp": "00:04:22.865",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00157_f006024.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 158,
+      "frame_index": 6057,
+      "timestamp_sec": 264.305455,
+      "timestamp": "00:04:24.305",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00158_f006057.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 159,
+      "frame_index": 6089,
+      "timestamp_sec": 265.701818,
+      "timestamp": "00:04:25.702",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00159_f006089.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 160,
+      "frame_index": 6122,
+      "timestamp_sec": 267.141818,
+      "timestamp": "00:04:27.142",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00160_f006122.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 161,
+      "frame_index": 6155,
+      "timestamp_sec": 268.581818,
+      "timestamp": "00:04:28.582",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00161_f006155.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 162,
+      "frame_index": 6220,
+      "timestamp_sec": 271.418182,
+      "timestamp": "00:04:31.418",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00162_f006220.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 163,
+      "frame_index": 6253,
+      "timestamp_sec": 272.858182,
+      "timestamp": "00:04:32.858",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00163_f006253.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 164,
+      "frame_index": 6286,
+      "timestamp_sec": 274.298182,
+      "timestamp": "00:04:34.298",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00164_f006286.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 165,
+      "frame_index": 6318,
+      "timestamp_sec": 275.694545,
+      "timestamp": "00:04:35.695",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00165_f006318.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 166,
+      "frame_index": 6351,
+      "timestamp_sec": 277.134545,
+      "timestamp": "00:04:37.135",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00166_f006351.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 167,
+      "frame_index": 6384,
+      "timestamp_sec": 278.574545,
+      "timestamp": "00:04:38.575",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00167_f006384.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 168,
+      "frame_index": 6449,
+      "timestamp_sec": 281.410909,
+      "timestamp": "00:04:41.411",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00168_f006449.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 169,
+      "frame_index": 6482,
+      "timestamp_sec": 282.850909,
+      "timestamp": "00:04:42.851",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00169_f006482.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 170,
+      "frame_index": 6515,
+      "timestamp_sec": 284.290909,
+      "timestamp": "00:04:44.291",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00170_f006515.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 171,
+      "frame_index": 6548,
+      "timestamp_sec": 285.730909,
+      "timestamp": "00:04:45.731",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00171_f006548.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 172,
+      "frame_index": 6580,
+      "timestamp_sec": 287.127273,
+      "timestamp": "00:04:47.127",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00172_f006580.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 173,
+      "frame_index": 6613,
+      "timestamp_sec": 288.567273,
+      "timestamp": "00:04:48.567",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00173_f006613.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 174,
+      "frame_index": 6679,
+      "timestamp_sec": 291.447273,
+      "timestamp": "00:04:51.447",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00174_f006679.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 175,
+      "frame_index": 6711,
+      "timestamp_sec": 292.843636,
+      "timestamp": "00:04:52.844",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00175_f006711.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 176,
+      "frame_index": 6744,
+      "timestamp_sec": 294.283636,
+      "timestamp": "00:04:54.284",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00176_f006744.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 177,
+      "frame_index": 6777,
+      "timestamp_sec": 295.723636,
+      "timestamp": "00:04:55.724",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00177_f006777.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 178,
+      "frame_index": 6810,
+      "timestamp_sec": 297.163636,
+      "timestamp": "00:04:57.164",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00178_f006810.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 179,
+      "frame_index": 6842,
+      "timestamp_sec": 298.56,
+      "timestamp": "00:04:58.560",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00179_f006842.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 180,
+      "frame_index": 6908,
+      "timestamp_sec": 301.44,
+      "timestamp": "00:05:01.440",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00180_f006908.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 181,
+      "frame_index": 6940,
+      "timestamp_sec": 302.836364,
+      "timestamp": "00:05:02.836",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00181_f006940.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 182,
+      "frame_index": 6973,
+      "timestamp_sec": 304.276364,
+      "timestamp": "00:05:04.276",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00182_f006973.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 183,
+      "frame_index": 7006,
+      "timestamp_sec": 305.716364,
+      "timestamp": "00:05:05.716",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00183_f007006.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 184,
+      "frame_index": 7039,
+      "timestamp_sec": 307.156364,
+      "timestamp": "00:05:07.156",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00184_f007039.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 185,
+      "frame_index": 7071,
+      "timestamp_sec": 308.552727,
+      "timestamp": "00:05:08.553",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00185_f007071.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 186,
+      "frame_index": 7137,
+      "timestamp_sec": 311.432727,
+      "timestamp": "00:05:11.433",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00186_f007137.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 187,
+      "frame_index": 7170,
+      "timestamp_sec": 312.872727,
+      "timestamp": "00:05:12.873",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00187_f007170.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 188,
+      "frame_index": 7202,
+      "timestamp_sec": 314.269091,
+      "timestamp": "00:05:14.269",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00188_f007202.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 189,
+      "frame_index": 7235,
+      "timestamp_sec": 315.709091,
+      "timestamp": "00:05:15.709",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00189_f007235.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 190,
+      "frame_index": 7268,
+      "timestamp_sec": 317.149091,
+      "timestamp": "00:05:17.149",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00190_f007268.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 191,
+      "frame_index": 7301,
+      "timestamp_sec": 318.589091,
+      "timestamp": "00:05:18.589",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00191_f007301.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 192,
+      "frame_index": 7366,
+      "timestamp_sec": 321.425455,
+      "timestamp": "00:05:21.425",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00192_f007366.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 193,
+      "frame_index": 7399,
+      "timestamp_sec": 322.865455,
+      "timestamp": "00:05:22.865",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00193_f007399.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 194,
+      "frame_index": 7432,
+      "timestamp_sec": 324.305455,
+      "timestamp": "00:05:24.305",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00194_f007432.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 195,
+      "frame_index": 7464,
+      "timestamp_sec": 325.701818,
+      "timestamp": "00:05:25.702",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00195_f007464.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 196,
+      "frame_index": 7497,
+      "timestamp_sec": 327.141818,
+      "timestamp": "00:05:27.142",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00196_f007497.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 197,
+      "frame_index": 7530,
+      "timestamp_sec": 328.581818,
+      "timestamp": "00:05:28.582",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00197_f007530.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 198,
+      "frame_index": 7595,
+      "timestamp_sec": 331.418182,
+      "timestamp": "00:05:31.418",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00198_f007595.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 199,
+      "frame_index": 7628,
+      "timestamp_sec": 332.858182,
+      "timestamp": "00:05:32.858",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00199_f007628.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 200,
+      "frame_index": 7661,
+      "timestamp_sec": 334.298182,
+      "timestamp": "00:05:34.298",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00200_f007661.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 201,
+      "frame_index": 7693,
+      "timestamp_sec": 335.694545,
+      "timestamp": "00:05:35.695",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00201_f007693.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 202,
+      "frame_index": 7726,
+      "timestamp_sec": 337.134545,
+      "timestamp": "00:05:37.135",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00202_f007726.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 203,
+      "frame_index": 7759,
+      "timestamp_sec": 338.574545,
+      "timestamp": "00:05:38.575",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00203_f007759.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 204,
+      "frame_index": 7824,
+      "timestamp_sec": 341.410909,
+      "timestamp": "00:05:41.411",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00204_f007824.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 205,
+      "frame_index": 7857,
+      "timestamp_sec": 342.850909,
+      "timestamp": "00:05:42.851",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00205_f007857.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 206,
+      "frame_index": 7890,
+      "timestamp_sec": 344.290909,
+      "timestamp": "00:05:44.291",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00206_f007890.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 207,
+      "frame_index": 7923,
+      "timestamp_sec": 345.730909,
+      "timestamp": "00:05:45.731",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00207_f007923.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 208,
+      "frame_index": 7955,
+      "timestamp_sec": 347.127273,
+      "timestamp": "00:05:47.127",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00208_f007955.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 209,
+      "frame_index": 7988,
+      "timestamp_sec": 348.567273,
+      "timestamp": "00:05:48.567",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00209_f007988.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 210,
+      "frame_index": 8054,
+      "timestamp_sec": 351.447273,
+      "timestamp": "00:05:51.447",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00210_f008054.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 211,
+      "frame_index": 8086,
+      "timestamp_sec": 352.843636,
+      "timestamp": "00:05:52.844",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00211_f008086.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 212,
+      "frame_index": 8119,
+      "timestamp_sec": 354.283636,
+      "timestamp": "00:05:54.284",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00212_f008119.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 213,
+      "frame_index": 8152,
+      "timestamp_sec": 355.723636,
+      "timestamp": "00:05:55.724",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00213_f008152.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 214,
+      "frame_index": 8185,
+      "timestamp_sec": 357.163636,
+      "timestamp": "00:05:57.164",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00214_f008185.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 215,
+      "frame_index": 8217,
+      "timestamp_sec": 358.56,
+      "timestamp": "00:05:58.560",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00215_f008217.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 216,
+      "frame_index": 8283,
+      "timestamp_sec": 361.44,
+      "timestamp": "00:06:01.440",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00216_f008283.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 217,
+      "frame_index": 8315,
+      "timestamp_sec": 362.836364,
+      "timestamp": "00:06:02.836",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00217_f008315.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 218,
+      "frame_index": 8348,
+      "timestamp_sec": 364.276364,
+      "timestamp": "00:06:04.276",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00218_f008348.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 219,
+      "frame_index": 8381,
+      "timestamp_sec": 365.716364,
+      "timestamp": "00:06:05.716",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00219_f008381.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 220,
+      "frame_index": 8414,
+      "timestamp_sec": 367.156364,
+      "timestamp": "00:06:07.156",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00220_f008414.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 221,
+      "frame_index": 8446,
+      "timestamp_sec": 368.552727,
+      "timestamp": "00:06:08.553",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00221_f008446.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 222,
+      "frame_index": 8512,
+      "timestamp_sec": 371.432727,
+      "timestamp": "00:06:11.433",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00222_f008512.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 223,
+      "frame_index": 8545,
+      "timestamp_sec": 372.872727,
+      "timestamp": "00:06:12.873",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00223_f008545.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 224,
+      "frame_index": 8577,
+      "timestamp_sec": 374.269091,
+      "timestamp": "00:06:14.269",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00224_f008577.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 225,
+      "frame_index": 8610,
+      "timestamp_sec": 375.709091,
+      "timestamp": "00:06:15.709",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00225_f008610.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 226,
+      "frame_index": 8643,
+      "timestamp_sec": 377.149091,
+      "timestamp": "00:06:17.149",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00226_f008643.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 227,
+      "frame_index": 8676,
+      "timestamp_sec": 378.589091,
+      "timestamp": "00:06:18.589",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00227_f008676.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 228,
+      "frame_index": 8741,
+      "timestamp_sec": 381.425455,
+      "timestamp": "00:06:21.425",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00228_f008741.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 229,
+      "frame_index": 8774,
+      "timestamp_sec": 382.865455,
+      "timestamp": "00:06:22.865",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00229_f008774.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 230,
+      "frame_index": 8807,
+      "timestamp_sec": 384.305455,
+      "timestamp": "00:06:24.305",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00230_f008807.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 231,
+      "frame_index": 8839,
+      "timestamp_sec": 385.701818,
+      "timestamp": "00:06:25.702",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00231_f008839.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 232,
+      "frame_index": 8872,
+      "timestamp_sec": 387.141818,
+      "timestamp": "00:06:27.142",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00232_f008872.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 233,
+      "frame_index": 8905,
+      "timestamp_sec": 388.581818,
+      "timestamp": "00:06:28.582",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00233_f008905.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 234,
+      "frame_index": 8970,
+      "timestamp_sec": 391.418182,
+      "timestamp": "00:06:31.418",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00234_f008970.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 235,
+      "frame_index": 9003,
+      "timestamp_sec": 392.858182,
+      "timestamp": "00:06:32.858",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00235_f009003.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 236,
+      "frame_index": 9036,
+      "timestamp_sec": 394.298182,
+      "timestamp": "00:06:34.298",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00236_f009036.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 237,
+      "frame_index": 9068,
+      "timestamp_sec": 395.694545,
+      "timestamp": "00:06:35.695",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00237_f009068.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 238,
+      "frame_index": 9101,
+      "timestamp_sec": 397.134545,
+      "timestamp": "00:06:37.135",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00238_f009101.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 239,
+      "frame_index": 9134,
+      "timestamp_sec": 398.574545,
+      "timestamp": "00:06:38.575",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00239_f009134.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 240,
+      "frame_index": 9199,
+      "timestamp_sec": 401.410909,
+      "timestamp": "00:06:41.411",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00240_f009199.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 241,
+      "frame_index": 9232,
+      "timestamp_sec": 402.850909,
+      "timestamp": "00:06:42.851",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00241_f009232.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 242,
+      "frame_index": 9265,
+      "timestamp_sec": 404.290909,
+      "timestamp": "00:06:44.291",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00242_f009265.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 243,
+      "frame_index": 9298,
+      "timestamp_sec": 405.730909,
+      "timestamp": "00:06:45.731",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00243_f009298.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 244,
+      "frame_index": 9330,
+      "timestamp_sec": 407.127273,
+      "timestamp": "00:06:47.127",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00244_f009330.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 245,
+      "frame_index": 9363,
+      "timestamp_sec": 408.567273,
+      "timestamp": "00:06:48.567",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00245_f009363.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 246,
+      "frame_index": 9429,
+      "timestamp_sec": 411.447273,
+      "timestamp": "00:06:51.447",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00246_f009429.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 247,
+      "frame_index": 9461,
+      "timestamp_sec": 412.843636,
+      "timestamp": "00:06:52.844",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00247_f009461.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 248,
+      "frame_index": 9494,
+      "timestamp_sec": 414.283636,
+      "timestamp": "00:06:54.284",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00248_f009494.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 249,
+      "frame_index": 9527,
+      "timestamp_sec": 415.723636,
+      "timestamp": "00:06:55.724",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00249_f009527.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 250,
+      "frame_index": 9560,
+      "timestamp_sec": 417.163636,
+      "timestamp": "00:06:57.164",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00250_f009560.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 251,
+      "frame_index": 9592,
+      "timestamp_sec": 418.56,
+      "timestamp": "00:06:58.560",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00251_f009592.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 252,
+      "frame_index": 9658,
+      "timestamp_sec": 421.44,
+      "timestamp": "00:07:01.440",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00252_f009658.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 253,
+      "frame_index": 9690,
+      "timestamp_sec": 422.836364,
+      "timestamp": "00:07:02.836",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00253_f009690.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 254,
+      "frame_index": 9723,
+      "timestamp_sec": 424.276364,
+      "timestamp": "00:07:04.276",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00254_f009723.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 255,
+      "frame_index": 9756,
+      "timestamp_sec": 425.716364,
+      "timestamp": "00:07:05.716",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00255_f009756.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 256,
+      "frame_index": 9789,
+      "timestamp_sec": 427.156364,
+      "timestamp": "00:07:07.156",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00256_f009789.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 257,
+      "frame_index": 9821,
+      "timestamp_sec": 428.552727,
+      "timestamp": "00:07:08.553",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00257_f009821.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 258,
+      "frame_index": 9887,
+      "timestamp_sec": 431.432727,
+      "timestamp": "00:07:11.433",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00258_f009887.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 259,
+      "frame_index": 9920,
+      "timestamp_sec": 432.872727,
+      "timestamp": "00:07:12.873",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00259_f009920.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 260,
+      "frame_index": 9952,
+      "timestamp_sec": 434.269091,
+      "timestamp": "00:07:14.269",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00260_f009952.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 261,
+      "frame_index": 9985,
+      "timestamp_sec": 435.709091,
+      "timestamp": "00:07:15.709",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00261_f009985.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 262,
+      "frame_index": 10018,
+      "timestamp_sec": 437.149091,
+      "timestamp": "00:07:17.149",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00262_f010018.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 263,
+      "frame_index": 10051,
+      "timestamp_sec": 438.589091,
+      "timestamp": "00:07:18.589",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00263_f010051.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 264,
+      "frame_index": 10116,
+      "timestamp_sec": 441.425455,
+      "timestamp": "00:07:21.425",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00264_f010116.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 265,
+      "frame_index": 10149,
+      "timestamp_sec": 442.865455,
+      "timestamp": "00:07:22.865",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00265_f010149.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 266,
+      "frame_index": 10182,
+      "timestamp_sec": 444.305455,
+      "timestamp": "00:07:24.305",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00266_f010182.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 267,
+      "frame_index": 10214,
+      "timestamp_sec": 445.701818,
+      "timestamp": "00:07:25.702",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00267_f010214.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 268,
+      "frame_index": 10247,
+      "timestamp_sec": 447.141818,
+      "timestamp": "00:07:27.142",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00268_f010247.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 269,
+      "frame_index": 10280,
+      "timestamp_sec": 448.581818,
+      "timestamp": "00:07:28.582",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00269_f010280.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 270,
+      "frame_index": 10345,
+      "timestamp_sec": 451.418182,
+      "timestamp": "00:07:31.418",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00270_f010345.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 271,
+      "frame_index": 10378,
+      "timestamp_sec": 452.858182,
+      "timestamp": "00:07:32.858",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00271_f010378.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 272,
+      "frame_index": 10411,
+      "timestamp_sec": 454.298182,
+      "timestamp": "00:07:34.298",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00272_f010411.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 273,
+      "frame_index": 10443,
+      "timestamp_sec": 455.694545,
+      "timestamp": "00:07:35.695",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00273_f010443.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 274,
+      "frame_index": 10476,
+      "timestamp_sec": 457.134545,
+      "timestamp": "00:07:37.135",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00274_f010476.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 275,
+      "frame_index": 10509,
+      "timestamp_sec": 458.574545,
+      "timestamp": "00:07:38.575",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00275_f010509.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 276,
+      "frame_index": 10574,
+      "timestamp_sec": 461.410909,
+      "timestamp": "00:07:41.411",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00276_f010574.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 277,
+      "frame_index": 10607,
+      "timestamp_sec": 462.850909,
+      "timestamp": "00:07:42.851",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00277_f010607.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 278,
+      "frame_index": 10640,
+      "timestamp_sec": 464.290909,
+      "timestamp": "00:07:44.291",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00278_f010640.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 279,
+      "frame_index": 10673,
+      "timestamp_sec": 465.730909,
+      "timestamp": "00:07:45.731",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00279_f010673.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 280,
+      "frame_index": 10705,
+      "timestamp_sec": 467.127273,
+      "timestamp": "00:07:47.127",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00280_f010705.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 281,
+      "frame_index": 10738,
+      "timestamp_sec": 468.567273,
+      "timestamp": "00:07:48.567",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00281_f010738.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 282,
+      "frame_index": 10804,
+      "timestamp_sec": 471.447273,
+      "timestamp": "00:07:51.447",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00282_f010804.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 283,
+      "frame_index": 10836,
+      "timestamp_sec": 472.843636,
+      "timestamp": "00:07:52.844",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00283_f010836.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 284,
+      "frame_index": 10869,
+      "timestamp_sec": 474.283636,
+      "timestamp": "00:07:54.284",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00284_f010869.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 285,
+      "frame_index": 10902,
+      "timestamp_sec": 475.723636,
+      "timestamp": "00:07:55.724",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00285_f010902.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 286,
+      "frame_index": 10935,
+      "timestamp_sec": 477.163636,
+      "timestamp": "00:07:57.164",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00286_f010935.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 287,
+      "frame_index": 10967,
+      "timestamp_sec": 478.56,
+      "timestamp": "00:07:58.560",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00287_f010967.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 288,
+      "frame_index": 11033,
+      "timestamp_sec": 481.44,
+      "timestamp": "00:08:01.440",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00288_f011033.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 289,
+      "frame_index": 11065,
+      "timestamp_sec": 482.836364,
+      "timestamp": "00:08:02.836",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00289_f011065.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 290,
+      "frame_index": 11098,
+      "timestamp_sec": 484.276364,
+      "timestamp": "00:08:04.276",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00290_f011098.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 291,
+      "frame_index": 11131,
+      "timestamp_sec": 485.716364,
+      "timestamp": "00:08:05.716",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00291_f011131.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 292,
+      "frame_index": 11164,
+      "timestamp_sec": 487.156364,
+      "timestamp": "00:08:07.156",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00292_f011164.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 293,
+      "frame_index": 11196,
+      "timestamp_sec": 488.552727,
+      "timestamp": "00:08:08.553",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00293_f011196.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 294,
+      "frame_index": 11262,
+      "timestamp_sec": 491.432727,
+      "timestamp": "00:08:11.433",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00294_f011262.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 295,
+      "frame_index": 11295,
+      "timestamp_sec": 492.872727,
+      "timestamp": "00:08:12.873",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00295_f011295.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 296,
+      "frame_index": 11327,
+      "timestamp_sec": 494.269091,
+      "timestamp": "00:08:14.269",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00296_f011327.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 297,
+      "frame_index": 11360,
+      "timestamp_sec": 495.709091,
+      "timestamp": "00:08:15.709",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00297_f011360.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 298,
+      "frame_index": 11393,
+      "timestamp_sec": 497.149091,
+      "timestamp": "00:08:17.149",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00298_f011393.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 299,
+      "frame_index": 11426,
+      "timestamp_sec": 498.589091,
+      "timestamp": "00:08:18.589",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00299_f011426.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 300,
+      "frame_index": 11491,
+      "timestamp_sec": 501.425455,
+      "timestamp": "00:08:21.425",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00300_f011491.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 301,
+      "frame_index": 11524,
+      "timestamp_sec": 502.865455,
+      "timestamp": "00:08:22.865",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00301_f011524.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 302,
+      "frame_index": 11557,
+      "timestamp_sec": 504.305455,
+      "timestamp": "00:08:24.305",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00302_f011557.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 303,
+      "frame_index": 11589,
+      "timestamp_sec": 505.701818,
+      "timestamp": "00:08:25.702",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00303_f011589.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 304,
+      "frame_index": 11622,
+      "timestamp_sec": 507.141818,
+      "timestamp": "00:08:27.142",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00304_f011622.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 305,
+      "frame_index": 11655,
+      "timestamp_sec": 508.581818,
+      "timestamp": "00:08:28.582",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00305_f011655.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 306,
+      "frame_index": 11720,
+      "timestamp_sec": 511.418182,
+      "timestamp": "00:08:31.418",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00306_f011720.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 307,
+      "frame_index": 11753,
+      "timestamp_sec": 512.858182,
+      "timestamp": "00:08:32.858",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00307_f011753.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 308,
+      "frame_index": 11786,
+      "timestamp_sec": 514.298182,
+      "timestamp": "00:08:34.298",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00308_f011786.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 309,
+      "frame_index": 11818,
+      "timestamp_sec": 515.694545,
+      "timestamp": "00:08:35.695",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00309_f011818.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 310,
+      "frame_index": 11851,
+      "timestamp_sec": 517.134545,
+      "timestamp": "00:08:37.135",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00310_f011851.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 311,
+      "frame_index": 11884,
+      "timestamp_sec": 518.574545,
+      "timestamp": "00:08:38.575",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00311_f011884.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 312,
+      "frame_index": 11949,
+      "timestamp_sec": 521.410909,
+      "timestamp": "00:08:41.411",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00312_f011949.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 313,
+      "frame_index": 11982,
+      "timestamp_sec": 522.850909,
+      "timestamp": "00:08:42.851",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00313_f011982.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 314,
+      "frame_index": 12015,
+      "timestamp_sec": 524.290909,
+      "timestamp": "00:08:44.291",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00314_f012015.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 315,
+      "frame_index": 12048,
+      "timestamp_sec": 525.730909,
+      "timestamp": "00:08:45.731",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00315_f012048.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 316,
+      "frame_index": 12080,
+      "timestamp_sec": 527.127273,
+      "timestamp": "00:08:47.127",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00316_f012080.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 317,
+      "frame_index": 12113,
+      "timestamp_sec": 528.567273,
+      "timestamp": "00:08:48.567",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00317_f012113.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 318,
+      "frame_index": 12179,
+      "timestamp_sec": 531.447273,
+      "timestamp": "00:08:51.447",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00318_f012179.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 319,
+      "frame_index": 12211,
+      "timestamp_sec": 532.843636,
+      "timestamp": "00:08:52.844",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00319_f012211.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 320,
+      "frame_index": 12244,
+      "timestamp_sec": 534.283636,
+      "timestamp": "00:08:54.284",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00320_f012244.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 321,
+      "frame_index": 12277,
+      "timestamp_sec": 535.723636,
+      "timestamp": "00:08:55.724",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00321_f012277.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 322,
+      "frame_index": 12310,
+      "timestamp_sec": 537.163636,
+      "timestamp": "00:08:57.164",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00322_f012310.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 323,
+      "frame_index": 12342,
+      "timestamp_sec": 538.56,
+      "timestamp": "00:08:58.560",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00323_f012342.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 324,
+      "frame_index": 12408,
+      "timestamp_sec": 541.44,
+      "timestamp": "00:09:01.440",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00324_f012408.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 325,
+      "frame_index": 12440,
+      "timestamp_sec": 542.836364,
+      "timestamp": "00:09:02.836",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00325_f012440.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 326,
+      "frame_index": 12473,
+      "timestamp_sec": 544.276364,
+      "timestamp": "00:09:04.276",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00326_f012473.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 327,
+      "frame_index": 12506,
+      "timestamp_sec": 545.716364,
+      "timestamp": "00:09:05.716",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00327_f012506.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 328,
+      "frame_index": 12539,
+      "timestamp_sec": 547.156364,
+      "timestamp": "00:09:07.156",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00328_f012539.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 329,
+      "frame_index": 12571,
+      "timestamp_sec": 548.552727,
+      "timestamp": "00:09:08.553",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00329_f012571.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 330,
+      "frame_index": 12637,
+      "timestamp_sec": 551.432727,
+      "timestamp": "00:09:11.433",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00330_f012637.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 331,
+      "frame_index": 12670,
+      "timestamp_sec": 552.872727,
+      "timestamp": "00:09:12.873",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00331_f012670.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 332,
+      "frame_index": 12702,
+      "timestamp_sec": 554.269091,
+      "timestamp": "00:09:14.269",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00332_f012702.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 333,
+      "frame_index": 12735,
+      "timestamp_sec": 555.709091,
+      "timestamp": "00:09:15.709",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00333_f012735.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 334,
+      "frame_index": 12768,
+      "timestamp_sec": 557.149091,
+      "timestamp": "00:09:17.149",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00334_f012768.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 335,
+      "frame_index": 12801,
+      "timestamp_sec": 558.589091,
+      "timestamp": "00:09:18.589",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00335_f012801.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 336,
+      "frame_index": 12866,
+      "timestamp_sec": 561.425455,
+      "timestamp": "00:09:21.425",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00336_f012866.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 337,
+      "frame_index": 12899,
+      "timestamp_sec": 562.865455,
+      "timestamp": "00:09:22.865",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00337_f012899.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 338,
+      "frame_index": 12932,
+      "timestamp_sec": 564.305455,
+      "timestamp": "00:09:24.305",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00338_f012932.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 339,
+      "frame_index": 12964,
+      "timestamp_sec": 565.701818,
+      "timestamp": "00:09:25.702",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00339_f012964.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 340,
+      "frame_index": 12997,
+      "timestamp_sec": 567.141818,
+      "timestamp": "00:09:27.142",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00340_f012997.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 341,
+      "frame_index": 13030,
+      "timestamp_sec": 568.581818,
+      "timestamp": "00:09:28.582",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00341_f013030.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 342,
+      "frame_index": 13095,
+      "timestamp_sec": 571.418182,
+      "timestamp": "00:09:31.418",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00342_f013095.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 343,
+      "frame_index": 13128,
+      "timestamp_sec": 572.858182,
+      "timestamp": "00:09:32.858",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00343_f013128.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 344,
+      "frame_index": 13161,
+      "timestamp_sec": 574.298182,
+      "timestamp": "00:09:34.298",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00344_f013161.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 345,
+      "frame_index": 13193,
+      "timestamp_sec": 575.694545,
+      "timestamp": "00:09:35.695",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00345_f013193.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 346,
+      "frame_index": 13226,
+      "timestamp_sec": 577.134545,
+      "timestamp": "00:09:37.135",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00346_f013226.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 347,
+      "frame_index": 13259,
+      "timestamp_sec": 578.574545,
+      "timestamp": "00:09:38.575",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00347_f013259.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 348,
+      "frame_index": 13324,
+      "timestamp_sec": 581.410909,
+      "timestamp": "00:09:41.411",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00348_f013324.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 349,
+      "frame_index": 13357,
+      "timestamp_sec": 582.850909,
+      "timestamp": "00:09:42.851",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00349_f013357.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 350,
+      "frame_index": 13390,
+      "timestamp_sec": 584.290909,
+      "timestamp": "00:09:44.291",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00350_f013390.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 351,
+      "frame_index": 13423,
+      "timestamp_sec": 585.730909,
+      "timestamp": "00:09:45.731",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00351_f013423.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 352,
+      "frame_index": 13455,
+      "timestamp_sec": 587.127273,
+      "timestamp": "00:09:47.127",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00352_f013455.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 353,
+      "frame_index": 13488,
+      "timestamp_sec": 588.567273,
+      "timestamp": "00:09:48.567",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00353_f013488.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 354,
+      "frame_index": 13554,
+      "timestamp_sec": 591.447273,
+      "timestamp": "00:09:51.447",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00354_f013554.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 355,
+      "frame_index": 13586,
+      "timestamp_sec": 592.843636,
+      "timestamp": "00:09:52.844",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00355_f013586.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 356,
+      "frame_index": 13619,
+      "timestamp_sec": 594.283636,
+      "timestamp": "00:09:54.284",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00356_f013619.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 357,
+      "frame_index": 13652,
+      "timestamp_sec": 595.723636,
+      "timestamp": "00:09:55.724",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00357_f013652.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 358,
+      "frame_index": 13685,
+      "timestamp_sec": 597.163636,
+      "timestamp": "00:09:57.164",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00358_f013685.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 359,
+      "frame_index": 13717,
+      "timestamp_sec": 598.56,
+      "timestamp": "00:09:58.560",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00359_f013717.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 360,
+      "frame_index": 13783,
+      "timestamp_sec": 601.44,
+      "timestamp": "00:10:01.440",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00360_f013783.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 361,
+      "frame_index": 13815,
+      "timestamp_sec": 602.836364,
+      "timestamp": "00:10:02.836",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00361_f013815.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 362,
+      "frame_index": 13848,
+      "timestamp_sec": 604.276364,
+      "timestamp": "00:10:04.276",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00362_f013848.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 363,
+      "frame_index": 13881,
+      "timestamp_sec": 605.716364,
+      "timestamp": "00:10:05.716",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00363_f013881.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 364,
+      "frame_index": 13914,
+      "timestamp_sec": 607.156364,
+      "timestamp": "00:10:07.156",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00364_f013914.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 365,
+      "frame_index": 13946,
+      "timestamp_sec": 608.552727,
+      "timestamp": "00:10:08.553",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00365_f013946.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 366,
+      "frame_index": 14012,
+      "timestamp_sec": 611.432727,
+      "timestamp": "00:10:11.433",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00366_f014012.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 367,
+      "frame_index": 14045,
+      "timestamp_sec": 612.872727,
+      "timestamp": "00:10:12.873",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00367_f014045.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 368,
+      "frame_index": 14077,
+      "timestamp_sec": 614.269091,
+      "timestamp": "00:10:14.269",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00368_f014077.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 369,
+      "frame_index": 14110,
+      "timestamp_sec": 615.709091,
+      "timestamp": "00:10:15.709",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00369_f014110.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 370,
+      "frame_index": 14143,
+      "timestamp_sec": 617.149091,
+      "timestamp": "00:10:17.149",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00370_f014143.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 371,
+      "frame_index": 14176,
+      "timestamp_sec": 618.589091,
+      "timestamp": "00:10:18.589",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00371_f014176.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 372,
+      "frame_index": 14241,
+      "timestamp_sec": 621.425455,
+      "timestamp": "00:10:21.425",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00372_f014241.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 373,
+      "frame_index": 14274,
+      "timestamp_sec": 622.865455,
+      "timestamp": "00:10:22.865",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00373_f014274.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 374,
+      "frame_index": 14307,
+      "timestamp_sec": 624.305455,
+      "timestamp": "00:10:24.305",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00374_f014307.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 375,
+      "frame_index": 14339,
+      "timestamp_sec": 625.701818,
+      "timestamp": "00:10:25.702",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00375_f014339.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 376,
+      "frame_index": 14372,
+      "timestamp_sec": 627.141818,
+      "timestamp": "00:10:27.142",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00376_f014372.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 377,
+      "frame_index": 14405,
+      "timestamp_sec": 628.581818,
+      "timestamp": "00:10:28.582",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00377_f014405.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 378,
+      "frame_index": 14470,
+      "timestamp_sec": 631.418182,
+      "timestamp": "00:10:31.418",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00378_f014470.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 379,
+      "frame_index": 14503,
+      "timestamp_sec": 632.858182,
+      "timestamp": "00:10:32.858",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00379_f014503.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 380,
+      "frame_index": 14536,
+      "timestamp_sec": 634.298182,
+      "timestamp": "00:10:34.298",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00380_f014536.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 381,
+      "frame_index": 14568,
+      "timestamp_sec": 635.694545,
+      "timestamp": "00:10:35.695",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00381_f014568.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 382,
+      "frame_index": 14601,
+      "timestamp_sec": 637.134545,
+      "timestamp": "00:10:37.135",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00382_f014601.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 383,
+      "frame_index": 14634,
+      "timestamp_sec": 638.574545,
+      "timestamp": "00:10:38.575",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00383_f014634.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 384,
+      "frame_index": 14699,
+      "timestamp_sec": 641.410909,
+      "timestamp": "00:10:41.411",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00384_f014699.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 385,
+      "frame_index": 14732,
+      "timestamp_sec": 642.850909,
+      "timestamp": "00:10:42.851",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00385_f014732.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 386,
+      "frame_index": 14765,
+      "timestamp_sec": 644.290909,
+      "timestamp": "00:10:44.291",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00386_f014765.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 387,
+      "frame_index": 14798,
+      "timestamp_sec": 645.730909,
+      "timestamp": "00:10:45.731",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00387_f014798.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 388,
+      "frame_index": 14830,
+      "timestamp_sec": 647.127273,
+      "timestamp": "00:10:47.127",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00388_f014830.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 389,
+      "frame_index": 14863,
+      "timestamp_sec": 648.567273,
+      "timestamp": "00:10:48.567",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00389_f014863.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 390,
+      "frame_index": 14929,
+      "timestamp_sec": 651.447273,
+      "timestamp": "00:10:51.447",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00390_f014929.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 391,
+      "frame_index": 14961,
+      "timestamp_sec": 652.843636,
+      "timestamp": "00:10:52.844",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00391_f014961.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 392,
+      "frame_index": 14994,
+      "timestamp_sec": 654.283636,
+      "timestamp": "00:10:54.284",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00392_f014994.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 393,
+      "frame_index": 15027,
+      "timestamp_sec": 655.723636,
+      "timestamp": "00:10:55.724",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00393_f015027.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 394,
+      "frame_index": 15060,
+      "timestamp_sec": 657.163636,
+      "timestamp": "00:10:57.164",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00394_f015060.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 395,
+      "frame_index": 15092,
+      "timestamp_sec": 658.56,
+      "timestamp": "00:10:58.560",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00395_f015092.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 396,
+      "frame_index": 15158,
+      "timestamp_sec": 661.44,
+      "timestamp": "00:11:01.440",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00396_f015158.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 397,
+      "frame_index": 15190,
+      "timestamp_sec": 662.836364,
+      "timestamp": "00:11:02.836",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00397_f015190.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 398,
+      "frame_index": 15223,
+      "timestamp_sec": 664.276364,
+      "timestamp": "00:11:04.276",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00398_f015223.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 399,
+      "frame_index": 15256,
+      "timestamp_sec": 665.716364,
+      "timestamp": "00:11:05.716",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00399_f015256.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 400,
+      "frame_index": 15289,
+      "timestamp_sec": 667.156364,
+      "timestamp": "00:11:07.156",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00400_f015289.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 401,
+      "frame_index": 15321,
+      "timestamp_sec": 668.552727,
+      "timestamp": "00:11:08.553",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00401_f015321.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 402,
+      "frame_index": 15387,
+      "timestamp_sec": 671.432727,
+      "timestamp": "00:11:11.433",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00402_f015387.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 403,
+      "frame_index": 15420,
+      "timestamp_sec": 672.872727,
+      "timestamp": "00:11:12.873",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00403_f015420.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 404,
+      "frame_index": 15452,
+      "timestamp_sec": 674.269091,
+      "timestamp": "00:11:14.269",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00404_f015452.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 405,
+      "frame_index": 15485,
+      "timestamp_sec": 675.709091,
+      "timestamp": "00:11:15.709",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00405_f015485.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 406,
+      "frame_index": 15518,
+      "timestamp_sec": 677.149091,
+      "timestamp": "00:11:17.149",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00406_f015518.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 407,
+      "frame_index": 15551,
+      "timestamp_sec": 678.589091,
+      "timestamp": "00:11:18.589",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00407_f015551.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 408,
+      "frame_index": 15616,
+      "timestamp_sec": 681.425455,
+      "timestamp": "00:11:21.425",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00408_f015616.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 409,
+      "frame_index": 15649,
+      "timestamp_sec": 682.865455,
+      "timestamp": "00:11:22.865",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00409_f015649.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 410,
+      "frame_index": 15682,
+      "timestamp_sec": 684.305455,
+      "timestamp": "00:11:24.305",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00410_f015682.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 411,
+      "frame_index": 15714,
+      "timestamp_sec": 685.701818,
+      "timestamp": "00:11:25.702",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00411_f015714.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 412,
+      "frame_index": 15747,
+      "timestamp_sec": 687.141818,
+      "timestamp": "00:11:27.142",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00412_f015747.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 413,
+      "frame_index": 15780,
+      "timestamp_sec": 688.581818,
+      "timestamp": "00:11:28.582",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00413_f015780.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 414,
+      "frame_index": 15845,
+      "timestamp_sec": 691.418182,
+      "timestamp": "00:11:31.418",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00414_f015845.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 415,
+      "frame_index": 15878,
+      "timestamp_sec": 692.858182,
+      "timestamp": "00:11:32.858",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00415_f015878.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 416,
+      "frame_index": 15911,
+      "timestamp_sec": 694.298182,
+      "timestamp": "00:11:34.298",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00416_f015911.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 417,
+      "frame_index": 15943,
+      "timestamp_sec": 695.694545,
+      "timestamp": "00:11:35.695",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00417_f015943.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 418,
+      "frame_index": 15976,
+      "timestamp_sec": 697.134545,
+      "timestamp": "00:11:37.135",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00418_f015976.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 419,
+      "frame_index": 16009,
+      "timestamp_sec": 698.574545,
+      "timestamp": "00:11:38.575",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00419_f016009.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 420,
+      "frame_index": 16074,
+      "timestamp_sec": 701.410909,
+      "timestamp": "00:11:41.411",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00420_f016074.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 421,
+      "frame_index": 16107,
+      "timestamp_sec": 702.850909,
+      "timestamp": "00:11:42.851",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00421_f016107.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 422,
+      "frame_index": 16140,
+      "timestamp_sec": 704.290909,
+      "timestamp": "00:11:44.291",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00422_f016140.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 423,
+      "frame_index": 16173,
+      "timestamp_sec": 705.730909,
+      "timestamp": "00:11:45.731",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00423_f016173.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 424,
+      "frame_index": 16205,
+      "timestamp_sec": 707.127273,
+      "timestamp": "00:11:47.127",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00424_f016205.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 425,
+      "frame_index": 16238,
+      "timestamp_sec": 708.567273,
+      "timestamp": "00:11:48.567",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00425_f016238.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 426,
+      "frame_index": 16304,
+      "timestamp_sec": 711.447273,
+      "timestamp": "00:11:51.447",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00426_f016304.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 427,
+      "frame_index": 16336,
+      "timestamp_sec": 712.843636,
+      "timestamp": "00:11:52.844",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00427_f016336.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 428,
+      "frame_index": 16369,
+      "timestamp_sec": 714.283636,
+      "timestamp": "00:11:54.284",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00428_f016369.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 429,
+      "frame_index": 16402,
+      "timestamp_sec": 715.723636,
+      "timestamp": "00:11:55.724",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00429_f016402.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 430,
+      "frame_index": 16435,
+      "timestamp_sec": 717.163636,
+      "timestamp": "00:11:57.164",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00430_f016435.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 431,
+      "frame_index": 16467,
+      "timestamp_sec": 718.56,
+      "timestamp": "00:11:58.560",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00431_f016467.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 432,
+      "frame_index": 16533,
+      "timestamp_sec": 721.44,
+      "timestamp": "00:12:01.440",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00432_f016533.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 433,
+      "frame_index": 16565,
+      "timestamp_sec": 722.836364,
+      "timestamp": "00:12:02.836",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00433_f016565.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 434,
+      "frame_index": 16598,
+      "timestamp_sec": 724.276364,
+      "timestamp": "00:12:04.276",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00434_f016598.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 435,
+      "frame_index": 16631,
+      "timestamp_sec": 725.716364,
+      "timestamp": "00:12:05.716",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00435_f016631.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 436,
+      "frame_index": 16664,
+      "timestamp_sec": 727.156364,
+      "timestamp": "00:12:07.156",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00436_f016664.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 437,
+      "frame_index": 16696,
+      "timestamp_sec": 728.552727,
+      "timestamp": "00:12:08.553",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00437_f016696.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 438,
+      "frame_index": 16762,
+      "timestamp_sec": 731.432727,
+      "timestamp": "00:12:11.433",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00438_f016762.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 439,
+      "frame_index": 16795,
+      "timestamp_sec": 732.872727,
+      "timestamp": "00:12:12.873",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00439_f016795.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 440,
+      "frame_index": 16827,
+      "timestamp_sec": 734.269091,
+      "timestamp": "00:12:14.269",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00440_f016827.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 441,
+      "frame_index": 16860,
+      "timestamp_sec": 735.709091,
+      "timestamp": "00:12:15.709",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00441_f016860.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 442,
+      "frame_index": 16893,
+      "timestamp_sec": 737.149091,
+      "timestamp": "00:12:17.149",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00442_f016893.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 443,
+      "frame_index": 16926,
+      "timestamp_sec": 738.589091,
+      "timestamp": "00:12:18.589",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00443_f016926.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 444,
+      "frame_index": 16991,
+      "timestamp_sec": 741.425455,
+      "timestamp": "00:12:21.425",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00444_f016991.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 445,
+      "frame_index": 17024,
+      "timestamp_sec": 742.865455,
+      "timestamp": "00:12:22.865",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00445_f017024.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 446,
+      "frame_index": 17057,
+      "timestamp_sec": 744.305455,
+      "timestamp": "00:12:24.305",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00446_f017057.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 447,
+      "frame_index": 17089,
+      "timestamp_sec": 745.701818,
+      "timestamp": "00:12:25.702",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00447_f017089.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 448,
+      "frame_index": 17122,
+      "timestamp_sec": 747.141818,
+      "timestamp": "00:12:27.142",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00448_f017122.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 449,
+      "frame_index": 17155,
+      "timestamp_sec": 748.581818,
+      "timestamp": "00:12:28.582",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00449_f017155.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 450,
+      "frame_index": 17220,
+      "timestamp_sec": 751.418182,
+      "timestamp": "00:12:31.418",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00450_f017220.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 451,
+      "frame_index": 17253,
+      "timestamp_sec": 752.858182,
+      "timestamp": "00:12:32.858",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00451_f017253.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 452,
+      "frame_index": 17286,
+      "timestamp_sec": 754.298182,
+      "timestamp": "00:12:34.298",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00452_f017286.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 453,
+      "frame_index": 17318,
+      "timestamp_sec": 755.694545,
+      "timestamp": "00:12:35.695",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00453_f017318.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 454,
+      "frame_index": 17351,
+      "timestamp_sec": 757.134545,
+      "timestamp": "00:12:37.135",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00454_f017351.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 455,
+      "frame_index": 17384,
+      "timestamp_sec": 758.574545,
+      "timestamp": "00:12:38.575",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00455_f017384.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 456,
+      "frame_index": 17449,
+      "timestamp_sec": 761.410909,
+      "timestamp": "00:12:41.411",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00456_f017449.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 457,
+      "frame_index": 17482,
+      "timestamp_sec": 762.850909,
+      "timestamp": "00:12:42.851",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00457_f017482.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 458,
+      "frame_index": 17515,
+      "timestamp_sec": 764.290909,
+      "timestamp": "00:12:44.291",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00458_f017515.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 459,
+      "frame_index": 17548,
+      "timestamp_sec": 765.730909,
+      "timestamp": "00:12:45.731",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00459_f017548.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 460,
+      "frame_index": 17580,
+      "timestamp_sec": 767.127273,
+      "timestamp": "00:12:47.127",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00460_f017580.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 461,
+      "frame_index": 17613,
+      "timestamp_sec": 768.567273,
+      "timestamp": "00:12:48.567",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00461_f017613.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 462,
+      "frame_index": 17679,
+      "timestamp_sec": 771.447273,
+      "timestamp": "00:12:51.447",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00462_f017679.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 463,
+      "frame_index": 17711,
+      "timestamp_sec": 772.843636,
+      "timestamp": "00:12:52.844",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00463_f017711.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 464,
+      "frame_index": 17744,
+      "timestamp_sec": 774.283636,
+      "timestamp": "00:12:54.284",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00464_f017744.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 465,
+      "frame_index": 17777,
+      "timestamp_sec": 775.723636,
+      "timestamp": "00:12:55.724",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00465_f017777.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 466,
+      "frame_index": 17810,
+      "timestamp_sec": 777.163636,
+      "timestamp": "00:12:57.164",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00466_f017810.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 467,
+      "frame_index": 17842,
+      "timestamp_sec": 778.56,
+      "timestamp": "00:12:58.560",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00467_f017842.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 468,
+      "frame_index": 17908,
+      "timestamp_sec": 781.44,
+      "timestamp": "00:13:01.440",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00468_f017908.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 469,
+      "frame_index": 17940,
+      "timestamp_sec": 782.836364,
+      "timestamp": "00:13:02.836",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00469_f017940.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 470,
+      "frame_index": 17973,
+      "timestamp_sec": 784.276364,
+      "timestamp": "00:13:04.276",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00470_f017973.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 471,
+      "frame_index": 18006,
+      "timestamp_sec": 785.716364,
+      "timestamp": "00:13:05.716",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00471_f018006.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 472,
+      "frame_index": 18039,
+      "timestamp_sec": 787.156364,
+      "timestamp": "00:13:07.156",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00472_f018039.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 473,
+      "frame_index": 18071,
+      "timestamp_sec": 788.552727,
+      "timestamp": "00:13:08.553",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00473_f018071.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 474,
+      "frame_index": 18137,
+      "timestamp_sec": 791.432727,
+      "timestamp": "00:13:11.433",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00474_f018137.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 475,
+      "frame_index": 18170,
+      "timestamp_sec": 792.872727,
+      "timestamp": "00:13:12.873",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00475_f018170.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 476,
+      "frame_index": 18202,
+      "timestamp_sec": 794.269091,
+      "timestamp": "00:13:14.269",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00476_f018202.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 477,
+      "frame_index": 18235,
+      "timestamp_sec": 795.709091,
+      "timestamp": "00:13:15.709",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00477_f018235.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 478,
+      "frame_index": 18268,
+      "timestamp_sec": 797.149091,
+      "timestamp": "00:13:17.149",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00478_f018268.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 479,
+      "frame_index": 18301,
+      "timestamp_sec": 798.589091,
+      "timestamp": "00:13:18.589",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00479_f018301.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 480,
+      "frame_index": 18366,
+      "timestamp_sec": 801.425455,
+      "timestamp": "00:13:21.425",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00480_f018366.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 481,
+      "frame_index": 18399,
+      "timestamp_sec": 802.865455,
+      "timestamp": "00:13:22.865",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00481_f018399.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 482,
+      "frame_index": 18432,
+      "timestamp_sec": 804.305455,
+      "timestamp": "00:13:24.305",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00482_f018432.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 483,
+      "frame_index": 18464,
+      "timestamp_sec": 805.701818,
+      "timestamp": "00:13:25.702",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00483_f018464.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 484,
+      "frame_index": 18497,
+      "timestamp_sec": 807.141818,
+      "timestamp": "00:13:27.142",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00484_f018497.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    },
+    {
+      "sample_index": 485,
+      "frame_index": 18530,
+      "timestamp_sec": 808.581818,
+      "timestamp": "00:13:28.582",
+      "image_path": "C:\\Users\\linas\\Desktop\\cdek\\logs\\extracted_frames_v3_dense\\frame_00485_f018530.jpg",
+      "interval_id": null,
+      "person_ids": [],
+      "comments": []
+    }
+  ]
+}

@@ -961,14 +961,15 @@ if __name__ == "__main__":
 
     # Extract audio from video and upload to bucket: --extract-audio [video_path]
     if len(sys.argv) >= 2 and sys.argv[1] == "--extract-audio":
-        video_path = Path(sys.argv[2]) if len(sys.argv) > 2 else Path(__file__).resolve().parent / "data" / "video_from_bucket.webm"
+        _root = Path(__file__).resolve().parent.parent
+        video_path = Path(sys.argv[2]) if len(sys.argv) > 2 else _root / "data" / "video_from_bucket.webm"
         if not video_path.is_file():
             logger.error("Video not found: %s", video_path)
             sys.exit(1)
         result = extract_audio_from_video_to_bucket(
             video_path,
             prefix="audio_files",
-            local_dir=Path(__file__).resolve().parent / "data",
+            local_dir=_root / "data",
         )
         if result.get("status") == "uploaded":
             print("=== Audio extracted and uploaded to bucket ===")
@@ -986,7 +987,7 @@ if __name__ == "__main__":
     if len(sys.argv) > 1:
         media_path = Path(sys.argv[1])
     else:
-        data_dir = Path(__file__).resolve().parent / "data"
+        data_dir = Path(__file__).resolve().parent.parent / "data"
         candidates = list(data_dir.glob("*.ogg")) + list(data_dir.glob("*.opus"))
         if not candidates:
             video = data_dir / "video_from_bucket.webm"

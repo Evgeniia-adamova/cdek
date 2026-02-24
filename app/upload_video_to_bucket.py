@@ -1,21 +1,20 @@
 #!/usr/bin/env python
 # coding: utf-8
 """
-Upload a local video file to Yandex Object Storage using existing speech_processor helpers.
-Uses .env for credentials (YANDEX_S3_BUCKET, YANDEX_S3_ACCESS_KEY_ID, YANDEX_S3_SECRET_ACCESS_KEY).
+Upload a local video file to Yandex Object Storage.
+Uses .env for credentials. Default video: project root video2.webm.
 
-Usage:
-    python upload_video_to_bucket.py [path/to/video.webm]
-    Default: video2.webm in the same folder as this script.
+Usage (from project root):
+    python -m app.upload_video_to_bucket [path/to/video.webm]
 """
-
 import os
 import sys
 from pathlib import Path
 
-# Project root = folder containing this script
-SCRIPT_DIR = Path(__file__).resolve().parent
-DEFAULT_VIDEO = SCRIPT_DIR / "video2.webm"
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+DEFAULT_VIDEO = PROJECT_ROOT / "video2.webm"
 
 
 def main():
@@ -25,17 +24,14 @@ def main():
         print(f"Error: file not found: {video_path}")
         sys.exit(1)
 
-    from speech_processor import (
+    from app.speech_processor import (
         create_yandex_s3_client_from_env,
         ENV_YANDEX_BUCKET,
         SpeechProcessor,
     )
 
-    # Connect using env (loads .env if python-dotenv installed)
     s3_client = create_yandex_s3_client_from_env()
     bucket = os.environ[ENV_YANDEX_BUCKET]
-
-    # Use SpeechProcessor's upload_video_file (same bucket/code path as voice)
     processor = SpeechProcessor(
         folder_id="",
         api_key="",

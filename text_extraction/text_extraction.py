@@ -1,20 +1,6 @@
-#!/usr/bin/env python
-# coding: utf-8
 """
-Transcribe audio to text using OpenAI Whisper (runs locally, no API key).
-Outputs plain text and timestamped segments (JSON + readable .timestamped.txt).
-
-Usage:
-    pip install openai-whisper
-    python transcribe_audio_whisper.py [path_to_audio]
-    Default audio: data/video_from_bucket_audio.ogg
-
-Output:
-    - <stem>.txt          : full text only
-    - <stem>_segments.json: segments with start, end, text (for diarization/sentiment)
-    - <stem>.timestamped.txt: human-readable [HH:MM:SS.mmm - HH:MM:SS.mmm] text
+Text extraction module: transcribe audio to text (Whisper).
 """
-
 import json
 import sys
 from pathlib import Path
@@ -75,10 +61,7 @@ def transcribe(
             encoding="utf-8",
         )
         out_ts_txt = base.parent / f"{base.name}.timestamped.txt"
-        lines = []
-        for s in segments:
-            line = f"[{_format_ts(s['start'])} - {_format_ts(s['end'])}] {s['text']}"
-            lines.append(line)
+        lines = [f"[{_format_ts(s['start'])} - {_format_ts(s['end'])}] {s['text']}" for s in segments]
         out_ts_txt.write_text("\n".join(lines), encoding="utf-8")
 
     return {
@@ -90,7 +73,7 @@ def transcribe(
 
 
 def main() -> int:
-    script_dir = Path(__file__).resolve().parent
+    script_dir = Path(__file__).resolve().parent.parent  # project root
     default_audio = script_dir / "data" / "video_from_bucket_audio.ogg"
 
     if len(sys.argv) > 1:
@@ -100,7 +83,7 @@ def main() -> int:
 
     if not audio_path.is_file():
         print(f"Error: audio file not found: {audio_path}", file=sys.stderr)
-        print("Usage: python transcribe_audio_whisper.py [path_to_audio]", file=sys.stderr)
+        print("Usage: python -m text_extraction.text_extraction [path_to_audio]", file=sys.stderr)
         return 1
 
     print("Loading Whisper model (base)...")
@@ -115,12 +98,8 @@ def main() -> int:
     print("Output file:", result["output_path"])
     if result.get("segments"):
         seg_path = audio_path.parent / f"{audio_path.stem}_segments.json"
-        ts_path = audio_path.parent / f"{audio_path.stem}.timestamped.txt"
         print("Segments (JSON):", seg_path)
-        print("Timestamped txt:", ts_path)
     print("Text length:", len(result["text"]), "chars")
-    print("\n--- Text ---")
-    print(result["text"])
     return 0
 
 

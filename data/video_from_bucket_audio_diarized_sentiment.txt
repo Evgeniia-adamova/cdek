@@ -1,0 +1,456 @@
+[0.0s - 5.0s] client: Здравствуйте.
+  sentiment: unknown (0.00)
+[5.0s - 8.0s] company_representative: Здравствуйте. Подскажите, пожалуйста, меня хорошо видно
+  sentiment: unknown (0.00)
+[8.0s - 11.0s] client: слышно?
+  sentiment: unknown (0.00)
+[11.0s - 17.0s] company_representative: Алло, Елена.
+  sentiment: unknown (0.00)
+[17.0s - 26.6s] client: Елена, подскажите, меня хорошо слышно?
+  sentiment: unknown (0.00)
+[26.6s - 33.6s] company_representative: Алло.
+  sentiment: unknown (0.00)
+[33.6s - 36.6s] client: Алло.
+  sentiment: unknown (0.00)
+[36.6s - 43.6s] company_representative: Так выключено.
+  sentiment: unknown (0.00)
+[43.6s - 48.6s] client: Так у меня есть.
+  sentiment: unknown (0.00)
+[48.6s - 55.6s] company_representative: Мишка.
+  sentiment: unknown (0.00)
+[55.6s - 66.6s] client: Елена, подскажите, пожалуйста, слышите меня?
+  sentiment: unknown (0.00)
+[66.6s - 70.6s] company_representative: Меня хорошо слышно?
+  sentiment: unknown (0.00)
+[70.6s - 73.6s] client: Все, замечательно.
+  sentiment: unknown (0.00)
+[73.6s - 76.6s] company_representative: Теперь тоже вас услышало.
+  sentiment: unknown (0.00)
+[76.6s - 80.6s] client: Так, подскажите, пожалуйста.
+  sentiment: unknown (0.00)
+[80.6s - 83.6s] company_representative: Как вам будет комфортнее, чтобы вы подключили демонстрацию
+  sentiment: unknown (0.00)
+[83.6s - 86.6s] client: или меня подключить?
+  sentiment: unknown (0.00)
+[86.6s - 92.6s] company_representative: Вы подключите, пожалуйста.
+  sentiment: unknown (0.00)
+[92.6s - 99.6s] client: Ммм, буквально секундочку.
+  sentiment: unknown (0.00)
+[99.6s - 109.6s] company_representative: Ммм.
+  sentiment: unknown (0.00)
+[109.6s - 113.6s] client: Так, мы сами сегодня будем рассматривать ваш личный кабинет.
+  sentiment: unknown (0.00)
+[113.6s - 117.6s] company_representative: На всякий случай представлюсь меня зовут Полина.
+  sentiment: unknown (0.00)
+[118.6s - 121.6s] client: Как мы входим в первую очередь в личный кабинет?
+  sentiment: unknown (0.00)
+[121.6s - 125.6s] company_representative: Здесь необходимо нам в своем вести логин, либо има, ваш логин.
+  sentiment: unknown (0.00)
+[125.6s - 133.6s] client: Это ваш номер договора.
+  sentiment: unknown (0.00)
+[133.6s - 136.6s] company_representative: Далее, соответственно, вы вставляете не помню пароль.
+  sentiment: unknown (0.00)
+[136.6s - 138.6s] client: Вот сюда вот кнопочку.
+  sentiment: unknown (0.00)
+[138.6s - 145.6s] company_representative: Чтобы вам пришел пароль для восстановления на почту.
+  sentiment: unknown (0.00)
+[145.6s - 152.6s] client: Я, соответственно, пока покажу на тестом варианте.
+  sentiment: unknown (0.00)
+[152.6s - 159.6s] company_representative: Так, подскажите, пожалуйста, как будете осуществлять поставки?
+  sentiment: unknown (0.00)
+[159.6s - 168.6s] client: Вы продаете через авиты, в интернет-магазин или на маркет-плейсе?
+  sentiment: unknown (0.00)
+[168.6s - 173.6s] company_representative: Поставки не будет.
+  sentiment: unknown (0.00)
+[173.6s - 177.6s] client: Просто на правку патруки через дек будет.
+  sentiment: unknown (0.00)
+[177.6s - 179.6s] company_representative: Черезов, Саран.
+  sentiment: unknown (0.00)
+[179.6s - 181.6s] client: Ммм, все, поняла, правильно?
+  sentiment: unknown (0.00)
+[181.6s - 185.6s] company_representative: Понимаю, что документы хотите отправлять?
+  sentiment: unknown (0.00)
+[185.6s - 187.6s] client: Нет, вещи.
+  sentiment: unknown (0.00)
+[187.6s - 188.6s] company_representative: Ммм, хорошо.
+  sentiment: unknown (0.00)
+[188.6s - 196.6s] client: Когда смотрите вам для вашей доставки, необходимо будет нажать новый заказ.
+  sentiment: unknown (0.00)
+[196.6s - 199.6s] company_representative: Те, что он у нас прогрузится.
+  sentiment: unknown (0.00)
+[199.6s - 203.6s] client: Так как у вас тип договора к у, он называется доставка.
+  sentiment: unknown (0.00)
+[203.6s - 205.6s] company_representative: Далее, соответственно, дополнительный тип.
+  sentiment: unknown (0.00)
+[205.6s - 207.6s] client: Нам здесь выбирать не нужно.
+  sentiment: unknown (0.00)
+[207.6s - 209.6s] company_representative: Кем вы являетесь?
+  sentiment: unknown (0.00)
+[209.6s - 211.6s] client: А правителем, получателем третьей стороной.
+  sentiment: unknown (0.00)
+[211.6s - 215.6s] company_representative: Здесь вы выбираете подходящий для себя вариант.
+  sentiment: unknown (0.00)
+[215.6s - 218.6s] client: То есть, либо вы будете отправлять, либо получать либо третьей стороной.
+  sentiment: unknown (0.00)
+[218.6s - 221.6s] company_representative: То есть, это осуществлять доставку между кем-то.
+  sentiment: unknown (0.00)
+[221.6s - 226.6s] client: Например, между у коллегами, между родственниками и так далее.
+  sentiment: unknown (0.00)
+[226.6s - 230.6s] company_representative: Далее, оплата ставим под договору.
+  sentiment: unknown (0.00)
+[230.6s - 233.6s] client: То есть, чтобы с вашего счета списывалось,
+  sentiment: unknown (0.00)
+[233.6s - 237.6s] company_representative: город отправителя это откуда вы будете отправлять.
+  sentiment: unknown (0.00)
+[237.6s - 241.6s] client: То есть, это либо вы от себя отправляете, либо вам отправляют откуда вы.
+  sentiment: unknown (0.00)
+[241.6s - 244.6s] company_representative: А откуда планируете отправлять?
+  sentiment: unknown (0.00)
+[246.6s - 248.6s] client: Вы сейчас меня спрашиваете?
+  sentiment: unknown (0.00)
+[248.6s - 250.6s] company_representative: Да, спрашиваем.
+  sentiment: unknown (0.00)
+[250.6s - 253.6s] client: Да, на момент город есть синтуки.
+  sentiment: unknown (0.00)
+[253.6s - 255.6s] company_representative: Угу.
+  sentiment: unknown (0.00)
+[261.6s - 264.6s] client: Угу, тес у нас прогрузит.
+  sentiment: unknown (0.00)
+[283.6s - 285.6s] company_representative: Да, секунду.
+  sentiment: unknown (0.00)
+[285.6s - 287.6s] client: Да, секунду.
+  sentiment: unknown (0.00)
+[309.6s - 313.6s] company_representative: Угу, куда отправлять будете?
+  sentiment: unknown (0.00)
+[314.6s - 317.6s] client: Бород ярца-восмоленской области.
+  sentiment: unknown (0.00)
+[322.6s - 323.6s] company_representative: Так, далее.
+  sentiment: unknown (0.00)
+[323.6s - 327.6s] client: Видим, что у нас есть информация об отправителя и ополучателя.
+  sentiment: unknown (0.00)
+[327.6s - 332.6s] company_representative: Отправитель, если вы, то, соответственно, все данные ваши автоматические подтягиваются.
+  sentiment: unknown (0.00)
+[332.6s - 334.6s] client: Получателя нужно будет указывать.
+  sentiment: unknown (0.00)
+[334.6s - 337.6s] company_representative: Если, соответственно, меняем, что вы будете получать,
+  sentiment: unknown (0.00)
+[337.6s - 340.6s] client: а кто-то другой отправляет, то вам, соответственно,
+  sentiment: unknown (0.00)
+[340.6s - 345.6s] company_representative: будет заполнить данные отправителя, а получателям будете выступать вы.
+  sentiment: unknown (0.00)
+[345.6s - 349.6s] client: Получать будет Юр лицо или Физлицо.
+  sentiment: unknown (0.00)
+[349.6s - 351.6s] company_representative: Получателям?
+  sentiment: unknown (0.00)
+[351.6s - 354.6s] client: У Физлицо.
+  sentiment: unknown (0.00)
+[354.6s - 356.6s] company_representative: Угу, хорошо.
+  sentiment: unknown (0.00)
+[356.6s - 361.6s] client: Здесь, соответственно, с вами вводим его ФИО.
+  sentiment: unknown (0.00)
+[361.6s - 363.6s] company_representative: К примеру, Иванов и Иван Иванович.
+  sentiment: unknown (0.00)
+[363.6s - 367.6s] client: Нужно водить ФИО полностью и контактные номер телефона.
+  sentiment: unknown (0.00)
+[367.6s - 371.6s] company_representative: Для того, чтобы в случае необходимости, мы смогли с получателем связаться.
+  sentiment: unknown (0.00)
+[371.6s - 376.6s] client: Далее мы с вами заполняем информацию о грузом месте.
+  sentiment: unknown (0.00)
+[376.6s - 380.6s] company_representative: Что конкретно планируете отправлять?
+  sentiment: unknown (0.00)
+[380.6s - 382.6s] client: Вещи.
+  sentiment: unknown (0.00)
+[382.6s - 385.6s] company_representative: Вещи личного характера, возможно.
+  sentiment: unknown (0.00)
+[385.6s - 387.6s] client: Да.
+  sentiment: unknown (0.00)
+[387.6s - 392.6s] company_representative: Соответственно, здесь мы с вами тогда указываем вес коробки.
+  sentiment: unknown (0.00)
+[392.6s - 396.6s] client: То есть грузоместо этой коробка с вещами внутри.
+  sentiment: unknown (0.00)
+[396.6s - 399.6s] company_representative: Допустим, она будет 21 килограмм.
+  sentiment: unknown (0.00)
+[399.6s - 404.6s] client: Будет, например, 30 на 30 к примеру.
+  sentiment: unknown (0.00)
+[404.6s - 407.6s] company_representative: Далее, описание груза.
+  sentiment: unknown (0.00)
+[407.6s - 411.6s] client: Здесь мы заполняем максимально подробно.
+  sentiment: unknown (0.00)
+[411.6s - 416.6s] company_representative: То есть, селищные вещи, например.
+  sentiment: unknown (0.00)
+[416.6s - 418.6s] client: Где же то?
+  sentiment: unknown (0.00)
+[418.6s - 421.6s] company_representative: Сезонное зимнее.
+  sentiment: unknown (0.00)
+[421.6s - 423.6s] client: Вот так вот.
+  sentiment: unknown (0.00)
+[423.6s - 426.6s] company_representative: Для чего это необходимо, чтобы в случае,
+  sentiment: unknown (0.00)
+[426.6s - 429.6s] client: а если вдруг с грузом что-то случилось,
+  sentiment: unknown (0.00)
+[429.6s - 433.6s] company_representative: чтобы мы смогли его идентифицировать, что это действительно ваш груз.
+  sentiment: unknown (0.00)
+[433.6s - 436.6s] client: Далее мы сохраняем изменение.
+  sentiment: unknown (0.00)
+[436.6s - 441.6s] company_representative: Видим, что у нас здесь с вами при необходимости также указывается объемный вес.
+  sentiment: unknown (0.00)
+[441.6s - 444.6s] client: Оплаты всегда считаются по объемному весу,
+  sentiment: unknown (0.00)
+[444.6s - 446.6s] company_representative: то есть по большему весу.
+  sentiment: unknown (0.00)
+[446.6s - 450.6s] client: Это тот максимум, который может уместиться в эту коробку.
+  sentiment: unknown (0.00)
+[450.6s - 452.6s] company_representative: Далее мы с вами соответственно выбираем тарифы.
+  sentiment: unknown (0.00)
+[452.6s - 455.6s] client: Здесь у нас есть два варианта.
+  sentiment: unknown (0.00)
+[455.6s - 457.6s] company_representative: Откуда и куда? Откуда?
+  sentiment: unknown (0.00)
+[457.6s - 461.6s] client: Принести в ПВЗ либо заберет курьер.
+  sentiment: unknown (0.00)
+[461.6s - 465.6s] company_representative: Принести в ПВЗ это вы относите коробку в ПВЗ.
+  sentiment: unknown (0.00)
+[465.6s - 468.6s] client: Там, допустим, если вы не уверены в габаритах и в весе,
+  sentiment: unknown (0.00)
+[468.6s - 471.6s] company_representative: и делай еще раз перемиряю.
+  sentiment: unknown (0.00)
+[471.6s - 474.6s] client: И соответственно, вносит изменение.
+  sentiment: unknown (0.00)
+[474.6s - 477.6s] company_representative: Если курьер, то соответственно к вам курьер приезжает на адрес,
+  sentiment: unknown (0.00)
+[477.6s - 479.6s] client: чтобы забрать в этот груз.
+  sentiment: unknown (0.00)
+[479.6s - 483.6s] company_representative: Также куда доставить ПВЗ по стамат курьером?
+  sentiment: unknown (0.00)
+[483.6s - 486.6s] client: Тут как получать у любудет комфортнее.
+  sentiment: unknown (0.00)
+[486.6s - 488.6s] company_representative: То есть либо также ПВЗ либо курьером.
+  sentiment: unknown (0.00)
+[488.6s - 492.6s] client: По стаматы принимают не все габариты грузов.
+  sentiment: unknown (0.00)
+[492.6s - 495.6s] company_representative: То есть здесь нужно будет это учитывать.
+  sentiment: unknown (0.00)
+[496.6s - 500.6s] client: Самый оптимальный вариант для нас сейчас это express склад склад.
+  sentiment: unknown (0.00)
+[500.6s - 503.6s] company_representative: Соответственно, здесь он идет 6 дней
+  sentiment: unknown (0.00)
+[503.6s - 506.6s] client: и самый оптимальный по цене для нас.
+  sentiment: unknown (0.00)
+[507.6s - 512.6s] company_representative: Далее, соответственно, дополнительные услуги, если они вам необходимо.
+  sentiment: unknown (0.00)
+[512.6s - 517.6s] client: Это внутреннее ближатка, сама коробка, стрыч, пленка, пупырка.
+  sentiment: unknown (0.00)
+[519.6s - 522.6s] company_representative: То есть здесь по необходимости заполняете.
+  sentiment: unknown (0.00)
+[522.6s - 529.6s] client: Если вам это ничего не нужно, то соответственно ничего далее не добавляем.
+  sentiment: unknown (0.00)
+[531.6s - 533.6s] company_representative: Информация об отправлении.
+  sentiment: unknown (0.00)
+[533.6s - 536.6s] client: Здесь вы можете посмотреть ли себя ближайшие ПВЗ,
+  sentiment: unknown (0.00)
+[536.6s - 539.6s] company_representative: где вам будет комфортнее куда отнести.
+  sentiment: unknown (0.00)
+[539.6s - 544.6s] client: Также пункты куда доставляем, здесь можно выбрать конкретный адрес.
+  sentiment: unknown (0.00)
+[547.6s - 550.6s] company_representative: Принести в ПВЗ можно любой.
+  sentiment: unknown (0.00)
+[550.6s - 553.6s] client: Забрать можно будет только из какого-то конкретного ПВЗ.
+  sentiment: unknown (0.00)
+[553.6s - 557.6s] company_representative: Если это крупный габаритный груз, то соответственно, допустим,
+  sentiment: unknown (0.00)
+[557.6s - 560.6s] client: более 35 килограмм, то нужно будет проверять.
+  sentiment: unknown (0.00)
+[560.6s - 562.6s] company_representative: Может ли ПВЗ принять такой груз?
+  sentiment: unknown (0.00)
+[562.6s - 564.6s] client: То есть здесь в видне весто 100 килограмм.
+  sentiment: unknown (0.00)
+[564.6s - 567.6s] company_representative: Соответственно, более 35 он точно примет.
+  sentiment: unknown (0.00)
+[568.6s - 570.6s] client: Его соответственно выбираем.
+  sentiment: unknown (0.00)
+[570.6s - 573.6s] company_representative: Всё, по факту, вот наша накладная создана.
+  sentiment: unknown (0.00)
+[574.6s - 579.6s] client: Тлотюшки, тебе на голову в таком доме и вскопировали,
+  sentiment: unknown (0.00)
+[579.6s - 581.6s] company_representative: как обеспечали.
+  sentiment: unknown (0.00)
+[581.6s - 583.6s] client: Здесь выставки.
+  sentiment: unknown (0.00)
+[583.6s - 585.6s] company_representative: Я про голову в одной тлотюшки, всяко ведомости.
+  sentiment: unknown (0.00)
+[585.6s - 587.6s] client: Леньше, без зата-платы, пока вы козлили.
+  sentiment: unknown (0.00)
+[587.6s - 588.6s] company_representative: Алло, Полинг.
+  sentiment: unknown (0.00)
+[588.6s - 590.6s] client: Да, я вас слышу.
+  sentiment: unknown (0.00)
+[590.6s - 594.6s] company_representative: Скажите, а вот данный момент я могу туда-то накладную создать на месте,
+  sentiment: unknown (0.00)
+[594.6s - 596.6s] client: когда я до веду.
+  sentiment: unknown (0.00)
+[596.6s - 597.6s] company_representative: Да, да.
+  sentiment: unknown (0.00)
+[597.6s - 602.6s] client: В случае необходимости вы соответственно также переходите на сайт,
+  sentiment: unknown (0.00)
+[602.6s - 605.6s] company_representative: с телефона, вместе с коллегами,
+  sentiment: unknown (0.00)
+[605.6s - 607.6s] client: из ПВЗ можно это создать.
+  sentiment: unknown (0.00)
+[607.6s - 609.6s] company_representative: Либо, соответственно, также с нами на связи,
+  sentiment: unknown (0.00)
+[609.6s - 613.6s] client: через нашу с вами переписку в мессенджере.
+  sentiment: unknown (0.00)
+[615.6s - 616.6s] company_representative: Ихи такой вопрос.
+  sentiment: unknown (0.00)
+[616.6s - 620.6s] client: Смотрите, я, если у меня положила насчёт сумму.
+  sentiment: unknown (0.00)
+[620.6s - 621.6s] company_representative: Вот.
+  sentiment: unknown (0.00)
+[621.6s - 625.6s] client: А она сразу приходит для людей, что они там искали.
+  sentiment: unknown (0.00)
+[625.6s - 629.6s] company_representative: В течение трёх дней, но в любом случае вы уже сейчас можете
+  sentiment: unknown (0.00)
+[629.6s - 632.6s] client: составлять накладные и соответственно отправлять.
+  sentiment: unknown (0.00)
+[632.6s - 635.6s] company_representative: То есть я могу сегодня сходить, отправить,
+  sentiment: unknown (0.00)
+[635.6s - 638.6s] client: да, потом автоматом там всё спишется.
+  sentiment: unknown (0.00)
+[638.6s - 639.6s] company_representative: Да, да, спишется.
+  sentiment: unknown (0.00)
+[639.6s - 640.6s] client: Попробуйте денег с лошади.
+  sentiment: unknown (0.00)
+[640.6s - 643.6s] company_representative: Смотрите, что очень важно.
+  sentiment: unknown (0.00)
+[643.6s - 645.6s] client: Списывается, она только при вручении игру,
+  sentiment: unknown (0.00)
+[645.6s - 647.6s] company_representative: то есть как только груз будет вручен.
+  sentiment: unknown (0.00)
+[647.6s - 650.6s] client: Здесь у нас с вами доставка будет идти шейз дней.
+  sentiment: unknown (0.00)
+[652.6s - 654.6s] company_representative: Соответственно, только через шейз дней
+  sentiment: unknown (0.00)
+[654.6s - 657.6s] client: будет это списание после того, как человек его получит.
+  sentiment: unknown (0.00)
+[658.6s - 659.6s] company_representative: Влекалепно.
+  sentiment: unknown (0.00)
+[659.6s - 663.6s] client: А вот я сейчас когда сдам груст,
+  sentiment: unknown (0.00)
+[663.6s - 665.6s] company_representative: я уже буду знать на какую сумму, да?
+  sentiment: unknown (0.00)
+[665.6s - 666.6s] client: Какая сумма спишется?
+  sentiment: unknown (0.00)
+[666.6s - 667.6s] company_representative: Да.
+  sentiment: unknown (0.00)
+[667.6s - 669.6s] client: Если, например, кажется, она будет больше,
+  sentiment: unknown (0.00)
+[669.6s - 670.6s] company_representative: я должна буду дополнить.
+  sentiment: unknown (0.00)
+[672.6s - 676.6s] client: Смотрите, если она выйдет более того аванса,
+  sentiment: unknown (0.00)
+[676.6s - 678.6s] company_representative: который вы ранее в насилие,
+  sentiment: unknown (0.00)
+[678.6s - 680.6s] client: если не ошибаюсь, то это 490,
+  sentiment: unknown (0.00)
+[680.6s - 681.6s] company_representative: она сили, верно?
+  sentiment: unknown (0.00)
+[682.6s - 683.6s] client: Ну да.
+  sentiment: unknown (0.00)
+[683.6s - 685.6s] company_representative: Вот, соответственно, если больше этого,
+  sentiment: unknown (0.00)
+[685.6s - 689.6s] client: то, соответственно, да, нужно будет еще направить остатки.
+  sentiment: unknown (0.00)
+[689.6s - 691.6s] company_representative: Но я не думаю, что будет.
+  sentiment: unknown (0.00)
+[691.6s - 692.6s] client: Смотрите, что это было.
+  sentiment: unknown (0.00)
+[694.6s - 696.6s] company_representative: Соответственно, в любом случае,
+  sentiment: unknown (0.00)
+[696.6s - 700.6s] client: если вдруг вы хотите еще допустим положить средства,
+  sentiment: unknown (0.00)
+[700.6s - 702.6s] company_representative: в независимости от того,
+  sentiment: unknown (0.00)
+[702.6s - 704.6s] client: что у вас есть сейчас, вы также можете написать нам.
+  sentiment: unknown (0.00)
+[704.6s - 706.6s] company_representative: Раз неделю составляются счита,
+  sentiment: unknown (0.00)
+[706.6s - 709.6s] client: соответственно, направляются вам на почту для оплаты.
+  sentiment: unknown (0.00)
+[712.6s - 713.6s] company_representative: Понял.
+  sentiment: unknown (0.00)
+[713.6s - 714.6s] client: Не срез.
+  sentiment: unknown (0.00)
+[714.6s - 715.6s] company_representative: Вы положите, чтобы они там лежали.
+  sentiment: unknown (0.00)
+[717.6s - 718.6s] client: Поняла, поняла.
+  sentiment: unknown (0.00)
+[719.6s - 722.6s] company_representative: Подскажите, пожалуйста, есть ли еще
+  sentiment: unknown (0.00)
+[722.6s - 724.6s] client: какой-то вопрос по личному кабинету?
+  sentiment: unknown (0.00)
+[726.6s - 727.6s] company_representative: Нет.
+  sentiment: unknown (0.00)
+[727.6s - 728.6s] client: Спасибо.
+  sentiment: unknown (0.00)
+[728.6s - 730.6s] company_representative: Когда, смотрите, еще пару моментов.
+  sentiment: unknown (0.00)
+[730.6s - 733.6s] client: Когда мы с вами создаем накладную,
+  sentiment: unknown (0.00)
+[733.6s - 736.6s] company_representative: после этого у нас появляется списки заказов,
+  sentiment: unknown (0.00)
+[736.6s - 738.6s] client: номер нашего отправления,
+  sentiment: unknown (0.00)
+[738.6s - 741.6s] company_representative: и, соответственно, можно распечатать накладную и штрих код.
+  sentiment: unknown (0.00)
+[741.6s - 744.6s] client: Все на отправление всегда должны быть проморокированы.
+  sentiment: unknown (0.00)
+[744.6s - 746.6s] company_representative: Если пойдете, соответственно, составляйте ПВЗ,
+  sentiment: unknown (0.00)
+[746.6s - 748.6s] client: вы можете прямо там коллег попросить,
+  sentiment: unknown (0.00)
+[748.6s - 751.6s] company_representative: распечатать и штрих код и накладную.
+  sentiment: unknown (0.00)
+[751.6s - 753.6s] client: Также, соответственно, очень важно просить их
+  sentiment: unknown (0.00)
+[753.6s - 755.6s] company_representative: при необходимости перемирять груст.
+  sentiment: unknown (0.00)
+[755.6s - 757.6s] client: То есть это взвесить его еще раз
+  sentiment: unknown (0.00)
+[757.6s - 760.6s] company_representative: и сравнить губориты верные или вы указали заранее.
+  sentiment: unknown (0.00)
+[761.6s - 762.6s] client: Вот этот номер вашего заказа
+  sentiment: unknown (0.00)
+[762.6s - 765.6s] company_representative: это по факту номер накладной и номер отправления.
+  sentiment: unknown (0.00)
+[767.6s - 769.6s] client: Если будут какие-то вопросы, вы его спокойно копируете
+  sentiment: unknown (0.00)
+[769.6s - 771.6s] company_representative: и можете писать нам в мессеншер.
+  sentiment: unknown (0.00)
+[771.6s - 773.6s] client: Там, допустим, не совсем понимаю,
+  sentiment: unknown (0.00)
+[773.6s - 775.6s] company_representative: где находится мое отправление, например.
+  sentiment: unknown (0.00)
+[776.6s - 779.6s] client: Или если нужно внести какие-то корректировки.
+  sentiment: unknown (0.00)
+[782.6s - 783.6s] company_representative: С его поняла, хорошо.
+  sentiment: unknown (0.00)
+[784.6s - 786.6s] client: Замечательно тогда, Елена.
+  sentiment: unknown (0.00)
+[786.6s - 788.6s] company_representative: Если будут еще какие-то вопросы возникает,
+  sentiment: unknown (0.00)
+[788.6s - 790.6s] client: будем ожидать их у нас в мессеншере.
+  sentiment: unknown (0.00)
+[790.6s - 791.6s] company_representative: Так говорились?
+  sentiment: unknown (0.00)
+[792.6s - 793.6s] client: Моговорились.
+  sentiment: unknown (0.00)
+[794.6s - 795.6s] company_representative: Замечательно тогда.
+  sentiment: unknown (0.00)
+[796.6s - 798.6s] client: Спасибо вам, что подключились.
+  sentiment: unknown (0.00)
+[798.6s - 800.6s] company_representative: Тогда хорошего дня и удачной отправки.
+  sentiment: unknown (0.00)
+[802.6s - 803.6s] client: Почти от свидания.
+  sentiment: unknown (0.00)
+[803.6s - 804.6s] company_representative: До свидания.
+  sentiment: unknown (0.00)
