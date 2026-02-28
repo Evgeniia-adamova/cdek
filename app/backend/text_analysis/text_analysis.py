@@ -97,13 +97,15 @@ def run_sentiment_ru(text: str) -> Dict[str, Any]:
         model = AutoModelForSequenceClassification.from_pretrained(model_name)
     except Exception as e:
         return {"label": "unknown", "score": 0.0, "error": str(e)}
-    labels = ["negative", "neutral", "positive"]
+    # Model id2label: 0=NEUTRAL, 1=POSITIVE, 2=NEGATIVE (use config, not hardcoded order)
+    id2label = {int(k): v for k, v in model.config.id2label.items()}
     inputs = tokenizer(text[:512], return_tensors="pt", truncation=True, padding=True, max_length=512)
     with torch.no_grad():
         logits = model(**inputs).logits
     probs = torch.softmax(logits, dim=1).numpy()[0]
     idx = int(probs.argmax())
-    return {"label": labels[idx], "score": float(probs[idx])}
+    label = id2label.get(idx, "unknown").lower()
+    return {"label": label, "score": float(probs[idx])}
 
 
 def run_diarize_sentiment(

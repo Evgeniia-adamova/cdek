@@ -1,0 +1,3 @@
+# Core for sentiment (text_analysis.py: ruBERT)
+torch>=2.0.0
+transformers>=4.30.0
