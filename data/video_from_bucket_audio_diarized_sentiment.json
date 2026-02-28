@@ -7,9 +7,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9766008853912354
       }
     },
     {
@@ -19,9 +18,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9958606362342834
       }
     },
     {
@@ -31,9 +29,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9948403239250183
       }
     },
     {
@@ -43,9 +40,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9893306493759155
       }
     },
     {
@@ -55,9 +51,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9949266910552979
       }
     },
     {
@@ -67,9 +62,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9898333549499512
       }
     },
     {
@@ -79,9 +73,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9898333549499512
       }
     },
     {
@@ -91,9 +84,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.988409161567688
       }
     },
     {
@@ -103,9 +95,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9701094031333923
       }
     },
     {
@@ -115,9 +106,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9903128147125244
       }
     },
     {
@@ -127,9 +117,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9962766766548157
       }
     },
     {
@@ -139,9 +128,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9942163228988647
       }
     },
     {
@@ -151,9 +139,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "positive",
+        "score": 0.9950152039527893
       }
     },
     {
@@ -163,9 +150,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9554455280303955
       }
     },
     {
@@ -175,9 +161,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9958158135414124
       }
     },
     {
@@ -187,9 +172,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9398321509361267
       }
     },
     {
@@ -199,9 +183,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9953340888023376
       }
     },
     {
@@ -211,9 +194,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.995091438293457
       }
     },
     {
@@ -223,9 +205,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9624468684196472
       }
     },
     {
@@ -235,9 +216,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.6219484210014343
       }
     },
     {
@@ -247,9 +227,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9952099919319153
       }
     },
     {
@@ -259,9 +238,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9749910831451416
       }
     },
     {
@@ -271,9 +249,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9960749745368958
       }
     },
     {
@@ -283,9 +260,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9962520003318787
       }
     },
     {
@@ -295,9 +271,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9945800304412842
       }
     },
     {
@@ -307,9 +282,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9822652339935303
       }
     },
     {
@@ -319,9 +293,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9778261184692383
       }
     },
     {
@@ -331,9 +304,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9944844841957092
       }
     },
     {
@@ -343,9 +315,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9954285621643066
       }
     },
     {
@@ -355,9 +326,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9965099692344666
       }
     },
     {
@@ -367,9 +337,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9962713718414307
       }
     },
     {
@@ -379,9 +348,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.5732754468917847
       }
     },
     {
@@ -391,9 +359,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9924148917198181
       }
     },
     {
@@ -403,9 +370,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9959855675697327
       }
     },
     {
@@ -415,9 +381,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9757773876190186
       }
     },
     {
@@ -427,9 +392,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9957103729248047
       }
     },
     {
@@ -439,9 +403,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9876085519790649
       }
     },
     {
@@ -451,9 +414,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "positive",
+        "score": 0.9873316884040833
       }
     },
     {
@@ -463,9 +425,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9955470561981201
       }
     },
     {
@@ -475,9 +436,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9936984777450562
       }
     },
     {
@@ -487,9 +447,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9949072003364563
       }
     },
     {
@@ -499,9 +458,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9956114888191223
       }
     },
     {
@@ -511,9 +469,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.8455191850662231
       }
     },
     {
@@ -523,9 +480,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9963944554328918
       }
     },
     {
@@ -535,9 +491,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9930387139320374
       }
     },
     {
@@ -547,9 +502,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9949846267700195
       }
     },
     {
@@ -559,9 +513,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.99436354637146
       }
     },
     {
@@ -571,9 +524,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.994441568851471
       }
     },
     {
@@ -583,9 +535,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9946489930152893
       }
     },
     {
@@ -595,9 +546,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9889012575149536
       }
     },
     {
@@ -607,9 +557,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.991479218006134
       }
     },
     {
@@ -619,9 +568,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9953694939613342
       }
     },
     {
@@ -631,9 +579,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9936681389808655
       }
     },
     {
@@ -643,9 +590,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9956140518188477
       }
     },
     {
@@ -655,9 +601,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9958335161209106
       }
     },
     {
@@ -667,9 +612,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9941926598548889
       }
     },
     {
@@ -679,9 +623,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9924926161766052
       }
     },
     {
@@ -691,9 +634,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9816633462905884
       }
     },
     {
@@ -703,9 +645,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9775746464729309
       }
     },
     {
@@ -715,9 +656,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9897137880325317
       }
     },
     {
@@ -727,9 +667,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9897137880325317
       }
     },
     {
@@ -739,9 +678,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9957771301269531
       }
     },
     {
@@ -751,9 +689,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9941747784614563
       }
     },
     {
@@ -763,9 +700,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9952661991119385
       }
     },
     {
@@ -775,9 +711,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.98097163438797
       }
     },
     {
@@ -787,9 +722,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9924774765968323
       }
     },
     {
@@ -799,9 +733,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9944203495979309
       }
     },
     {
@@ -811,9 +744,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9947953820228577
       }
     },
     {
@@ -823,9 +755,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9920831918716431
       }
     },
     {
@@ -835,9 +766,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9957356452941895
       }
     },
     {
@@ -847,9 +777,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9950449466705322
       }
     },
     {
@@ -859,9 +788,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9931146502494812
       }
     },
     {
@@ -871,9 +799,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9925950169563293
       }
     },
     {
@@ -883,9 +810,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "positive",
+        "score": 0.8435642719268799
       }
     },
     {
@@ -895,9 +821,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9958212375640869
       }
     },
     {
@@ -907,9 +832,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9915705919265747
       }
     },
     {
@@ -919,9 +843,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9967690706253052
       }
     },
     {
@@ -931,9 +854,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.995391845703125
       }
     },
     {
@@ -943,9 +865,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9960387945175171
       }
     },
     {
@@ -955,9 +876,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9961733222007751
       }
     },
     {
@@ -967,9 +887,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9904929995536804
       }
     },
     {
@@ -979,9 +898,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.993870735168457
       }
     },
     {
@@ -991,9 +909,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.981346070766449
       }
     },
     {
@@ -1003,9 +920,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9951932430267334
       }
     },
     {
@@ -1015,9 +931,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9921404719352722
       }
     },
     {
@@ -1027,9 +942,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9936718940734863
       }
     },
     {
@@ -1039,9 +953,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9894306659698486
       }
     },
     {
@@ -1051,9 +964,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9960557222366333
       }
     },
     {
@@ -1063,9 +975,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9953992962837219
       }
     },
     {
@@ -1075,9 +986,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9943922162055969
       }
     },
     {
@@ -1087,9 +997,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9958893656730652
       }
     },
     {
@@ -1099,9 +1008,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9921903014183044
       }
     },
     {
@@ -1111,9 +1019,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9916965961456299
       }
     },
     {
@@ -1123,9 +1030,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9954668283462524
       }
     },
     {
@@ -1135,9 +1041,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9963500499725342
       }
     },
     {
@@ -1147,9 +1052,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9937155842781067
       }
     },
     {
@@ -1159,9 +1063,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9925198554992676
       }
     },
     {
@@ -1171,9 +1074,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9956238865852356
       }
     },
     {
@@ -1183,9 +1085,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9961140155792236
       }
     },
     {
@@ -1195,9 +1096,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9772945642471313
       }
     },
     {
@@ -1207,9 +1107,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9807286858558655
       }
     },
     {
@@ -1219,9 +1118,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9948807954788208
       }
     },
     {
@@ -1231,9 +1129,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9957882761955261
       }
     },
     {
@@ -1243,9 +1140,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9952646493911743
       }
     },
     {
@@ -1255,9 +1151,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9961472749710083
       }
     },
     {
@@ -1267,9 +1162,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9953946471214294
       }
     },
     {
@@ -1279,9 +1173,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9952309727668762
       }
     },
     {
@@ -1291,9 +1184,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9808741211891174
       }
     },
     {
@@ -1303,9 +1195,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9941415190696716
       }
     },
     {
@@ -1315,9 +1206,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9949576258659363
       }
     },
     {
@@ -1327,9 +1217,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9961295127868652
       }
     },
     {
@@ -1339,9 +1228,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9965117573738098
       }
     },
     {
@@ -1351,9 +1239,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.5057151317596436
       }
     },
     {
@@ -1363,9 +1250,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9923375248908997
       }
     },
     {
@@ -1375,9 +1261,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9900979399681091
       }
     },
     {
@@ -1387,9 +1272,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9912523627281189
       }
     },
     {
@@ -1399,9 +1283,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9724879264831543
       }
     },
     {
@@ -1411,9 +1294,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9957014918327332
       }
     },
     {
@@ -1423,9 +1305,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9882870316505432
       }
     },
     {
@@ -1435,9 +1316,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9941056966781616
       }
     },
     {
@@ -1447,9 +1327,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9919257760047913
       }
     },
     {
@@ -1459,9 +1338,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9875450730323792
       }
     },
     {
@@ -1471,9 +1349,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.6566311717033386
       }
     },
     {
@@ -1483,9 +1360,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9960986375808716
       }
     },
     {
@@ -1495,9 +1371,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9964908957481384
       }
     },
     {
@@ -1507,9 +1382,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9265853762626648
       }
     },
     {
@@ -1519,9 +1393,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9951854348182678
       }
     },
     {
@@ -1531,9 +1404,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.99354088306427
       }
     },
     {
@@ -1543,9 +1415,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9956744313240051
       }
     },
     {
@@ -1555,9 +1426,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9957996010780334
       }
     },
     {
@@ -1567,9 +1437,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9959456324577332
       }
     },
     {
@@ -1579,9 +1448,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9963775277137756
       }
     },
     {
@@ -1591,9 +1459,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.994858980178833
       }
     },
     {
@@ -1603,9 +1470,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9837700128555298
       }
     },
     {
@@ -1615,9 +1481,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9957689046859741
       }
     },
     {
@@ -1627,9 +1492,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9693487286567688
       }
     },
     {
@@ -1639,9 +1503,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "negative",
+        "score": 0.6846334338188171
       }
     },
     {
@@ -1651,9 +1514,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9743766188621521
       }
     },
     {
@@ -1663,9 +1525,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9933881759643555
       }
     },
     {
@@ -1675,9 +1536,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9919224977493286
       }
     },
     {
@@ -1687,9 +1547,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "negative",
+        "score": 0.883162260055542
       }
     },
     {
@@ -1699,9 +1558,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9947691559791565
       }
     },
     {
@@ -1711,9 +1569,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9811742305755615
       }
     },
     {
@@ -1723,9 +1580,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.995884120464325
       }
     },
     {
@@ -1735,9 +1591,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9909294247627258
       }
     },
     {
@@ -1747,9 +1602,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9257609844207764
       }
     },
     {
@@ -1759,9 +1613,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9963705539703369
       }
     },
     {
@@ -1771,9 +1624,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9944835305213928
       }
     },
     {
@@ -1783,9 +1635,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9918221831321716
       }
     },
     {
@@ -1795,9 +1646,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9949895739555359
       }
     },
     {
@@ -1807,9 +1657,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9955093860626221
       }
     },
     {
@@ -1819,9 +1668,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.991671085357666
       }
     },
     {
@@ -1831,9 +1679,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9862340688705444
       }
     },
     {
@@ -1843,9 +1690,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9732110500335693
       }
     },
     {
@@ -1855,9 +1701,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9942713975906372
       }
     },
     {
@@ -1867,9 +1712,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9382869601249695
       }
     },
     {
@@ -1879,9 +1723,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9964529275894165
       }
     },
     {
@@ -1891,9 +1734,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9804043173789978
       }
     },
     {
@@ -1903,9 +1745,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9176029562950134
       }
     },
     {
@@ -1915,9 +1756,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9462897777557373
       }
     },
     {
@@ -1927,9 +1767,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9955378770828247
       }
     },
     {
@@ -1939,9 +1778,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9855343103408813
       }
     },
     {
@@ -1951,9 +1789,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9943549633026123
       }
     },
     {
@@ -1963,9 +1800,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9929773211479187
       }
     },
     {
@@ -1975,9 +1811,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.992274820804596
       }
     },
     {
@@ -1987,9 +1822,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9892276525497437
       }
     },
     {
@@ -2001,7 +1835,7 @@
       "sentiment": {
         "label": "unknown",
         "score": 0.0,
-        "error": "transformers/torch not installed"
+        "error": "Unable to load vocabulary from file. Please check that the provided vocabulary is accessible and not corrupted."
       }
     },
     {
@@ -2013,7 +1847,7 @@
       "sentiment": {
         "label": "unknown",
         "score": 0.0,
-        "error": "transformers/torch not installed"
+        "error": "Unable to load vocabulary from file. Please check that the provided vocabulary is accessible and not corrupted."
       }
     },
     {
@@ -2025,7 +1859,7 @@
       "sentiment": {
         "label": "unknown",
         "score": 0.0,
-        "error": "transformers/torch not installed"
+        "error": "Unable to load vocabulary from file. Please check that the provided vocabulary is accessible and not corrupted."
       }
     },
     {
@@ -2037,7 +1871,7 @@
       "sentiment": {
         "label": "unknown",
         "score": 0.0,
-        "error": "transformers/torch not installed"
+        "error": "Unable to load vocabulary from file. Please check that the provided vocabulary is accessible and not corrupted."
       }
     },
     {
@@ -2049,7 +1883,7 @@
       "sentiment": {
         "label": "unknown",
         "score": 0.0,
-        "error": "transformers/torch not installed"
+        "error": "Unable to load vocabulary from file. Please check that the provided vocabulary is accessible and not corrupted."
       }
     },
     {
@@ -2061,7 +1895,7 @@
       "sentiment": {
         "label": "unknown",
         "score": 0.0,
-        "error": "transformers/torch not installed"
+        "error": "Unable to load vocabulary from file. Please check that the provided vocabulary is accessible and not corrupted."
       }
     },
     {
@@ -2071,9 +1905,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9884839653968811
       }
     },
     {
@@ -2083,9 +1916,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9956287145614624
       }
     },
     {
@@ -2095,9 +1927,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9939119815826416
       }
     },
     {
@@ -2107,9 +1938,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9654945731163025
       }
     },
     {
@@ -2119,9 +1949,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9920520782470703
       }
     },
     {
@@ -2131,9 +1960,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9916955828666687
       }
     },
     {
@@ -2143,9 +1971,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9874790906906128
       }
     },
     {
@@ -2155,9 +1982,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9915603995323181
       }
     },
     {
@@ -2167,9 +1993,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9907969236373901
       }
     },
     {
@@ -2179,9 +2004,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9943863153457642
       }
     },
     {
@@ -2191,9 +2015,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9891524314880371
       }
     },
     {
@@ -2203,9 +2026,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9949457049369812
       }
     },
     {
@@ -2215,9 +2037,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9926349520683289
       }
     },
     {
@@ -2227,9 +2048,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9956542253494263
       }
     },
     {
@@ -2239,9 +2059,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9959762692451477
       }
     },
     {
@@ -2251,9 +2070,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9920971393585205
       }
     },
     {
@@ -2263,9 +2081,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9961044788360596
       }
     },
     {
@@ -2275,9 +2092,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9197055101394653
       }
     },
     {
@@ -2287,9 +2103,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9950096607208252
       }
     },
     {
@@ -2299,9 +2114,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9951752424240112
       }
     },
     {
@@ -2311,9 +2125,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.914525032043457
       }
     },
     {
@@ -2323,9 +2136,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9959790706634521
       }
     },
     {
@@ -2335,9 +2147,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9966741800308228
       }
     },
     {
@@ -2347,9 +2158,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9828145503997803
       }
     },
     {
@@ -2359,9 +2169,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "positive",
+        "score": 0.685293436050415
       }
     },
     {
@@ -2371,9 +2180,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9902665019035339
       }
     },
     {
@@ -2383,9 +2191,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9908952713012695
       }
     },
     {
@@ -2395,9 +2202,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9957329630851746
       }
     },
     {
@@ -2407,9 +2213,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9944522976875305
       }
     },
     {
@@ -2419,9 +2224,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9958609938621521
       }
     },
     {
@@ -2431,9 +2235,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9844686388969421
       }
     },
     {
@@ -2443,9 +2246,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9955334663391113
       }
     },
     {
@@ -2455,9 +2257,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9954608082771301
       }
     },
     {
@@ -2467,9 +2268,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9960482716560364
       }
     },
     {
@@ -2479,9 +2279,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9923770427703857
       }
     },
     {
@@ -2491,9 +2290,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.7205826640129089
       }
     },
     {
@@ -2503,9 +2301,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9919412136077881
       }
     },
     {
@@ -2515,9 +2312,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9952065348625183
       }
     },
     {
@@ -2527,9 +2323,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9953773021697998
       }
     },
     {
@@ -2539,9 +2334,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.993959903717041
       }
     },
     {
@@ -2551,9 +2345,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9943861961364746
       }
     },
     {
@@ -2563,9 +2356,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9965083003044128
       }
     },
     {
@@ -2575,9 +2367,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9952011108398438
       }
     },
     {
@@ -2587,9 +2378,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9940144419670105
       }
     },
     {
@@ -2599,9 +2389,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9961147308349609
       }
     },
     {
@@ -2611,9 +2400,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "positive",
+        "score": 0.9702267646789551
       }
     },
     {
@@ -2623,9 +2411,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "positive",
+        "score": 0.994928240776062
       }
     },
     {
@@ -2635,9 +2422,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9957900643348694
       }
     },
     {
@@ -2647,9 +2433,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9965412020683289
       }
     },
     {
@@ -2659,9 +2444,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9946960210800171
       }
     },
     {
@@ -2671,9 +2455,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.8972069621086121
       }
     },
     {
@@ -2683,9 +2466,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "positive",
+        "score": 0.9961318969726562
       }
     },
     {
@@ -2695,9 +2477,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "positive",
+        "score": 0.6992168426513672
       }
     },
     {
@@ -2707,9 +2488,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "positive",
+        "score": 0.9928866028785706
       }
     },
     {
@@ -2719,9 +2499,8 @@
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.9569993019104004
       }
     },
     {
@@ -2731,9 +2510,8 @@
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "transformers/torch not installed"
+        "label": "neutral",
+        "score": 0.586663544178009
       }
     }
   ],
