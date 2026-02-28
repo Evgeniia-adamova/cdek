@@ -4,12 +4,12 @@
 Run full pipeline from video: extract frames → face detection → emotion recognition
 → extract audio → text extraction (Whisper) → text analysis (diarization + sentiment).
 
-One command (from project root):
-  python -m app.run_full_pipeline
-  python -m app.run_full_pipeline data/video_from_bucket.webm
-
-With no argument: uses data/video_from_bucket.webm if present, else downloads from
+Video: with no argument uses data/video_from_bucket.webm if present, else downloads from
 Yandex bucket (requires .env with YANDEX_S3_*). With one argument: uses that video path.
+Extracted face crops (faces_by_person) are stored locally under logs/; canonical storage
+for faces is Yandex Cloud (upload/sync to bucket is separate).
+
+  python -m app.run_full_pipeline [path/to/video.webm]
 """
 import os
 import sys
@@ -101,7 +101,9 @@ def main():
         interval_sec=10.0,
         save_face_crops=True,
         crops_dir=os.path.join(FRAMES_V3, "faces_by_person"),
-        expected_people=2,
+        expected_people=3,
+        max_tracked_people=3,
+        analysis_people=2,
     )
     run_step3(
         input_path=os.path.join(DATA_V3, "analysis_step2_dense_consolidated.json"),

@@ -219,14 +219,49 @@ def detect_faces(
     img_bgr: np.ndarray,
     detector: cv2.CascadeClassifier,
     scale_factor: float = 1.05,
-    min_neighbors: int = 3,
-    min_size: Tuple[int, int] = (30, 30),
+    min_neighbors: int = 6,
+    min_size: Tuple[int, int] = (50, 50),
 ) -> List[Tuple[int, int, int, int]]:
     gray = cv2.cvtColor(img_bgr, cv2.COLOR_BGR2GRAY)
     faces = detector.detectMultiScale(
         gray, scaleFactor=scale_factor, minNeighbors=min_neighbors, minSize=min_size,
     )
     return [(int(x), int(y), int(w), int(h)) for x, y, w, h in faces]
+
+
+def _intersection_area(box_a: Tuple[int, int, int, int], box_b: Tuple[int, int, int, int]) -> float:
+    xa, ya, wa, ha = box_a
+    xb, yb, wb, hb = box_b
+    xi = max(xa, xb)
+    yi = max(ya, yb)
+    wi = max(0, min(xa + wa, xb + wb) - xi)
+    hi = max(0, min(ya + ha, yb + hb) - yi)
+    return float(wi * hi)
+
+
+def drop_contained_detections(
+    detections: List[Tuple[int, int, int, int]],
+) -> List[Tuple[int, int, int, int]]:
+    """Remove detections that are mostly inside a larger one (e.g. eye inside face)."""
+    if len(detections) < 2:
+        return detections
+    areas = [w * h for (_, _, w, h) in detections]
+    keep = [True] * len(detections)
+    for i in range(len(detections)):
+        if not keep[i]:
+            continue
+        ai = areas[i]
+        for j in range(len(detections)):
+            if i == j or not keep[j]:
+                continue
+            aj = areas[j]
+            inter = _intersection_area(detections[i], detections[j])
+            if ai < aj and inter >= 0.5 * ai:
+                keep[i] = False
+                break
+            if aj < ai and inter >= 0.5 * aj:
+                keep[j] = False
+    return [det for det, k in zip(detections, keep) if k]
 
 
 def clamp_bbox(bbox: Tuple[int, int, int, int], width: int, height: int) -> Tuple[int, int, int, int]:
@@ -270,6 +305,31 @@ def area_of(bbox: Tuple[int, int, int, int]) -> float:
     return float(w * h)
 
 
+def filter_face_detections(
+    detections: List[Tuple[int, int, int, int]],
+    frame_shape: Tuple[int, int, int],
+    min_area_ratio: float = 0.001,
+    aspect_ratio_min: float = 0.6,
+    aspect_ratio_max: float = 1.8,
+) -> List[Tuple[int, int, int, int]]:
+    """Drop detections that are too small or have unface-like aspect ratio (e.g. eye/ear fragments)."""
+    if not detections:
+        return []
+    h, w = frame_shape[:2]
+    frame_area = max(1.0, float(w * h))
+    min_area = max(50 * 50, frame_area * min_area_ratio)
+    filtered = []
+    for (x, y, bw, bh) in detections:
+        area = bw * bh
+        if area < min_area:
+            continue
+        aspect = bw / max(bh, 1)
+        if aspect < aspect_ratio_min or aspect > aspect_ratio_max:
+            continue
+        filtered.append((x, y, bw, bh))
+    return filtered
+
+
 def match_score(
     det_embedding: np.ndarray,
     det_center: Tuple[float, float],
@@ -280,7 +340,7 @@ def match_score(
     app_dist = cosine_distance(det_embedding, track.last_embedding)
     spatial_dist = np.linalg.norm(np.array(det_center) - np.array(track.last_center)) / max(frame_diag, 1.0)
     area_dist = abs(det_area - track.last_area) / max(det_area, track.last_area, 1.0)
-    return 0.70 * app_dist + 0.20 * spatial_dist + 0.10 * area_dist
+    return 0.85 * app_dist + 0.10 * spatial_dist + 0.05 * area_dist
 
 
 def assign_person_ids(
@@ -292,9 +352,24 @@ def assign_person_ids(
     next_person_num: int,
     max_inactive_frames: int = 8,
     threshold: float = 0.45,
+    max_people: Optional[int] = None,
 ) -> Tuple[List[Dict[str, Any]], int]:
     h, w = frame_shape[:2]
     frame_diag = float((h ** 2 + w ** 2) ** 0.5)
+
+    if max_people == 2 and len(detections) <= 2:
+        results, next_person_num = _assign_two_people_by_embedding(
+            detections=detections,
+            embeddings=embeddings,
+            sample_index=sample_index,
+            frame_shape=frame_shape,
+            tracks=tracks,
+            next_person_num=next_person_num,
+            frame_diag=frame_diag,
+            threshold=threshold,
+        )
+        return results, next_person_num
+
     active_tracks = {pid: tr for pid, tr in tracks.items() if sample_index - tr.last_sample_index <= max_inactive_frames}
     used_tracks = set()
     results: List[Dict[str, Any]] = []
@@ -310,8 +385,20 @@ def assign_person_ids(
             if score < best_score:
                 best_score, best_pid = score, pid
         if best_pid is None or best_score > threshold:
-            next_person_num += 1
-            best_pid, best_score = f"P{next_person_num:03d}", 0.0
+            if max_people is not None and len(tracks) >= max_people:
+                best_pid, best_score = None, 10.0
+                for pid, tr in tracks.items():
+                    if pid in used_tracks:
+                        continue
+                    score = match_score(emb, det_center, det_area, tr, frame_diag)
+                    if score < best_score:
+                        best_score, best_pid = score, pid
+                if best_pid is None:
+                    best_pid = min(tracks.keys())
+                    best_score = 0.0
+            else:
+                next_person_num += 1
+                best_pid, best_score = f"P{next_person_num:03d}", 0.0
         used_tracks.add(best_pid)
         x, y, bw, bh = bbox
         tracks[best_pid] = TrackState(
@@ -329,6 +416,174 @@ def assign_person_ids(
             "center": {"x": round(det_center[0], 2), "y": round(det_center[1], 2)},
             "area": int(det_area),
             "match_score": round(float(best_score), 4),
+            "confidence": 1.0,
+            "embedding_preview": [round(float(v), 5) for v in emb[:8]],
+        })
+    return results, next_person_num
+
+
+def _assign_two_people_by_embedding(
+    detections: List[Tuple[int, int, int, int]],
+    embeddings: List[np.ndarray],
+    sample_index: int,
+    frame_shape: Tuple[int, int, int],
+    tracks: Dict[str, TrackState],
+    next_person_num: int,
+    frame_diag: float,
+    threshold: float,
+) -> Tuple[List[Dict[str, Any]], int]:
+    """
+    Assign at most 2 detections to P001/P002 by best embedding+position match,
+    so the same person keeps the same ID even when they swap left/right.
+    """
+    if not detections:
+        return [], next_person_num
+    p001, p002 = "P001", "P002"
+    if next_person_num < 2:
+        next_person_num = 2
+    track_ids = [p001, p002]
+    det_centers = [center_of(b) for b in detections]
+    det_areas = [area_of(b) for b in detections]
+
+    if len(detections) == 2 and len(tracks) >= 2:
+        # Best pairing: assign each detection to the track it matches best (by appearance+position)
+        scores = []
+        for det_idx in range(2):
+            row = []
+            for pid in track_ids:
+                if pid not in tracks:
+                    row.append(10.0)
+                    continue
+                tr = tracks[pid]
+                sc = match_score(
+                    embeddings[det_idx], det_centers[det_idx], det_areas[det_idx], tr, frame_diag
+                )
+                row.append(sc)
+            scores.append(row)
+        # Greedy: pick best (det, track) pair, then assign the remainder
+        if tracks.get(p001) and tracks.get(p002):
+            (d0, t0), (d1, t1) = (0, p001), (1, p002)
+            s00 = scores[0][0]
+            s01 = scores[0][1]
+            s10 = scores[1][0]
+            s11 = scores[1][1]
+            if s00 + s11 <= s01 + s10:
+                assign = [(0, p001), (1, p002)]
+            else:
+                assign = [(0, p002), (1, p001)]
+        else:
+            order = sorted(range(len(detections)), key=lambda i: det_centers[i][0])
+            assign = [(order[0], p001), (order[1], p002)]
+    elif len(detections) == 2 and len(tracks) == 1:
+        existing = p001 if p001 in tracks else p002
+        other = p002 if existing == p001 else p001
+        best_det_for_existing = 0 if match_score(
+            embeddings[0], det_centers[0], det_areas[0], tracks[existing], frame_diag
+        ) <= match_score(
+            embeddings[1], det_centers[1], det_areas[1], tracks[existing], frame_diag
+        ) else 1
+        assign = [(best_det_for_existing, existing), (1 - best_det_for_existing, other)]
+    elif len(detections) == 2:
+        order = sorted(range(len(detections)), key=lambda i: det_centers[i][0])
+        assign = [(order[0], p001), (order[1], p002)]
+    elif len(detections) == 1:
+        det_idx = 0
+        emb, det_center, det_area = embeddings[0], det_centers[0], det_areas[0]
+        if len(tracks) >= 2:
+            best_pid, best_score = None, 10.0
+            for pid in track_ids:
+                if pid not in tracks:
+                    continue
+                sc = match_score(emb, det_center, det_area, tracks[pid], frame_diag)
+                if sc < best_score:
+                    best_score, best_pid = sc, pid
+            assign = [(0, best_pid)] if best_pid else [(0, p001)]
+        elif len(tracks) == 1:
+            existing = p001 if p001 in tracks else p002
+            sc = match_score(emb, det_center, det_area, tracks[existing], frame_diag)
+            assign = [(0, existing)] if sc <= threshold else [(0, p002 if existing == p001 else p001)]
+        else:
+            assign = [(0, p001)]
+    else:
+        assign = []
+
+    results = []
+    for det_idx, pid in assign:
+        bbox = detections[det_idx]
+        emb = embeddings[det_idx]
+        det_center = center_of(bbox)
+        det_area = area_of(bbox)
+        x, y, bw, bh = bbox
+        tracks[pid] = TrackState(
+            person_id=pid,
+            last_embedding=emb,
+            last_center=det_center,
+            last_area=det_area,
+            last_sample_index=sample_index,
+            hits=tracks[pid].hits + 1 if pid in tracks else 1,
+        )
+        results.append({
+            "face_idx": det_idx,
+            "person_id": pid,
+            "bbox": {"x": x, "y": y, "w": bw, "h": bh},
+            "center": {"x": round(det_center[0], 2), "y": round(det_center[1], 2)},
+            "area": int(det_area),
+            "match_score": 0.0,
+            "confidence": 1.0,
+            "embedding_preview": [round(float(v), 5) for v in emb[:8]],
+        })
+    return results, next_person_num
+
+
+def _assign_two_people_by_position(
+    detections: List[Tuple[int, int, int, int]],
+    embeddings: List[np.ndarray],
+    sample_index: int,
+    frame_shape: Tuple[int, int, int],
+    tracks: Dict[str, TrackState],
+    next_person_num: int,
+) -> Tuple[List[Dict[str, Any]], int]:
+    """Assign at most 2 detections by horizontal position: left → P001, right → P002."""
+    if not detections:
+        return [], next_person_num
+    order = sorted(range(len(detections)), key=lambda i: center_of(detections[i])[0])
+    p001, p002 = "P001", "P002"
+    if next_person_num < 2:
+        next_person_num = 2
+    results = []
+    for rank, det_idx in enumerate(order):
+        bbox = detections[det_idx]
+        emb = embeddings[det_idx]
+        det_center = center_of(bbox)
+        det_area = area_of(bbox)
+        pid = p001 if rank == 0 else p002
+        if len(detections) == 1 and len(tracks) >= 2:
+            cx = det_center[0]
+            best_pid, best_dx = None, float("inf")
+            for tid in (p001, p002):
+                if tid not in tracks:
+                    continue
+                dx = abs(tracks[tid].last_center[0] - cx)
+                if dx < best_dx:
+                    best_dx, best_pid = dx, tid
+            if best_pid is not None:
+                pid = best_pid
+        x, y, bw, bh = bbox
+        tracks[pid] = TrackState(
+            person_id=pid,
+            last_embedding=emb,
+            last_center=det_center,
+            last_area=det_area,
+            last_sample_index=sample_index,
+            hits=tracks[pid].hits + 1 if pid in tracks else 1,
+        )
+        results.append({
+            "face_idx": det_idx,
+            "person_id": pid,
+            "bbox": {"x": x, "y": y, "w": bw, "h": bh},
+            "center": {"x": round(det_center[0], 2), "y": round(det_center[1], 2)},
+            "area": int(det_area),
+            "match_score": 0.0,
             "confidence": 1.0,
             "embedding_preview": [round(float(v), 5) for v in emb[:8]],
         })
@@ -468,6 +723,23 @@ def summarize_persons(frame_records: List[Dict[str, Any]]) -> Dict[str, Dict[str
     return dict(sorted(summary.items()))
 
 
+def select_analysis_persons(
+    person_summary: Dict[str, Dict[str, Any]],
+    analysis_people: int,
+) -> List[str]:
+    """Select the top analysis_people by prominence (frames_seen * avg_area) for emotion/speaker analysis."""
+    if not person_summary or analysis_people <= 0:
+        return []
+    if analysis_people >= len(person_summary):
+        return sorted(person_summary.keys())
+    prominence = [
+        (pid, float(s.get("frames_seen", 0)) * float(s.get("avg_area", 0)))
+        for pid, s in person_summary.items()
+    ]
+    prominence.sort(key=lambda x: -x[1])
+    return [pid for pid, _ in prominence[:analysis_people]]
+
+
 def _detection_feature(det: Dict[str, Any], width: int, height: int) -> np.ndarray:
     width, height = max(1, width), max(1, height)
     frame_area = max(1.0, float(width * height))
@@ -552,7 +824,14 @@ def run_step2(
     save_face_crops: bool = True,
     crops_dir: str = "extracted_frames_v2/faces_by_person",
     expected_people: Optional[int] = None,
+    max_tracked_people: Optional[int] = None,
+    analysis_people: Optional[int] = None,
 ) -> Dict[str, Any]:
+    """
+    Detect faces, track persons, optionally consolidate clusters, and save face crops.
+    Face crops are stored locally in crops_dir; canonical storage is Yandex Cloud
+    (upload/sync of faces_by_person to bucket is done separately).
+    """
     manifest = load_manifest(manifest_path)
     frame_records = manifest.get("frames", [])
     attach_comments_to_frames(frame_records, comments)
@@ -563,6 +842,7 @@ def run_step2(
         os.makedirs(crops_dir, exist_ok=True)
     tracks: Dict[str, TrackState] = {}
     next_person_num = 0
+    max_people_for_tracking = max_tracked_people if max_tracked_people is not None else expected_people
     enriched_frames = []
     for fr in frame_records:
         sample_index = int(fr["sample_index"])
@@ -573,10 +853,13 @@ def run_step2(
             enriched_frames.append(fr)
             continue
         detections = detect_faces(img, detector=detector)
+        detections = drop_contained_detections(detections)
+        detections = filter_face_detections(detections, img.shape)
         embeddings = [face_embedding(img, bbox) for bbox in detections]
         assigned, next_person_num = assign_person_ids(
             detections=detections, embeddings=embeddings, sample_index=sample_index,
             frame_shape=img.shape, tracks=tracks, next_person_num=next_person_num,
+            max_people=max_people_for_tracking,
         )
         if save_face_crops:
             ih, iw = img.shape[:2]
@@ -605,6 +888,10 @@ def run_step2(
     intervals = aggregate_intervals(enriched_frames, interval_sec=interval_sec)
     interval_comparison = compare_intervals(intervals)
     person_summary = summarize_persons(enriched_frames)
+    if analysis_people is not None and analysis_people > 0:
+        analysis_person_ids = select_analysis_persons(person_summary, analysis_people)
+    else:
+        analysis_person_ids = sorted(person_summary.keys())
     result = {
         "video_metadata": manifest.get("video_metadata", {}),
         "step2_config": {
@@ -613,11 +900,15 @@ def run_step2(
             "tracking": "appearance+spatial matching",
             "comments_linked": bool(comments),
             "expected_people": expected_people,
+            "max_tracked_people": max_tracked_people,
+            "analysis_people": analysis_people,
+            "analysis_person_ids": analysis_person_ids,
         },
         "frames": enriched_frames,
         "intervals": intervals,
         "interval_comparison": interval_comparison,
         "person_summary": person_summary,
+        "analysis_person_ids": analysis_person_ids,
     }
     if consolidation_info is not None:
         result["consolidation"] = consolidation_info

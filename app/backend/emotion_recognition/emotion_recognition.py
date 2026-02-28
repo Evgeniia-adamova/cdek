@@ -71,9 +71,17 @@ def ensure_ferplus_onnx(
 def collect_samples(
     analysis_path: str,
     max_per_person: int = 300,
+    analysis_person_ids: Optional[List[str]] = None,
 ) -> List[Dict[str, Any]]:
+    """
+    Collect face crop paths from step2 analysis for emotion inference.
+    If analysis_person_ids is set (e.g. [P001, P002]), only those persons are included.
+    Note: face crops are stored on Yandex Cloud; crop_path in JSON may be local
+    or a key/URL — ensure files are available (e.g. downloaded from bucket) before inference.
+    """
     data = load_json(analysis_path)
     frames = data.get("frames", [])
+    allowed_ids = set(analysis_person_ids) if analysis_person_ids else None
     samples = []
     person_counter = defaultdict(int)
     for fr in frames:
@@ -81,6 +89,8 @@ def collect_samples(
             pid = det.get("person_id")
             crop_path = det.get("crop_path")
             if not pid or not crop_path or not os.path.exists(crop_path):
+                continue
+            if allowed_ids is not None and pid not in allowed_ids:
                 continue
             if person_counter[pid] >= max_per_person:
                 continue
@@ -164,10 +174,18 @@ def run_emotion_baseline_onnx(
     output_path: str = "extracted_frames_v3_dense/emotion_baseline_onnx_ferplus.json",
     model_path: Optional[str] = None,
     max_per_person: int = 300,
+    analysis_person_ids: Optional[List[str]] = None,
 ) -> Dict[str, Any]:
     import onnxruntime as ort
     model_path = ensure_ferplus_onnx(model_path=model_path)
-    samples = collect_samples(analysis_path=analysis_path, max_per_person=max_per_person)
+    if analysis_person_ids is None:
+        data = load_json(analysis_path)
+        analysis_person_ids = data.get("analysis_person_ids")
+    samples = collect_samples(
+        analysis_path=analysis_path,
+        max_per_person=max_per_person,
+        analysis_person_ids=analysis_person_ids,
+    )
     if not samples:
         raise RuntimeError("No face crop files for emotion inference.")
     sess = ort.InferenceSession(model_path, providers=["CPUExecutionProvider"])
@@ -284,7 +302,11 @@ def _person_interval_stats(dets: List[Dict[str, Any]]) -> Dict[str, Any]:
     }
 
 
-def build_interval_emotion_report(frames: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+def build_interval_emotion_report(
+    frames: List[Dict[str, Any]],
+    allowed_person_ids: Optional[List[str]] = None,
+) -> List[Dict[str, Any]]:
+    allowed = set(allowed_person_ids) if allowed_person_ids else None
     buckets = {}
     for fr in frames:
         interval_id = int(fr.get("interval_id", -1))
@@ -296,8 +318,9 @@ def build_interval_emotion_report(frames: List[Dict[str, Any]]) -> List[Dict[str
         b["frame_count"] += 1
         for det in fr.get("detections", []):
             pid = str(det.get("person_id", ""))
-            if pid:
-                b["people"][pid].append(det)
+            if not pid or (allowed is not None and pid not in allowed):
+                continue
+            b["people"][pid].append(det)
     report = []
     for interval_id in sorted(buckets.keys()):
         b = buckets[interval_id]
@@ -375,11 +398,12 @@ def run_step6_emotion_report(
     emotion_data = load_json(emotion_path)
     merged = merge_emotions_into_frames(analysis_data, emotion_data)
     frames = merged.get("frames", [])
-    interval_report = build_interval_emotion_report(frames)
+    analysis_person_ids = analysis_data.get("analysis_person_ids")
+    interval_report = build_interval_emotion_report(frames, allowed_person_ids=analysis_person_ids)
     interval_comparison = compare_interval_emotions(interval_report)
     person_timeline = build_person_emotion_timeline(interval_report)
     result = {
-        "meta": {"analysis_path": analysis_path, "emotion_path": emotion_path, "emotion_model": emotion_data.get("model")},
+        "meta": {"analysis_path": analysis_path, "emotion_path": emotion_path, "emotion_model": emotion_data.get("model"), "analysis_person_ids": analysis_person_ids},
         "emotion_merge_info": merged.get("emotion_merge_info", {}),
         "interval_emotion_report": interval_report,
         "interval_emotion_comparison": interval_comparison,

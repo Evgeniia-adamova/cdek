@@ -8,6 +8,7 @@ then runs face_detection and emotion_recognition modules.
 Outputs:
   - logs/ : extracted frame images and face crops (extracted_frames_v2, extracted_frames_v3_dense)
   - data/ : all JSON (manifests, analysis, emotion reports) in data/v2/ and data/v3_dense/
+Face crops (faces_by_person) are written to logs/; canonical storage is Yandex Cloud.
 
 Requires .env with YANDEX_S3_BUCKET, YANDEX_S3_ACCESS_KEY_ID, YANDEX_S3_SECRET_ACCESS_KEY.
 Optional: YANDEX_VIDEO_KEY (e.g. video_files/xxx.webm).
@@ -16,7 +17,6 @@ Usage (from project root):
     python -m app.run_pipeline_from_bucket
     or: python app/run_pipeline_from_bucket.py
 """
-
 import os
 import sys
 from pathlib import Path
@@ -93,7 +93,9 @@ def main():
         interval_sec=10.0,
         save_face_crops=True,
         crops_dir=os.path.join(FRAMES_V3, "faces_by_person"),
-        expected_people=2,
+        expected_people=3,
+        max_tracked_people=3,
+        analysis_people=2,
     )
 
     run_step3(
