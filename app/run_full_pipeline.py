@@ -157,11 +157,34 @@ def main():
     print("Output JSON:", result["output_json"])
     print("Output TXT:", result["output_txt"])
 
+    # --- Combined video+audio emotion analysis ---
+    print("\n=== COMBINED VIDEO+AUDIO EMOTION ANALYSIS ===")
+    try:
+        from app.backend.combined_emotion_analysis import run_combined_emotion_analysis
+        emotion_report_path = os.path.join(DATA_V3, "analysis_step6_emotion_report.json")
+        audio_sentiment_path = result["output_json"]
+        combined_output_path = os.path.join(DATA_V3, "combined_emotion_analysis.json")
+        
+        if os.path.isfile(emotion_report_path) and os.path.isfile(audio_sentiment_path):
+            combined_result = run_combined_emotion_analysis(
+                emotion_report_path=emotion_report_path,
+                audio_sentiment_path=audio_sentiment_path,
+                output_path=combined_output_path,
+                video_weight=0.6,
+                audio_weight=0.4,
+            )
+            print("Combined emotion analysis:", combined_output_path)
+        else:
+            print("Warning: Missing emotion report or audio sentiment file. Skipping combined analysis.")
+    except Exception as e:
+        print(f"Warning: Combined emotion analysis failed: {e}", file=sys.stderr)
+
     print("\n=== FULL PIPELINE COMPLETE ===")
     print("  Frames + faces: logs/extracted_frames_v2, logs/extracted_frames_v3_dense")
     print("  Analysis: data/v2, data/v3_dense")
     print("  Transcript: ", ogg_path.with_suffix(".txt"))
     print("  Diarized sentiment: ", result["output_json"])
+    print("  Combined emotion analysis: ", combined_output_path if 'combined_output_path' in locals() else "N/A")
     return 0
 
 
