@@ -2,455 +2,411 @@
   sentiment: neutral (0.98)
 [5.0s - 8.0s] company_representative: Здравствуйте. Подскажите, пожалуйста, меня хорошо видно
   sentiment: neutral (1.00)
-[8.0s - 11.0s] client: слышно?
+[8.0s - 10.0s] client: слышно?
   sentiment: neutral (0.99)
-[11.0s - 17.0s] company_representative: Алло, Елена.
+[10.0s - 17.0s] company_representative: Алло, Елена.
   sentiment: neutral (0.99)
-[17.0s - 26.6s] client: Елена, подскажите, меня хорошо слышно?
+[17.0s - 26.0s] client: Елена, подскажите, меня хорошо слышно?
   sentiment: neutral (0.99)
-[26.6s - 33.6s] company_representative: Алло.
+[26.0s - 29.0s] company_representative: Слышно?
   sentiment: neutral (0.99)
-[33.6s - 36.6s] client: Алло.
+[29.0s - 34.0s] client: Слышно?
   sentiment: neutral (0.99)
-[36.6s - 43.6s] company_representative: Так выключено.
+[34.0s - 36.0s] company_representative: Слышно?
   sentiment: neutral (0.99)
-[43.6s - 48.6s] client: Так у меня есть.
-  sentiment: neutral (0.97)
-[48.6s - 55.6s] company_representative: Мишка.
+[36.0s - 39.0s] client: Алло?
   sentiment: neutral (0.99)
-[55.6s - 66.6s] client: Елена, подскажите, пожалуйста, слышите меня?
+[39.0s - 46.0s] company_representative: Так выключено.
+  sentiment: neutral (0.99)
+[46.0s - 50.0s] client: Так у меня есть афон.
+  sentiment: neutral (0.99)
+[50.0s - 57.0s] company_representative: Лешка.
+  sentiment: neutral (0.99)
+[57.0s - 68.0s] client: Елена, подскажите, пожалуйста, слышите меня?
   sentiment: neutral (1.00)
-[66.6s - 70.6s] company_representative: Меня хорошо слышно?
-  sentiment: neutral (0.99)
-[70.6s - 73.6s] client: Все, замечательно.
+[68.0s - 71.0s] company_representative: Да, я вас хорошо слышу.
+  sentiment: positive (0.59)
+[71.0s - 74.0s] client: Все, вот замечательно.
   sentiment: positive (1.00)
-[73.6s - 76.6s] company_representative: Теперь тоже вас услышало.
+[74.0s - 76.0s] company_representative: Теперь тоже вас услышало.
   sentiment: neutral (0.96)
-[76.6s - 80.6s] client: Так, подскажите, пожалуйста.
+[76.0s - 82.0s] client: Так, подскажите, пожалуйста, как вам будет комфортнее,
+  sentiment: neutral (0.99)
+[82.0s - 87.0s] company_representative: чтобы вы подключили демонстрацию или меня подключить?
   sentiment: neutral (1.00)
-[80.6s - 83.6s] company_representative: Как вам будет комфортнее, чтобы вы подключили демонстрацию
-  sentiment: neutral (0.94)
-[83.6s - 86.6s] client: или меня подключить?
+[87.0s - 92.0s] client: Вы подключите, пожалуйста.
   sentiment: neutral (1.00)
-[86.6s - 92.6s] company_representative: Вы подключите, пожалуйста.
-  sentiment: neutral (1.00)
-[92.6s - 99.6s] client: Ммм, буквально секундочку.
-  sentiment: neutral (0.96)
-[99.6s - 109.6s] company_representative: Ммм.
-  sentiment: neutral (0.62)
-[109.6s - 113.6s] client: Так, мы сами сегодня будем рассматривать ваш личный кабинет.
-  sentiment: neutral (1.00)
-[113.6s - 117.6s] company_representative: На всякий случай представлюсь меня зовут Полина.
+[93.0s - 99.0s] company_representative: Богвально секундочку.
+  sentiment: neutral (0.92)
+[110.0s - 114.0s] client: Мы сами сегодня будем рассматривать ваш личный кабинет.
+  sentiment: neutral (0.99)
+[114.0s - 118.0s] company_representative: На всякий случай представлюсь меня зовут Полина.
   sentiment: neutral (0.97)
-[118.6s - 121.6s] client: Как мы входим в первую очередь в личный кабинет?
+[118.0s - 121.0s] client: Как мы входим в первую очередь в личный кабинет?
   sentiment: neutral (1.00)
-[121.6s - 125.6s] company_representative: Здесь необходимо нам в своем вести логин, либо има, ваш логин.
+[121.0s - 125.0s] company_representative: Здесь необходимо нам в своем и вести логин, либо imail.
   sentiment: neutral (1.00)
-[125.6s - 133.6s] client: Это ваш номер договора.
+[125.0s - 133.0s] client: Ваш логин – это ваш номер договора.
   sentiment: neutral (0.99)
-[133.6s - 136.6s] company_representative: Далее, соответственно, вы вставляете не помню пароль.
+[133.0s - 136.0s] company_representative: Далее, соответственно, вы вставляете не помню пароль.
   sentiment: neutral (0.98)
-[136.6s - 138.6s] client: Вот сюда вот кнопочку.
+[136.0s - 138.0s] client: Вот сюда вот кнопочку.
   sentiment: neutral (0.98)
-[138.6s - 145.6s] company_representative: Чтобы вам пришел пароль для восстановления на почту.
+[138.0s - 145.0s] company_representative: Чтобы вам пришел пароль для восстановления на почту.
   sentiment: neutral (0.99)
-[145.6s - 152.6s] client: Я, соответственно, пока покажу на тестом варианте.
+[146.0s - 150.0s] client: Я, соответственно, пока покажу на тестом варианте.
   sentiment: neutral (1.00)
-[152.6s - 159.6s] company_representative: Так, подскажите, пожалуйста, как будете осуществлять поставки?
+[155.0s - 160.0s] company_representative: Подскажите, пожалуйста, как будете осуществлять поставки?
   sentiment: neutral (1.00)
-[159.6s - 168.6s] client: Вы продаете через авиты, в интернет-магазин или на маркет-плейсе?
+[160.0s - 165.0s] client: Вы продаете через авитор, в интернет-магазин или на маркет-плейсе?
   sentiment: neutral (1.00)
-[168.6s - 173.6s] company_representative: Поставки не будет.
+[170.0s - 173.0s] company_representative: Поставки не будет.
   sentiment: neutral (0.57)
-[173.6s - 177.6s] client: Просто на правку патруки через дек будет.
+[174.0s - 177.0s] client: После отправка патуки через дек будет.
   sentiment: neutral (0.99)
-[177.6s - 179.6s] company_representative: Черезов, Саран.
-  sentiment: neutral (1.00)
-[179.6s - 181.6s] client: Ммм, все, поняла, правильно?
-  sentiment: neutral (0.98)
-[181.6s - 185.6s] company_representative: Понимаю, что документы хотите отправлять?
-  sentiment: neutral (1.00)
-[185.6s - 187.6s] client: Нет, вещи.
-  sentiment: neutral (0.99)
-[187.6s - 188.6s] company_representative: Ммм, хорошо.
-  sentiment: positive (0.99)
-[188.6s - 196.6s] client: Когда смотрите вам для вашей доставки, необходимо будет нажать новый заказ.
-  sentiment: neutral (1.00)
-[196.6s - 199.6s] company_representative: Те, что он у нас прогрузится.
-  sentiment: neutral (0.99)
-[199.6s - 203.6s] client: Так как у вас тип договора к у, он называется доставка.
-  sentiment: neutral (0.99)
-[203.6s - 205.6s] company_representative: Далее, соответственно, дополнительный тип.
-  sentiment: neutral (1.00)
-[205.6s - 207.6s] client: Нам здесь выбирать не нужно.
-  sentiment: neutral (0.85)
-[207.6s - 209.6s] company_representative: Кем вы являетесь?
-  sentiment: neutral (1.00)
-[209.6s - 211.6s] client: А правителем, получателем третьей стороной.
-  sentiment: neutral (0.99)
-[211.6s - 215.6s] company_representative: Здесь вы выбираете подходящий для себя вариант.
-  sentiment: neutral (0.99)
-[215.6s - 218.6s] client: То есть, либо вы будете отправлять, либо получать либо третьей стороной.
-  sentiment: neutral (0.99)
-[218.6s - 221.6s] company_representative: То есть, это осуществлять доставку между кем-то.
-  sentiment: neutral (0.99)
-[221.6s - 226.6s] client: Например, между у коллегами, между родственниками и так далее.
-  sentiment: neutral (0.99)
-[226.6s - 230.6s] company_representative: Далее, оплата ставим под договору.
-  sentiment: neutral (0.99)
-[230.6s - 233.6s] client: То есть, чтобы с вашего счета списывалось,
-  sentiment: neutral (0.99)
-[233.6s - 237.6s] company_representative: город отправителя это откуда вы будете отправлять.
-  sentiment: neutral (1.00)
-[237.6s - 241.6s] client: То есть, это либо вы от себя отправляете, либо вам отправляют откуда вы.
-  sentiment: neutral (0.99)
-[241.6s - 244.6s] company_representative: А откуда планируете отправлять?
-  sentiment: neutral (1.00)
-[246.6s - 248.6s] client: Вы сейчас меня спрашиваете?
-  sentiment: neutral (1.00)
-[248.6s - 250.6s] company_representative: Да, спрашиваем.
-  sentiment: neutral (0.99)
-[250.6s - 253.6s] client: Да, на момент город есть синтуки.
-  sentiment: neutral (0.99)
-[253.6s - 255.6s] company_representative: Угу.
-  sentiment: neutral (0.98)
-[261.6s - 264.6s] client: Угу, тес у нас прогрузит.
-  sentiment: neutral (0.98)
-[283.6s - 285.6s] company_representative: Да, секунду.
-  sentiment: neutral (0.99)
-[285.6s - 287.6s] client: Да, секунду.
-  sentiment: neutral (0.99)
-[309.6s - 313.6s] company_representative: Угу, куда отправлять будете?
-  sentiment: neutral (1.00)
-[314.6s - 317.6s] client: Бород ярца-восмоленской области.
-  sentiment: neutral (0.99)
-[322.6s - 323.6s] company_representative: Так, далее.
-  sentiment: neutral (1.00)
-[323.6s - 327.6s] client: Видим, что у нас есть информация об отправителя и ополучателя.
-  sentiment: neutral (0.98)
-[327.6s - 332.6s] company_representative: Отправитель, если вы, то, соответственно, все данные ваши автоматические подтягиваются.
-  sentiment: neutral (0.99)
-[332.6s - 334.6s] client: Получателя нужно будет указывать.
-  sentiment: neutral (0.99)
-[334.6s - 337.6s] company_representative: Если, соответственно, меняем, что вы будете получать,
-  sentiment: neutral (0.99)
-[337.6s - 340.6s] client: а кто-то другой отправляет, то вам, соответственно,
-  sentiment: neutral (0.99)
-[340.6s - 345.6s] company_representative: будет заполнить данные отправителя, а получателям будете выступать вы.
-  sentiment: neutral (1.00)
-[345.6s - 349.6s] client: Получать будет Юр лицо или Физлицо.
-  sentiment: neutral (1.00)
-[349.6s - 351.6s] company_representative: Получателям?
-  sentiment: neutral (0.99)
-[351.6s - 354.6s] client: У Физлицо.
-  sentiment: neutral (0.99)
-[354.6s - 356.6s] company_representative: Угу, хорошо.
-  sentiment: positive (0.84)
-[356.6s - 361.6s] client: Здесь, соответственно, с вами вводим его ФИО.
-  sentiment: neutral (1.00)
-[361.6s - 363.6s] company_representative: К примеру, Иванов и Иван Иванович.
-  sentiment: neutral (0.99)
-[363.6s - 367.6s] client: Нужно водить ФИО полностью и контактные номер телефона.
-  sentiment: neutral (1.00)
-[367.6s - 371.6s] company_representative: Для того, чтобы в случае необходимости, мы смогли с получателем связаться.
-  sentiment: neutral (1.00)
-[371.6s - 376.6s] client: Далее мы с вами заполняем информацию о грузом месте.
-  sentiment: neutral (1.00)
-[376.6s - 380.6s] company_representative: Что конкретно планируете отправлять?
-  sentiment: neutral (1.00)
-[380.6s - 382.6s] client: Вещи.
-  sentiment: neutral (0.99)
-[382.6s - 385.6s] company_representative: Вещи личного характера, возможно.
-  sentiment: neutral (0.99)
-[385.6s - 387.6s] client: Да.
-  sentiment: neutral (0.98)
-[387.6s - 392.6s] company_representative: Соответственно, здесь мы с вами тогда указываем вес коробки.
-  sentiment: neutral (1.00)
-[392.6s - 396.6s] client: То есть грузоместо этой коробка с вещами внутри.
-  sentiment: neutral (0.99)
-[396.6s - 399.6s] company_representative: Допустим, она будет 21 килограмм.
-  sentiment: neutral (0.99)
-[399.6s - 404.6s] client: Будет, например, 30 на 30 к примеру.
-  sentiment: neutral (0.99)
-[404.6s - 407.6s] company_representative: Далее, описание груза.
-  sentiment: neutral (1.00)
-[407.6s - 411.6s] client: Здесь мы заполняем максимально подробно.
-  sentiment: neutral (1.00)
-[411.6s - 416.6s] company_representative: То есть, селищные вещи, например.
-  sentiment: neutral (0.99)
-[416.6s - 418.6s] client: Где же то?
-  sentiment: neutral (1.00)
-[418.6s - 421.6s] company_representative: Сезонное зимнее.
-  sentiment: neutral (0.99)
-[421.6s - 423.6s] client: Вот так вот.
-  sentiment: neutral (0.99)
-[423.6s - 426.6s] company_representative: Для чего это необходимо, чтобы в случае,
-  sentiment: neutral (1.00)
-[426.6s - 429.6s] client: а если вдруг с грузом что-то случилось,
-  sentiment: neutral (1.00)
-[429.6s - 433.6s] company_representative: чтобы мы смогли его идентифицировать, что это действительно ваш груз.
-  sentiment: neutral (0.99)
-[433.6s - 436.6s] client: Далее мы сохраняем изменение.
-  sentiment: neutral (0.99)
-[436.6s - 441.6s] company_representative: Видим, что у нас здесь с вами при необходимости также указывается объемный вес.
-  sentiment: neutral (1.00)
-[441.6s - 444.6s] client: Оплаты всегда считаются по объемному весу,
-  sentiment: neutral (1.00)
-[444.6s - 446.6s] company_representative: то есть по большему весу.
-  sentiment: neutral (0.98)
-[446.6s - 450.6s] client: Это тот максимум, который может уместиться в эту коробку.
-  sentiment: neutral (0.98)
-[450.6s - 452.6s] company_representative: Далее мы с вами соответственно выбираем тарифы.
-  sentiment: neutral (0.99)
-[452.6s - 455.6s] client: Здесь у нас есть два варианта.
-  sentiment: neutral (1.00)
-[455.6s - 457.6s] company_representative: Откуда и куда? Откуда?
-  sentiment: neutral (1.00)
-[457.6s - 461.6s] client: Принести в ПВЗ либо заберет курьер.
-  sentiment: neutral (1.00)
-[461.6s - 465.6s] company_representative: Принести в ПВЗ это вы относите коробку в ПВЗ.
-  sentiment: neutral (1.00)
-[465.6s - 468.6s] client: Там, допустим, если вы не уверены в габаритах и в весе,
-  sentiment: neutral (1.00)
-[468.6s - 471.6s] company_representative: и делай еще раз перемиряю.
-  sentiment: neutral (0.98)
-[471.6s - 474.6s] client: И соответственно, вносит изменение.
-  sentiment: neutral (0.99)
-[474.6s - 477.6s] company_representative: Если курьер, то соответственно к вам курьер приезжает на адрес,
-  sentiment: neutral (0.99)
-[477.6s - 479.6s] client: чтобы забрать в этот груз.
-  sentiment: neutral (1.00)
-[479.6s - 483.6s] company_representative: Также куда доставить ПВЗ по стамат курьером?
-  sentiment: neutral (1.00)
-[483.6s - 486.6s] client: Тут как получать у любудет комфортнее.
-  sentiment: neutral (0.51)
-[486.6s - 488.6s] company_representative: То есть либо также ПВЗ либо курьером.
-  sentiment: neutral (0.99)
-[488.6s - 492.6s] client: По стаматы принимают не все габариты грузов.
-  sentiment: neutral (0.99)
-[492.6s - 495.6s] company_representative: То есть здесь нужно будет это учитывать.
-  sentiment: neutral (0.99)
-[496.6s - 500.6s] client: Самый оптимальный вариант для нас сейчас это express склад склад.
-  sentiment: neutral (0.97)
-[500.6s - 503.6s] company_representative: Соответственно, здесь он идет 6 дней
-  sentiment: neutral (1.00)
-[503.6s - 506.6s] client: и самый оптимальный по цене для нас.
-  sentiment: neutral (0.99)
-[507.6s - 512.6s] company_representative: Далее, соответственно, дополнительные услуги, если они вам необходимо.
-  sentiment: neutral (0.99)
-[512.6s - 517.6s] client: Это внутреннее ближатка, сама коробка, стрыч, пленка, пупырка.
-  sentiment: neutral (0.99)
-[519.6s - 522.6s] company_representative: То есть здесь по необходимости заполняете.
-  sentiment: neutral (0.99)
-[522.6s - 529.6s] client: Если вам это ничего не нужно, то соответственно ничего далее не добавляем.
-  sentiment: neutral (0.66)
-[531.6s - 533.6s] company_representative: Информация об отправлении.
-  sentiment: neutral (1.00)
-[533.6s - 536.6s] client: Здесь вы можете посмотреть ли себя ближайшие ПВЗ,
-  sentiment: neutral (1.00)
-[536.6s - 539.6s] company_representative: где вам будет комфортнее куда отнести.
-  sentiment: neutral (0.93)
-[539.6s - 544.6s] client: Также пункты куда доставляем, здесь можно выбрать конкретный адрес.
-  sentiment: neutral (1.00)
-[547.6s - 550.6s] company_representative: Принести в ПВЗ можно любой.
-  sentiment: neutral (0.99)
-[550.6s - 553.6s] client: Забрать можно будет только из какого-то конкретного ПВЗ.
-  sentiment: neutral (1.00)
-[553.6s - 557.6s] company_representative: Если это крупный габаритный груз, то соответственно, допустим,
-  sentiment: neutral (1.00)
-[557.6s - 560.6s] client: более 35 килограмм, то нужно будет проверять.
-  sentiment: neutral (1.00)
-[560.6s - 562.6s] company_representative: Может ли ПВЗ принять такой груз?
-  sentiment: neutral (1.00)
-[562.6s - 564.6s] client: То есть здесь в видне весто 100 килограмм.
-  sentiment: neutral (0.99)
-[564.6s - 567.6s] company_representative: Соответственно, более 35 он точно примет.
-  sentiment: neutral (0.98)
-[568.6s - 570.6s] client: Его соответственно выбираем.
-  sentiment: neutral (1.00)
-[570.6s - 573.6s] company_representative: Всё, по факту, вот наша накладная создана.
-  sentiment: neutral (0.97)
-[574.6s - 579.6s] client: Тлотюшки, тебе на голову в таком доме и вскопировали,
-  sentiment: negative (0.68)
-[579.6s - 581.6s] company_representative: как обеспечали.
-  sentiment: neutral (0.97)
-[581.6s - 583.6s] client: Здесь выставки.
-  sentiment: neutral (0.99)
-[583.6s - 585.6s] company_representative: Я про голову в одной тлотюшки, всяко ведомости.
-  sentiment: neutral (0.99)
-[585.6s - 587.6s] client: Леньше, без зата-платы, пока вы козлили.
-  sentiment: negative (0.88)
-[587.6s - 588.6s] company_representative: Алло, Полинг.
-  sentiment: neutral (0.99)
-[588.6s - 590.6s] client: Да, я вас слышу.
-  sentiment: neutral (0.98)
-[590.6s - 594.6s] company_representative: Скажите, а вот данный момент я могу туда-то накладную создать на месте,
-  sentiment: neutral (1.00)
-[594.6s - 596.6s] client: когда я до веду.
-  sentiment: neutral (0.99)
-[596.6s - 597.6s] company_representative: Да, да.
-  sentiment: neutral (0.93)
-[597.6s - 602.6s] client: В случае необходимости вы соответственно также переходите на сайт,
-  sentiment: neutral (1.00)
-[602.6s - 605.6s] company_representative: с телефона, вместе с коллегами,
-  sentiment: neutral (0.99)
-[605.6s - 607.6s] client: из ПВЗ можно это создать.
-  sentiment: neutral (0.99)
-[607.6s - 609.6s] company_representative: Либо, соответственно, также с нами на связи,
-  sentiment: neutral (0.99)
-[609.6s - 613.6s] client: через нашу с вами переписку в мессенджере.
-  sentiment: neutral (1.00)
-[615.6s - 616.6s] company_representative: Ихи такой вопрос.
-  sentiment: neutral (0.99)
-[616.6s - 620.6s] client: Смотрите, я, если у меня положила насчёт сумму.
-  sentiment: neutral (0.99)
-[620.6s - 621.6s] company_representative: Вот.
-  sentiment: neutral (0.97)
-[621.6s - 625.6s] client: А она сразу приходит для людей, что они там искали.
-  sentiment: neutral (0.99)
-[625.6s - 629.6s] company_representative: В течение трёх дней, но в любом случае вы уже сейчас можете
+[177.0s - 179.0s] company_representative: Черезов, висаж.
   sentiment: neutral (0.94)
-[629.6s - 632.6s] client: составлять накладные и соответственно отправлять.
+[179.0s - 181.0s] client: Все, поняла, правильно?
+  sentiment: neutral (0.99)
+[181.0s - 185.0s] company_representative: Понимаю, что документы хотите отправлять?
   sentiment: neutral (1.00)
-[632.6s - 635.6s] company_representative: То есть я могу сегодня сходить, отправить,
-  sentiment: neutral (0.98)
-[635.6s - 638.6s] client: да, потом автоматом там всё спишется.
-  sentiment: neutral (0.92)
-[638.6s - 639.6s] company_representative: Да, да, спишется.
-  sentiment: neutral (0.95)
-[639.6s - 640.6s] client: Попробуйте денег с лошади.
-  sentiment: neutral (1.00)
-[640.6s - 643.6s] company_representative: Смотрите, что очень важно.
-  sentiment: neutral (0.99)
-[643.6s - 645.6s] client: Списывается, она только при вручении игру,
-  sentiment: neutral (0.99)
-[645.6s - 647.6s] company_representative: то есть как только груз будет вручен.
-  sentiment: neutral (0.99)
-[647.6s - 650.6s] client: Здесь у нас с вами доставка будет идти шейз дней.
-  sentiment: neutral (0.99)
-[652.6s - 654.6s] company_representative: Соответственно, только через шейз дней
-  sentiment: neutral (0.99)
-[654.6s - 657.6s] client: будет это списание после того, как человек его получит.
-  sentiment: unknown (0.00)
-[658.6s - 659.6s] company_representative: Влекалепно.
-  sentiment: unknown (0.00)
-[659.6s - 663.6s] client: А вот я сейчас когда сдам груст,
-  sentiment: unknown (0.00)
-[663.6s - 665.6s] company_representative: я уже буду знать на какую сумму, да?
-  sentiment: unknown (0.00)
-[665.6s - 666.6s] client: Какая сумма спишется?
-  sentiment: unknown (0.00)
-[666.6s - 667.6s] company_representative: Да.
-  sentiment: unknown (0.00)
-[667.6s - 669.6s] client: Если, например, кажется, она будет больше,
-  sentiment: neutral (0.99)
-[669.6s - 670.6s] company_representative: я должна буду дополнить.
-  sentiment: neutral (1.00)
-[672.6s - 676.6s] client: Смотрите, если она выйдет более того аванса,
-  sentiment: neutral (0.99)
-[676.6s - 678.6s] company_representative: который вы ранее в насилие,
+[185.0s - 188.0s] client: Нет, не, две вещи.
   sentiment: neutral (0.97)
-[678.6s - 680.6s] client: если не ошибаюсь, то это 490,
-  sentiment: neutral (0.99)
-[680.6s - 681.6s] company_representative: она сили, верно?
-  sentiment: neutral (0.99)
-[682.6s - 683.6s] client: Ну да.
-  sentiment: neutral (0.99)
-[683.6s - 685.6s] company_representative: Вот, соответственно, если больше этого,
-  sentiment: neutral (0.99)
-[685.6s - 689.6s] client: то, соответственно, да, нужно будет еще направить остатки.
-  sentiment: neutral (0.99)
-[689.6s - 691.6s] company_representative: Но я не думаю, что будет.
-  sentiment: neutral (0.99)
-[691.6s - 692.6s] client: Смотрите, что это было.
-  sentiment: neutral (0.99)
-[694.6s - 696.6s] company_representative: Соответственно, в любом случае,
-  sentiment: neutral (0.99)
-[696.6s - 700.6s] client: если вдруг вы хотите еще допустим положить средства,
-  sentiment: neutral (0.99)
-[700.6s - 702.6s] company_representative: в независимости от того,
+[188.0s - 189.0s] company_representative: Хорошо.
+  sentiment: positive (0.86)
+[189.0s - 196.0s] client: Когда смотрите вам для вашей доставки, необходимо будет нажать новый заказ.
   sentiment: neutral (1.00)
-[702.6s - 704.6s] client: что у вас есть сейчас, вы также можете написать нам.
-  sentiment: neutral (1.00)
-[704.6s - 706.6s] company_representative: Раз неделю составляются счита,
+[196.0s - 199.0s] company_representative: Те, что он у нас прогрузится.
   sentiment: neutral (0.99)
-[706.6s - 709.6s] client: соответственно, направляются вам на почту для оплаты.
+[199.0s - 203.0s] client: Так как у вас тип договора к у, он называется доставка.
+  sentiment: neutral (0.99)
+[203.0s - 206.0s] company_representative: Далее, соответственно, дополнительный тип.
   sentiment: neutral (1.00)
-[712.6s - 713.6s] company_representative: Понял.
+[206.0s - 208.0s] client: Нам здесь выбирать не нужно.
+  sentiment: neutral (0.85)
+[208.0s - 210.0s] company_representative: Кем вы являетесь?
+  sentiment: neutral (1.00)
+[210.0s - 212.0s] client: О правителем, получателем третьей стороной.
+  sentiment: neutral (1.00)
+[212.0s - 215.0s] company_representative: Здесь вы выбираете подходящий для себя вариант.
+  sentiment: neutral (0.99)
+[215.0s - 219.0s] client: То есть, либо вы будете отправлять, либо получать либо третьей стороной.
+  sentiment: neutral (0.99)
+[219.0s - 222.0s] company_representative: То есть это осуществлять доставку между кем-то.
+  sentiment: neutral (0.99)
+[222.0s - 226.0s] client: Например, между у коллегами, между родственниками и так далее.
+  sentiment: neutral (0.99)
+[227.0s - 230.0s] company_representative: Далее, оплата ставим под договору.
+  sentiment: neutral (0.99)
+[230.0s - 233.0s] client: То есть, чтобы с вашего счета списывалось.
+  sentiment: neutral (0.99)
+[233.0s - 237.0s] company_representative: Город отправителя – это откуда вы будете отправлять.
+  sentiment: neutral (1.00)
+[237.0s - 241.0s] client: То есть это либо вы от себя отправляете, либо вам отправляют откуда вы.
+  sentiment: neutral (0.99)
+[241.0s - 244.0s] company_representative: А откуда планируете отправлять?
+  sentiment: neutral (1.00)
+[247.0s - 249.0s] client: Вы сейчас меня спрашиваете?
+  sentiment: neutral (1.00)
+[249.0s - 250.0s] company_representative: Да, спрашиваем.
+  sentiment: neutral (0.99)
+[250.0s - 253.0s] client: Да, на момент гордые сентаки.
+  sentiment: neutral (0.99)
+[253.0s - 255.0s] company_representative: Угу.
+  sentiment: neutral (0.98)
+[262.0s - 264.0s] client: Угу, тес у нас прогрузит.
+  sentiment: neutral (0.98)
+[284.0s - 286.0s] company_representative: Иди сюда.
+  sentiment: neutral (0.99)
+[292.0s - 294.0s] client: Иди сюда.
+  sentiment: neutral (0.99)
+[300.0s - 302.0s] company_representative: Да, секунду.
+  sentiment: neutral (0.99)
+[303.0s - 305.0s] client: Иди сюда.
+  sentiment: neutral (0.99)
+[311.0s - 313.0s] company_representative: Угу, куда отправлять будете?
+  sentiment: neutral (1.00)
+[313.0s - 316.0s] client: Бород ярца, Восмоленская область.
+  sentiment: neutral (0.99)
+[321.0s - 322.0s] company_representative: Угу.
+  sentiment: neutral (0.98)
+[322.0s - 323.0s] client: Так, далее.
+  sentiment: neutral (1.00)
+[323.0s - 327.0s] company_representative: Видим, что у нас есть информация об отправителя и ополучателя.
+  sentiment: neutral (0.98)
+[328.0s - 333.0s] client: Отправитель, если вы, то, соответственно, все данные ваши автоматически подтягиваются.
+  sentiment: neutral (0.99)
+[333.0s - 335.0s] company_representative: Получателя нужно будет указывать.
+  sentiment: neutral (0.99)
+[335.0s - 342.0s] client: Если, соответственно, меняем, что вы будете получать, а кто-то другой отправляет, то вам, соответственно, нужно будет заполнить данные.
+  sentiment: neutral (0.99)
+[342.0s - 345.0s] company_representative: Отправителя, а получателям будете выступать вы.
+  sentiment: neutral (0.99)
+[345.0s - 349.0s] client: Получать будет юр лицо или физлицо.
+  sentiment: neutral (1.00)
+[350.0s - 352.0s] company_representative: Получателям?
+  sentiment: neutral (0.99)
+[352.0s - 354.0s] client: У физлицо.
+  sentiment: neutral (0.99)
+[355.0s - 357.0s] company_representative: Хорошо.
+  sentiment: positive (0.86)
+[357.0s - 361.0s] client: Здесь, соответственно, с вами, вводим его фио.
+  sentiment: neutral (1.00)
+[361.0s - 364.0s] company_representative: К примеру, Иванов и Иванович.
+  sentiment: neutral (0.99)
+[364.0s - 372.0s] client: Нужно водить фио полностью и контактные номер телефоны, для того, чтобы в случае необходимости мы смогли с получателем связаться.
+  sentiment: neutral (1.00)
+[372.0s - 377.0s] company_representative: Далее мы с вами заполняем информацию о грузом месте.
+  sentiment: neutral (1.00)
+[377.0s - 381.0s] client: Что конкретно планируете отправлять?
+  sentiment: neutral (1.00)
+[382.0s - 386.0s] company_representative: Вещи личного характера, возможно.
+  sentiment: neutral (0.99)
+[386.0s - 388.0s] client: Да.
+  sentiment: neutral (0.98)
+[388.0s - 393.0s] company_representative: Соответственно, здесь мы с вами, тогда указываем вес коробки.
+  sentiment: neutral (0.99)
+[393.0s - 396.0s] client: То есть грузоместо – это коробка с вещами внутри.
+  sentiment: neutral (1.00)
+[396.0s - 399.0s] company_representative: Допустим, она будет 21 килограмм.
+  sentiment: neutral (0.99)
+[399.0s - 404.0s] client: Будет, например, 30 на 30 к примеру.
+  sentiment: neutral (0.99)
+[404.0s - 407.0s] company_representative: Далее, описание груза.
+  sentiment: neutral (1.00)
+[407.0s - 411.0s] client: Здесь мы заполняем максимально подробно.
+  sentiment: neutral (1.00)
+[411.0s - 414.0s] company_representative: То есть, селищные вещи, например,
+  sentiment: neutral (1.00)
+[414.0s - 421.0s] client: где же то, сезонное зимнее.
+  sentiment: neutral (0.99)
+[421.0s - 423.0s] company_representative: Вот так вот.
+  sentiment: neutral (0.99)
+[423.0s - 426.0s] client: Для чего это необходимо, чтобы в случае,
+  sentiment: neutral (1.00)
+[426.0s - 428.0s] company_representative: а если вдруг с грузом что-то случилось,
+  sentiment: neutral (1.00)
+[428.0s - 433.0s] client: чтобы мы смогли его идентифицировать, что это действительно ваш груз.
+  sentiment: neutral (0.99)
+[433.0s - 436.0s] company_representative: Далее мы сохраняем изменение.
+  sentiment: neutral (0.99)
+[436.0s - 442.0s] client: Видим, что у нас здесь с вами при необходимости также указывается объемный вес.
+  sentiment: neutral (1.00)
+[442.0s - 445.0s] company_representative: Оплаты всегда считаются по объемному весу,
+  sentiment: neutral (1.00)
+[445.0s - 447.0s] client: то есть по большему весу – это тот максимум,
+  sentiment: neutral (0.98)
+[447.0s - 450.0s] company_representative: который может уместиться в эту коробку.
+  sentiment: neutral (1.00)
+[450.0s - 453.0s] client: Далее мы с вами соответственно выбираем тарифы.
+  sentiment: neutral (0.99)
+[453.0s - 456.0s] company_representative: Здесь у нас есть два варианта.
+  sentiment: neutral (1.00)
+[456.0s - 458.0s] client: Откуда и куда? Откуда?
+  sentiment: neutral (1.00)
+[458.0s - 462.0s] company_representative: Принести в ПВЗ либо заберет курьер.
+  sentiment: neutral (1.00)
+[462.0s - 466.0s] client: Принести в ПВЗ – это вы относите коробку в ПВЗ.
+  sentiment: neutral (1.00)
+[466.0s - 469.0s] company_representative: Там, допустим, если вы не уверены в габаритах и в весе,
+  sentiment: neutral (1.00)
+[469.0s - 472.0s] client: и делай еще раз перемиряю,
+  sentiment: neutral (0.98)
+[472.0s - 475.0s] company_representative: и соответственно выносит изменение.
+  sentiment: neutral (0.99)
+[475.0s - 478.0s] client: Если курьер, то соответственно к вам курьер приезжает на адрес,
+  sentiment: neutral (0.99)
+[478.0s - 480.0s] company_representative: чтобы забрать в этом груз.
+  sentiment: neutral (1.00)
+[480.0s - 482.0s] client: Также куда доставить?
+  sentiment: neutral (1.00)
+[482.0s - 484.0s] company_representative: ПВЗ – по стамат курьером.
+  sentiment: neutral (1.00)
+[484.0s - 486.0s] client: Тут как получать у любудет комфортнее.
+  sentiment: neutral (0.51)
+[486.0s - 489.0s] company_representative: То есть либо также ПВЗ либо курьером.
+  sentiment: neutral (0.99)
+[489.0s - 493.0s] client: В стаматы принимают не все габариты грузов.
+  sentiment: neutral (0.99)
+[493.0s - 497.0s] company_representative: То есть здесь нужно будет это учитывать.
+  sentiment: neutral (0.99)
+[497.0s - 499.0s] client: Самый оптимальный вариант для нас –
+  sentiment: neutral (0.97)
+[499.0s - 502.0s] company_representative: это экспресс складского оттуда.
+  sentiment: neutral (0.99)
+[502.0s - 504.0s] client: Отвезо здесь он идет 6 дней
+  sentiment: neutral (0.99)
+[504.0s - 509.0s] company_representative: и самый оптимальный по цене для нас.
+  sentiment: neutral (0.99)
+[509.0s - 512.0s] client: Далее, соответственно, дополнительные услуки,
+  sentiment: neutral (0.99)
+[512.0s - 514.0s] company_representative: если они вам необходимы.
+  sentiment: neutral (0.99)
+[514.0s - 518.0s] client: Внутри не обрешетка, сама коробка, стрыч, пленка, пупырка.
+  sentiment: neutral (0.99)
+[519.0s - 522.0s] company_representative: То есть здесь пони-обходимость заполняете.
+  sentiment: neutral (0.94)
+[522.0s - 527.0s] client: Если вам это ничего не нужно, то соответственно
   sentiment: neutral (0.92)
-[713.6s - 714.6s] client: Не срез.
-  sentiment: neutral (1.00)
-[714.6s - 715.6s] company_representative: Вы положите, чтобы они там лежали.
-  sentiment: neutral (1.00)
-[717.6s - 718.6s] client: Поняла, поняла.
-  sentiment: neutral (0.91)
-[719.6s - 722.6s] company_representative: Подскажите, пожалуйста, есть ли еще
-  sentiment: neutral (1.00)
-[722.6s - 724.6s] client: какой-то вопрос по личному кабинету?
-  sentiment: neutral (1.00)
-[726.6s - 727.6s] company_representative: Нет.
-  sentiment: neutral (0.98)
-[727.6s - 728.6s] client: Спасибо.
-  sentiment: positive (0.69)
-[728.6s - 730.6s] company_representative: Когда, смотрите, еще пару моментов.
-  sentiment: neutral (0.99)
-[730.6s - 733.6s] client: Когда мы с вами создаем накладную,
-  sentiment: neutral (0.99)
-[733.6s - 736.6s] company_representative: после этого у нас появляется списки заказов,
-  sentiment: neutral (1.00)
-[736.6s - 738.6s] client: номер нашего отправления,
-  sentiment: neutral (0.99)
-[738.6s - 741.6s] company_representative: и, соответственно, можно распечатать накладную и штрих код.
-  sentiment: neutral (1.00)
-[741.6s - 744.6s] client: Все на отправление всегда должны быть проморокированы.
-  sentiment: neutral (0.98)
-[744.6s - 746.6s] company_representative: Если пойдете, соответственно, составляйте ПВЗ,
-  sentiment: neutral (1.00)
-[746.6s - 748.6s] client: вы можете прямо там коллег попросить,
-  sentiment: neutral (1.00)
-[748.6s - 751.6s] company_representative: распечатать и штрих код и накладную.
-  sentiment: neutral (1.00)
-[751.6s - 753.6s] client: Также, соответственно, очень важно просить их
-  sentiment: neutral (0.99)
-[753.6s - 755.6s] company_representative: при необходимости перемирять груст.
-  sentiment: neutral (0.72)
-[755.6s - 757.6s] client: То есть это взвесить его еще раз
-  sentiment: neutral (0.99)
-[757.6s - 760.6s] company_representative: и сравнить губориты верные или вы указали заранее.
-  sentiment: neutral (1.00)
-[761.6s - 762.6s] client: Вот этот номер вашего заказа
-  sentiment: neutral (1.00)
-[762.6s - 765.6s] company_representative: это по факту номер накладной и номер отправления.
-  sentiment: neutral (0.99)
-[767.6s - 769.6s] client: Если будут какие-то вопросы, вы его спокойно копируете
-  sentiment: neutral (0.99)
-[769.6s - 771.6s] company_representative: и можете писать нам в мессеншер.
-  sentiment: neutral (1.00)
-[771.6s - 773.6s] client: Там, допустим, не совсем понимаю,
-  sentiment: neutral (1.00)
-[773.6s - 775.6s] company_representative: где находится мое отправление, например.
-  sentiment: neutral (0.99)
-[776.6s - 779.6s] client: Или если нужно внести какие-то корректировки.
-  sentiment: neutral (1.00)
-[782.6s - 783.6s] company_representative: С его поняла, хорошо.
-  sentiment: positive (0.97)
-[784.6s - 786.6s] client: Замечательно тогда, Елена.
-  sentiment: positive (0.99)
-[786.6s - 788.6s] company_representative: Если будут еще какие-то вопросы возникает,
-  sentiment: neutral (1.00)
-[788.6s - 790.6s] client: будем ожидать их у нас в мессеншере.
-  sentiment: neutral (1.00)
-[790.6s - 791.6s] company_representative: Так говорились?
-  sentiment: neutral (0.99)
-[792.6s - 793.6s] client: Моговорились.
+[527.0s - 531.0s] company_representative: ничего далее не добавляем.
   sentiment: neutral (0.90)
-[794.6s - 795.6s] company_representative: Замечательно тогда.
-  sentiment: positive (1.00)
-[796.6s - 798.6s] client: Спасибо вам, что подключились.
-  sentiment: positive (0.70)
-[798.6s - 800.6s] company_representative: Тогда хорошего дня и удачной отправки.
+[531.0s - 533.0s] client: Информация ободправления.
+  sentiment: neutral (1.00)
+[533.0s - 536.0s] company_representative: Здесь вы можете посмотреть ли себя ближайшие ПВЗ,
+  sentiment: neutral (1.00)
+[536.0s - 539.0s] client: где вам будет комфортнее куда отнести.
+  sentiment: neutral (0.93)
+[539.0s - 542.0s] company_representative: Также пункты куда доставляем.
+  sentiment: neutral (1.00)
+[542.0s - 545.0s] client: Здесь можно выбрать конкретный адрес.
+  sentiment: neutral (0.99)
+[546.0s - 549.0s] company_representative: Принести в ПВЗ можно любой.
+  sentiment: neutral (0.99)
+[549.0s - 553.0s] client: Забрать можно будет только из какого-то конкретного ПВЗ.
+  sentiment: neutral (1.00)
+[553.0s - 557.0s] company_representative: Если это крупный габаритный груз, то соответственно,
+  sentiment: neutral (1.00)
+[557.0s - 560.0s] client: допустим, более 35 килограмм, то нужно будет проверять.
+  sentiment: neutral (0.99)
+[560.0s - 562.0s] company_representative: Может ли ПВЗ принять такой груз?
+  sentiment: neutral (1.00)
+[562.0s - 564.0s] client: То есть здесь вот в день весто 100 килограмм.
+  sentiment: neutral (0.99)
+[564.0s - 567.0s] company_representative: Соответственно, более 35 он точно примет.
+  sentiment: neutral (0.98)
+[568.0s - 570.0s] client: Его соответственно выбираю.
+  sentiment: neutral (0.99)
+[570.0s - 573.0s] company_representative: Все, по факту, вот наша накладная создана.
+  sentiment: neutral (0.97)
+[575.0s - 580.0s] client: Клотешки, темно-роловка в обауме, доме и к скопировок.
+  sentiment: neutral (1.00)
+[580.0s - 582.0s] company_representative: Я бы обеспалил.
+  sentiment: neutral (0.74)
+[582.0s - 584.0s] client: Здесь суть.
+  sentiment: neutral (0.99)
+[584.0s - 586.0s] company_representative: Я проверю в одной плотешке.
+  sentiment: neutral (1.00)
+[586.0s - 588.0s] client: Немчили за плату по пробуков.
+  sentiment: neutral (0.93)
+[588.0s - 589.0s] company_representative: Алло, Полин.
+  sentiment: neutral (0.99)
+[589.0s - 591.0s] client: Да, я вас слышу.
+  sentiment: neutral (0.98)
+[591.0s - 595.0s] company_representative: Скажите, а вот данный момент я могу туда накладную создать на месте,
+  sentiment: neutral (1.00)
+[595.0s - 597.0s] client: когда я до венду.
+  sentiment: neutral (0.99)
+[597.0s - 599.0s] company_representative: Да, да.
+  sentiment: neutral (0.93)
+[599.0s - 603.0s] client: В случае необходимости вы соответственно также переходите на сайт,
+  sentiment: neutral (1.00)
+[603.0s - 608.0s] company_representative: а на телефона вместе с коллегами из ПВЗ можно это создать.
+  sentiment: neutral (0.99)
+[608.0s - 615.0s] client: Либо, соответственно, также с нами на связи через нашу с вами переписку в Мэс-Синджере.
+  sentiment: neutral (1.00)
+[615.0s - 617.0s] company_representative: Ихи такой вопрос.
+  sentiment: neutral (0.99)
+[617.0s - 621.0s] client: Смотрите, я, если не положила насчет сумму.
+  sentiment: neutral (0.99)
+[621.0s - 623.0s] company_representative: Вот.
+  sentiment: neutral (0.97)
+[623.0s - 626.0s] client: А на сразу приходит для людей, что они там искали.
+  sentiment: neutral (0.97)
+[626.0s - 631.0s] company_representative: В течение трех дней, но в любом случае вы уже сейчас можете составлять накладные
+  sentiment: neutral (0.99)
+[631.0s - 634.0s] client: и соответственно отправлять.
+  sentiment: neutral (1.00)
+[634.0s - 639.0s] company_representative: То есть я могу сегодня сходить, отправить, да, потом автоматом там это все спишится.
+  sentiment: neutral (0.85)
+[639.0s - 641.0s] client: Да, да, спишите денег с лошади.
+  sentiment: neutral (0.99)
+[641.0s - 644.0s] company_representative: Смотрите, что очень важно.
+  sentiment: neutral (0.99)
+[644.0s - 648.0s] client: Списывается она только при вручении игру, то есть как только груз будет вручен.
+  sentiment: neutral (0.99)
+[648.0s - 652.0s] company_representative: Здесь у нас с вами доставка будет идти 6 дней.
+  sentiment: neutral (0.99)
+[652.0s - 659.0s] client: Соответственно, только через 6 дней будет это списание после того, как человек его получит.
+  sentiment: neutral (0.98)
+[659.0s - 660.0s] company_representative: Плекалепно.
+  sentiment: neutral (0.99)
+[660.0s - 666.0s] client: А вот я сейчас когда сдам груз, я уже буду знать на какую сумму, да.
+  sentiment: neutral (0.97)
+[666.0s - 667.0s] company_representative: Какая сумма спишется?
+  sentiment: neutral (1.00)
+[667.0s - 668.0s] client: Да.
+  sentiment: neutral (0.98)
+[668.0s - 673.0s] company_representative: Если, например, кажется, она будет больше, я должна буду дополнить.
+  sentiment: neutral (0.99)
+[673.0s - 678.0s] client: Смотрите, если оно выйдет более того аванса, который вы ранее вносили.
+  sentiment: neutral (1.00)
+[678.0s - 682.0s] company_representative: Если не ошибаюсь, то это 490 вносили, верно?
+  sentiment: neutral (0.99)
+[682.0s - 684.0s] client: Ну да.
+  sentiment: neutral (0.99)
+[684.0s - 690.0s] company_representative: Соответственно, если больше этого, то, соответственно, да, нужно будет еще направить остатки.
+  sentiment: neutral (0.99)
+[690.0s - 692.0s] client: Но я не думаю, что будет.
+  sentiment: neutral (0.99)
+[692.0s - 693.0s] company_representative: Смотрите, что это нормально.
+  sentiment: neutral (0.97)
+[693.0s - 701.0s] client: Соответственно, в любом случае, если вдруг вы хотите еще допустим положить средства,
+  sentiment: neutral (0.99)
+[701.0s - 705.0s] company_representative: в независимостье от того, что у вас есть сейчас, вы также можете написать нам.
+  sentiment: neutral (0.99)
+[705.0s - 710.0s] client: Раз неделю составляются считас, соответственно, направляется вам на почту для оплаты.
+  sentiment: neutral (0.99)
+[710.0s - 711.0s] company_representative: Понял.
+  sentiment: neutral (0.92)
+[712.0s - 713.0s] client: Понял.
+  sentiment: neutral (0.92)
+[713.0s - 716.0s] company_representative: То есть, в заранее, средства, не положите, чтобы они там лежали.
+  sentiment: neutral (0.92)
+[718.0s - 719.0s] client: Поняла, поняла.
+  sentiment: neutral (0.91)
+[720.0s - 725.0s] company_representative: Подскажите, пожалуйста, есть ли еще какой-то вопрос по личному кабинету?
+  sentiment: neutral (1.00)
+[725.0s - 727.0s] client: Нету.
+  sentiment: neutral (0.93)
+[727.0s - 728.0s] company_representative: Спасибо.
+  sentiment: positive (0.69)
+[728.0s - 730.0s] client: Когда смотрите еще пару моментов?
+  sentiment: neutral (1.00)
+[730.0s - 736.0s] company_representative: Когда мы с вами создаем накладную, после этого у нас появляется списки заказов,
+  sentiment: neutral (1.00)
+[737.0s - 741.0s] client: номер нашего отправления и соответственно, можно распечатать накладную и штрихкот.
+  sentiment: neutral (1.00)
+[741.0s - 744.0s] company_representative: Все направления всегда должны быть проморокированы.
+  sentiment: neutral (0.99)
+[744.0s - 751.0s] client: Если пойдете, соответственно, составляйте ПВЗ, вы можете прямо там коллег попросить распечатать и штрихкот и накладную.
+  sentiment: neutral (1.00)
+[751.0s - 756.0s] company_representative: Также, соответственно, очень важно просить их при необходимости перемирять груст.
+  sentiment: neutral (0.93)
+[756.0s - 760.0s] client: То есть, это взвесить его еще раз и сравнить губориты верные или вы указали заранее.
+  sentiment: neutral (0.99)
+[760.0s - 765.0s] company_representative: Вот этот номер вашего заказа – это по факту номер накладной, номер отправления.
+  sentiment: neutral (0.99)
+[765.0s - 772.0s] client: Если будут какие-то вопросы, вы его спокойно копируете и можете писать нам в Мессаншер.
+  sentiment: neutral (1.00)
+[772.0s - 777.0s] company_representative: Там, допустим, не совсем понимаю, где находится моё отправление, например.
+  sentiment: neutral (0.99)
+[777.0s - 781.0s] client: Или если нужно внести какие-то корректировки.
+  sentiment: neutral (1.00)
+[781.0s - 784.0s] company_representative: С его поняла, хорошо.
+  sentiment: positive (0.97)
+[784.0s - 787.0s] client: Замечательно тогда, Елена.
   sentiment: positive (0.99)
-[802.6s - 803.6s] client: Почти от свидания.
+[787.0s - 791.0s] company_representative: Если будут еще какие-то вопросы возникает, будем ожидать их у нас в Мессаншере.
+  sentiment: neutral (1.00)
+[791.0s - 793.0s] client: Ты говорились?
+  sentiment: neutral (0.99)
+[793.0s - 795.0s] company_representative: Моговорились.
+  sentiment: neutral (0.90)
+[795.0s - 797.0s] client: Замечательно тогда.
+  sentiment: positive (1.00)
+[797.0s - 801.0s] company_representative: Спасибо вам, что подключились, тогда хорошего дня и удачной отправки.
+  sentiment: positive (0.99)
+[801.0s - 803.0s] client: Почти от свидания.
   sentiment: neutral (0.96)
-[803.6s - 804.6s] company_representative: До свидания.
-  sentiment: neutral (0.59)
+[803.0s - 805.0s] company_representative: Да, свидания.
+  sentiment: neutral (0.86)

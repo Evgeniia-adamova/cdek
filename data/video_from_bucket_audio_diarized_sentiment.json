@@ -13,7 +13,7 @@
     },
     {
       "start": 5.0,
-      "end": 8.040000000000001,
+      "end": 8.0,
       "text": "Здравствуйте. Подскажите, пожалуйста, меня хорошо видно",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
@@ -23,8 +23,8 @@
       }
     },
     {
-      "start": 8.040000000000001,
-      "end": 11.040000000000001,
+      "start": 8.0,
+      "end": 10.0,
       "text": "слышно?",
       "speaker_id": "SPEAKER_00",
       "role": "client",
@@ -34,8 +34,8 @@
       }
     },
     {
-      "start": 11.040000000000001,
-      "end": 17.04,
+      "start": 10.0,
+      "end": 17.0,
       "text": "Алло, Елена.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
@@ -45,8 +45,8 @@
       }
     },
     {
-      "start": 17.04,
-      "end": 26.560000000000002,
+      "start": 17.0,
+      "end": 26.0,
       "text": "Елена, подскажите, меня хорошо слышно?",
       "speaker_id": "SPEAKER_00",
       "role": "client",
@@ -56,30 +56,52 @@
       }
     },
     {
-      "start": 26.56,
-      "end": 33.56,
-      "text": "Алло.",
+      "start": 26.0,
+      "end": 29.0,
+      "text": "Слышно?",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9898333549499512
+        "score": 0.993242084980011
       }
     },
     {
-      "start": 33.56,
-      "end": 36.56,
-      "text": "Алло.",
+      "start": 29.0,
+      "end": 34.0,
+      "text": "Слышно?",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9898333549499512
+        "score": 0.993242084980011
       }
     },
     {
-      "start": 36.56,
-      "end": 43.56,
+      "start": 34.0,
+      "end": 36.0,
+      "text": "Слышно?",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.993242084980011
+      }
+    },
+    {
+      "start": 36.0,
+      "end": 39.0,
+      "text": "Алло?",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9919824004173279
+      }
+    },
+    {
+      "start": 39.0,
+      "end": 46.0,
       "text": "Так выключено.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
@@ -89,30 +111,30 @@
       }
     },
     {
-      "start": 43.56,
-      "end": 48.56,
-      "text": "Так у меня есть.",
+      "start": 46.0,
+      "end": 50.0,
+      "text": "Так у меня есть афон.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9701094031333923
+        "score": 0.9918875098228455
       }
     },
     {
-      "start": 48.56,
-      "end": 55.56,
-      "text": "Мишка.",
+      "start": 50.0,
+      "end": 57.0,
+      "text": "Лешка.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9903128147125244
+        "score": 0.992197573184967
       }
     },
     {
-      "start": 55.56,
-      "end": 66.56,
+      "start": 57.0,
+      "end": 68.0,
       "text": "Елена, подскажите, пожалуйста, слышите меня?",
       "speaker_id": "SPEAKER_00",
       "role": "client",
@@ -122,30 +144,30 @@
       }
     },
     {
-      "start": 66.56,
-      "end": 70.56,
-      "text": "Меня хорошо слышно?",
+      "start": 68.0,
+      "end": 71.0,
+      "text": "Да, я вас хорошо слышу.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
-        "label": "neutral",
-        "score": 0.9942163228988647
+        "label": "positive",
+        "score": 0.5918985605239868
       }
     },
     {
-      "start": 70.56,
-      "end": 73.56,
-      "text": "Все, замечательно.",
+      "start": 71.0,
+      "end": 74.0,
+      "text": "Все, вот замечательно.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "positive",
-        "score": 0.9950152039527893
+        "score": 0.9951819777488708
       }
     },
     {
-      "start": 73.56,
-      "end": 76.56,
+      "start": 74.0,
+      "end": 76.0,
       "text": "Теперь тоже вас услышало.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
@@ -155,85 +177,63 @@
       }
     },
     {
-      "start": 76.56,
-      "end": 80.56,
-      "text": "Так, подскажите, пожалуйста.",
+      "start": 76.0,
+      "end": 82.0,
+      "text": "Так, подскажите, пожалуйста, как вам будет комфортнее,",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9958158135414124
+        "score": 0.9903325438499451
       }
     },
     {
-      "start": 80.56,
-      "end": 83.56,
-      "text": "Как вам будет комфортнее, чтобы вы подключили демонстрацию",
+      "start": 82.0,
+      "end": 87.0,
+      "text": "чтобы вы подключили демонстрацию или меня подключить?",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9398321509361267
+        "score": 0.9955995082855225
       }
     },
     {
-      "start": 83.56,
-      "end": 86.56,
-      "text": "или меня подключить?",
-      "speaker_id": "SPEAKER_00",
-      "role": "client",
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9953340888023376
-      }
-    },
-    {
-      "start": 86.56,
-      "end": 92.56,
+      "start": 87.0,
+      "end": 92.0,
       "text": "Вы подключите, пожалуйста.",
-      "speaker_id": "SPEAKER_01",
-      "role": "company_representative",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
       "sentiment": {
         "label": "neutral",
         "score": 0.995091438293457
       }
     },
     {
-      "start": 92.56,
-      "end": 99.56,
-      "text": "Ммм, буквально секундочку.",
-      "speaker_id": "SPEAKER_00",
-      "role": "client",
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9624468684196472
-      }
-    },
-    {
-      "start": 99.56,
-      "end": 109.56,
-      "text": "Ммм.",
+      "start": 93.0,
+      "end": 99.0,
+      "text": "Богвально секундочку.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
         "label": "neutral",
-        "score": 0.6219484210014343
+        "score": 0.9211229681968689
       }
     },
     {
-      "start": 109.56,
-      "end": 113.56,
-      "text": "Так, мы сами сегодня будем рассматривать ваш личный кабинет.",
+      "start": 110.0,
+      "end": 114.0,
+      "text": "Мы сами сегодня будем рассматривать ваш личный кабинет.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9952099919319153
+        "score": 0.9935060739517212
       }
     },
     {
-      "start": 113.56,
-      "end": 117.56,
+      "start": 114.0,
+      "end": 118.0,
       "text": "На всякий случай представлюсь меня зовут Полина.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
@@ -243,8 +243,8 @@
       }
     },
     {
-      "start": 118.56,
-      "end": 121.56,
+      "start": 118.0,
+      "end": 121.0,
       "text": "Как мы входим в первую очередь в личный кабинет?",
       "speaker_id": "SPEAKER_00",
       "role": "client",
@@ -254,30 +254,30 @@
       }
     },
     {
-      "start": 121.56,
-      "end": 125.56,
-      "text": "Здесь необходимо нам в своем вести логин, либо има, ваш логин.",
+      "start": 121.0,
+      "end": 125.0,
+      "text": "Здесь необходимо нам в своем и вести логин, либо imail.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9962520003318787
+        "score": 0.9960148334503174
       }
     },
     {
-      "start": 125.56,
-      "end": 133.56,
-      "text": "Это ваш номер договора.",
+      "start": 125.0,
+      "end": 133.0,
+      "text": "Ваш логин – это ваш номер договора.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9945800304412842
+        "score": 0.9911364316940308
       }
     },
     {
-      "start": 133.56,
-      "end": 136.56,
+      "start": 133.0,
+      "end": 136.0,
       "text": "Далее, соответственно, вы вставляете не помню пароль.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
@@ -287,8 +287,8 @@
       }
     },
     {
-      "start": 136.56,
-      "end": 138.56,
+      "start": 136.0,
+      "end": 138.0,
       "text": "Вот сюда вот кнопочку.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
@@ -298,8 +298,8 @@
       }
     },
     {
-      "start": 138.56,
-      "end": 145.56,
+      "start": 138.0,
+      "end": 145.0,
       "text": "Чтобы вам пришел пароль для восстановления на почту.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
@@ -309,8 +309,8 @@
       }
     },
     {
-      "start": 145.56,
-      "end": 152.56,
+      "start": 146.0,
+      "end": 150.0,
       "text": "Я, соответственно, пока покажу на тестом варианте.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
@@ -320,74 +320,74 @@
       }
     },
     {
-      "start": 152.56,
-      "end": 159.56,
-      "text": "Так, подскажите, пожалуйста, как будете осуществлять поставки?",
+      "start": 155.0,
+      "end": 160.0,
+      "text": "Подскажите, пожалуйста, как будете осуществлять поставки?",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9965099692344666
+        "score": 0.9965258240699768
       }
     },
     {
-      "start": 159.56,
-      "end": 168.56,
-      "text": "Вы продаете через авиты, в интернет-магазин или на маркет-плейсе?",
+      "start": 160.0,
+      "end": 165.0,
+      "text": "Вы продаете через авитор, в интернет-магазин или на маркет-плейсе?",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9962713718414307
+        "score": 0.9964691400527954
       }
     },
     {
-      "start": 168.56,
-      "end": 173.56,
+      "start": 170.0,
+      "end": 173.0,
       "text": "Поставки не будет.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
         "label": "neutral",
-        "score": 0.5732754468917847
+        "score": 0.5732755661010742
       }
     },
     {
-      "start": 173.56,
-      "end": 177.56,
-      "text": "Просто на правку патруки через дек будет.",
+      "start": 174.0,
+      "end": 177.0,
+      "text": "После отправка патуки через дек будет.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9924148917198181
+        "score": 0.9932780861854553
       }
     },
     {
-      "start": 177.56,
-      "end": 179.56,
-      "text": "Черезов, Саран.",
+      "start": 177.0,
+      "end": 179.0,
+      "text": "Черезов, висаж.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9959855675697327
+        "score": 0.9412518739700317
       }
     },
     {
-      "start": 179.56,
-      "end": 181.56,
-      "text": "Ммм, все, поняла, правильно?",
+      "start": 179.0,
+      "end": 181.0,
+      "text": "Все, поняла, правильно?",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9757773876190186
+        "score": 0.9912761449813843
       }
     },
     {
-      "start": 181.56,
-      "end": 185.56,
+      "start": 181.0,
+      "end": 185.0,
       "text": "Понимаю, что документы хотите отправлять?",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
@@ -397,41 +397,41 @@
       }
     },
     {
-      "start": 185.56,
-      "end": 187.56,
-      "text": "Нет, вещи.",
+      "start": 185.0,
+      "end": 188.0,
+      "text": "Нет, не, две вещи.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9876085519790649
+        "score": 0.9688135981559753
       }
     },
     {
-      "start": 187.56,
-      "end": 188.56,
-      "text": "Ммм, хорошо.",
+      "start": 188.0,
+      "end": 189.0,
+      "text": "Хорошо.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
         "label": "positive",
-        "score": 0.9873316884040833
+        "score": 0.8583852648735046
       }
     },
     {
-      "start": 188.56,
-      "end": 196.56,
+      "start": 189.0,
+      "end": 196.0,
       "text": "Когда смотрите вам для вашей доставки, необходимо будет нажать новый заказ.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9955470561981201
+        "score": 0.9955469369888306
       }
     },
     {
-      "start": 196.56,
-      "end": 199.56,
+      "start": 196.0,
+      "end": 199.0,
       "text": "Те, что он у нас прогрузится.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
@@ -441,8 +441,8 @@
       }
     },
     {
-      "start": 199.56,
-      "end": 203.56,
+      "start": 199.0,
+      "end": 203.0,
       "text": "Так как у вас тип договора к у, он называется доставка.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
@@ -452,8 +452,8 @@
       }
     },
     {
-      "start": 203.56,
-      "end": 205.56,
+      "start": 203.0,
+      "end": 206.0,
       "text": "Далее, соответственно, дополнительный тип.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
@@ -463,19 +463,19 @@
       }
     },
     {
-      "start": 205.56,
-      "end": 207.56,
+      "start": 206.0,
+      "end": 208.0,
       "text": "Нам здесь выбирать не нужно.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.8455191850662231
+        "score": 0.8455190062522888
       }
     },
     {
-      "start": 207.56,
-      "end": 209.56,
+      "start": 208.0,
+      "end": 210.0,
       "text": "Кем вы являетесь?",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
@@ -485,19 +485,19 @@
       }
     },
     {
-      "start": 209.56,
-      "end": 211.56,
-      "text": "А правителем, получателем третьей стороной.",
+      "start": 210.0,
+      "end": 212.0,
+      "text": "О правителем, получателем третьей стороной.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9930387139320374
+        "score": 0.9954147338867188
       }
     },
     {
-      "start": 211.56,
-      "end": 215.56,
+      "start": 212.0,
+      "end": 215.0,
       "text": "Здесь вы выбираете подходящий для себя вариант.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
@@ -507,8 +507,8 @@
       }
     },
     {
-      "start": 215.56,
-      "end": 218.56,
+      "start": 215.0,
+      "end": 219.0,
       "text": "То есть, либо вы будете отправлять, либо получать либо третьей стороной.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
@@ -518,19 +518,19 @@
       }
     },
     {
-      "start": 218.56,
-      "end": 221.56,
-      "text": "То есть, это осуществлять доставку между кем-то.",
+      "start": 219.0,
+      "end": 222.0,
+      "text": "То есть это осуществлять доставку между кем-то.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
         "label": "neutral",
-        "score": 0.994441568851471
+        "score": 0.9946680068969727
       }
     },
     {
-      "start": 221.56,
-      "end": 226.56,
+      "start": 222.0,
+      "end": 226.0,
       "text": "Например, между у коллегами, между родственниками и так далее.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
@@ -540,8 +540,8 @@
       }
     },
     {
-      "start": 226.56,
-      "end": 230.56,
+      "start": 227.0,
+      "end": 230.0,
       "text": "Далее, оплата ставим под договору.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
@@ -551,41 +551,41 @@
       }
     },
     {
-      "start": 230.56,
-      "end": 233.56,
-      "text": "То есть, чтобы с вашего счета списывалось,",
+      "start": 230.0,
+      "end": 233.0,
+      "text": "То есть, чтобы с вашего счета списывалось.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.991479218006134
+        "score": 0.9921837449073792
       }
     },
     {
-      "start": 233.56,
-      "end": 237.56,
-      "text": "город отправителя это откуда вы будете отправлять.",
+      "start": 233.0,
+      "end": 237.0,
+      "text": "Город отправителя – это откуда вы будете отправлять.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9953694939613342
+        "score": 0.9953492283821106
       }
     },
     {
-      "start": 237.56,
-      "end": 241.56,
-      "text": "То есть, это либо вы от себя отправляете, либо вам отправляют откуда вы.",
+      "start": 237.0,
+      "end": 241.0,
+      "text": "То есть это либо вы от себя отправляете, либо вам отправляют откуда вы.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9936681389808655
+        "score": 0.9933064579963684
       }
     },
     {
-      "start": 241.56,
-      "end": 244.56,
+      "start": 241.0,
+      "end": 244.0,
       "text": "А откуда планируете отправлять?",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
@@ -595,8 +595,8 @@
       }
     },
     {
-      "start": 246.56,
-      "end": 248.56,
+      "start": 247.0,
+      "end": 249.0,
       "text": "Вы сейчас меня спрашиваете?",
       "speaker_id": "SPEAKER_00",
       "role": "client",
@@ -606,8 +606,8 @@
       }
     },
     {
-      "start": 248.56,
-      "end": 250.56,
+      "start": 249.0,
+      "end": 250.0,
       "text": "Да, спрашиваем.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
@@ -617,19 +617,19 @@
       }
     },
     {
-      "start": 250.56,
-      "end": 253.56,
-      "text": "Да, на момент город есть синтуки.",
+      "start": 250.0,
+      "end": 253.0,
+      "text": "Да, на момент гордые сентаки.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9924926161766052
+        "score": 0.9947798252105713
       }
     },
     {
-      "start": 253.56,
-      "end": 255.56,
+      "start": 253.0,
+      "end": 255.0,
       "text": "Угу.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
@@ -639,8 +639,8 @@
       }
     },
     {
-      "start": 261.56,
-      "end": 264.56,
+      "start": 262.0,
+      "end": 264.0,
       "text": "Угу, тес у нас прогрузит.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
@@ -650,8 +650,30 @@
       }
     },
     {
-      "start": 283.56,
-      "end": 285.56,
+      "start": 284.0,
+      "end": 286.0,
+      "text": "Иди сюда.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9853659868240356
+      }
+    },
+    {
+      "start": 292.0,
+      "end": 294.0,
+      "text": "Иди сюда.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9853659868240356
+      }
+    },
+    {
+      "start": 300.0,
+      "end": 302.0,
       "text": "Да, секунду.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
@@ -661,19 +683,19 @@
       }
     },
     {
-      "start": 285.56,
-      "end": 287.56,
-      "text": "Да, секунду.",
+      "start": 303.0,
+      "end": 305.0,
+      "text": "Иди сюда.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9897137880325317
+        "score": 0.9853659868240356
       }
     },
     {
-      "start": 309.56,
-      "end": 313.56,
+      "start": 311.0,
+      "end": 313.0,
       "text": "Угу, куда отправлять будете?",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
@@ -683,107 +705,107 @@
       }
     },
     {
-      "start": 314.56,
-      "end": 317.56,
-      "text": "Бород ярца-восмоленской области.",
+      "start": 313.0,
+      "end": 316.0,
+      "text": "Бород ярца, Восмоленская область.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9941747784614563
+        "score": 0.9941123127937317
       }
     },
     {
-      "start": 322.56,
-      "end": 323.56,
-      "text": "Так, далее.",
+      "start": 321.0,
+      "end": 322.0,
+      "text": "Угу.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9816633462905884
+      }
+    },
+    {
+      "start": 322.0,
+      "end": 323.0,
+      "text": "Так, далее.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
       "sentiment": {
         "label": "neutral",
         "score": 0.9952661991119385
       }
     },
     {
-      "start": 323.56,
-      "end": 327.56,
+      "start": 323.0,
+      "end": 327.0,
       "text": "Видим, что у нас есть информация об отправителя и ополучателя.",
-      "speaker_id": "SPEAKER_00",
-      "role": "client",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
       "sentiment": {
         "label": "neutral",
         "score": 0.98097163438797
       }
     },
     {
-      "start": 327.56,
-      "end": 332.56,
-      "text": "Отправитель, если вы, то, соответственно, все данные ваши автоматические подтягиваются.",
-      "speaker_id": "SPEAKER_01",
-      "role": "company_representative",
+      "start": 328.0,
+      "end": 333.0,
+      "text": "Отправитель, если вы, то, соответственно, все данные ваши автоматически подтягиваются.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9924774765968323
+        "score": 0.9936609268188477
       }
     },
     {
-      "start": 332.56,
-      "end": 334.56,
+      "start": 333.0,
+      "end": 335.0,
       "text": "Получателя нужно будет указывать.",
-      "speaker_id": "SPEAKER_00",
-      "role": "client",
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9944203495979309
-      }
-    },
-    {
-      "start": 334.56,
-      "end": 337.56,
-      "text": "Если, соответственно, меняем, что вы будете получать,",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9947953820228577
+        "score": 0.9944202303886414
       }
     },
     {
-      "start": 337.56,
-      "end": 340.56,
-      "text": "а кто-то другой отправляет, то вам, соответственно,",
+      "start": 335.0,
+      "end": 342.0,
+      "text": "Если, соответственно, меняем, что вы будете получать, а кто-то другой отправляет, то вам, соответственно, нужно будет заполнить данные.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9920831918716431
+        "score": 0.9947443008422852
       }
     },
     {
-      "start": 340.56,
-      "end": 345.56,
-      "text": "будет заполнить данные отправителя, а получателям будете выступать вы.",
+      "start": 342.0,
+      "end": 345.0,
+      "text": "Отправителя, а получателям будете выступать вы.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9957356452941895
+        "score": 0.9940645098686218
       }
     },
     {
-      "start": 345.56,
-      "end": 349.56,
-      "text": "Получать будет Юр лицо или Физлицо.",
+      "start": 345.0,
+      "end": 349.0,
+      "text": "Получать будет юр лицо или физлицо.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9950449466705322
+        "score": 0.9953306913375854
       }
     },
     {
-      "start": 349.56,
-      "end": 351.56,
+      "start": 350.0,
+      "end": 352.0,
       "text": "Получателям?",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
@@ -793,107 +815,85 @@
       }
     },
     {
-      "start": 351.56,
-      "end": 354.56,
-      "text": "У Физлицо.",
+      "start": 352.0,
+      "end": 354.0,
+      "text": "У физлицо.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9925950169563293
+        "score": 0.9930164813995361
       }
     },
     {
-      "start": 354.56,
-      "end": 356.56,
-      "text": "Угу, хорошо.",
+      "start": 355.0,
+      "end": 357.0,
+      "text": "Хорошо.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
         "label": "positive",
-        "score": 0.8435642719268799
+        "score": 0.8583852648735046
       }
     },
     {
-      "start": 356.56,
-      "end": 361.56,
-      "text": "Здесь, соответственно, с вами вводим его ФИО.",
+      "start": 357.0,
+      "end": 361.0,
+      "text": "Здесь, соответственно, с вами, вводим его фио.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9958212375640869
+        "score": 0.9958347082138062
       }
     },
     {
-      "start": 361.56,
-      "end": 363.56,
-      "text": "К примеру, Иванов и Иван Иванович.",
+      "start": 361.0,
+      "end": 364.0,
+      "text": "К примеру, Иванов и Иванович.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9915705919265747
+        "score": 0.9929394721984863
       }
     },
     {
-      "start": 363.56,
-      "end": 367.56,
-      "text": "Нужно водить ФИО полностью и контактные номер телефона.",
+      "start": 364.0,
+      "end": 372.0,
+      "text": "Нужно водить фио полностью и контактные номер телефоны, для того, чтобы в случае необходимости мы смогли с получателем связаться.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9967690706253052
+        "score": 0.9965871572494507
       }
     },
     {
-      "start": 367.56,
-      "end": 371.56,
-      "text": "Для того, чтобы в случае необходимости, мы смогли с получателем связаться.",
-      "speaker_id": "SPEAKER_01",
-      "role": "company_representative",
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.995391845703125
-      }
-    },
-    {
-      "start": 371.56,
-      "end": 376.56,
+      "start": 372.0,
+      "end": 377.0,
       "text": "Далее мы с вами заполняем информацию о грузом месте.",
-      "speaker_id": "SPEAKER_00",
-      "role": "client",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
       "sentiment": {
         "label": "neutral",
         "score": 0.9960387945175171
       }
     },
     {
-      "start": 376.56,
-      "end": 380.56,
+      "start": 377.0,
+      "end": 381.0,
       "text": "Что конкретно планируете отправлять?",
-      "speaker_id": "SPEAKER_01",
-      "role": "company_representative",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
       "sentiment": {
         "label": "neutral",
         "score": 0.9961733222007751
       }
     },
     {
-      "start": 380.56,
-      "end": 382.56,
-      "text": "Вещи.",
-      "speaker_id": "SPEAKER_00",
-      "role": "client",
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9904929995536804
-      }
-    },
-    {
-      "start": 382.56,
-      "end": 385.56,
+      "start": 382.0,
+      "end": 386.0,
       "text": "Вещи личного характера, возможно.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
@@ -903,8 +903,8 @@
       }
     },
     {
-      "start": 385.56,
-      "end": 387.56,
+      "start": 386.0,
+      "end": 388.0,
       "text": "Да.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
@@ -914,30 +914,30 @@
       }
     },
     {
-      "start": 387.56,
-      "end": 392.56,
-      "text": "Соответственно, здесь мы с вами тогда указываем вес коробки.",
+      "start": 388.0,
+      "end": 393.0,
+      "text": "Соответственно, здесь мы с вами, тогда указываем вес коробки.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9951932430267334
+        "score": 0.9937352538108826
       }
     },
     {
-      "start": 392.56,
-      "end": 396.56,
-      "text": "То есть грузоместо этой коробка с вещами внутри.",
+      "start": 393.0,
+      "end": 396.0,
+      "text": "То есть грузоместо – это коробка с вещами внутри.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9921404719352722
+        "score": 0.9951038360595703
       }
     },
     {
-      "start": 396.56,
-      "end": 399.56,
+      "start": 396.0,
+      "end": 399.0,
       "text": "Допустим, она будет 21 килограмм.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
@@ -947,8 +947,8 @@
       }
     },
     {
-      "start": 399.56,
-      "end": 404.56,
+      "start": 399.0,
+      "end": 404.0,
       "text": "Будет, например, 30 на 30 к примеру.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
@@ -958,8 +958,8 @@
       }
     },
     {
-      "start": 404.56,
-      "end": 407.56,
+      "start": 404.0,
+      "end": 407.0,
       "text": "Далее, описание груза.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
@@ -969,8 +969,8 @@
       }
     },
     {
-      "start": 407.56,
-      "end": 411.56,
+      "start": 407.0,
+      "end": 411.0,
       "text": "Здесь мы заполняем максимально подробно.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
@@ -980,272 +980,272 @@
       }
     },
     {
-      "start": 411.56,
-      "end": 416.56,
-      "text": "То есть, селищные вещи, например.",
+      "start": 411.0,
+      "end": 414.0,
+      "text": "То есть, селищные вещи, например,",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9943922162055969
+        "score": 0.9953368306159973
       }
     },
     {
-      "start": 416.56,
-      "end": 418.56,
-      "text": "Где же то?",
+      "start": 414.0,
+      "end": 421.0,
+      "text": "где же то, сезонное зимнее.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9958893656730652
+        "score": 0.9885150790214539
       }
     },
     {
-      "start": 418.56,
-      "end": 421.56,
-      "text": "Сезонное зимнее.",
-      "speaker_id": "SPEAKER_01",
-      "role": "company_representative",
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9921903014183044
-      }
-    },
-    {
-      "start": 421.56,
-      "end": 423.56,
+      "start": 421.0,
+      "end": 423.0,
       "text": "Вот так вот.",
-      "speaker_id": "SPEAKER_00",
-      "role": "client",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
       "sentiment": {
         "label": "neutral",
         "score": 0.9916965961456299
       }
     },
     {
-      "start": 423.56,
-      "end": 426.56,
+      "start": 423.0,
+      "end": 426.0,
       "text": "Для чего это необходимо, чтобы в случае,",
-      "speaker_id": "SPEAKER_01",
-      "role": "company_representative",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
       "sentiment": {
         "label": "neutral",
         "score": 0.9954668283462524
       }
     },
     {
-      "start": 426.56,
-      "end": 429.56,
+      "start": 426.0,
+      "end": 428.0,
       "text": "а если вдруг с грузом что-то случилось,",
-      "speaker_id": "SPEAKER_00",
-      "role": "client",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
       "sentiment": {
         "label": "neutral",
         "score": 0.9963500499725342
       }
     },
     {
-      "start": 429.56,
-      "end": 433.56,
+      "start": 428.0,
+      "end": 433.0,
       "text": "чтобы мы смогли его идентифицировать, что это действительно ваш груз.",
-      "speaker_id": "SPEAKER_01",
-      "role": "company_representative",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
       "sentiment": {
         "label": "neutral",
         "score": 0.9937155842781067
       }
     },
     {
-      "start": 433.56,
-      "end": 436.56,
+      "start": 433.0,
+      "end": 436.0,
       "text": "Далее мы сохраняем изменение.",
-      "speaker_id": "SPEAKER_00",
-      "role": "client",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
       "sentiment": {
         "label": "neutral",
         "score": 0.9925198554992676
       }
     },
     {
-      "start": 436.56,
-      "end": 441.56,
+      "start": 436.0,
+      "end": 442.0,
       "text": "Видим, что у нас здесь с вами при необходимости также указывается объемный вес.",
-      "speaker_id": "SPEAKER_01",
-      "role": "company_representative",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
       "sentiment": {
         "label": "neutral",
         "score": 0.9956238865852356
       }
     },
     {
-      "start": 441.56,
-      "end": 444.56,
+      "start": 442.0,
+      "end": 445.0,
       "text": "Оплаты всегда считаются по объемному весу,",
-      "speaker_id": "SPEAKER_00",
-      "role": "client",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
       "sentiment": {
         "label": "neutral",
         "score": 0.9961140155792236
       }
     },
     {
-      "start": 444.56,
-      "end": 446.56,
-      "text": "то есть по большему весу.",
-      "speaker_id": "SPEAKER_01",
-      "role": "company_representative",
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9772945642471313
-      }
-    },
-    {
-      "start": 446.56,
-      "end": 450.56,
-      "text": "Это тот максимум, который может уместиться в эту коробку.",
+      "start": 445.0,
+      "end": 447.0,
+      "text": "то есть по большему весу – это тот максимум,",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9807286858558655
+        "score": 0.979483962059021
       }
     },
     {
-      "start": 450.56,
-      "end": 452.56,
-      "text": "Далее мы с вами соответственно выбираем тарифы.",
+      "start": 447.0,
+      "end": 450.0,
+      "text": "который может уместиться в эту коробку.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9950826168060303
+      }
+    },
+    {
+      "start": 450.0,
+      "end": 453.0,
+      "text": "Далее мы с вами соответственно выбираем тарифы.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
       "sentiment": {
         "label": "neutral",
         "score": 0.9948807954788208
       }
     },
     {
-      "start": 452.56,
-      "end": 455.56,
+      "start": 453.0,
+      "end": 456.0,
       "text": "Здесь у нас есть два варианта.",
-      "speaker_id": "SPEAKER_00",
-      "role": "client",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
       "sentiment": {
         "label": "neutral",
         "score": 0.9957882761955261
       }
     },
     {
-      "start": 455.56,
-      "end": 457.56,
+      "start": 456.0,
+      "end": 458.0,
       "text": "Откуда и куда? Откуда?",
-      "speaker_id": "SPEAKER_01",
-      "role": "company_representative",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
       "sentiment": {
         "label": "neutral",
         "score": 0.9952646493911743
       }
     },
     {
-      "start": 457.56,
-      "end": 461.56,
+      "start": 458.0,
+      "end": 462.0,
       "text": "Принести в ПВЗ либо заберет курьер.",
-      "speaker_id": "SPEAKER_00",
-      "role": "client",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
       "sentiment": {
         "label": "neutral",
         "score": 0.9961472749710083
       }
     },
     {
-      "start": 461.56,
-      "end": 465.56,
-      "text": "Принести в ПВЗ это вы относите коробку в ПВЗ.",
-      "speaker_id": "SPEAKER_01",
-      "role": "company_representative",
+      "start": 462.0,
+      "end": 466.0,
+      "text": "Принести в ПВЗ – это вы относите коробку в ПВЗ.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9953946471214294
+        "score": 0.995649516582489
       }
     },
     {
-      "start": 465.56,
-      "end": 468.56,
+      "start": 466.0,
+      "end": 469.0,
       "text": "Там, допустим, если вы не уверены в габаритах и в весе,",
-      "speaker_id": "SPEAKER_00",
-      "role": "client",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
       "sentiment": {
         "label": "neutral",
         "score": 0.9952309727668762
       }
     },
     {
-      "start": 468.56,
-      "end": 471.56,
-      "text": "и делай еще раз перемиряю.",
-      "speaker_id": "SPEAKER_01",
-      "role": "company_representative",
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9808741211891174
-      }
-    },
-    {
-      "start": 471.56,
-      "end": 474.56,
-      "text": "И соответственно, вносит изменение.",
+      "start": 469.0,
+      "end": 472.0,
+      "text": "и делай еще раз перемиряю,",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9941415190696716
+        "score": 0.9825965762138367
       }
     },
     {
-      "start": 474.56,
-      "end": 477.56,
-      "text": "Если курьер, то соответственно к вам курьер приезжает на адрес,",
+      "start": 472.0,
+      "end": 475.0,
+      "text": "и соответственно выносит изменение.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.993493378162384
+      }
+    },
+    {
+      "start": 475.0,
+      "end": 478.0,
+      "text": "Если курьер, то соответственно к вам курьер приезжает на адрес,",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
       "sentiment": {
         "label": "neutral",
         "score": 0.9949576258659363
       }
     },
     {
-      "start": 477.56,
-      "end": 479.56,
-      "text": "чтобы забрать в этот груз.",
-      "speaker_id": "SPEAKER_00",
-      "role": "client",
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9961295127868652
-      }
-    },
-    {
-      "start": 479.56,
-      "end": 483.56,
-      "text": "Также куда доставить ПВЗ по стамат курьером?",
+      "start": 478.0,
+      "end": 480.0,
+      "text": "чтобы забрать в этом груз.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9965117573738098
+        "score": 0.9961856007575989
       }
     },
     {
-      "start": 483.56,
-      "end": 486.56,
+      "start": 480.0,
+      "end": 482.0,
+      "text": "Также куда доставить?",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9963786005973816
+      }
+    },
+    {
+      "start": 482.0,
+      "end": 484.0,
+      "text": "ПВЗ – по стамат курьером.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9963114857673645
+      }
+    },
+    {
+      "start": 484.0,
+      "end": 486.0,
       "text": "Тут как получать у любудет комфортнее.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.5057151317596436
+        "score": 0.5057157278060913
       }
     },
     {
-      "start": 486.56,
-      "end": 488.56,
+      "start": 486.0,
+      "end": 489.0,
       "text": "То есть либо также ПВЗ либо курьером.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
@@ -1255,19 +1255,19 @@
       }
     },
     {
-      "start": 488.56,
-      "end": 492.56,
-      "text": "По стаматы принимают не все габариты грузов.",
+      "start": 489.0,
+      "end": 493.0,
+      "text": "В стаматы принимают не все габариты грузов.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9900979399681091
+        "score": 0.9877665042877197
       }
     },
     {
-      "start": 492.56,
-      "end": 495.56,
+      "start": 493.0,
+      "end": 497.0,
       "text": "То есть здесь нужно будет это учитывать.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
@@ -1277,129 +1277,173 @@
       }
     },
     {
-      "start": 496.56,
-      "end": 500.56,
-      "text": "Самый оптимальный вариант для нас сейчас это express склад склад.",
+      "start": 497.0,
+      "end": 499.0,
+      "text": "Самый оптимальный вариант для нас –",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9724879264831543
+        "score": 0.9658642411231995
       }
     },
     {
-      "start": 500.56,
-      "end": 503.56,
-      "text": "Соответственно, здесь он идет 6 дней",
+      "start": 499.0,
+      "end": 502.0,
+      "text": "это экспресс складского оттуда.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9957014918327332
+        "score": 0.9890363812446594
       }
     },
     {
-      "start": 503.56,
-      "end": 506.56,
-      "text": "и самый оптимальный по цене для нас.",
+      "start": 502.0,
+      "end": 504.0,
+      "text": "Отвезо здесь он идет 6 дней",
       "speaker_id": "SPEAKER_00",
       "role": "client",
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9942466616630554
+      }
+    },
+    {
+      "start": 504.0,
+      "end": 509.0,
+      "text": "и самый оптимальный по цене для нас.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
       "sentiment": {
         "label": "neutral",
         "score": 0.9882870316505432
       }
     },
     {
-      "start": 507.56,
-      "end": 512.56,
-      "text": "Далее, соответственно, дополнительные услуги, если они вам необходимо.",
-      "speaker_id": "SPEAKER_01",
-      "role": "company_representative",
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9941056966781616
-      }
-    },
-    {
-      "start": 512.56,
-      "end": 517.56,
-      "text": "Это внутреннее ближатка, сама коробка, стрыч, пленка, пупырка.",
+      "start": 509.0,
+      "end": 512.0,
+      "text": "Далее, соответственно, дополнительные услуки,",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9919257760047913
+        "score": 0.9933748841285706
       }
     },
     {
-      "start": 519.56,
-      "end": 522.56,
-      "text": "То есть здесь по необходимости заполняете.",
+      "start": 512.0,
+      "end": 514.0,
+      "text": "если они вам необходимы.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9875450730323792
+        "score": 0.9912047982215881
       }
     },
     {
-      "start": 522.56,
-      "end": 529.56,
-      "text": "Если вам это ничего не нужно, то соответственно ничего далее не добавляем.",
+      "start": 514.0,
+      "end": 518.0,
+      "text": "Внутри не обрешетка, сама коробка, стрыч, пленка, пупырка.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.6566311717033386
+        "score": 0.9867649078369141
       }
     },
     {
-      "start": 531.56,
-      "end": 533.56,
-      "text": "Информация об отправлении.",
+      "start": 519.0,
+      "end": 522.0,
+      "text": "То есть здесь пони-обходимость заполняете.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9960986375808716
+        "score": 0.9381556510925293
       }
     },
     {
-      "start": 533.56,
-      "end": 536.56,
+      "start": 522.0,
+      "end": 527.0,
+      "text": "Если вам это ничего не нужно, то соответственно",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9237122535705566
+      }
+    },
+    {
+      "start": 527.0,
+      "end": 531.0,
+      "text": "ничего далее не добавляем.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.8993380665779114
+      }
+    },
+    {
+      "start": 531.0,
+      "end": 533.0,
+      "text": "Информация ободправления.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.996721088886261
+      }
+    },
+    {
+      "start": 533.0,
+      "end": 536.0,
       "text": "Здесь вы можете посмотреть ли себя ближайшие ПВЗ,",
-      "speaker_id": "SPEAKER_00",
-      "role": "client",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
       "sentiment": {
         "label": "neutral",
         "score": 0.9964908957481384
       }
     },
     {
-      "start": 536.56,
-      "end": 539.56,
+      "start": 536.0,
+      "end": 539.0,
       "text": "где вам будет комфортнее куда отнести.",
-      "speaker_id": "SPEAKER_01",
-      "role": "company_representative",
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9265853762626648
-      }
-    },
-    {
-      "start": 539.56,
-      "end": 544.56,
-      "text": "Также пункты куда доставляем, здесь можно выбрать конкретный адрес.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9951854348182678
+        "score": 0.9265851378440857
       }
     },
     {
-      "start": 547.56,
-      "end": 550.56,
+      "start": 539.0,
+      "end": 542.0,
+      "text": "Также пункты куда доставляем.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9959235191345215
+      }
+    },
+    {
+      "start": 542.0,
+      "end": 545.0,
+      "text": "Здесь можно выбрать конкретный адрес.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9940622448921204
+      }
+    },
+    {
+      "start": 546.0,
+      "end": 549.0,
       "text": "Принести в ПВЗ можно любой.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
@@ -1409,8 +1453,8 @@
       }
     },
     {
-      "start": 550.56,
-      "end": 553.56,
+      "start": 549.0,
+      "end": 553.0,
       "text": "Забрать можно будет только из какого-то конкретного ПВЗ.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
@@ -1420,30 +1464,30 @@
       }
     },
     {
-      "start": 553.56,
-      "end": 557.56,
-      "text": "Если это крупный габаритный груз, то соответственно, допустим,",
+      "start": 553.0,
+      "end": 557.0,
+      "text": "Если это крупный габаритный груз, то соответственно,",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9957996010780334
+        "score": 0.996302604675293
       }
     },
     {
-      "start": 557.56,
-      "end": 560.56,
-      "text": "более 35 килограмм, то нужно будет проверять.",
+      "start": 557.0,
+      "end": 560.0,
+      "text": "допустим, более 35 килограмм, то нужно будет проверять.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9959456324577332
+        "score": 0.9946333169937134
       }
     },
     {
-      "start": 560.56,
-      "end": 562.56,
+      "start": 560.0,
+      "end": 562.0,
       "text": "Может ли ПВЗ принять такой груз?",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
@@ -1453,19 +1497,19 @@
       }
     },
     {
-      "start": 562.56,
-      "end": 564.56,
-      "text": "То есть здесь в видне весто 100 килограмм.",
+      "start": 562.0,
+      "end": 564.0,
+      "text": "То есть здесь вот в день весто 100 килограмм.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.994858980178833
+        "score": 0.9942525029182434
       }
     },
     {
-      "start": 564.56,
-      "end": 567.56,
+      "start": 564.0,
+      "end": 567.0,
       "text": "Соответственно, более 35 он точно примет.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
@@ -1475,96 +1519,96 @@
       }
     },
     {
-      "start": 568.56,
-      "end": 570.56,
-      "text": "Его соответственно выбираем.",
+      "start": 568.0,
+      "end": 570.0,
+      "text": "Его соответственно выбираю.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9957689046859741
+        "score": 0.9909746050834656
       }
     },
     {
-      "start": 570.56,
-      "end": 573.56,
-      "text": "Всё, по факту, вот наша накладная создана.",
+      "start": 570.0,
+      "end": 573.0,
+      "text": "Все, по факту, вот наша накладная создана.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9693487286567688
+        "score": 0.9704536199569702
       }
     },
     {
-      "start": 574.56,
-      "end": 579.56,
-      "text": "Тлотюшки, тебе на голову в таком доме и вскопировали,",
-      "speaker_id": "SPEAKER_00",
-      "role": "client",
-      "sentiment": {
-        "label": "negative",
-        "score": 0.6846334338188171
-      }
-    },
-    {
-      "start": 579.56,
-      "end": 581.56,
-      "text": "как обеспечали.",
-      "speaker_id": "SPEAKER_01",
-      "role": "company_representative",
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9743766188621521
-      }
-    },
-    {
-      "start": 581.56,
-      "end": 583.56,
-      "text": "Здесь выставки.",
+      "start": 575.0,
+      "end": 580.0,
+      "text": "Клотешки, темно-роловка в обауме, доме и к скопировок.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9933881759643555
+        "score": 0.9966214895248413
       }
     },
     {
-      "start": 583.56,
-      "end": 585.56,
-      "text": "Я про голову в одной тлотюшки, всяко ведомости.",
+      "start": 580.0,
+      "end": 582.0,
+      "text": "Я бы обеспалил.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9919224977493286
+        "score": 0.7392017245292664
       }
     },
     {
-      "start": 585.56,
-      "end": 587.56,
-      "text": "Леньше, без зата-платы, пока вы козлили.",
+      "start": 582.0,
+      "end": 584.0,
+      "text": "Здесь суть.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "negative",
-        "score": 0.883162260055542
+        "label": "neutral",
+        "score": 0.9942055344581604
       }
     },
     {
-      "start": 587.56,
-      "end": 588.56,
-      "text": "Алло, Полинг.",
+      "start": 584.0,
+      "end": 586.0,
+      "text": "Я проверю в одной плотешке.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9947691559791565
+        "score": 0.9953042268753052
       }
     },
     {
-      "start": 588.56,
-      "end": 590.56,
+      "start": 586.0,
+      "end": 588.0,
+      "text": "Немчили за плату по пробуков.",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9273812174797058
+      }
+    },
+    {
+      "start": 588.0,
+      "end": 589.0,
+      "text": "Алло, Полин.",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
+      "sentiment": {
+        "label": "neutral",
+        "score": 0.9930954575538635
+      }
+    },
+    {
+      "start": 589.0,
+      "end": 591.0,
       "text": "Да, я вас слышу.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
@@ -1574,30 +1618,30 @@
       }
     },
     {
-      "start": 590.56,
-      "end": 594.56,
-      "text": "Скажите, а вот данный момент я могу туда-то накладную создать на месте,",
+      "start": 591.0,
+      "end": 595.0,
+      "text": "Скажите, а вот данный момент я могу туда накладную создать на месте,",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
         "label": "neutral",
-        "score": 0.995884120464325
+        "score": 0.996010422706604
       }
     },
     {
-      "start": 594.56,
-      "end": 596.56,
-      "text": "когда я до веду.",
+      "start": 595.0,
+      "end": 597.0,
+      "text": "когда я до венду.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9909294247627258
+        "score": 0.9882233738899231
       }
     },
     {
-      "start": 596.56,
-      "end": 597.56,
+      "start": 597.0,
+      "end": 599.0,
       "text": "Да, да.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
@@ -1607,8 +1651,8 @@
       }
     },
     {
-      "start": 597.56,
-      "end": 602.56,
+      "start": 599.0,
+      "end": 603.0,
       "text": "В случае необходимости вы соответственно также переходите на сайт,",
       "speaker_id": "SPEAKER_00",
       "role": "client",
@@ -1618,52 +1662,30 @@
       }
     },
     {
-      "start": 602.56,
-      "end": 605.56,
-      "text": "с телефона, вместе с коллегами,",
+      "start": 603.0,
+      "end": 608.0,
+      "text": "а на телефона вместе с коллегами из ПВЗ можно это создать.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9944835305213928
+        "score": 0.9880202412605286
       }
     },
     {
-      "start": 605.56,
-      "end": 607.56,
-      "text": "из ПВЗ можно это создать.",
+      "start": 608.0,
+      "end": 615.0,
+      "text": "Либо, соответственно, также с нами на связи через нашу с вами переписку в Мэс-Синджере.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9918221831321716
+        "score": 0.9963012933731079
       }
     },
     {
-      "start": 607.56,
-      "end": 609.56,
-      "text": "Либо, соответственно, также с нами на связи,",
-      "speaker_id": "SPEAKER_01",
-      "role": "company_representative",
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9949895739555359
-      }
-    },
-    {
-      "start": 609.56,
-      "end": 613.56,
-      "text": "через нашу с вами переписку в мессенджере.",
-      "speaker_id": "SPEAKER_00",
-      "role": "client",
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9955093860626221
-      }
-    },
-    {
-      "start": 615.56,
-      "end": 616.56,
+      "start": 615.0,
+      "end": 617.0,
       "text": "Ихи такой вопрос.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
@@ -1673,19 +1695,19 @@
       }
     },
     {
-      "start": 616.56,
-      "end": 620.56,
-      "text": "Смотрите, я, если у меня положила насчёт сумму.",
+      "start": 617.0,
+      "end": 621.0,
+      "text": "Смотрите, я, если не положила насчет сумму.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9862340688705444
+        "score": 0.9900480508804321
       }
     },
     {
-      "start": 620.56,
-      "end": 621.56,
+      "start": 621.0,
+      "end": 623.0,
       "text": "Вот.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
@@ -1695,85 +1717,63 @@
       }
     },
     {
-      "start": 621.56,
-      "end": 625.56,
-      "text": "А она сразу приходит для людей, что они там искали.",
+      "start": 623.0,
+      "end": 626.0,
+      "text": "А на сразу приходит для людей, что они там искали.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9942713975906372
+        "score": 0.9670605063438416
       }
     },
     {
-      "start": 625.56,
-      "end": 629.56,
-      "text": "В течение трёх дней, но в любом случае вы уже сейчас можете",
+      "start": 626.0,
+      "end": 631.0,
+      "text": "В течение трех дней, но в любом случае вы уже сейчас можете составлять накладные",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9382869601249695
+        "score": 0.9945387244224548
       }
     },
     {
-      "start": 629.56,
-      "end": 632.56,
-      "text": "составлять накладные и соответственно отправлять.",
+      "start": 631.0,
+      "end": 634.0,
+      "text": "и соответственно отправлять.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9964529275894165
+        "score": 0.9958372116088867
       }
     },
     {
-      "start": 632.56,
-      "end": 635.56,
-      "text": "То есть я могу сегодня сходить, отправить,",
+      "start": 634.0,
+      "end": 639.0,
+      "text": "То есть я могу сегодня сходить, отправить, да, потом автоматом там это все спишится.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9804043173789978
+        "score": 0.8494930267333984
       }
     },
     {
-      "start": 635.56,
-      "end": 638.56,
-      "text": "да, потом автоматом там всё спишется.",
+      "start": 639.0,
+      "end": 641.0,
+      "text": "Да, да, спишите денег с лошади.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9176029562950134
+        "score": 0.9878129363059998
       }
     },
     {
-      "start": 638.56,
-      "end": 639.56,
-      "text": "Да, да, спишется.",
-      "speaker_id": "SPEAKER_01",
-      "role": "company_representative",
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9462897777557373
-      }
-    },
-    {
-      "start": 639.56,
-      "end": 640.56,
-      "text": "Попробуйте денег с лошади.",
-      "speaker_id": "SPEAKER_00",
-      "role": "client",
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9955378770828247
-      }
-    },
-    {
-      "start": 640.56,
-      "end": 643.56,
+      "start": 641.0,
+      "end": 644.0,
       "text": "Смотрите, что очень важно.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
@@ -1783,190 +1783,118 @@
       }
     },
     {
-      "start": 643.56,
-      "end": 645.56,
-      "text": "Списывается, она только при вручении игру,",
+      "start": 644.0,
+      "end": 648.0,
+      "text": "Списывается она только при вручении игру, то есть как только груз будет вручен.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9943549633026123
+        "score": 0.9933538436889648
       }
     },
     {
-      "start": 645.56,
-      "end": 647.56,
-      "text": "то есть как только груз будет вручен.",
+      "start": 648.0,
+      "end": 652.0,
+      "text": "Здесь у нас с вами доставка будет идти 6 дней.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9929773211479187
+        "score": 0.9937669038772583
       }
     },
     {
-      "start": 647.56,
-      "end": 650.56,
-      "text": "Здесь у нас с вами доставка будет идти шейз дней.",
+      "start": 652.0,
+      "end": 659.0,
+      "text": "Соответственно, только через 6 дней будет это списание после того, как человек его получит.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.992274820804596
+        "score": 0.9758303761482239
       }
     },
     {
-      "start": 652.56,
-      "end": 654.56,
-      "text": "Соответственно, только через шейз дней",
+      "start": 659.0,
+      "end": 660.0,
+      "text": "Плекалепно.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9892276525497437
+        "score": 0.9940571784973145
       }
     },
     {
-      "start": 654.56,
-      "end": 657.56,
-      "text": "будет это списание после того, как человек его получит.",
+      "start": 660.0,
+      "end": 666.0,
+      "text": "А вот я сейчас когда сдам груз, я уже буду знать на какую сумму, да.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "Unable to load vocabulary from file. Please check that the provided vocabulary is accessible and not corrupted."
+        "label": "neutral",
+        "score": 0.9738890528678894
       }
     },
     {
-      "start": 658.56,
-      "end": 659.56,
-      "text": "Влекалепно.",
-      "speaker_id": "SPEAKER_01",
-      "role": "company_representative",
-      "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "Unable to load vocabulary from file. Please check that the provided vocabulary is accessible and not corrupted."
-      }
-    },
-    {
-      "start": 659.56,
-      "end": 663.56,
-      "text": "А вот я сейчас когда сдам груст,",
-      "speaker_id": "SPEAKER_00",
-      "role": "client",
-      "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "Unable to load vocabulary from file. Please check that the provided vocabulary is accessible and not corrupted."
-      }
-    },
-    {
-      "start": 663.56,
-      "end": 665.56,
-      "text": "я уже буду знать на какую сумму, да?",
-      "speaker_id": "SPEAKER_01",
-      "role": "company_representative",
-      "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "Unable to load vocabulary from file. Please check that the provided vocabulary is accessible and not corrupted."
-      }
-    },
-    {
-      "start": 665.56,
-      "end": 666.56,
+      "start": 666.0,
+      "end": 667.0,
       "text": "Какая сумма спишется?",
-      "speaker_id": "SPEAKER_00",
-      "role": "client",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
       "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "Unable to load vocabulary from file. Please check that the provided vocabulary is accessible and not corrupted."
+        "label": "neutral",
+        "score": 0.9966326355934143
       }
     },
     {
-      "start": 666.56,
-      "end": 667.56,
+      "start": 667.0,
+      "end": 668.0,
       "text": "Да.",
-      "speaker_id": "SPEAKER_01",
-      "role": "company_representative",
-      "sentiment": {
-        "label": "unknown",
-        "score": 0.0,
-        "error": "Unable to load vocabulary from file. Please check that the provided vocabulary is accessible and not corrupted."
-      }
-    },
-    {
-      "start": 667.56,
-      "end": 669.56,
-      "text": "Если, например, кажется, она будет больше,",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9884839653968811
+        "score": 0.981346070766449
       }
     },
     {
-      "start": 669.56,
-      "end": 670.56,
-      "text": "я должна буду дополнить.",
+      "start": 668.0,
+      "end": 673.0,
+      "text": "Если, например, кажется, она будет больше, я должна буду дополнить.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9956287145614624
+        "score": 0.9944812059402466
       }
     },
     {
-      "start": 672.56,
-      "end": 676.56,
-      "text": "Смотрите, если она выйдет более того аванса,",
+      "start": 673.0,
+      "end": 678.0,
+      "text": "Смотрите, если оно выйдет более того аванса, который вы ранее вносили.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9939119815826416
+        "score": 0.9953349232673645
       }
     },
     {
-      "start": 676.56,
-      "end": 678.56,
-      "text": "который вы ранее в насилие,",
+      "start": 678.0,
+      "end": 682.0,
+      "text": "Если не ошибаюсь, то это 490 вносили, верно?",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9654945731163025
+        "score": 0.9936158657073975
       }
     },
     {
-      "start": 678.56,
-      "end": 680.56,
-      "text": "если не ошибаюсь, то это 490,",
-      "speaker_id": "SPEAKER_00",
-      "role": "client",
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9920520782470703
-      }
-    },
-    {
-      "start": 680.56,
-      "end": 681.56,
-      "text": "она сили, верно?",
-      "speaker_id": "SPEAKER_01",
-      "role": "company_representative",
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9916955828666687
-      }
-    },
-    {
-      "start": 682.56,
-      "end": 683.56,
+      "start": 682.0,
+      "end": 684.0,
       "text": "Ну да.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
@@ -1976,415 +1904,261 @@
       }
     },
     {
-      "start": 683.56,
-      "end": 685.56,
-      "text": "Вот, соответственно, если больше этого,",
+      "start": 684.0,
+      "end": 690.0,
+      "text": "Соответственно, если больше этого, то, соответственно, да, нужно будет еще направить остатки.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9915603995323181
+        "score": 0.9926354289054871
       }
     },
     {
-      "start": 685.56,
-      "end": 689.56,
-      "text": "то, соответственно, да, нужно будет еще направить остатки.",
+      "start": 690.0,
+      "end": 692.0,
+      "text": "Но я не думаю, что будет.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9907969236373901
-      }
-    },
-    {
-      "start": 689.56,
-      "end": 691.56,
-      "text": "Но я не думаю, что будет.",
-      "speaker_id": "SPEAKER_01",
-      "role": "company_representative",
       "sentiment": {
         "label": "neutral",
         "score": 0.9943863153457642
       }
     },
     {
-      "start": 691.56,
-      "end": 692.56,
-      "text": "Смотрите, что это было.",
-      "speaker_id": "SPEAKER_00",
-      "role": "client",
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9891524314880371
-      }
-    },
-    {
-      "start": 694.56,
-      "end": 696.56,
-      "text": "Соответственно, в любом случае,",
+      "start": 692.0,
+      "end": 693.0,
+      "text": "Смотрите, что это нормально.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9949457049369812
+        "score": 0.9722033739089966
       }
     },
     {
-      "start": 696.56,
-      "end": 700.56,
-      "text": "если вдруг вы хотите еще допустим положить средства,",
+      "start": 693.0,
+      "end": 701.0,
+      "text": "Соответственно, в любом случае, если вдруг вы хотите еще допустим положить средства,",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9926349520683289
+        "score": 0.9901699423789978
       }
     },
     {
-      "start": 700.56,
-      "end": 702.56,
-      "text": "в независимости от того,",
+      "start": 701.0,
+      "end": 705.0,
+      "text": "в независимостье от того, что у вас есть сейчас, вы также можете написать нам.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9956542253494263
+        "score": 0.9936762452125549
       }
     },
     {
-      "start": 702.56,
-      "end": 704.56,
-      "text": "что у вас есть сейчас, вы также можете написать нам.",
+      "start": 705.0,
+      "end": 710.0,
+      "text": "Раз неделю составляются считас, соответственно, направляется вам на почту для оплаты.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9959762692451477
+        "score": 0.9935919642448425
       }
     },
     {
-      "start": 704.56,
-      "end": 706.56,
-      "text": "Раз неделю составляются счита,",
-      "speaker_id": "SPEAKER_01",
-      "role": "company_representative",
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9920971393585205
-      }
-    },
-    {
-      "start": 706.56,
-      "end": 709.56,
-      "text": "соответственно, направляются вам на почту для оплаты.",
-      "speaker_id": "SPEAKER_00",
-      "role": "client",
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9961044788360596
-      }
-    },
-    {
-      "start": 712.56,
-      "end": 713.56,
+      "start": 710.0,
+      "end": 711.0,
       "text": "Понял.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9197055101394653
+        "score": 0.9197053909301758
       }
     },
     {
-      "start": 713.56,
-      "end": 714.56,
-      "text": "Не срез.",
+      "start": 712.0,
+      "end": 713.0,
+      "text": "Понял.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9950096607208252
+        "score": 0.9197053909301758
       }
     },
     {
-      "start": 714.56,
-      "end": 715.56,
-      "text": "Вы положите, чтобы они там лежали.",
+      "start": 713.0,
+      "end": 716.0,
+      "text": "То есть, в заранее, средства, не положите, чтобы они там лежали.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9951752424240112
+        "score": 0.921618640422821
       }
     },
     {
-      "start": 717.56,
-      "end": 718.56,
+      "start": 718.0,
+      "end": 719.0,
       "text": "Поняла, поняла.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.914525032043457
+        "score": 0.9145249128341675
       }
     },
     {
-      "start": 719.56,
-      "end": 722.56,
-      "text": "Подскажите, пожалуйста, есть ли еще",
+      "start": 720.0,
+      "end": 725.0,
+      "text": "Подскажите, пожалуйста, есть ли еще какой-то вопрос по личному кабинету?",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9959790706634521
+        "score": 0.9967120885848999
       }
     },
     {
-      "start": 722.56,
-      "end": 724.56,
-      "text": "какой-то вопрос по личному кабинету?",
+      "start": 725.0,
+      "end": 727.0,
+      "text": "Нету.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9966741800308228
+        "score": 0.9308919310569763
       }
     },
     {
-      "start": 726.56,
-      "end": 727.56,
-      "text": "Нет.",
-      "speaker_id": "SPEAKER_01",
-      "role": "company_representative",
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9828145503997803
-      }
-    },
-    {
-      "start": 727.56,
-      "end": 728.56,
+      "start": 727.0,
+      "end": 728.0,
       "text": "Спасибо.",
-      "speaker_id": "SPEAKER_00",
-      "role": "client",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
       "sentiment": {
         "label": "positive",
-        "score": 0.685293436050415
+        "score": 0.6852931380271912
       }
     },
     {
-      "start": 728.56,
-      "end": 730.56,
-      "text": "Когда, смотрите, еще пару моментов.",
-      "speaker_id": "SPEAKER_01",
-      "role": "company_representative",
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9902665019035339
-      }
-    },
-    {
-      "start": 730.56,
-      "end": 733.56,
-      "text": "Когда мы с вами создаем накладную,",
+      "start": 728.0,
+      "end": 730.0,
+      "text": "Когда смотрите еще пару моментов?",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9908952713012695
+        "score": 0.9953694939613342
       }
     },
     {
-      "start": 733.56,
-      "end": 736.56,
-      "text": "после этого у нас появляется списки заказов,",
+      "start": 730.0,
+      "end": 736.0,
+      "text": "Когда мы с вами создаем накладную, после этого у нас появляется списки заказов,",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9957329630851746
+        "score": 0.9953344464302063
       }
     },
     {
-      "start": 736.56,
-      "end": 738.56,
-      "text": "номер нашего отправления,",
+      "start": 737.0,
+      "end": 741.0,
+      "text": "номер нашего отправления и соответственно, можно распечатать накладную и штрихкот.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9944522976875305
+        "score": 0.9954773783683777
       }
     },
     {
-      "start": 738.56,
-      "end": 741.56,
-      "text": "и, соответственно, можно распечатать накладную и штрих код.",
+      "start": 741.0,
+      "end": 744.0,
+      "text": "Все направления всегда должны быть проморокированы.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9958609938621521
+        "score": 0.9907743334770203
       }
     },
     {
-      "start": 741.56,
-      "end": 744.56,
-      "text": "Все на отправление всегда должны быть проморокированы.",
+      "start": 744.0,
+      "end": 751.0,
+      "text": "Если пойдете, соответственно, составляйте ПВЗ, вы можете прямо там коллег попросить распечатать и штрихкот и накладную.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9844686388969421
+        "score": 0.9957168698310852
       }
     },
     {
-      "start": 744.56,
-      "end": 746.56,
-      "text": "Если пойдете, соответственно, составляйте ПВЗ,",
+      "start": 751.0,
+      "end": 756.0,
+      "text": "Также, соответственно, очень важно просить их при необходимости перемирять груст.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9955334663391113
+        "score": 0.9257146716117859
       }
     },
     {
-      "start": 746.56,
-      "end": 748.56,
-      "text": "вы можете прямо там коллег попросить,",
+      "start": 756.0,
+      "end": 760.0,
+      "text": "То есть, это взвесить его еще раз и сравнить губориты верные или вы указали заранее.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9954608082771301
+        "score": 0.9938124418258667
       }
     },
     {
-      "start": 748.56,
-      "end": 751.56,
-      "text": "распечатать и штрих код и накладную.",
+      "start": 760.0,
+      "end": 765.0,
+      "text": "Вот этот номер вашего заказа – это по факту номер накладной, номер отправления.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9960482716560364
+        "score": 0.989357054233551
       }
     },
     {
-      "start": 751.56,
-      "end": 753.56,
-      "text": "Также, соответственно, очень важно просить их",
+      "start": 765.0,
+      "end": 772.0,
+      "text": "Если будут какие-то вопросы, вы его спокойно копируете и можете писать нам в Мессаншер.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9923770427703857
+        "score": 0.9963494539260864
       }
     },
     {
-      "start": 753.56,
-      "end": 755.56,
-      "text": "при необходимости перемирять груст.",
+      "start": 772.0,
+      "end": 777.0,
+      "text": "Там, допустим, не совсем понимаю, где находится моё отправление, например.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
         "label": "neutral",
-        "score": 0.7205826640129089
+        "score": 0.9894711971282959
       }
     },
     {
-      "start": 755.56,
-      "end": 757.56,
-      "text": "То есть это взвесить его еще раз",
-      "speaker_id": "SPEAKER_00",
-      "role": "client",
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9919412136077881
-      }
-    },
-    {
-      "start": 757.56,
-      "end": 760.56,
-      "text": "и сравнить губориты верные или вы указали заранее.",
-      "speaker_id": "SPEAKER_01",
-      "role": "company_representative",
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9952065348625183
-      }
-    },
-    {
-      "start": 761.56,
-      "end": 762.56,
-      "text": "Вот этот номер вашего заказа",
-      "speaker_id": "SPEAKER_00",
-      "role": "client",
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9953773021697998
-      }
-    },
-    {
-      "start": 762.56,
-      "end": 765.56,
-      "text": "это по факту номер накладной и номер отправления.",
-      "speaker_id": "SPEAKER_01",
-      "role": "company_representative",
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.993959903717041
-      }
-    },
-    {
-      "start": 767.56,
-      "end": 769.56,
-      "text": "Если будут какие-то вопросы, вы его спокойно копируете",
-      "speaker_id": "SPEAKER_00",
-      "role": "client",
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9943861961364746
-      }
-    },
-    {
-      "start": 769.56,
-      "end": 771.56,
-      "text": "и можете писать нам в мессеншер.",
-      "speaker_id": "SPEAKER_01",
-      "role": "company_representative",
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9965083003044128
-      }
-    },
-    {
-      "start": 771.56,
-      "end": 773.56,
-      "text": "Там, допустим, не совсем понимаю,",
-      "speaker_id": "SPEAKER_00",
-      "role": "client",
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9952011108398438
-      }
-    },
-    {
-      "start": 773.56,
-      "end": 775.56,
-      "text": "где находится мое отправление, например.",
-      "speaker_id": "SPEAKER_01",
-      "role": "company_representative",
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9940144419670105
-      }
-    },
-    {
-      "start": 776.56,
-      "end": 779.56,
+      "start": 777.0,
+      "end": 781.0,
       "text": "Или если нужно внести какие-то корректировки.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
@@ -2394,8 +2168,8 @@
       }
     },
     {
-      "start": 782.56,
-      "end": 783.56,
+      "start": 781.0,
+      "end": 784.0,
       "text": "С его поняла, хорошо.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
@@ -2405,8 +2179,8 @@
       }
     },
     {
-      "start": 784.56,
-      "end": 786.56,
+      "start": 784.0,
+      "end": 787.0,
       "text": "Замечательно тогда, Елена.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
@@ -2416,85 +2190,63 @@
       }
     },
     {
-      "start": 786.56,
-      "end": 788.56,
-      "text": "Если будут еще какие-то вопросы возникает,",
+      "start": 787.0,
+      "end": 791.0,
+      "text": "Если будут еще какие-то вопросы возникает, будем ожидать их у нас в Мессаншере.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9957900643348694
+        "score": 0.9964746832847595
       }
     },
     {
-      "start": 788.56,
-      "end": 790.56,
-      "text": "будем ожидать их у нас в мессеншере.",
+      "start": 791.0,
+      "end": 793.0,
+      "text": "Ты говорились?",
       "speaker_id": "SPEAKER_00",
       "role": "client",
       "sentiment": {
         "label": "neutral",
-        "score": 0.9965412020683289
+        "score": 0.9930782914161682
       }
     },
     {
-      "start": 790.56,
-      "end": 791.56,
-      "text": "Так говорились?",
-      "speaker_id": "SPEAKER_01",
-      "role": "company_representative",
-      "sentiment": {
-        "label": "neutral",
-        "score": 0.9946960210800171
-      }
-    },
-    {
-      "start": 792.56,
-      "end": 793.56,
+      "start": 793.0,
+      "end": 795.0,
       "text": "Моговорились.",
-      "speaker_id": "SPEAKER_00",
-      "role": "client",
+      "speaker_id": "SPEAKER_01",
+      "role": "company_representative",
       "sentiment": {
         "label": "neutral",
-        "score": 0.8972069621086121
+        "score": 0.8972069025039673
       }
     },
     {
-      "start": 794.56,
-      "end": 795.56,
+      "start": 795.0,
+      "end": 797.0,
       "text": "Замечательно тогда.",
-      "speaker_id": "SPEAKER_01",
-      "role": "company_representative",
+      "speaker_id": "SPEAKER_00",
+      "role": "client",
       "sentiment": {
         "label": "positive",
         "score": 0.9961318969726562
       }
     },
     {
-      "start": 796.56,
-      "end": 798.56,
-      "text": "Спасибо вам, что подключились.",
-      "speaker_id": "SPEAKER_00",
-      "role": "client",
-      "sentiment": {
-        "label": "positive",
-        "score": 0.6992168426513672
-      }
-    },
-    {
-      "start": 798.56,
-      "end": 800.56,
-      "text": "Тогда хорошего дня и удачной отправки.",
+      "start": 797.0,
+      "end": 801.0,
+      "text": "Спасибо вам, что подключились, тогда хорошего дня и удачной отправки.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
         "label": "positive",
-        "score": 0.9928866028785706
+        "score": 0.9927207827568054
       }
     },
     {
-      "start": 802.56,
-      "end": 803.56,
+      "start": 801.0,
+      "end": 803.0,
       "text": "Почти от свидания.",
       "speaker_id": "SPEAKER_00",
       "role": "client",
@@ -2504,14 +2256,14 @@
       }
     },
     {
-      "start": 803.56,
-      "end": 804.56,
-      "text": "До свидания.",
+      "start": 803.0,
+      "end": 805.0,
+      "text": "Да, свидания.",
       "speaker_id": "SPEAKER_01",
       "role": "company_representative",
       "sentiment": {
         "label": "neutral",
-        "score": 0.586663544178009
+        "score": 0.8589389324188232
       }
     }
   ],

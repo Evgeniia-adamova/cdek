@@ -108,6 +108,53 @@ class SpeechProcessor:
                 "error": str(e),
             }
 
+    def upload_video_file(self, file_path: str) -> Dict[str, Any]:
+        """
+        Upload video file to S3 storage.
+
+        Args:
+            file_path (str): Path to the video file to upload
+
+        Returns:
+            Dict[str, Any]: Upload result with file metadata
+        """
+        try:
+            file_path = Path(file_path)
+            if not file_path.is_file():
+                raise FileNotFoundError(f"Video file not found: {file_path}")
+            
+            # Generate S3 key
+            file_id = str(uuid.uuid4())
+            file_ext = file_path.suffix or ".webm"
+            s3_key = f"video_files/{file_id}{file_ext}"
+            
+            # Upload to S3
+            file_size = file_path.stat().st_size
+            with file_path.open("rb") as f:
+                self.s3_client.upload_fileobj(f, self.bucket, s3_key)
+            
+            result = {
+                "file_id": file_id,
+                "s3_bucket": self.bucket,
+                "s3_key": s3_key,
+                "file_size": file_size,
+                "status": "uploaded",
+            }
+            
+            self.logger.info(f"Video file uploaded successfully: {file_id}")
+            return result
+        
+        except Exception as e:
+            self.logger.error(f"Failed to upload video file: {e}")
+            return {
+                "file_id": None,
+                "s3_bucket": self.bucket,
+                "s3_key": None,
+                "file_size": 0,
+                "status": "error",
+                "error": str(e),
+            }
+
     def speech_to_text(
         self,
         file_bytes: bytes,
@@ -316,6 +363,116 @@ def list_bucket_objects(s3_client, bucket: str, prefix: Optional[str] = None) ->
             keys.append(obj["Key"])
 
     return {"count": len(keys), "keys": keys}
+
+
+def _extract_audio_to_ogg(video_path: str, output_path) -> bool:
+    """
+    Extract audio from video file to OGG format using ffmpeg.
+
+    Args:
+        video_path: Path to input video file
+        output_path: Path for output .ogg file (str or Path)
+
+    Returns:
+        True if extraction succeeded, False otherwise
+    """
+    import subprocess
+    output_path = str(output_path)
+    cmd = [
+        "ffmpeg", "-y",
+        "-i", str(video_path),
+        "-vn",
+        "-acodec", "libvorbis",
+        "-q:a", "4",
+        output_path,
+    ]
+    try:
+        result = subprocess.run(
+            cmd,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            timeout=600,
+        )
+        if result.returncode != 0:
+            print(f"ffmpeg error: {result.stderr.decode(errors='replace')[-500:]}", file=sys.stderr)
+            return False
+        return True
+    except FileNotFoundError:
+        print("ffmpeg not found. Install ffmpeg and add it to PATH.", file=sys.stderr)
+        return False
+    except subprocess.TimeoutExpired:
+        print("ffmpeg timed out.", file=sys.stderr)
+        return False
+
+
+def get_video_path_from_bucket(local_dir: str = "data") -> str:
+    """
+    Download video from Yandex Object Storage bucket.
+    
+    Args:
+        local_dir (str): Local directory to save the video
+        
+    Returns:
+        str: Path to the downloaded video file
+        
+    Raises:
+        FileNotFoundError: If no video file is found in the bucket
+    """
+    project_root = Path(__file__).resolve().parent.parent
+    _load_dotenv_if_present(project_root)
+    
+    # Check if required environment variables are set
+    if ENV_YANDEX_S3_ACCESS_KEY_ID not in os.environ or ENV_YANDEX_S3_BUCKET not in os.environ:
+        raise FileNotFoundError(
+            f"Yandex S3 credentials not configured. "
+            f"Please set environment variables:\n"
+            f"  - {ENV_YANDEX_S3_ACCESS_KEY_ID}\n"
+            f"  - {ENV_YANDEX_S3_SECRET_ACCESS_KEY}\n"
+            f"  - {ENV_YANDEX_S3_BUCKET}\n"
+            f"Or provide a local video file and run: python -m app.run_full_pipeline <video_path>"
+        )
+    
+    s3_client = create_yandex_s3_client_from_env()
+    bucket = os.environ[ENV_YANDEX_S3_BUCKET]
+    
+    # Check for environment variable specifying video key
+    video_key = os.environ.get("YANDEX_VIDEO_KEY")
+    
+    # If no specific video key, search for video files in the bucket
+    if not video_key:
+        # List potential video folders
+        for prefix in ["video_files/", "videos/", ""]:
+            result = list_bucket_objects(s3_client, bucket, prefix=prefix)
+            
+            # Find first video file (looking for common video extensions)
+            for key in result["keys"]:
+                if key.lower().endswith((".webm", ".mp4", ".avi", ".mov", ".mkv")):
+                    video_key = key
+                    break
+            
+            if video_key:
+                break
+    
+    if not video_key:
+        raise FileNotFoundError(
+            f"No video file found in bucket '{bucket}'. "
+            "Set YANDEX_VIDEO_KEY environment variable or ensure video files exist in the bucket."
+        )
+    
+    # Create local directory if it doesn't exist
+    local_path = Path(local_dir)
+    local_path.mkdir(parents=True, exist_ok=True)
+    
+    # Determine file extension from S3 key
+    file_ext = Path(video_key).suffix or ".webm"
+    local_file = local_path / f"video_from_bucket{file_ext}"
+    
+    # Download file
+    print(f"Downloading {video_key} from bucket...")
+    s3_client.download_file(bucket, video_key, str(local_file))
+    print(f"Downloaded to: {local_file}")
+    
+    return str(local_file)
 
 
 def main():

@@ -179,12 +179,44 @@ def main():
     except Exception as e:
         print(f"Warning: Combined emotion analysis failed: {e}", file=sys.stderr)
 
+    # --- KPI Evaluation (СДЭК checklist, 100 points) ---
+    print("\n=== KPI EVALUATION (СДЭК CHECKLIST) ===")
+    kpi_output_path = None
+    try:
+        from app.backend.calls_kpi_evaluation import run_kpi_evaluation, print_kpi_report
+
+        transcript_path = ogg_path.with_suffix(".txt")
+        if transcript_path.is_file():
+            transcript_text = transcript_path.read_text(encoding="utf-8")
+        else:
+            transcript_text = ""
+
+        if transcript_text.strip():
+            kpi_output_path = os.path.join(DATA_V3, "kpi_evaluation.json")
+            combined_for_kpi = None
+            if 'combined_result' in locals():
+                combined_for_kpi = combined_result
+
+            kpi_result = run_kpi_evaluation(
+                transcript=transcript_text,
+                output_path=kpi_output_path,
+                video_id=video_stem,
+                combined_emotion_result=combined_for_kpi,
+            )
+            print_kpi_report(kpi_result)
+            print("KPI evaluation saved:", kpi_output_path)
+        else:
+            print("Warning: Empty transcript, skipping KPI evaluation.")
+    except Exception as e:
+        print(f"Warning: KPI evaluation failed: {e}", file=sys.stderr)
+
     print("\n=== FULL PIPELINE COMPLETE ===")
     print("  Frames + faces: logs/extracted_frames_v2, logs/extracted_frames_v3_dense")
     print("  Analysis: data/v2, data/v3_dense")
     print("  Transcript: ", ogg_path.with_suffix(".txt"))
     print("  Diarized sentiment: ", result["output_json"])
     print("  Combined emotion analysis: ", combined_output_path if 'combined_output_path' in locals() else "N/A")
+    print("  KPI evaluation: ", kpi_output_path if kpi_output_path else "N/A")
     return 0
 
 
