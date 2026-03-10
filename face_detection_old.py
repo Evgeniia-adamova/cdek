@@ -1,3 +1,4 @@
+@ -0,0 +1,1020 @@
 """
 Face detection module: frame extraction, detection, tracking, enrichment.
 Merged from pipeline steps 1–4.
@@ -544,47 +545,6 @@ def consolidate_people_kmeans(
     return consolidated_frames, info
 
 
-def _reorganize_crops(
-    enriched_frames: List[Dict[str, Any]],
-    crops_dir: str,
-) -> None:
-    """Move face crops into folders matching consolidated person_id."""
-    import shutil
-    import time
-    final_pids = set()
-    for fr in enriched_frames:
-        for det in fr.get("detections", []):
-            final_pids.add(det["person_id"])
-    tmp_dir = crops_dir + "_tmp"
-    if os.path.isdir(tmp_dir):
-        shutil.rmtree(tmp_dir, ignore_errors=True)
-    for pid in final_pids:
-        os.makedirs(os.path.join(tmp_dir, pid), exist_ok=True)
-    for fr in enriched_frames:
-        for det in fr.get("detections", []):
-            old_path = det.get("crop_path")
-            if not old_path or not os.path.isfile(old_path):
-                continue
-            pid = det["person_id"]
-            new_path = os.path.join(tmp_dir, pid, os.path.basename(old_path))
-            shutil.copy2(old_path, new_path)
-            det["crop_path"] = os.path.join(crops_dir, pid, os.path.basename(old_path))
-    for attempt in range(3):
-        try:
-            if os.path.isdir(crops_dir):
-                shutil.rmtree(crops_dir)
-            os.rename(tmp_dir, crops_dir)
-            return
-        except PermissionError:
-            if attempt < 2:
-                time.sleep(2)
-    for fr in enriched_frames:
-        for det in fr.get("detections", []):
-            cp = det.get("crop_path", "")
-            if cp.startswith(crops_dir):
-                det["crop_path"] = cp.replace(crops_dir, tmp_dir, 1)
-
-
 def run_step2(
     manifest_path: str = "extracted_frames_v2/frame_manifest_step1.json",
     output_path: str = "extracted_frames_v2/analysis_step2.json",
@@ -643,8 +603,6 @@ def run_step2(
             video_metadata=manifest.get("video_metadata", {}),
             expected_people=expected_people,
         )
-        if save_face_crops and consolidation_info and consolidation_info.get("applied"):
-            _reorganize_crops(enriched_frames, crops_dir)
     intervals = aggregate_intervals(enriched_frames, interval_sec=interval_sec)
     interval_comparison = compare_intervals(intervals)
     person_summary = summarize_persons(enriched_frames)

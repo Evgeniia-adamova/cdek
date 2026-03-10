@@ -40,9 +40,9 @@ class UnifiedSpeechAnalyzer:
         self.huggingface_token = huggingface_token or os.environ.get("HUGGINGFACE_TOKEN")
         
         # Initialize SpeechKit processor for STT
-        from app.speech_processor import SpeechProcessor
+        from app.backend.speech_processor import SpeechProcessor
         if not self.s3_client:
-            from app.speech_processor import create_yandex_s3_client_from_env
+            from app.backend.speech_processor import create_yandex_s3_client_from_env
             self.s3_client = create_yandex_s3_client_from_env()
         
         self.speech_processor = SpeechProcessor(

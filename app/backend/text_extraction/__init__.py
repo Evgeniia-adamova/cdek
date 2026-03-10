@@ -1,5 +1,5 @@
 """
-Text extraction module: transcribe audio to text (Whisper).
+Text extraction module: transcribe audio to text (Yandex SpeechKit).
 """
 from app.backend.text_extraction.text_extraction import transcribe, main
 

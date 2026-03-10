@@ -10,12 +10,19 @@ venv/
 .venv/
 env/
 
-# Pipeline outputs and downloaded data (data/ is tracked; large downloads excluded below if needed)
-data/video_from_bucket.webm
-data/video_from_bucket_audio.ogg
-extracted_frames_v2/
-extracted_frames_v3_dense/
+# Pipeline outputs (per-video folders are generated, not tracked)
+data/*/
+!data/.gitkeep
+logs/*/
+!logs/.gitkeep
 models/
+
+# Video files
+*.mp4
+*.avi
+*.mov
+*.webm
+*.mkv
 
 # IDE / OS
 .idea/

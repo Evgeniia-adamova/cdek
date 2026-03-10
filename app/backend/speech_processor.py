@@ -64,7 +64,7 @@ class SpeechProcessor:
             )
 
     def upload_voice_file(
-        self, file_bytes: bytes, file_extension: str = ".ogg"
+        self, file_bytes: bytes, file_extension: str = ".ogg", public: bool = False
     ) -> Dict[str, Any]:
         """
         Upload voice file to S3 storage.
@@ -72,6 +72,7 @@ class SpeechProcessor:
         Args:
             file_bytes (bytes): Voice file content
             file_extension (str): File extension (default: .ogg)
+            public (bool): If True, set public-read ACL (needed for async STT)
 
         Returns:
             Dict[str, Any]: Upload result with file metadata
@@ -82,7 +83,10 @@ class SpeechProcessor:
             s3_key = f"voice_files/{file_id}{file_extension}"
 
             # Upload to S3
-            self.s3_client.upload_fileobj(io.BytesIO(file_bytes), self.bucket, s3_key)
+            extra_args = {"ACL": "public-read"} if public else {}
+            self.s3_client.upload_fileobj(
+                io.BytesIO(file_bytes), self.bucket, s3_key, ExtraArgs=extra_args
+            )
 
             file_size = len(file_bytes)
 
@@ -272,6 +276,201 @@ class SpeechProcessor:
         except Exception as e:
             self.logger.error(f"Speech-to-text processing failed: {e}")
             return {"text": "", "status": "error", "error": str(e), "file_id": None}
+
+    def async_speech_to_text(
+        self,
+        s3_key: str,
+        language_code: str = "ru-RU",
+        poll_interval: int = 5,
+        max_wait: int = 600,
+    ) -> Dict[str, Any]:
+        """
+        Transcribe audio using Yandex SpeechKit async (long-running) API.
+
+        Processes the full audio file on the server without chunking,
+        producing higher quality results with per-utterance timestamps.
+
+        Args:
+            s3_key: S3 key of the uploaded audio file (OGG/Opus).
+            language_code: Language code (default: ru-RU).
+            poll_interval: Seconds between status polls (default: 5).
+            max_wait: Maximum seconds to wait for completion (default: 600).
+
+        Returns:
+            Dict with "text", "segments" (list of {start, end, text}), "status".
+        """
+        import time
+        import requests
+        from requests.adapters import HTTPAdapter
+        from urllib3.util.retry import Retry
+
+        # Build a requests session with automatic retries for transient errors
+        session = requests.Session()
+        retries = Retry(
+            total=5,
+            backoff_factor=2,
+            status_forcelist=[502, 503, 504],
+            allowed_methods=["GET", "POST"],
+        )
+        session.mount("https://", HTTPAdapter(max_retries=retries))
+
+        # Use presigned URL (avoids 403 when bucket blocks public ACL)
+        s3_uri = self.get_voice_file_url(s3_key, expiration=3600)
+        if not s3_uri:
+            # Fallback to direct public URL
+            s3_uri = f"https://storage.yandexcloud.net/{self.bucket}/{s3_key}"
+
+        # Submit async recognition request
+        headers = {"Authorization": f"Api-Key {self.api_key}"}
+        body = {
+            "config": {
+                "specification": {
+                    "languageCode": language_code,
+                    "model": "general",
+                    "audioEncoding": "OGG_OPUS",
+                    "literature_text": True,
+                }
+            },
+            "audio": {"uri": s3_uri},
+        }
+
+        self.logger.info(f"Submitting async STT request for {s3_key}")
+        try:
+            resp = session.post(
+                "https://transcribe.api.cloud.yandex.net/speech/stt/v2/longRunningRecognize",
+                headers=headers,
+                json=body,
+                timeout=60,
+            )
+        except requests.exceptions.RequestException as e:
+            return {
+                "text": "",
+                "segments": [],
+                "status": "error",
+                "error": f"Submit request failed: {e}",
+            }
+        if resp.status_code != 200:
+            return {
+                "text": "",
+                "segments": [],
+                "status": "error",
+                "error": f"Submit failed ({resp.status_code}): {resp.text[:500]}",
+            }
+
+        operation_id = resp.json().get("id")
+        if not operation_id:
+            return {
+                "text": "",
+                "segments": [],
+                "status": "error",
+                "error": f"No operation ID in response: {resp.text[:500]}",
+            }
+
+        self.logger.info(f"Operation submitted: {operation_id}")
+
+        # Poll for completion (with retry for transient SSL/network errors)
+        operation_url = f"https://operation.api.cloud.yandex.net/operations/{operation_id}"
+        elapsed = 0
+        data = {}
+        while elapsed < max_wait:
+            time.sleep(poll_interval)
+            elapsed += poll_interval
+
+            try:
+                poll_resp = session.get(operation_url, headers=headers, timeout=60)
+            except requests.exceptions.RequestException as e:
+                self.logger.warning(f"Poll request error ({e}), retrying...")
+                continue
+            if poll_resp.status_code != 200:
+                self.logger.warning(f"Poll failed ({poll_resp.status_code}), retrying...")
+                continue
+
+            data = poll_resp.json()
+            if data.get("done"):
+                self.logger.info(f"Operation completed after {elapsed}s")
+                break
+        else:
+            return {
+                "text": "",
+                "segments": [],
+                "status": "timeout",
+                "error": f"Operation not completed after {max_wait}s",
+            }
+
+        # Check for errors in the operation result
+        if "error" in data:
+            return {
+                "text": "",
+                "segments": [],
+                "status": "error",
+                "error": str(data["error"]),
+            }
+
+        # Parse results — response.chunks[] -> alternatives[] -> text, words[]
+        response = data.get("response", {})
+        chunks = response.get("chunks", [])
+
+        segments = []
+        all_texts = []
+        for chunk in chunks:
+            alternatives = chunk.get("alternatives", [])
+            if not alternatives:
+                continue
+            # Take best alternative (first)
+            alt = alternatives[0]
+            text = alt.get("text", "").strip()
+            if not text:
+                continue
+
+            # Extract timestamps from words
+            words = alt.get("words", [])
+            if words:
+                # startTime/endTime are strings like "1.5s" or {"seconds": "1", "nanos": 500000000}
+                seg_start = self._parse_duration(words[0].get("startTime", "0s"))
+                seg_end = self._parse_duration(words[-1].get("endTime", "0s"))
+            else:
+                seg_start = 0.0
+                seg_end = 0.0
+
+            segments.append({
+                "start": round(seg_start, 2),
+                "end": round(seg_end, 2),
+                "text": text,
+            })
+            all_texts.append(text)
+
+        full_text = " ".join(all_texts)
+        self.logger.info(f"Async STT complete: {len(full_text)} chars, {len(segments)} segments")
+
+        # Clean up the public S3 object
+        self._delete_s3_object(s3_key)
+
+        return {
+            "text": full_text,
+            "segments": segments,
+            "status": "success",
+        }
+
+    def _delete_s3_object(self, s3_key: str) -> None:
+        """Delete an S3 object (best-effort, logs errors silently)."""
+        try:
+            self.s3_client.delete_object(Bucket=self.bucket, Key=s3_key)
+            self.logger.info(f"Deleted S3 object: {s3_key}")
+        except Exception as e:
+            self.logger.warning(f"Failed to delete S3 object {s3_key}: {e}")
+
+    @staticmethod
+    def _parse_duration(value) -> float:
+        """Parse Yandex duration format to float seconds.
+        Handles: '1.5s', '0s', {'seconds': '1', 'nanos': 500000000}, etc.
+        """
+        if isinstance(value, str):
+            return float(value.rstrip("s") or "0")
+        if isinstance(value, dict):
+            seconds = float(value.get("seconds", 0) or 0)
+            nanos = float(value.get("nanos", 0) or 0)
+            return seconds + nanos / 1_000_000_000
+        return float(value or 0)
 
     def get_voice_file_url(self, s3_key: str, expiration: int = 3600) -> Optional[str]:
         """
