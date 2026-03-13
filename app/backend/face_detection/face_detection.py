@@ -12,6 +12,7 @@ from typing import Any, Dict, List, Optional, Tuple
 
 import cv2
 import numpy as np
+import onnxruntime as ort
 
 
 # --- Shared types and helpers (deduplicated from steps 1–4) ---
@@ -209,24 +210,186 @@ def resolve_image_path(manifest_path: str, image_path: str) -> str:
     return image_path
 
 
-def build_detector() -> cv2.CascadeClassifier:
-    return cv2.CascadeClassifier(
-        cv2.data.haarcascades + "haarcascade_frontalface_default.xml"
+def _get_model_dir() -> str:
+    return os.path.join(os.path.dirname(os.path.abspath(__file__)), "models")
+
+
+def build_detector(
+    input_size: Tuple[int, int] = (0, 0),
+    score_threshold: float = 0.5,
+    nms_threshold: float = 0.3,
+) -> cv2.FaceDetectorYN:
+    """Load the YuNet face detector (modern, handles partial/angled faces well)."""
+    model_dir = _get_model_dir()
+    model_path = os.path.join(model_dir, "face_detection_yunet_2023mar.onnx")
+    if not os.path.isfile(model_path):
+        raise RuntimeError(
+            f"YuNet model not found at {model_path}. "
+            "Expected face_detection_yunet_2023mar.onnx"
+        )
+    detector = cv2.FaceDetectorYN.create(
+        model_path, "", input_size,
+        score_threshold=score_threshold,
+        nms_threshold=nms_threshold,
+        top_k=5000,
     )
+    return detector
 
 
 def detect_faces(
     img_bgr: np.ndarray,
-    detector: cv2.CascadeClassifier,
-    scale_factor: float = 1.05,
-    min_neighbors: int = 3,
-    min_size: Tuple[int, int] = (30, 30),
+    detector: cv2.FaceDetectorYN,
+    min_size: Tuple[int, int] = (20, 20),
+) -> List[Tuple[Tuple[int, int, int, int], Optional[np.ndarray]]]:
+    """Detect faces using YuNet.
+
+    Returns list of (bbox, landmarks) where bbox is (x, y, w, h) and
+    landmarks is a (5, 2) array of [right_eye, left_eye, nose, right_mouth,
+    left_mouth] or None if unavailable.
+    """
+    h, w = img_bgr.shape[:2]
+    detector.setInputSize((w, h))
+    _, faces = detector.detect(img_bgr)
+    if faces is None:
+        return []
+    raw = []
+    for face in faces:
+        x1 = max(0, int(face[0]))
+        y1 = max(0, int(face[1]))
+        bw = int(face[2])
+        bh = int(face[3])
+        if bw < min_size[0] or bh < min_size[1]:
+            continue
+        # Clamp to image bounds
+        if x1 + bw > w:
+            bw = w - x1
+        if y1 + bh > h:
+            bh = h - y1
+        if bw > 0 and bh > 0:
+            # YuNet outputs: x,y,w,h, right_eye_x/y, left_eye_x/y,
+            # nose_x/y, right_mouth_x/y, left_mouth_x/y, score
+            landmarks = None
+            if len(face) >= 14:
+                landmarks = np.array([
+                    [face[4], face[5]],    # right eye
+                    [face[6], face[7]],    # left eye
+                    [face[8], face[9]],    # nose tip
+                    [face[10], face[11]],  # right mouth corner
+                    [face[12], face[13]],  # left mouth corner
+                ], dtype=np.float32)
+            raw.append(((x1, y1, bw, bh), landmarks))
+    # Filter contained detections (using only bboxes)
+    bboxes = [bbox for bbox, _ in raw]
+    keep = _keep_mask_for_contained(bboxes)
+    return [raw[i] for i in range(len(raw)) if keep[i]]
+
+
+def _keep_mask_for_contained(
+    detections: List[Tuple[int, int, int, int]],
+) -> List[bool]:
+    """Return a keep mask for drop_contained_detections logic."""
+    if len(detections) < 2:
+        return [True] * len(detections)
+    areas = [w * h for (_, _, w, h) in detections]
+    keep = [True] * len(detections)
+    for i in range(len(detections)):
+        if not keep[i]:
+            continue
+        ai = areas[i]
+        xi, yi, wi, hi = detections[i]
+        for j in range(len(detections)):
+            if i == j or not keep[j]:
+                continue
+            aj = areas[j]
+            xj, yj, wj, hj = detections[j]
+            ix = max(xi, xj)
+            iy = max(yi, yj)
+            iw = max(0, min(xi + wi, xj + wj) - ix)
+            ih = max(0, min(yi + hi, yj + hj) - iy)
+            inter = float(iw * ih)
+            if ai < aj and inter >= 0.5 * ai:
+                keep[i] = False
+                break
+            if aj < ai and inter >= 0.5 * aj:
+                keep[j] = False
+    return keep
+
+
+def validate_face(
+    img_bgr: np.ndarray,
+    bbox: Tuple[int, int, int, int],
+    min_area_ratio: float = 0.005,
+    max_aspect: float = 1.6,
+    min_skin_ratio: float = 0.15,
+    max_saturation_mean: float = 160.0,
+) -> bool:
+    """Filter false-positive Haar detections using shape, skin-colour, and texture checks."""
+    h_img, w_img = img_bgr.shape[:2]
+    x, y, w, h = clamp_bbox(bbox, w_img, h_img)
+    # --- aspect ratio (faces are roughly square) ---
+    aspect = w / max(h, 1)
+    if aspect < 1.0 / max_aspect or aspect > max_aspect:
+        return False
+    # --- minimum size relative to frame ---
+    if (w * h) < min_area_ratio * (w_img * h_img):
+        return False
+    # --- ROI extraction ---
+    roi = img_bgr[y : y + h, x : x + w]
+    if roi.size == 0:
+        return False
+    hsv = cv2.cvtColor(roi, cv2.COLOR_BGR2HSV)
+    # --- reject highly saturated regions (buttons, signs, car paint) ---
+    mean_saturation = float(np.mean(hsv[:, :, 1]))
+    if mean_saturation > max_saturation_mean:
+        return False
+    # --- skin-colour presence in HSV ---
+    # broad skin-tone range covering diverse skin colours
+    mask1 = cv2.inRange(hsv, np.array([0, 20, 50]), np.array([25, 200, 255]))
+    mask2 = cv2.inRange(hsv, np.array([160, 20, 50]), np.array([180, 200, 255]))
+    skin_pixels = int(cv2.countNonZero(mask1) + cv2.countNonZero(mask2))
+    total_pixels = max(1, roi.shape[0] * roi.shape[1])
+    if skin_pixels / total_pixels < min_skin_ratio:
+        return False
+    # --- texture check: real faces have moderate edge density ---
+    gray_roi = cv2.cvtColor(roi, cv2.COLOR_BGR2GRAY)
+    edges = cv2.Canny(gray_roi, 50, 150)
+    edge_ratio = float(cv2.countNonZero(edges)) / total_pixels
+    # Flat uniform regions (buttons, solid-colour objects) have very few edges
+    if edge_ratio < 0.02:
+        return False
+    return True
+
+
+def drop_contained_detections(
+    detections: List[Tuple[int, int, int, int]],
 ) -> List[Tuple[int, int, int, int]]:
-    gray = cv2.cvtColor(img_bgr, cv2.COLOR_BGR2GRAY)
-    faces = detector.detectMultiScale(
-        gray, scaleFactor=scale_factor, minNeighbors=min_neighbors, minSize=min_size,
-    )
-    return [(int(x), int(y), int(w), int(h)) for x, y, w, h in faces]
+    """Remove detections that are mostly inside a larger one (e.g. eye inside face)."""
+    if len(detections) < 2:
+        return detections
+    areas = [w * h for (_, _, w, h) in detections]
+    keep = [True] * len(detections)
+    for i in range(len(detections)):
+        if not keep[i]:
+            continue
+        ai = areas[i]
+        xi, yi, wi, hi = detections[i]
+        for j in range(len(detections)):
+            if i == j or not keep[j]:
+                continue
+            aj = areas[j]
+            xj, yj, wj, hj = detections[j]
+            # intersection area
+            ix = max(xi, xj)
+            iy = max(yi, yj)
+            iw = max(0, min(xi + wi, xj + wj) - ix)
+            ih = max(0, min(yi + hi, yj + hj) - iy)
+            inter = float(iw * ih)
+            if ai < aj and inter >= 0.5 * ai:
+                keep[i] = False
+                break
+            if aj < ai and inter >= 0.5 * aj:
+                keep[j] = False
+    return [det for det, k in zip(detections, keep) if k]
 
 
 def clamp_bbox(bbox: Tuple[int, int, int, int], width: int, height: int) -> Tuple[int, int, int, int]:
@@ -238,21 +401,83 @@ def clamp_bbox(bbox: Tuple[int, int, int, int], width: int, height: int) -> Tupl
     return x, y, w, h
 
 
-def face_embedding(img_bgr: np.ndarray, bbox: Tuple[int, int, int, int]) -> np.ndarray:
+_arcface_session: Optional[ort.InferenceSession] = None
+
+
+def _get_arcface_session() -> ort.InferenceSession:
+    """Lazy-load the ArcFace ONNX model (512-dim face recognition embeddings)."""
+    global _arcface_session
+    if _arcface_session is None:
+        model_dir = _get_model_dir()
+        # Prefer float32 model for better accuracy
+        fp32_path = os.path.join(model_dir, "arcface_r100_fp32.onnx")
+        int8_path = os.path.join(model_dir, "arcface_r100.onnx")
+        model_path = fp32_path if os.path.isfile(fp32_path) else int8_path
+        if not os.path.isfile(model_path):
+            raise RuntimeError(
+                f"ArcFace model not found. Looked for:\n"
+                f"  {fp32_path}\n  {int8_path}"
+            )
+        _arcface_session = ort.InferenceSession(
+            model_path, providers=["CPUExecutionProvider"]
+        )
+    return _arcface_session
+
+
+# Standard ArcFace alignment target: 5 landmarks on a 112x112 canvas
+_ARCFACE_DST = np.array([
+    [38.2946, 51.6963],  # right eye
+    [73.5318, 51.5014],  # left eye
+    [56.0252, 71.7366],  # nose tip
+    [41.5493, 92.3655],  # right mouth corner
+    [70.7299, 92.2041],  # left mouth corner
+], dtype=np.float32)
+
+
+def _align_face(img_bgr: np.ndarray, landmarks: np.ndarray) -> np.ndarray:
+    """Warp face to canonical 112x112 alignment using 5 landmarks."""
+    # Estimate similarity transform (no shear) from landmarks → target
+    src = landmarks.astype(np.float32)
+    dst = _ARCFACE_DST.copy()
+    # Use first 2 landmarks (eyes) + nose for a stable estimate
+    tform = cv2.estimateAffinePartial2D(src, dst, method=cv2.LMEDS)[0]
+    if tform is None:
+        # Fallback: use full affine
+        tform = cv2.getAffineTransform(src[:3], dst[:3])
+    aligned = cv2.warpAffine(img_bgr, tform, (112, 112), borderValue=(0, 0, 0))
+    return aligned
+
+
+def face_embedding(
+    img_bgr: np.ndarray,
+    bbox: Tuple[int, int, int, int],
+    landmarks: Optional[np.ndarray] = None,
+) -> np.ndarray:
+    """Compute a 512-dim ArcFace embedding for a detected face.
+
+    If landmarks (5x2 array) are provided, the face is aligned before
+    embedding, which dramatically improves identity discrimination.
+    """
     h, w = img_bgr.shape[:2]
-    x, y, bw, bh = clamp_bbox(bbox, w, h)
-    roi = img_bgr[y : y + bh, x : x + bw]
-    if roi.size == 0:
-        return np.zeros((288,), dtype=np.float32)
-    gray = cv2.cvtColor(roi, cv2.COLOR_BGR2GRAY)
-    gray_small = cv2.resize(gray, (16, 16), interpolation=cv2.INTER_AREA).astype(np.float32) / 255.0
-    gray_vec = gray_small.flatten()
-    hsv = cv2.cvtColor(roi, cv2.COLOR_BGR2HSV)
-    hist_h = cv2.calcHist([hsv], [0], None, [16], [0, 180]).flatten()
-    hist_s = cv2.calcHist([hsv], [1], None, [16], [0, 256]).flatten()
-    hist_h = hist_h / (np.sum(hist_h) + 1e-6)
-    hist_s = hist_s / (np.sum(hist_s) + 1e-6)
-    emb = np.concatenate([gray_vec, hist_h, hist_s]).astype(np.float32)
+    if landmarks is not None and landmarks.shape == (5, 2):
+        # Align face using landmarks → canonical 112x112
+        face_input = _align_face(img_bgr, landmarks)
+    else:
+        # Fallback: simple crop + resize (less accurate)
+        x, y, bw, bh = clamp_bbox(bbox, w, h)
+        roi = img_bgr[y : y + bh, x : x + bw]
+        if roi.size == 0:
+            return np.zeros((512,), dtype=np.float32)
+        face_input = cv2.resize(roi, (112, 112), interpolation=cv2.INTER_AREA)
+
+    face_input = face_input.astype(np.float32)
+    face_input = (face_input / 127.5) - 1.0            # normalise to [-1, 1]
+    face_input = face_input.transpose(2, 0, 1)          # HWC → CHW
+    face_input = np.expand_dims(face_input, axis=0)      # add batch dim
+    session = _get_arcface_session()
+    input_name = session.get_inputs()[0].name
+    emb = session.run(None, {input_name: face_input})[0][0]
+    emb = emb.astype(np.float32)
     return emb / (np.linalg.norm(emb) + 1e-6)
 
 
@@ -279,8 +504,24 @@ def match_score(
 ) -> float:
     app_dist = cosine_distance(det_embedding, track.last_embedding)
     spatial_dist = np.linalg.norm(np.array(det_center) - np.array(track.last_center)) / max(frame_diag, 1.0)
-    area_dist = abs(det_area - track.last_area) / max(det_area, track.last_area, 1.0)
-    return 0.70 * app_dist + 0.20 * spatial_dist + 0.10 * area_dist
+    # With ArcFace embeddings, appearance is scale-invariant so we trust it heavily.
+    # Area is ignored because in screen-recordings the same person can switch
+    # between thumbnail and main view (drastically different sizes).
+    return 0.85 * app_dist + 0.15 * spatial_dist
+
+
+def _areas_compatible(area_a: float, area_b: float, max_ratio: float = 5.0) -> bool:
+    """Check if two face areas are in a compatible size range.
+
+    Prevents matching a tiny thumbnail face (~2000px) to a main speaker face
+    (~150000px) in video-call UIs where the same person can appear at
+    drastically different scales in different screen zones.
+    """
+    smaller = min(area_a, area_b)
+    larger = max(area_a, area_b)
+    if smaller <= 0:
+        return False
+    return (larger / smaller) <= max_ratio
 
 
 def assign_person_ids(
@@ -291,7 +532,7 @@ def assign_person_ids(
     tracks: Dict[str, TrackState],
     next_person_num: int,
     max_inactive_frames: int = 8,
-    threshold: float = 0.45,
+    threshold: float = 0.65,
 ) -> Tuple[List[Dict[str, Any]], int]:
     h, w = frame_shape[:2]
     frame_diag = float((h ** 2 + w ** 2) ** 0.5)
@@ -306,6 +547,7 @@ def assign_person_ids(
         for pid, tr in active_tracks.items():
             if pid in used_tracks:
                 continue
+            # ArcFace embeddings are scale-invariant, so no area gate needed.
             score = match_score(emb, det_center, det_area, tr, frame_diag)
             if score < best_score:
                 best_score, best_pid = score, pid
@@ -329,6 +571,111 @@ def assign_person_ids(
             "center": {"x": round(det_center[0], 2), "y": round(det_center[1], 2)},
             "area": int(det_area),
             "match_score": round(float(best_score), 4),
+            "confidence": 1.0,
+            "embedding_preview": [round(float(v), 5) for v in emb[:8]],
+        })
+    return results, next_person_num
+
+
+def _assign_two_people_by_embedding(
+    detections: List[Tuple[int, int, int, int]],
+    embeddings: List[np.ndarray],
+    sample_index: int,
+    frame_shape: Tuple[int, int, int],
+    tracks: Dict[str, TrackState],
+    next_person_num: int,
+    frame_diag: float,
+    threshold: float,
+) -> Tuple[List[Dict[str, Any]], int]:
+    """
+    Assign at most 2 detections to P001/P002 by best embedding+position match,
+    so the same person keeps the same ID even when they swap left/right.
+    """
+    if not detections:
+        return [], next_person_num
+    p001, p002 = "P001", "P002"
+    if next_person_num < 2:
+        next_person_num = 2
+    track_ids = [p001, p002]
+    det_centers = [center_of(b) for b in detections]
+    det_areas = [area_of(b) for b in detections]
+
+    if len(detections) == 2 and len(tracks) >= 2:
+        # Best pairing: assign each detection to the track it matches best
+        scores = []
+        for det_idx in range(2):
+            row = []
+            for pid in track_ids:
+                if pid not in tracks:
+                    row.append(10.0)
+                    continue
+                tr = tracks[pid]
+                sc = match_score(embeddings[det_idx], det_centers[det_idx], det_areas[det_idx], tr, frame_diag)
+                row.append(sc)
+            scores.append(row)
+        if tracks.get(p001) and tracks.get(p002):
+            s00, s01 = scores[0][0], scores[0][1]
+            s10, s11 = scores[1][0], scores[1][1]
+            if s00 + s11 <= s01 + s10:
+                assign = [(0, p001), (1, p002)]
+            else:
+                assign = [(0, p002), (1, p001)]
+        else:
+            order = sorted(range(len(detections)), key=lambda i: det_centers[i][0])
+            assign = [(order[0], p001), (order[1], p002)]
+    elif len(detections) == 2 and len(tracks) == 1:
+        existing = p001 if p001 in tracks else p002
+        other = p002 if existing == p001 else p001
+        s0 = match_score(embeddings[0], det_centers[0], det_areas[0], tracks[existing], frame_diag)
+        s1 = match_score(embeddings[1], det_centers[1], det_areas[1], tracks[existing], frame_diag)
+        best_det = 0 if s0 <= s1 else 1
+        assign = [(best_det, existing), (1 - best_det, other)]
+    elif len(detections) == 2:
+        # No tracks yet — left → P001, right → P002
+        order = sorted(range(len(detections)), key=lambda i: det_centers[i][0])
+        assign = [(order[0], p001), (order[1], p002)]
+    elif len(detections) == 1:
+        emb, det_center, det_area = embeddings[0], det_centers[0], det_areas[0]
+        if len(tracks) >= 2:
+            best_pid, best_score = None, 10.0
+            for pid in track_ids:
+                if pid not in tracks:
+                    continue
+                sc = match_score(emb, det_center, det_area, tracks[pid], frame_diag)
+                if sc < best_score:
+                    best_score, best_pid = sc, pid
+            assign = [(0, best_pid)] if best_pid else [(0, p001)]
+        elif len(tracks) == 1:
+            existing = p001 if p001 in tracks else p002
+            sc = match_score(emb, det_center, det_area, tracks[existing], frame_diag)
+            assign = [(0, existing)] if sc <= threshold else [(0, p002 if existing == p001 else p001)]
+        else:
+            assign = [(0, p001)]
+    else:
+        assign = []
+
+    results = []
+    for det_idx, pid in assign:
+        bbox = detections[det_idx]
+        emb = embeddings[det_idx]
+        det_center = center_of(bbox)
+        det_area = area_of(bbox)
+        x, y, bw, bh = bbox
+        tracks[pid] = TrackState(
+            person_id=pid,
+            last_embedding=emb,
+            last_center=det_center,
+            last_area=det_area,
+            last_sample_index=sample_index,
+            hits=tracks[pid].hits + 1 if pid in tracks else 1,
+        )
+        results.append({
+            "face_idx": det_idx,
+            "person_id": pid,
+            "bbox": {"x": x, "y": y, "w": bw, "h": bh},
+            "center": {"x": round(det_center[0], 2), "y": round(det_center[1], 2)},
+            "area": int(det_area),
+            "match_score": 0.0,
             "confidence": 1.0,
             "embedding_preview": [round(float(v), 5) for v in emb[:8]],
         })
@@ -468,6 +815,23 @@ def summarize_persons(frame_records: List[Dict[str, Any]]) -> Dict[str, Dict[str
     return dict(sorted(summary.items()))
 
 
+def select_analysis_persons(
+    person_summary: Dict[str, Dict[str, Any]],
+    analysis_people: int,
+) -> List[str]:
+    """Select the top analysis_people by prominence (frames_seen * avg_area) for emotion/speaker analysis."""
+    if not person_summary or analysis_people <= 0:
+        return []
+    if analysis_people >= len(person_summary):
+        return sorted(person_summary.keys())
+    prominence = [
+        (pid, float(s.get("frames_seen", 0)) * float(s.get("avg_area", 0)))
+        for pid, s in person_summary.items()
+    ]
+    prominence.sort(key=lambda x: -x[1])
+    return [pid for pid, _ in prominence[:analysis_people]]
+
+
 def _detection_feature(det: Dict[str, Any], width: int, height: int) -> np.ndarray:
     width, height = max(1, width), max(1, height)
     frame_area = max(1.0, float(width * height))
@@ -486,60 +850,188 @@ def consolidate_people_kmeans(
     frame_records: List[Dict[str, Any]],
     video_metadata: Dict[str, Any],
     expected_people: int = 2,
+    min_detections: int = 3,
+    min_group_similarity: float = 0.25,
 ) -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
-    if expected_people <= 1:
-        return frame_records, {"applied": False, "reason": "expected_people <= 1"}
-    refs = [(fi, di, det) for fi, fr in enumerate(frame_records) for di, det in enumerate(fr.get("detections", []))]
-    if len(refs) < 2:
-        return frame_records, {"applied": False, "reason": "not enough detections"}
-    width = int(video_metadata.get("width", 0) or 1)
-    height = int(video_metadata.get("height", 0) or 1)
-    features = np.vstack([_detection_feature(det, width, height) for _, _, det in refs]).astype(np.float32)
-    k = min(expected_people, len(refs))
-    if k < 2:
-        return frame_records, {"applied": False, "reason": "k < 2"}
-    criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 100, 0.01)
-    _, labels, _ = cv2.kmeans(features, k, None, criteria, 10, cv2.KMEANS_PP_CENTERS)
-    label_values = [int(v) for v in labels.flatten().tolist()]
-    raw_summary = summarize_persons(frame_records)
-    dominant_raw_id = max(raw_summary.items(), key=lambda kv: kv[1]["frames_seen"])[0]
-    label_counts = Counter(label_values)
-    dominant_label_votes = Counter(
-        lbl for (_, _, det), lbl in zip(refs, label_values) if det.get("person_id") == dominant_raw_id
-    )
-    dominant_label = dominant_label_votes.most_common(1)[0][0] if dominant_label_votes else label_counts.most_common(1)[0][0]
-    ordered_labels = [dominant_label] + [lbl for lbl, _ in label_counts.most_common() if lbl != dominant_label]
-    label_to_person = {lbl: f"P{idx + 1:03d}" for idx, lbl in enumerate(ordered_labels)}
-    ref_label_map = {(fi, di): lbl for (fi, di, _), lbl in zip(refs, label_values)}
-    raw_to_canonical_counts: Dict[str, Dict[str, int]] = defaultdict(lambda: defaultdict(int))
-    for (fi, di, det), lbl in zip(refs, label_values):
-        raw_to_canonical_counts[str(det.get("person_id", "UNKNOWN"))][label_to_person[lbl]] += 1
+    """Consolidate fragmented person IDs into expected_people groups.
+
+    Uses a co-occurrence graph + ArcFace embedding similarity:
+    - Two tracker IDs that appear in the same frame MUST be different people.
+    - IDs that never co-occur MAY be the same person.
+    - When assigning a non-conflicting ID to a group, pick the group whose
+      members have the most similar ArcFace embedding (lowest cosine distance).
+    - This prevents merging tracker IDs that belong to visually different people
+      just because they never appeared in the same frame.
+    """
+    if expected_people != 2:
+        return frame_records, {"applied": False, "reason": "only expected_people=2 is supported"}
+
+    # --- Collect all raw person IDs and their embeddings ---
+    pid_counts: Dict[str, int] = Counter()
+    pid_embeddings: Dict[str, List[np.ndarray]] = defaultdict(list)
+    for fr in frame_records:
+        for det in fr.get("detections", []):
+            pid = str(det.get("person_id", ""))
+            pid_counts[pid] += 1
+            emb = det.get("_embedding_full")
+            if emb is not None:
+                pid_embeddings[pid].append(emb)
+    noise_pids = {pid for pid, cnt in pid_counts.items() if cnt < min_detections}
+    all_pids = {pid for pid in pid_counts if pid not in noise_pids}
+
+    if len(all_pids) < 2:
+        return frame_records, {"applied": False, "reason": f"only {len(all_pids)} non-noise IDs"}
+
+    # --- Compute mean embedding per tracker ID ---
+    pid_mean_emb: Dict[str, np.ndarray] = {}
+    for pid in all_pids:
+        embs = pid_embeddings.get(pid, [])
+        if embs:
+            mean = np.mean(embs, axis=0).astype(np.float32)
+            norm = np.linalg.norm(mean)
+            pid_mean_emb[pid] = mean / max(norm, 1e-6)
+
+    # --- Build co-occurrence conflict graph ---
+    # If two IDs appear in the same frame, they MUST be different people.
+    conflicts: Dict[str, set] = defaultdict(set)
+    for fr in frame_records:
+        pids_in_frame = [
+            str(d.get("person_id", ""))
+            for d in fr.get("detections", [])
+            if str(d.get("person_id", "")) not in noise_pids
+        ]
+        for i in range(len(pids_in_frame)):
+            for j in range(i + 1, len(pids_in_frame)):
+                conflicts[pids_in_frame[i]].add(pids_in_frame[j])
+                conflicts[pids_in_frame[j]].add(pids_in_frame[i])
+
+    # --- Embedding-guided 2-coloring ---
+    # Seed: most frequent ID → group 0.
+    # For each subsequent ID, pick the non-conflicting group whose mean
+    # embedding is most similar.  This ensures IDs that look alike merge
+    # together even when they never co-occur.
+    ordered_pids = sorted(all_pids, key=lambda p: -pid_counts[p])
+    pid_to_group: Dict[str, int] = {}
+    # Running sum of embeddings per group (for incremental mean)
+    group_emb_sum: Dict[int, np.ndarray] = {}
+    group_emb_count: Dict[int, int] = defaultdict(int)
+
+    def _group_mean_emb(g: int) -> Optional[np.ndarray]:
+        if g not in group_emb_sum or group_emb_count[g] == 0:
+            return None
+        m = group_emb_sum[g] / group_emb_count[g]
+        norm = np.linalg.norm(m)
+        return m / max(norm, 1e-6)
+
+    def _add_to_group(pid: str, g: int):
+        pid_to_group[pid] = g
+        emb = pid_mean_emb.get(pid)
+        if emb is not None:
+            if g not in group_emb_sum:
+                group_emb_sum[g] = np.zeros_like(emb)
+            group_emb_sum[g] = group_emb_sum[g] + emb
+            group_emb_count[g] += 1
+
+    for pid in ordered_pids:
+        if pid in pid_to_group:
+            continue
+        conflict_groups = {pid_to_group[c] for c in conflicts.get(pid, set()) if c in pid_to_group}
+        available_groups = [g for g in range(expected_people) if g not in conflict_groups]
+
+        if len(available_groups) == 0:
+            # All groups conflict — pick the one with fewest conflicts
+            group = min(range(expected_people),
+                        key=lambda g: sum(1 for c in conflicts.get(pid, set())
+                                          if pid_to_group.get(c) == g))
+        elif len(available_groups) == 1 or pid not in pid_mean_emb:
+            # Only one option or no embedding — pick lowest available
+            group = available_groups[0]
+        else:
+            # Multiple non-conflicting groups available — pick by embedding
+            # similarity to existing group members.
+            emb = pid_mean_emb[pid]
+            best_group, best_sim = available_groups[0], -2.0
+            for g in available_groups:
+                g_mean = _group_mean_emb(g)
+                if g_mean is not None:
+                    sim = float(np.dot(emb, g_mean))  # cosine similarity
+                    if sim > best_sim:
+                        best_sim, best_group = sim, g
+                # If group is empty, it stays at default priority (first available)
+            group = best_group
+
+        _add_to_group(pid, group)
+
+    # --- Post-assignment: reject IDs whose embedding is too dissimilar ---
+    # Recompute final group means and reject outliers as noise.
+    rejected_pids: set = set()
+    final_group_means: Dict[int, np.ndarray] = {}
+    for g in range(expected_people):
+        members = [pid for pid, gr in pid_to_group.items() if gr == g and pid in pid_mean_emb]
+        if members:
+            stacked = np.stack([pid_mean_emb[p] for p in members])
+            m = np.mean(stacked, axis=0).astype(np.float32)
+            norm = np.linalg.norm(m)
+            final_group_means[g] = m / max(norm, 1e-6)
+    for pid, g in list(pid_to_group.items()):
+        emb = pid_mean_emb.get(pid)
+        g_mean = final_group_means.get(g)
+        if emb is not None and g_mean is not None:
+            sim = float(np.dot(emb, g_mean))
+            if sim < min_group_similarity:
+                rejected_pids.add(pid)
+    # Treat rejected IDs like noise
+    noise_pids.update(rejected_pids)
+    for pid in rejected_pids:
+        pid_to_group.pop(pid, None)
+
+    group_to_person = {g: f"P{g + 1:03d}" for g in range(expected_people)}
+    pid_to_person = {pid: group_to_person[g] for pid, g in pid_to_group.items()}
+
+    # --- Apply to frames ---
     consolidated_frames = []
-    for frame_idx, fr in enumerate(frame_records):
-        best_by_label: Dict[int, Dict[str, Any]] = {}
-        for det_idx, det in enumerate(fr.get("detections", [])):
-            lbl = ref_label_map[(frame_idx, det_idx)]
-            current = best_by_label.get(lbl)
-            if current is None or float(det.get("area", 0.0)) > float(current.get("area", 0.0)):
-                det_copy = dict(det)
-                det_copy["source_person_id"] = det.get("person_id")
-                det_copy["person_id"] = label_to_person[lbl]
-                det_copy["cluster_label"] = int(lbl)
-                best_by_label[lbl] = det_copy
-        fr["detections"] = sorted(best_by_label.values(), key=lambda d: d["person_id"])
+    for fr in frame_records:
+        seen_persons = set()
+        new_dets = []
+        for det in fr.get("detections", []):
+            raw_pid = str(det.get("person_id", ""))
+            if raw_pid in noise_pids:
+                continue  # skip noise
+            new_pid = pid_to_person.get(raw_pid, raw_pid)
+            if new_pid in seen_persons:
+                continue  # skip duplicate person in same frame
+            seen_persons.add(new_pid)
+            det["source_person_id"] = det.get("person_id")
+            det["person_id"] = new_pid
+            new_dets.append(det)
+        fr["detections"] = sorted(new_dets, key=lambda d: d["person_id"])
         fr["person_ids"] = sorted({d["person_id"] for d in fr["detections"]})
         fr["face_count"] = len(fr["detections"])
         consolidated_frames.append(fr)
+
+    raw_summary = summarize_persons(frame_records)
     consolidated_summary = summarize_persons(consolidated_frames)
+    # --- Build embedding similarity matrix for diagnostics ---
+    emb_sim_info = {}
+    sorted_pids = sorted(all_pids)
+    for i, pa in enumerate(sorted_pids):
+        for pb in sorted_pids[i + 1:]:
+            ea, eb = pid_mean_emb.get(pa), pid_mean_emb.get(pb)
+            if ea is not None and eb is not None:
+                emb_sim_info[f"{pa}-{pb}"] = round(float(np.dot(ea, eb)), 4)
+
     info = {
         "applied": True,
-        "method": "kmeans_detections",
+        "method": "embedding_guided_graph_coloring",
         "expected_people": expected_people,
-        "raw_unique_ids": len(raw_summary),
+        "raw_unique_ids": len(all_pids),
+        "noise_ids_removed": len(noise_pids) - len(rejected_pids),
+        "embedding_outliers_rejected": len(rejected_pids),
+        "rejected_pids": sorted(rejected_pids),
         "consolidated_unique_ids": len(consolidated_summary),
-        "dominant_raw_id": dominant_raw_id,
-        "label_to_person": {str(lbl): pid for lbl, pid in sorted(label_to_person.items())},
-        "raw_to_canonical_votes": {r: dict(sorted(c.items())) for r, c in sorted(raw_to_canonical_counts.items())},
+        "pid_to_person": dict(sorted(pid_to_person.items())),
+        "conflicts": {pid: sorted(c) for pid, c in sorted(conflicts.items())},
+        "embedding_similarities": emb_sim_info,
     }
     return consolidated_frames, info
 
@@ -548,41 +1040,76 @@ def _reorganize_crops(
     enriched_frames: List[Dict[str, Any]],
     crops_dir: str,
 ) -> None:
-    """Move face crops into folders matching consolidated person_id."""
+    """Move face crops into folders matching consolidated person_id.
+
+    Strategy: collect all valid (detection → crop_path) mappings from the
+    consolidated frames, copy each crop to its correct person folder, then
+    delete every file/subfolder that does not belong to a final person.
+    """
     import shutil
-    import time
-    final_pids = set()
+
+    # 1. Build the authoritative mapping: crop_path → final person_id
+    final_pids: set = set()
+    crop_map: Dict[str, str] = {}  # old_abs_path → new_abs_path
     for fr in enriched_frames:
         for det in fr.get("detections", []):
-            final_pids.add(det["person_id"])
+            pid = det["person_id"]
+            final_pids.add(pid)
+            old_path = det.get("crop_path")
+            if not old_path:
+                continue
+            old_abs = os.path.abspath(old_path)
+            basename = os.path.basename(old_path)
+            new_abs = os.path.abspath(os.path.join(crops_dir, pid, basename))
+            crop_map[old_abs] = new_abs
+            det["crop_path"] = os.path.join(crops_dir, pid, basename)
+
+    # 2. Create final person dirs
+    for pid in final_pids:
+        os.makedirs(os.path.join(crops_dir, pid), exist_ok=True)
+
+    # 3. Copy each crop to its correct location (copy first, delete later)
+    for old_abs, new_abs in crop_map.items():
+        if not os.path.isfile(old_abs):
+            continue
+        if old_abs == new_abs:
+            continue
+        os.makedirs(os.path.dirname(new_abs), exist_ok=True)
+        shutil.copy2(old_abs, new_abs)
+
+    # 4. Build the set of all files that should exist after reorganisation
+    valid_files = {new_abs for new_abs in crop_map.values()}
+
+    # 5. Remove everything under crops_dir that is NOT in valid_files or final_pids
+    try:
+        for name in os.listdir(crops_dir):
+            dir_path = os.path.join(crops_dir, name)
+            if os.path.isdir(dir_path):
+                if name not in final_pids:
+                    # Stale person folder — remove entirely
+                    shutil.rmtree(dir_path, ignore_errors=True)
+                else:
+                    # Correct person folder — remove orphaned files inside
+                    for fname in os.listdir(dir_path):
+                        fpath = os.path.abspath(os.path.join(dir_path, fname))
+                        if fpath not in valid_files:
+                            try:
+                                os.remove(fpath)
+                            except OSError:
+                                pass
+            elif os.path.isfile(dir_path):
+                # Stray file at top level — remove
+                try:
+                    os.remove(dir_path)
+                except OSError:
+                    pass
+    except OSError:
+        pass
+
+    # 6. Clean up leftover _tmp dir from previous failed runs
     tmp_dir = crops_dir + "_tmp"
     if os.path.isdir(tmp_dir):
         shutil.rmtree(tmp_dir, ignore_errors=True)
-    for pid in final_pids:
-        os.makedirs(os.path.join(tmp_dir, pid), exist_ok=True)
-    for fr in enriched_frames:
-        for det in fr.get("detections", []):
-            old_path = det.get("crop_path")
-            if not old_path or not os.path.isfile(old_path):
-                continue
-            pid = det["person_id"]
-            new_path = os.path.join(tmp_dir, pid, os.path.basename(old_path))
-            shutil.copy2(old_path, new_path)
-            det["crop_path"] = os.path.join(crops_dir, pid, os.path.basename(old_path))
-    for attempt in range(3):
-        try:
-            if os.path.isdir(crops_dir):
-                shutil.rmtree(crops_dir)
-            os.rename(tmp_dir, crops_dir)
-            return
-        except PermissionError:
-            if attempt < 2:
-                time.sleep(2)
-    for fr in enriched_frames:
-        for det in fr.get("detections", []):
-            cp = det.get("crop_path", "")
-            if cp.startswith(crops_dir):
-                det["crop_path"] = cp.replace(crops_dir, tmp_dir, 1)
 
 
 def run_step2(
@@ -593,13 +1120,14 @@ def run_step2(
     save_face_crops: bool = True,
     crops_dir: str = "extracted_frames_v2/faces_by_person",
     expected_people: Optional[int] = None,
+    max_tracked_people: Optional[int] = None,
+    analysis_people: Optional[int] = None,
+    match_threshold: float = 0.65,
 ) -> Dict[str, Any]:
     manifest = load_manifest(manifest_path)
     frame_records = manifest.get("frames", [])
     attach_comments_to_frames(frame_records, comments)
     detector = build_detector()
-    if detector.empty():
-        raise RuntimeError("Haar Cascade failed to load.")
     if save_face_crops:
         os.makedirs(crops_dir, exist_ok=True)
     tracks: Dict[str, TrackState] = {}
@@ -613,12 +1141,30 @@ def run_step2(
             fr["detections"], fr["face_count"], fr["person_ids"] = [], 0, []
             enriched_frames.append(fr)
             continue
-        detections = detect_faces(img, detector=detector)
-        embeddings = [face_embedding(img, bbox) for bbox in detections]
-        assigned, next_person_num = assign_person_ids(
-            detections=detections, embeddings=embeddings, sample_index=sample_index,
-            frame_shape=img.shape, tracks=tracks, next_person_num=next_person_num,
-        )
+        det_results = detect_faces(img, detector=detector)
+        # --- Filter false positives (grey buttons, signs, etc.) ---
+        validated = [(bbox, lm) for bbox, lm in det_results if validate_face(img, bbox)]
+        detections = [bbox for bbox, _ in validated]
+        landmarks_list = [lm for _, lm in validated]
+        embeddings = [face_embedding(img, bbox, lm) for bbox, lm in zip(detections, landmarks_list)]
+        # --- Use 2-person optimised tracker when we know there are 2 people ---
+        if expected_people == 2 and len(detections) <= 2:
+            h_img, w_img = img.shape[:2]
+            frame_diag = float((h_img ** 2 + w_img ** 2) ** 0.5)
+            assigned, next_person_num = _assign_two_people_by_embedding(
+                detections=detections, embeddings=embeddings, sample_index=sample_index,
+                frame_shape=img.shape, tracks=tracks, next_person_num=next_person_num,
+                frame_diag=frame_diag, threshold=match_threshold,
+            )
+        else:
+            assigned, next_person_num = assign_person_ids(
+                detections=detections, embeddings=embeddings, sample_index=sample_index,
+                frame_shape=img.shape, tracks=tracks, next_person_num=next_person_num,
+                threshold=match_threshold,
+            )
+        # Attach full embeddings for later consolidation
+        for det, emb in zip(assigned, embeddings):
+            det["_embedding_full"] = emb
         if save_face_crops:
             ih, iw = img.shape[:2]
             for det in assigned:
@@ -648,23 +1194,39 @@ def run_step2(
     intervals = aggregate_intervals(enriched_frames, interval_sec=interval_sec)
     interval_comparison = compare_intervals(intervals)
     person_summary = summarize_persons(enriched_frames)
+    if analysis_people is not None and analysis_people > 0:
+        analysis_person_ids = select_analysis_persons(person_summary, analysis_people)
+    else:
+        analysis_person_ids = sorted(person_summary.keys())
     result = {
         "video_metadata": manifest.get("video_metadata", {}),
         "step2_config": {
             "interval_sec": interval_sec,
-            "detector": "haar_frontalface_default",
-            "tracking": "appearance+spatial matching",
+            "detector": "yunet_2023mar",
+            "tracking": "appearance+spatial",
+            "match_threshold": match_threshold,
             "comments_linked": bool(comments),
             "expected_people": expected_people,
+            "max_tracked_people": max_tracked_people,
+            "analysis_people": analysis_people,
+            "analysis_person_ids": analysis_person_ids,
         },
         "frames": enriched_frames,
         "intervals": intervals,
         "interval_comparison": interval_comparison,
         "person_summary": person_summary,
+        "analysis_person_ids": analysis_person_ids,
     }
     if consolidation_info is not None:
         result["consolidation"] = consolidation_info
-    save_json(result, output_path)
+    # Strip internal numpy embeddings before JSON serialization
+    def _strip_internals(obj):
+        if isinstance(obj, dict):
+            return {k: _strip_internals(v) for k, v in obj.items() if not k.startswith("_")}
+        if isinstance(obj, list):
+            return [_strip_internals(v) for v in obj]
+        return obj
+    save_json(_strip_internals(result), output_path)
     print("=== STEP 2: TRACKING + INTERVAL ANALYSIS ===")
     print(f"Frames processed: {len(enriched_frames)}")
     print(f"Total face detections: {sum(fr.get('face_count', 0) for fr in enriched_frames)}")

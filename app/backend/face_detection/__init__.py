@@ -11,6 +11,7 @@ from app.backend.face_detection.face_detection import (
     read_video_metadata,
     build_sampling_plan,
     build_balanced_sampling_plan,
+    select_analysis_persons,
 )
 
 __all__ = [
@@ -21,4 +22,5 @@ __all__ = [
     "read_video_metadata",
     "build_sampling_plan",
     "build_balanced_sampling_plan",
+    "select_analysis_persons",
 ]

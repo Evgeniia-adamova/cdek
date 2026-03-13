@@ -19,7 +19,21 @@ Processes video recordings through face detection, emotion recognition, speech-t
 ```bash
 pip install -r requirements.txt
 cp .env.example .env  # fill in API keys
+```
 
+### Download required models
+
+Some ONNX models are too large for Git and must be downloaded manually:
+
+| Model | Size | Location | Download |
+|-------|------|----------|----------|
+| ArcFace R100 (fp32) | 249 MB | `app/backend/face_detection/models/arcface_r100_fp32.onnx` | [InsightFace](https://github.com/deepinsight/insightface/tree/master/model_zoo) |
+
+The following models are included in the repo:
+- `face_detection_yunet_2023mar.onnx` (228 KB) — YuNet face detector
+- `emotion-ferplus-8.onnx` (34 MB) — FERPlus emotion classifier
+
+```bash
 python -m app.run_full_pipeline path/to/video.webm
 ```
 

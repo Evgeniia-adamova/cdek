@@ -125,6 +125,8 @@ def main():
         save_face_crops=True,
         crops_dir=os.path.join(dirs["frames"], "faces_by_person"),
         expected_people=2,
+        analysis_people=2,
+        match_threshold=0.55,
     )
     run_step3(
         input_path=os.path.join(dirs["face_detection"], "face_detection.json"),
