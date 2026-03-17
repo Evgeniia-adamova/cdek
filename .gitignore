@@ -1,6 +1,10 @@
 # Local env with secrets (copy from .env.example, never commit)
 .env
 
+# SSL certificates
+certs/
+
+
 # Python
 __pycache__/
 *.py[cod]

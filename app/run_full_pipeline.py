@@ -14,6 +14,7 @@ Usage:
 Options:
   --clean   Remove old face crop folders before running.
 """
+import json
 import os
 import shutil
 import sys
@@ -29,6 +30,9 @@ try:
     load_dotenv(PROJECT_ROOT / ".env")
 except ImportError:
     pass
+
+from app.backend.database.schema import get_connection, init_db
+from app.backend.database.repository import PipelineRepository
 
 LOGS_DIR = PROJECT_ROOT / "logs"
 DATA_DIR = PROJECT_ROOT / "data"
@@ -105,6 +109,11 @@ def main():
     if do_clean:
         _clean_old_crops(dirs["frames"])
 
+    # --- Initialize database ---
+    db_conn = get_connection()
+    init_db(db_conn)
+    repo = PipelineRepository(db_conn)
+
     # --- Dense frame extraction + face detection ---
     from app.backend.face_detection import run_step2, run_step3, run_step4
     from app.backend.emotion_recognition import run_emotion_baseline_onnx, run_step6_emotion_report
@@ -134,6 +143,53 @@ def main():
         interval_sec=10.0,
     )
 
+    # --- DB: save face detection data ---
+    session_id = None
+    label_to_id = {}
+    try:
+        fd_path = os.path.join(dirs["face_detection"], "face_detection.json")
+        with open(fd_path, encoding="utf-8") as f:
+            fd_data = json.load(f)
+        meta = fd_data["video_metadata"]
+        config = fd_data.get("step2_config", {})
+
+        # Collect person labels
+        all_person_labels = set()
+        for frame in fd_data["frames"]:
+            for det in frame.get("detections", []):
+                pid = det.get("person_id")
+                if pid:
+                    all_person_labels.add(pid)
+
+        session_id = repo.create_session(
+            video_id=video_id, video_path=meta.get("video_path"),
+            fps=meta["fps"], frame_count=meta["frame_count"],
+            width=meta["width"], height=meta["height"],
+            duration_sec=meta["duration_sec"],
+            interval_sec=config.get("interval_sec", 10.0),
+            match_threshold=config.get("match_threshold", 0.55),
+            detector=config.get("detector", "yunet_2023mar"),
+        )
+        label_to_id = repo.insert_persons(session_id, sorted(all_person_labels))
+
+        frames_data = [{
+            "sample_index": fr["sample_index"], "frame_index": fr["frame_index"],
+            "timestamp_sec": fr["timestamp_sec"], "timestamp": fr.get("timestamp"),
+            "image_path": fr.get("image_path"), "interval_id": fr.get("interval_id"),
+            "face_count": fr.get("face_count", 0),
+        } for fr in fd_data["frames"]]
+        sample_to_frame_id = repo.insert_frames(session_id, frames_data)
+
+        for frame in fd_data["frames"]:
+            frame_id = sample_to_frame_id[frame["sample_index"]]
+            if frame.get("detections"):
+                repo.insert_detections(frame_id, label_to_id, frame["detections"])
+
+        print(f"  DB: session={session_id}, persons={list(label_to_id.keys())}, "
+              f"frames={len(sample_to_frame_id)}")
+    except Exception as e:
+        print(f"  DB warning (face detection): {e}", file=sys.stderr)
+
     # --- Emotion recognition ---
     print("\n=== EMOTION RECOGNITION ===")
     run_emotion_baseline_onnx(
@@ -147,6 +203,34 @@ def main():
         output_path=os.path.join(dirs["emotion"], "emotion_report.json"),
     )
 
+    # --- DB: save emotion report ---
+    if session_id:
+        try:
+            emo_path = os.path.join(dirs["emotion"], "emotion_report.json")
+            with open(emo_path, encoding="utf-8") as f:
+                emo_data = json.load(f)
+            emo_count = 0
+            for interval in emo_data.get("interval_emotion_report", []):
+                for plabel, pe in interval.get("person_emotions", {}).items():
+                    pid = label_to_id.get(plabel)
+                    if pid is None:
+                        continue
+                    repo.insert_interval_emotions(session_id, pid, [{
+                        "interval_id": interval["interval_id"],
+                        "start_ts": interval.get("start_ts"),
+                        "frame_count": interval.get("frame_count", 0),
+                        "total_detections": pe["total_detections"],
+                        "emotion_counts": pe["emotion_counts"],
+                        "dominant_emotion": pe["dominant_emotion"],
+                        "dominant_share": pe["dominant_share"],
+                        "avg_confidence": pe["avg_confidence"],
+                        "valence_score": pe["valence_score"],
+                    }])
+                    emo_count += 1
+            print(f"  DB: interval_emotions={emo_count}")
+        except Exception as e:
+            print(f"  DB warning (emotion): {e}", file=sys.stderr)
+
     # --- Extract audio from video ---
     ogg_path = Path(dirs["text"]) / "audio.ogg"
     print("\n=== EXTRACTING AUDIO ===")
@@ -154,6 +238,9 @@ def main():
     if not _extract_audio_to_ogg(video_path, ogg_path):
         print("Warning: ffmpeg failed or not installed. Skipping text extraction/analysis.", file=sys.stderr)
         print("Pipeline (frames + emotion) completed. Install ffmpeg and re-run for text.", file=sys.stderr)
+        if session_id:
+            repo.update_session_status(session_id, "completed")
+        db_conn.close()
         return 0
     print("Audio:", ogg_path)
 
@@ -170,6 +257,9 @@ def main():
     segments_path = Path(dirs["text"]) / "audio_segments.json"
     if not segments_path.is_file():
         print("Error: segments file not created.", file=sys.stderr)
+        if session_id:
+            repo.update_session_status(session_id, "failed")
+        db_conn.close()
         return 1
 
     # --- Text analysis (diarization + sentiment) ---
@@ -183,6 +273,21 @@ def main():
     )
     print("Output JSON:", result["output_json"])
     print("Output TXT:", result["output_txt"])
+
+    # --- DB: save transcript + speakers ---
+    if session_id:
+        try:
+            with open(result["output_json"], encoding="utf-8") as f:
+                sent_data = json.load(f)
+            speaker_roles = sent_data.get("speaker_roles", {})
+            speaker_label_to_id = repo.insert_speakers(session_id, speaker_roles)
+            repo.insert_transcript_segments(
+                session_id, speaker_label_to_id, sent_data.get("segments", []),
+            )
+            print(f"  DB: speakers={list(speaker_roles.keys())}, "
+                  f"segments={len(sent_data.get('segments', []))}")
+        except Exception as e:
+            print(f"  DB warning (transcript): {e}", file=sys.stderr)
 
     # --- Combined video+audio emotion analysis ---
     print("\n=== COMBINED VIDEO+AUDIO EMOTION ANALYSIS ===")
@@ -202,6 +307,32 @@ def main():
                 audio_weight=0.4,
             )
             print("Combined emotion analysis:", combined_output_path)
+
+            # --- DB: save combined emotions ---
+            if session_id:
+                try:
+                    comb_count = 0
+                    for interval in combined_result.get("combined_intervals", []):
+                        for plabel, pe in interval.get("person_emotions", {}).items():
+                            pid = label_to_id.get(plabel)
+                            if pid is None or "combined_emotion" not in pe:
+                                continue
+                            repo.insert_combined_emotions(session_id, pid, [{
+                                "interval_id": interval["interval_id"],
+                                "video_emotion": pe.get("video_emotion", ""),
+                                "video_valence": pe.get("video_valence", 0.0),
+                                "video_confidence": pe.get("video_confidence", 0.0),
+                                "audio_sentiment": pe.get("audio_sentiment", "neutral"),
+                                "audio_valence": pe.get("audio_valence", 0.0),
+                                "audio_confidence": pe.get("audio_confidence", 0.0),
+                                "combined_emotion": pe["combined_emotion"],
+                                "combined_valence": pe["combined_valence"],
+                                "combined_confidence": pe["combined_confidence"],
+                            }])
+                            comb_count += 1
+                    print(f"  DB: combined_emotions={comb_count}")
+                except Exception as e:
+                    print(f"  DB warning (combined): {e}", file=sys.stderr)
         else:
             print("Warning: Missing emotion report or audio sentiment file. Skipping combined analysis.")
     except Exception as e:
@@ -233,15 +364,30 @@ def main():
             )
             print_kpi_report(kpi_result)
             print("KPI evaluation saved:", kpi_output_path)
+
+            # --- DB: save KPI evaluation ---
+            if session_id:
+                try:
+                    eval_id = repo.insert_kpi_evaluation(session_id, kpi_result)
+                    print(f"  DB: kpi_evaluation={eval_id}, "
+                          f"score={kpi_result['overall_score']}/{kpi_result['max_possible_score']}")
+                except Exception as e:
+                    print(f"  DB warning (KPI): {e}", file=sys.stderr)
         else:
             print("Warning: Empty transcript, skipping KPI evaluation.")
     except Exception as e:
         print(f"Warning: KPI evaluation failed: {e}", file=sys.stderr)
 
+    # --- Finalize DB session ---
+    if session_id:
+        repo.update_session_status(session_id, "completed")
+    db_conn.close()
+
     print("\n=== FULL PIPELINE COMPLETE ===")
     print(f"  Video ID: {video_id}")
     print(f"  Data:     data/{video_id}/")
     print(f"  Logs:     logs/{video_id}/")
+    print(f"  Database: PostgreSQL ({os.environ.get('PG_HOST', 'unknown')})")
     print(f"  Outputs:")
     print(f"    Face detection:    {dirs['face_detection']}")
     print(f"    Emotion:           {dirs['emotion']}")
