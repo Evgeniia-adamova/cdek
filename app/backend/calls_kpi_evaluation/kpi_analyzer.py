@@ -22,6 +22,7 @@ class KPIResult:
     max_score: int
     status: str  # "Да" or "Нет"
     details: str = ""
+    evidence: Optional[List[Dict]] = None  # [{"quote": "...", "timestamp": "00:01:23"}]
 
 
 # ═══════════════════════════════════════════════════════════════════
@@ -372,13 +373,53 @@ class CallKPIAnalyzer:
         self.max_total_score = 0
         # Текстовые поля (без оценки)
         self.text_fields: Dict[str, str] = {}
+        # Сегменты с таймстемпами для сбора evidence
+        self.segments: List[Dict] = []
+        self.first_third_segments: List[Dict] = []
+        self.last_block_segments: List[Dict] = []
 
-    def analyze(self, transcript: str) -> Dict:
+    @staticmethod
+    def _fmt_ts(seconds: float) -> str:
+        """Форматирует секунды в HH:MM:SS."""
+        h = int(seconds // 3600)
+        m = int((seconds % 3600) // 60)
+        s = int(seconds % 60)
+        return f"{h:02d}:{m:02d}:{s:02d}"
+
+    def _find_evidence(self, patterns: List[str], segments: Optional[List[Dict]] = None,
+                       max_items: int = 3) -> List[Dict]:
+        """
+        Ищет паттерны в сегментах и возвращает evidence с цитатами и таймстемпами.
+        """
+        if not segments:
+            segments = self.segments
+        if not segments:
+            return []
+
+        evidence = []
+        seen_indices = set()
+        for pattern in patterns:
+            for i, seg in enumerate(segments):
+                if i in seen_indices:
+                    continue
+                text = seg.get("text", "")
+                if re.search(pattern, text.lower()):
+                    evidence.append({
+                        "quote": text.strip(),
+                        "timestamp": self._fmt_ts(seg.get("start", 0)),
+                    })
+                    seen_indices.add(i)
+                    if len(evidence) >= max_items:
+                        return evidence
+        return evidence
+
+    def analyze(self, transcript: str, segments: Optional[List[Dict]] = None) -> Dict:
         """
         Анализирует транскрипцию диалога по всем критериям СДЭК чеклиста.
 
         Args:
             transcript: Полный текст транскрипции диалога
+            segments: Список сегментов [{start, end, text}, ...] для evidence
 
         Returns:
             Словарь с результатами анализа и итоговой оценкой из 100
@@ -387,6 +428,7 @@ class CallKPIAnalyzer:
         self.total_score = 0
         self.max_total_score = 0
         self.text_fields = {}
+        self.segments = segments or []
 
         text = transcript.strip()
         text_lower = text.lower()
@@ -399,6 +441,17 @@ class CallKPIAnalyzer:
 
         first_third = '\n'.join(lines[:first_third_end]).lower()
         last_block = '\n'.join(lines[last_block_start:]).lower()
+
+        # Разбиваем сегменты на позиционные части
+        total_segs = len(self.segments)
+        if total_segs > 0:
+            ft_end = max(1, total_segs // 3)
+            lb_start = max(0, total_segs - 10)
+            self.first_third_segments = self.segments[:ft_end]
+            self.last_block_segments = self.segments[lb_start:]
+        else:
+            self.first_third_segments = []
+            self.last_block_segments = []
 
         # ═══ ЭТАП 1: УСТАНОВЛЕНИЕ КОНТАКТА ═══
         self._check_privetstvie(first_third)
@@ -464,10 +517,10 @@ class CallKPIAnalyzer:
 
         found = any(re.search(p, first_third) for p in patterns)
         if found and any(re.search(p, first_third) for p in anti_patterns):
-            # Если единственная фраза — анти-паттерн, не засчитываем
             pass
 
-        self._add_result("privetstvie_klienta", found)
+        evidence = self._find_evidence(patterns, self.first_third_segments, max_items=2)
+        self._add_result("privetstvie_klienta", found, evidence=evidence)
 
     def _check_predstavilsya(self, first_third: str) -> None:
         """predstavilsyamenedzher — 2 балла"""
@@ -479,7 +532,8 @@ class CallKPIAnalyzer:
             r'я\s+\w+,?\s+(?:менеджер|специалист|консультант)',
         ]
         found = any(re.search(p, first_third) for p in patterns)
-        self._add_result("predstavilsyamenedzher", found)
+        evidence = self._find_evidence(patterns, self.first_third_segments, max_items=1)
+        self._add_result("predstavilsyamenedzher", found, evidence=evidence)
 
     def _check_utochnil_imya(self, first_third: str) -> None:
         """menedzher_utochnil_imya_klienta — 2 балла"""
@@ -493,7 +547,8 @@ class CallKPIAnalyzer:
             r'назовите.*имя',
         ]
         found = any(re.search(p, first_third) for p in patterns)
-        self._add_result("menedzher_utochnil_imya_klienta", found)
+        evidence = self._find_evidence(patterns, self.first_third_segments, max_items=1)
+        self._add_result("menedzher_utochnil_imya_klienta", found, evidence=evidence)
 
     def _check_obrashchenie_po_imeni(self, text_lower: str) -> None:
         """obrashchenie_po_imeni — 2 балла
@@ -526,7 +581,9 @@ class CallKPIAnalyzer:
         # Если нашли минимум 2 обращения по имени
         found = len(real_names) >= 2
         details = f"Найдено {len(real_names)} обращений по имени" if found else "Менее 2 обращений по имени"
-        self._add_result("obrashchenie_po_imeni", found, details)
+        # Evidence: ищем сегменты где есть обращения по имени
+        evidence = self._find_evidence(name_call_patterns, self.segments, max_items=3)
+        self._add_result("obrashchenie_po_imeni", found, details, evidence=evidence)
 
     # ─────────────────────────────────────────────
     # ЭТАП 2: УПРАВЛЕНИЕ ВСТРЕЧЕЙ
@@ -543,7 +600,8 @@ class CallKPIAnalyzer:
             r'(?:хочу|хотела?\s+бы)\s+(?:вам\s+)?(?:рассказать|показать|продемонстрировать)',
         ]
         found = any(re.search(p, first_third) for p in patterns)
-        self._add_result("vstrecha", found)
+        evidence = self._find_evidence(patterns, self.first_third_segments, max_items=2)
+        self._add_result("vstrecha", found, evidence=evidence)
 
     def _check_plan_vstrechi(self, first_third: str) -> None:
         """menedzher_ob_yasnil_kakoi_plan_vstrechi — 2 балла"""
@@ -557,7 +615,8 @@ class CallKPIAnalyzer:
             r'сначала.*(?:затем|потом).*(?:в\s+конце|потом)',
         ]
         found = any(re.search(p, first_third) for p in patterns)
-        self._add_result("menedzher_ob_yasnil_kakoi_plan_vstrechi", found)
+        evidence = self._find_evidence(patterns, self.first_third_segments, max_items=2)
+        self._add_result("menedzher_ob_yasnil_kakoi_plan_vstrechi", found, evidence=evidence)
 
     def _check_itogi_vstrechi(self, last_block: str) -> None:
         """itogi_vstrechi — 5 баллов"""
@@ -571,7 +630,8 @@ class CallKPIAnalyzer:
             r'давайте\s+(?:подведём|подведем|вспомним)',
         ]
         found = any(re.search(p, last_block) for p in patterns)
-        self._add_result("itogi_vstrechi", found)
+        evidence = self._find_evidence(patterns, self.last_block_segments, max_items=2)
+        self._add_result("itogi_vstrechi", found, evidence=evidence)
 
     def _check_voprosy_v_kontse(self, last_block: str) -> None:
         """voprosy_po_nakladnoi — 4 балла"""
@@ -583,7 +643,8 @@ class CallKPIAnalyzer:
             r'(?:все\s+)?(?:понятно|ясно)\s*\?',
         ]
         found = any(re.search(p, last_block) for p in patterns)
-        self._add_result("voprosy_po_nakladnoi", found)
+        evidence = self._find_evidence(patterns, self.last_block_segments, max_items=2)
+        self._add_result("voprosy_po_nakladnoi", found, evidence=evidence)
 
     # ─────────────────────────────────────────────
     # ЭТАП 3: СБОР ИНФОРМАЦИИ
@@ -600,7 +661,8 @@ class CallKPIAnalyzer:
             r'ожидаете\s+(?:ли\s+)?рост',
         ]
         found = any(re.search(p, text_lower) for p in patterns)
-        self._add_result("utochnenie_obemov", found)
+        evidence = self._find_evidence(patterns, self.segments, max_items=2)
+        self._add_result("utochnenie_obemov", found, evidence=evidence)
 
     def _check_tip_gruzov(self, text_lower: str) -> None:
         """tip_gruzov_kotorye_planiruet_otpravlyat — 3 балла"""
@@ -613,7 +675,8 @@ class CallKPIAnalyzer:
             r'что\s+(?:за\s+)?(?:товар|груз|продукци)',
         ]
         found = any(re.search(p, text_lower) for p in patterns)
-        self._add_result("tip_gruzov_kotorye_planiruet_otpravlyat", found)
+        evidence = self._find_evidence(patterns, self.segments, max_items=2)
+        self._add_result("tip_gruzov_kotorye_planiruet_otpravlyat", found, evidence=evidence)
 
     def _check_opyt_rabot(self, text_lower: str) -> None:
         """opyt_rabot — 2 балла"""
@@ -626,7 +689,8 @@ class CallKPIAnalyzer:
             r'(?:опыт|работа)\s+(?:с\s+)?(?:другими\s+)?(?:транспортн|логистическ|курьерск)',
         ]
         found = any(re.search(p, text_lower) for p in patterns)
-        self._add_result("opyt_rabot", found)
+        evidence = self._find_evidence(patterns, self.segments, max_items=2)
+        self._add_result("opyt_rabot", found, evidence=evidence)
 
     def _check_utochnenie_prioritetov(self, text_lower: str) -> None:
         """utochnenie_pro_priority — 2 балла"""
@@ -647,7 +711,9 @@ class CallKPIAnalyzer:
             f"Положительный опыт: {'Да' if positive_found else 'Нет'}, "
             f"Отрицательный опыт: {'Да' if negative_found else 'Нет'}"
         )
-        self._add_result("utochnenie_pro_priority", found, details)
+        all_patterns = positive_patterns + negative_patterns
+        evidence = self._find_evidence(all_patterns, self.segments, max_items=3)
+        self._add_result("utochnenie_pro_priority", found, details, evidence=evidence)
 
     # ─────────────────────────────────────────────
     # ЭТАП 4: ДЕМОНСТРАЦИЯ УСЛУГ
@@ -662,7 +728,8 @@ class CallKPIAnalyzer:
             r'опыт[а]?\s+работы\s+со?\s+сдэк',
         ]
         found = any(re.search(p, text_lower) for p in patterns)
-        self._add_result("vzaimodeistviya_s_nami", found)
+        evidence = self._find_evidence(patterns, self.segments, max_items=2)
+        self._add_result("vzaimodeistviya_s_nami", found, evidence=evidence)
 
     def _check_stoimost_napravleniya(self, text_lower: str) -> None:
         """geografiya_otpravok — 1 балл"""
@@ -680,7 +747,9 @@ class CallKPIAnalyzer:
         cost_found = any(re.search(p, text_lower) for p in cost_patterns)
 
         found = (weight_found and city_found) or (weight_found and cost_found) or (city_found and cost_found)
-        self._add_result("geografiya_otpravok", found)
+        all_patterns = weight_size_patterns + city_patterns + cost_patterns
+        evidence = self._find_evidence(all_patterns, self.segments, max_items=3)
+        self._add_result("geografiya_otpravok", found, evidence=evidence)
 
     def _check_optovaya_upakovka(self, text_lower: str) -> None:
         """prezentacia — 2 балла"""
@@ -693,7 +762,8 @@ class CallKPIAnalyzer:
             r'ссылк[ау]\s+на\s+(?:заказ\s+)?упаковк',
         ]
         found = any(re.search(p, text_lower) for p in patterns)
-        self._add_result("prezentacia", found)
+        evidence = self._find_evidence(patterns, self.segments, max_items=2)
+        self._add_result("prezentacia", found, evidence=evidence)
 
     def _check_dop_uslugi(self, text_lower: str) -> None:
         """dopolnitel_nye_uslugi — 2 балла"""
@@ -708,7 +778,8 @@ class CallKPIAnalyzer:
         found_count = sum(1 for s in services if re.search(s, text_lower))
         found = found_count >= 2
         details = f"Найдено {found_count} из 6 услуг"
-        self._add_result("dopolnitel_nye_uslugi", found, details)
+        evidence = self._find_evidence(services, self.segments, max_items=3)
+        self._add_result("dopolnitel_nye_uslugi", found, details, evidence=evidence)
 
     def _check_strahovanie(self, text_lower: str) -> None:
         """strahovanie — 5 баллов"""
@@ -721,7 +792,8 @@ class CallKPIAnalyzer:
             r'страхов[ка]+.*компенсир',
         ]
         found = any(re.search(p, text_lower) for p in patterns)
-        self._add_result("strahovanie", found)
+        evidence = self._find_evidence(patterns, self.segments, max_items=2)
+        self._add_result("strahovanie", found, evidence=evidence)
 
     def _check_platnye_kanaly(self, text_lower: str) -> None:
         """kanal_svyzi — 5 баллов"""
@@ -738,7 +810,9 @@ class CallKPIAnalyzer:
         price_found = any(re.search(p, text_lower) for p in price_patterns)
         found = chat_found and price_found
         details = f"Платный чат: {'Да' if chat_found else 'Нет'}, Стоимость 199₽: {'Да' if price_found else 'Нет'}"
-        self._add_result("kanal_svyzi", found, details)
+        all_patterns = chat_patterns + price_patterns
+        evidence = self._find_evidence(all_patterns, self.segments, max_items=3)
+        self._add_result("kanal_svyzi", found, details, evidence=evidence)
 
     def _check_besplatnyi_kanal_pochta(self, text_lower: str) -> None:
         """besplatnyi_kanal_svyazi_pochta — 10 баллов"""
@@ -775,7 +849,9 @@ class CallKPIAnalyzer:
             f"Основной/единственный: {'Да' if main_found else 'Нет'}, "
             f"Контекст канала: {'Да' if context_found else 'Нет'}"
         )
-        self._add_result("besplatnyi_kanal_svyazi_pochta", found, details)
+        all_patterns = mail_patterns + main_patterns + context_patterns
+        evidence = self._find_evidence(all_patterns, self.segments, max_items=3)
+        self._add_result("besplatnyi_kanal_svyazi_pochta", found, details, evidence=evidence)
 
     def _check_process_oplaty(self, text_lower: str) -> None:
         """process_oplaty — 5 баллов"""
@@ -787,7 +863,8 @@ class CallKPIAnalyzer:
             r'(?:оплата|списание)\s+(?:происходит|идет|будет)\s+(?:с|со|из)\s+баланс',
         ]
         found = any(re.search(p, text_lower) for p in patterns)
-        self._add_result("process_oplaty", found)
+        evidence = self._find_evidence(patterns, self.segments, max_items=2)
+        self._add_result("process_oplaty", found, evidence=evidence)
 
     def _check_okonchanie_depozita(self, text_lower: str) -> None:
         """okonchanie_depozita — 5 баллов"""
@@ -815,7 +892,9 @@ class CallKPIAnalyzer:
             f"Счет почта/ЭДО: {'Да' if invoice_found else 'Нет'}, "
             f"Срок 3 дня: {'Да' if days_found else 'Нет'}"
         )
-        self._add_result("okonchanie_depozita", found, details)
+        all_patterns = deposit_patterns + invoice_patterns + days_patterns
+        evidence = self._find_evidence(all_patterns, self.segments, max_items=3)
+        self._add_result("okonchanie_depozita", found, details, evidence=evidence)
 
     def _check_fulfilment(self, text_lower: str) -> None:
         """fulfilment — 5 баллов"""
@@ -828,7 +907,8 @@ class CallKPIAnalyzer:
             r'фуллфил',
         ]
         found = any(re.search(p, text_lower) for p in patterns)
-        self._add_result("fulfilment", found)
+        evidence = self._find_evidence(patterns, self.segments, max_items=2)
+        self._add_result("fulfilment", found, evidence=evidence)
 
     def _check_inkassatsiya(self, text_lower: str) -> None:
         """inkassatsiya_s_poluchatelya — 5 баллов"""
@@ -858,7 +938,9 @@ class CallKPIAnalyzer:
             f"Комиссия: {'Да' if commission else 'Нет'}, "
             f"Инкассация: {'Да' if collection else 'Нет'}"
         )
-        self._add_result("inkassatsiya_s_poluchatelya", found, details)
+        all_patterns = payoff_patterns + commission_patterns + collection_patterns
+        evidence = self._find_evidence(all_patterns, self.segments, max_items=3)
+        self._add_result("inkassatsiya_s_poluchatelya", found, details, evidence=evidence)
 
     def _check_klientskii_vozvrat(self, text_lower: str) -> None:
         """klientskii_vozvrat — 5 баллов"""
@@ -866,7 +948,8 @@ class CallKPIAnalyzer:
             r'клиентск[а-яё]*\s+возврат',
         ]
         found = any(re.search(p, text_lower) for p in patterns)
-        self._add_result("klientskii_vozvrat", found)
+        evidence = self._find_evidence(patterns, self.segments, max_items=2)
+        self._add_result("klientskii_vozvrat", found, evidence=evidence)
 
     def _check_revers(self, text_lower: str) -> None:
         """revers — 5 баллов"""
@@ -875,7 +958,8 @@ class CallKPIAnalyzer:
             r'\bреверс\b',
         ]
         found = any(re.search(p, text_lower) for p in patterns)
-        self._add_result("revers", found)
+        evidence = self._find_evidence(patterns, self.segments, max_items=2)
+        self._add_result("revers", found, evidence=evidence)
 
     def _check_integratsiya(self, text_lower: str) -> None:
         """integratsiya — 5 баллов"""
@@ -884,7 +968,8 @@ class CallKPIAnalyzer:
             r'интеграци[яию]\s+(?:с\s+)?(?:интернет|crm|cms|маркетплейс|api)',
         ]
         found = any(re.search(p, text_lower) for p in patterns)
-        self._add_result("integratsiya", found)
+        evidence = self._find_evidence(patterns, self.segments, max_items=2)
+        self._add_result("integratsiya", found, evidence=evidence)
 
     # ─────────────────────────────────────────────
     # ЭТАП 5: ФИНАЛИЗАЦИЯ
@@ -915,7 +1000,9 @@ class CallKPIAnalyzer:
             f"Telegram: {'Да' if tg_found else 'Нет'}, "
             f"Ссылка: {'Да' if link_found else 'Нет'}"
         )
-        self._add_result("sledyushii_shag", found, details)
+        all_patterns = wa_delay_patterns + telegram_patterns + link_patterns
+        evidence = self._find_evidence(all_patterns, self.segments, max_items=3)
+        self._add_result("sledyushii_shag", found, details, evidence=evidence)
 
     def _check_dop_informatsiya(self, text_lower: str) -> None:
         """dopolnitelnaya_informatsiya — 2 балла"""
@@ -925,7 +1012,8 @@ class CallKPIAnalyzer:
             r'(?:после\s+встречи|в\s+чат|после\s+звонка).*(?:скину|направлю|отправлю|пришлю)',
         ]
         found = any(re.search(p, text_lower) for p in patterns)
-        self._add_result("dopolnitelnaya_informatsiya", found)
+        evidence = self._find_evidence(patterns, self.segments, max_items=2)
+        self._add_result("dopolnitelnaya_informatsiya", found, evidence=evidence)
 
     def _check_otzyv(self, last_block: str) -> None:
         """otzyv — 3 балла"""
@@ -936,7 +1024,8 @@ class CallKPIAnalyzer:
             r'(?:как\s+вам|понравил).*(?:встреча|работа|обслуживание)',
         ]
         found = any(re.search(p, last_block) for p in patterns)
-        self._add_result("otzyv", found)
+        evidence = self._find_evidence(patterns, self.last_block_segments, max_items=2)
+        self._add_result("otzyv", found, evidence=evidence)
 
     # ─────────────────────────────────────────────
     # ТЕКСТОВЫЕ ПОЛЯ (без оценки)
@@ -965,7 +1054,8 @@ class CallKPIAnalyzer:
     # ВСПОМОГАТЕЛЬНЫЕ МЕТОДЫ
     # ─────────────────────────────────────────────
 
-    def _add_result(self, key: str, found: bool, details: str = "") -> None:
+    def _add_result(self, key: str, found: bool, details: str = "",
+                     evidence: Optional[List[Dict]] = None) -> None:
         """Добавляет результат проверки критерия"""
         criterion = next((c for c in CHECKLIST_CRITERIA if c["key"] == key), None)
         if criterion is None:
@@ -984,6 +1074,7 @@ class CallKPIAnalyzer:
             max_score=criterion["max_score"],
             status=status,
             details=details,
+            evidence=evidence if evidence else None,
         ))
         self.max_total_score += criterion["max_score"]
         self.total_score += score
@@ -1044,15 +1135,16 @@ class CallKPIAnalyzer:
         }
 
 
-def analyze_call(transcript: str) -> Dict:
+def analyze_call(transcript: str, segments: Optional[List[Dict]] = None) -> Dict:
     """
     Главная функция для анализа звонка по СДЭК чеклисту.
 
     Args:
         transcript: Текст транскрипции диалога
+        segments: Список сегментов [{start, end, text}, ...] для evidence
 
     Returns:
         Словарь с результатами анализа (из 100 баллов)
     """
     analyzer = CallKPIAnalyzer()
-    return analyzer.analyze(transcript)
+    return analyzer.analyze(transcript, segments=segments)

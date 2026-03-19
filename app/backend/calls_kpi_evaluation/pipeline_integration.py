@@ -25,6 +25,7 @@ def run_kpi_evaluation(
     output_path: Optional[str] = None,
     video_id: Optional[str] = None,
     combined_emotion_result: Optional[Dict] = None,
+    segments: Optional[list] = None,
 ) -> Dict:
     """
     Запускает KPI-оценку транскрипции по СДЭК чеклисту (100 баллов).
@@ -37,6 +38,7 @@ def run_kpi_evaluation(
         output_path: Путь для сохранения JSON-результата (опционально)
         video_id: ID видео/звонка (опционально)
         combined_emotion_result: Результат combined_emotion_analysis (опционально)
+        segments: Список сегментов [{start, end, text}, ...] для evidence
 
     Returns:
         Словарь с результатами оценки
@@ -44,7 +46,7 @@ def run_kpi_evaluation(
     analyze_call = _get_analyze_call()
 
     # Анализируем по чеклисту
-    raw_results = analyze_call(transcript)
+    raw_results = analyze_call(transcript, segments=segments)
 
     # Формируем результат pipeline
     result = {

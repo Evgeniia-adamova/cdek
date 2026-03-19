@@ -356,11 +356,23 @@ def main():
             if 'combined_result' in locals():
                 combined_for_kpi = combined_result
 
+            # Загружаем сегменты с таймстемпами для evidence в KPI
+            kpi_segments = None
+            segments_file = Path(dirs["text"]) / "audio_segments.json"
+            if segments_file.is_file():
+                try:
+                    with open(segments_file, encoding="utf-8") as sf:
+                        seg_data = json.load(sf)
+                    kpi_segments = seg_data.get("segments", seg_data) if isinstance(seg_data, dict) else seg_data
+                except Exception as e:
+                    print(f"  Warning: could not load segments for KPI evidence: {e}", file=sys.stderr)
+
             kpi_result = run_kpi_evaluation(
                 transcript=transcript_text,
                 output_path=kpi_output_path,
                 video_id=video_id,
                 combined_emotion_result=combined_for_kpi,
+                segments=kpi_segments,
             )
             print_kpi_report(kpi_result)
             print("KPI evaluation saved:", kpi_output_path)
