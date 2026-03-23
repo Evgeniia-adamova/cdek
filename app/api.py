@@ -13,7 +13,8 @@ from typing import Optional, List
 import requests as http_requests
 from fastapi import FastAPI, UploadFile, File, HTTPException, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, FileResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
 from app.backend.database.schema import get_connection
@@ -591,3 +592,18 @@ def health():
             status_code=503,
             content={"status": "error", "database": str(e)},
         )
+
+
+# ─────────────────────────────────────────────
+# FRONTEND (serve index.html)
+# ─────────────────────────────────────────────
+
+FRONTEND_DIR = Path(__file__).resolve().parent / "frontend"
+
+
+@app.get("/")
+def serve_frontend():
+    return FileResponse(FRONTEND_DIR / "index.html")
+
+
+app.mount("/static", StaticFiles(directory=str(FRONTEND_DIR)), name="static")

@@ -10,6 +10,9 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf-autotable@3.8.2/dist/jspdf.plugin.autotable.min.js"></script>
   <style>
     * { font-family: 'Inter', sans-serif; }
     body { margin: 0; background: #F3F4F6; }
@@ -27,6 +30,14 @@
     .card { background: white; border-radius: 10px; border: 1px solid #E5E7EB; }
     .btn-outline { display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; border: 1px solid #D1D5DB; border-radius: 7px; font-size: 13px; font-weight: 500; color: #374151; background: white; cursor: pointer; transition: background 0.15s, border-color 0.15s; }
     .btn-outline:hover { background: #F0FDF4; border-color: #86EFAC; }
+    .export-dropdown { position: relative; display: inline-block; }
+    .export-dropdown-btn { display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; border: 1px solid #D1D5DB; border-radius: 7px; font-size: 13px; font-weight: 500; color: #374151; background: white; cursor: pointer; transition: background 0.15s, border-color 0.15s; }
+    .export-dropdown-btn:hover { background: #F0FDF4; border-color: #86EFAC; }
+    .export-dropdown-menu { display: none; position: absolute; right: 0; top: 100%; margin-top: 4px; background: white; border: 1px solid #E5E7EB; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); z-index: 50; min-width: 160px; overflow: hidden; }
+    .export-dropdown.open .export-dropdown-menu { display: block; }
+    .export-dropdown-item { display: flex; align-items: center; gap: 8px; padding: 9px 14px; font-size: 13px; color: #374151; cursor: pointer; transition: background 0.12s; border: none; background: none; width: 100%; text-align: left; }
+    .export-dropdown-item:hover { background: #F0FDF4; }
+    .export-dropdown-item i { width: 15px; height: 15px; color: #6B7280; }
     .btn-primary { display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; border: none; border-radius: 7px; font-size: 13px; font-weight: 500; color: white; background: #16A34A; cursor: pointer; transition: background 0.15s; }
     .btn-primary:hover { background: #15803D; }
     .select-field { border: 1px solid #D1D5DB; border-radius: 7px; padding: 8px 12px; font-size: 13.5px; color: #374151; background: white; width: 100%; cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 10px center; padding-right: 30px; }
@@ -125,6 +136,17 @@
           <i data-lucide="sliders" style="width:14px; height:14px;"></i>
           Фильтры
         </button>
+        <div class="export-dropdown" id="export-dashboard-dd">
+          <button class="export-dropdown-btn" onclick="toggleExportDropdown('export-dashboard-dd')">
+            <i data-lucide="download" style="width:14px; height:14px;"></i>
+            Экспорт
+          </button>
+          <div class="export-dropdown-menu">
+            <button class="export-dropdown-item" onclick="exportDashboardExcel()"><i data-lucide="file-spreadsheet"></i> Excel (.xlsx)</button>
+            <button class="export-dropdown-item" onclick="exportDashboardCSV()"><i data-lucide="file-text"></i> CSV</button>
+            <button class="export-dropdown-item" onclick="exportDashboardPDF()"><i data-lucide="file"></i> PDF</button>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -681,7 +703,20 @@
       <a href="#dashboard" onclick="navigate('dashboard')" style="font-size:12.5px; color:#16A34A; text-decoration:none; display:inline-flex; align-items:center; gap:4px; margin-bottom:8px;">
         <i data-lucide="arrow-left" style="width:14px; height:14px;"></i> Назад к дашборду
       </a>
-      <h1 style="font-size:22px; font-weight:700; color:#111827; margin:0;" id="report-title">Отчёт</h1>
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
+        <h1 style="font-size:22px; font-weight:700; color:#111827; margin:0;" id="report-title">Отчёт</h1>
+        <div class="export-dropdown" id="export-report-dd">
+          <button class="export-dropdown-btn" onclick="toggleExportDropdown('export-report-dd')">
+            <i data-lucide="download" style="width:14px; height:14px;"></i>
+            Экспорт
+          </button>
+          <div class="export-dropdown-menu">
+            <button class="export-dropdown-item" onclick="exportReportExcel()"><i data-lucide="file-spreadsheet"></i> Excel (.xlsx)</button>
+            <button class="export-dropdown-item" onclick="exportReportCSV()"><i data-lucide="file-text"></i> CSV</button>
+            <button class="export-dropdown-item" onclick="exportReportPDF()"><i data-lucide="file"></i> PDF</button>
+          </div>
+        </div>
+      </div>
     </div>
     <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:16px; margin-bottom:24px;" id="report-score-cards"></div>
     <div class="card" style="padding:20px; margin-bottom:24px;">
@@ -713,9 +748,22 @@
   <!-- ============================================================ -->
   <div id="page-manager-analytics" class="page-hidden" style="padding: 28px 32px;">
 
-    <div style="margin-bottom:24px;">
-      <h1 style="font-size:22px; font-weight:700; color:#111827; margin:0 0 4px;">Аналитика для руководителей</h1>
-      <p style="font-size:13.5px; color:#6B7280; margin:0;">Сводная статистика по команде менеджеров</p>
+    <div style="display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:24px; gap:12px;">
+      <div>
+        <h1 style="font-size:22px; font-weight:700; color:#111827; margin:0 0 4px;">Аналитика для руководителей</h1>
+        <p style="font-size:13.5px; color:#6B7280; margin:0;">Сводная статистика по команде менеджеров</p>
+      </div>
+      <div class="export-dropdown" id="export-managers-dd">
+        <button class="export-dropdown-btn" onclick="toggleExportDropdown('export-managers-dd')">
+          <i data-lucide="download" style="width:14px; height:14px;"></i>
+          Экспорт
+        </button>
+        <div class="export-dropdown-menu">
+          <button class="export-dropdown-item" onclick="exportManagersExcel()"><i data-lucide="file-spreadsheet"></i> Excel (.xlsx)</button>
+          <button class="export-dropdown-item" onclick="exportManagersCSV()"><i data-lucide="file-text"></i> CSV</button>
+          <button class="export-dropdown-item" onclick="exportManagersPDF()"><i data-lucide="file"></i> PDF</button>
+        </div>
+      </div>
     </div>
 
     <!-- Stats -->
@@ -778,9 +826,20 @@
   <!-- ============================================================ -->
   <div id="page-manager-recommendations" class="page-hidden" style="padding: 28px 32px;">
 
-    <div style="margin-bottom:24px;">
-      <h1 style="font-size:22px; font-weight:700; color:#111827; margin:0 0 4px;">Рекомендации для руководителей</h1>
-      <p style="font-size:13.5px; color:#6B7280; margin:0;">Персонализированные рекомендации на основе анализа звонков</p>
+    <div style="display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:24px; gap:12px;">
+      <div>
+        <h1 style="font-size:22px; font-weight:700; color:#111827; margin:0 0 4px;">Рекомендации для руководителей</h1>
+        <p style="font-size:13.5px; color:#6B7280; margin:0;">Персонализированные рекомендации на основе анализа звонков</p>
+      </div>
+      <div class="export-dropdown" id="export-recommendations-dd">
+        <button class="export-dropdown-btn" onclick="toggleExportDropdown('export-recommendations-dd')">
+          <i data-lucide="download" style="width:14px; height:14px;"></i>
+          Экспорт
+        </button>
+        <div class="export-dropdown-menu">
+          <button class="export-dropdown-item" onclick="exportRecommendationsPDF()"><i data-lucide="file"></i> PDF</button>
+        </div>
+      </div>
     </div>
 
     <!-- Summary banner -->
@@ -1136,6 +1195,7 @@ async function loadReport(sessionId) {
     const resp = await fetch(API_BASE + '/api/analyses/' + sessionId);
     if (!resp.ok) throw new Error('Not found');
     const data = await resp.json();
+    cachedReportData = data;
 
     titleEl.textContent = `Отчёт: ${data.video_id} — ${data.manager}`;
 
@@ -1647,6 +1707,9 @@ function runSimulation() {
 // =============================================
 
 let managerChartInstance = null;
+let cachedManagersData = [];
+let cachedReportData = null;
+let cachedRecommendationsData = null;
 function initManagerChart() {
   const canvas = document.getElementById('managerChart');
   if (!canvas || managerChartInstance) return;
@@ -1773,6 +1836,7 @@ async function loadManagers() {
     if (!res.ok) return;
     const managers = await res.json();
     if (!managers.length) return;
+    cachedManagersData = managers;
 
     // Update stat cards
     document.getElementById('mgr-count').textContent = managers.length;
@@ -1879,6 +1943,7 @@ async function loadRecommendations() {
     const res = await fetch(API_BASE + '/api/recommendations');
     if (!res.ok) return;
     const data = await res.json();
+    cachedRecommendationsData = data;
 
     // Banner text
     const dr = data.date_range;
@@ -2438,6 +2503,331 @@ async function openManagerCard(operatorId) {
   } catch (e) {
     console.warn('Failed to load manager card', e);
   }
+}
+
+// =============================================
+// EXPORT FUNCTIONS
+// =============================================
+
+function toggleExportDropdown(id) {
+  const dd = document.getElementById(id);
+  const wasOpen = dd.classList.contains('open');
+  document.querySelectorAll('.export-dropdown.open').forEach(el => el.classList.remove('open'));
+  if (!wasOpen) dd.classList.add('open');
+}
+
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.export-dropdown')) {
+    document.querySelectorAll('.export-dropdown.open').forEach(el => el.classList.remove('open'));
+  }
+});
+
+function downloadBlob(blob, filename) {
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function todayStr() {
+  return new Date().toLocaleDateString('ru-RU', { day: '2-digit', month: '2-digit', year: 'numeric' }).replace(/\./g, '-');
+}
+
+// --- Dashboard export (analyses list) ---
+
+function getDashboardRows() {
+  return analysisData.map((d, i) => ({
+    '№': i + 1,
+    'Менеджер': d.manager,
+    'Дата': d.date,
+    'Время': d.time,
+    'Клиент': d.client,
+    'Балл': d.score,
+  }));
+}
+
+function exportDashboardExcel() {
+  const rows = getDashboardRows();
+  const ws = XLSX.utils.json_to_sheet(rows);
+  ws['!cols'] = [{ wch: 4 }, { wch: 24 }, { wch: 12 }, { wch: 8 }, { wch: 20 }, { wch: 8 }];
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, 'Аналитика');
+  const buf = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
+  downloadBlob(new Blob([buf], { type: 'application/octet-stream' }), `analytics_${todayStr()}.xlsx`);
+}
+
+function exportDashboardCSV() {
+  const rows = getDashboardRows();
+  const ws = XLSX.utils.json_to_sheet(rows);
+  const csv = XLSX.utils.sheet_to_csv(ws, { FS: ';' });
+  downloadBlob(new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8' }), `analytics_${todayStr()}.csv`);
+}
+
+function exportDashboardPDF() {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({ orientation: 'landscape' });
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(16);
+  doc.text('CDEK - Analytics', 14, 18);
+  doc.setFontSize(10);
+  doc.setFont('helvetica', 'normal');
+  doc.text(todayStr(), 14, 25);
+
+  const rows = getDashboardRows();
+  doc.autoTable({
+    startY: 32,
+    head: [Object.keys(rows[0] || {})],
+    body: rows.map(r => Object.values(r)),
+    styles: { fontSize: 9 },
+    headStyles: { fillColor: [22, 163, 74] },
+  });
+  doc.save(`analytics_${todayStr()}.pdf`);
+}
+
+// --- Manager Analytics export ---
+
+function getManagerRows() {
+  return cachedManagersData.map((m, i) => ({
+    '№': i + 1,
+    'Менеджер': m.name,
+    'Звонков': m.call_count || 0,
+    'Средний балл': m.avg_score || '—',
+    'Мин': m.min_score || '—',
+    'Макс': m.max_score || '—',
+  }));
+}
+
+function exportManagersExcel() {
+  const rows = getManagerRows();
+  if (!rows.length) return alert('Нет данных для экспорта');
+  const ws = XLSX.utils.json_to_sheet(rows);
+  ws['!cols'] = [{ wch: 4 }, { wch: 24 }, { wch: 10 }, { wch: 14 }, { wch: 8 }, { wch: 8 }];
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, 'Managers');
+  const buf = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
+  downloadBlob(new Blob([buf], { type: 'application/octet-stream' }), `managers_${todayStr()}.xlsx`);
+}
+
+function exportManagersCSV() {
+  const rows = getManagerRows();
+  if (!rows.length) return alert('Нет данных для экспорта');
+  const ws = XLSX.utils.json_to_sheet(rows);
+  const csv = XLSX.utils.sheet_to_csv(ws, { FS: ';' });
+  downloadBlob(new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8' }), `managers_${todayStr()}.csv`);
+}
+
+function exportManagersPDF() {
+  const rows = getManagerRows();
+  if (!rows.length) return alert('Нет данных для экспорта');
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(16);
+  doc.text('CDEK - Manager Analytics', 14, 18);
+  doc.setFontSize(10);
+  doc.setFont('helvetica', 'normal');
+  doc.text(todayStr(), 14, 25);
+
+  doc.autoTable({
+    startY: 32,
+    head: [Object.keys(rows[0])],
+    body: rows.map(r => Object.values(r)),
+    styles: { fontSize: 9 },
+    headStyles: { fillColor: [22, 163, 74] },
+  });
+  doc.save(`managers_${todayStr()}.pdf`);
+}
+
+// --- Report export (single session) ---
+
+function getReportKPIRows() {
+  if (!cachedReportData) return [];
+  const rows = [];
+  for (const [catName, catData] of Object.entries(cachedReportData.categories || {})) {
+    for (const item of catData.items) {
+      rows.push({
+        'Категория': catName,
+        'Критерий': item.name,
+        'Статус': item.status,
+        'Балл': item.score,
+        'Макс': item.max_score,
+      });
+    }
+  }
+  return rows;
+}
+
+function getReportTranscriptRows() {
+  if (!cachedReportData || !cachedReportData.transcript) return [];
+  return cachedReportData.transcript.map(seg => ({
+    'Время': `${String(Math.floor(seg.start / 60)).padStart(2, '0')}:${String(Math.floor(seg.start % 60)).padStart(2, '0')}`,
+    'Роль': seg.role || seg.speaker,
+    'Текст': seg.text,
+    'Тональность': seg.sentiment,
+  }));
+}
+
+function exportReportExcel() {
+  if (!cachedReportData) return alert('Нет данных отчёта');
+  const wb = XLSX.utils.book_new();
+
+  // Summary sheet
+  const summary = [
+    { 'Параметр': 'Видео', 'Значение': cachedReportData.video_id },
+    { 'Параметр': 'Менеджер', 'Значение': cachedReportData.manager },
+    { 'Параметр': 'Общий балл', 'Значение': `${cachedReportData.score_percentage}%` },
+    { 'Параметр': 'Баллы', 'Значение': `${cachedReportData.overall_score} / ${cachedReportData.max_possible_score}` },
+    { 'Параметр': 'Статус', 'Значение': cachedReportData.overall_status || cachedReportData.traffic_light || '' },
+  ];
+  const ws1 = XLSX.utils.json_to_sheet(summary);
+  ws1['!cols'] = [{ wch: 16 }, { wch: 30 }];
+  XLSX.utils.book_append_sheet(wb, ws1, 'Сводка');
+
+  // KPI sheet
+  const kpiRows = getReportKPIRows();
+  if (kpiRows.length) {
+    const ws2 = XLSX.utils.json_to_sheet(kpiRows);
+    ws2['!cols'] = [{ wch: 22 }, { wch: 36 }, { wch: 8 }, { wch: 6 }, { wch: 6 }];
+    XLSX.utils.book_append_sheet(wb, ws2, 'KPI');
+  }
+
+  // Transcript sheet
+  const tRows = getReportTranscriptRows();
+  if (tRows.length) {
+    const ws3 = XLSX.utils.json_to_sheet(tRows);
+    ws3['!cols'] = [{ wch: 8 }, { wch: 14 }, { wch: 60 }, { wch: 12 }];
+    XLSX.utils.book_append_sheet(wb, ws3, 'Транскрипт');
+  }
+
+  const buf = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
+  downloadBlob(new Blob([buf], { type: 'application/octet-stream' }), `report_${cachedReportData.video_id || 'export'}_${todayStr()}.xlsx`);
+}
+
+function exportReportCSV() {
+  if (!cachedReportData) return alert('Нет данных отчёта');
+  const kpiRows = getReportKPIRows();
+  const tRows = getReportTranscriptRows();
+  const allRows = [...kpiRows, {}, ...tRows.map(r => ({
+    'Категория': r['Время'],
+    'Критерий': r['Роль'],
+    'Статус': r['Текст'],
+    'Балл': r['Тональность'],
+    'Макс': '',
+  }))];
+  const ws = XLSX.utils.json_to_sheet(kpiRows.length ? kpiRows : tRows);
+  const csv = XLSX.utils.sheet_to_csv(ws, { FS: ';' });
+  downloadBlob(new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8' }), `report_${cachedReportData.video_id || 'export'}_${todayStr()}.csv`);
+}
+
+function exportReportPDF() {
+  if (!cachedReportData) return alert('Нет данных отчёта');
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(16);
+  doc.text(`CDEK - Report: ${cachedReportData.video_id || ''}`, 14, 18);
+  doc.setFontSize(10);
+  doc.setFont('helvetica', 'normal');
+  doc.text(`Manager: ${cachedReportData.manager || ''}   |   Score: ${cachedReportData.score_percentage}%   |   ${todayStr()}`, 14, 25);
+
+  const kpiRows = getReportKPIRows();
+  if (kpiRows.length) {
+    doc.autoTable({
+      startY: 32,
+      head: [['Category', 'Criterion', 'Status', 'Score', 'Max']],
+      body: kpiRows.map(r => Object.values(r)),
+      styles: { fontSize: 8 },
+      headStyles: { fillColor: [22, 163, 74] },
+    });
+  }
+
+  // Transcript on next page if exists
+  const tRows = getReportTranscriptRows();
+  if (tRows.length) {
+    doc.addPage();
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(13);
+    doc.text('Transcript', 14, 18);
+    doc.autoTable({
+      startY: 24,
+      head: [['Time', 'Role', 'Text', 'Sentiment']],
+      body: tRows.map(r => Object.values(r)),
+      styles: { fontSize: 7, cellWidth: 'wrap' },
+      headStyles: { fillColor: [22, 163, 74] },
+      columnStyles: { 2: { cellWidth: 100 } },
+    });
+  }
+
+  doc.save(`report_${cachedReportData.video_id || 'export'}_${todayStr()}.pdf`);
+}
+
+// --- Recommendations export ---
+
+function exportRecommendationsPDF() {
+  if (!cachedRecommendationsData) return alert('Нет данных рекомендаций');
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(16);
+  doc.text('CDEK - Recommendations', 14, 18);
+  doc.setFontSize(10);
+  doc.setFont('helvetica', 'normal');
+  doc.text(todayStr(), 14, 25);
+
+  let y = 34;
+  const data = cachedRecommendationsData;
+
+  // Manager stats table
+  if (data.manager_stats && data.manager_stats.length) {
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(12);
+    doc.text('Manager Statistics', 14, y);
+    doc.autoTable({
+      startY: y + 4,
+      head: [['Manager', 'Calls', 'Avg Score', 'Excellent']],
+      body: data.manager_stats.map(m => [m.name, m.call_count, m.avg_score, m.excellent_count || 0]),
+      styles: { fontSize: 9 },
+      headStyles: { fillColor: [22, 163, 74] },
+    });
+    y = doc.lastAutoTable.finalY + 12;
+  }
+
+  // Category performance
+  if (data.category_performance && data.category_performance.length) {
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(12);
+    doc.text('Category Performance', 14, y);
+    doc.autoTable({
+      startY: y + 4,
+      head: [['Category', 'Avg %', 'Status']],
+      body: data.category_performance.map(c => [c.category, c.avg_percentage + '%', c.avg_percentage >= 70 ? 'OK' : 'Needs attention']),
+      styles: { fontSize: 9 },
+      headStyles: { fillColor: [22, 163, 74] },
+    });
+    y = doc.lastAutoTable.finalY + 12;
+  }
+
+  // Recommendations text
+  if (data.recommendations && data.recommendations.length) {
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(12);
+    if (y > 250) { doc.addPage(); y = 18; }
+    doc.text('Recommendations', 14, y);
+    y += 6;
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(9);
+    data.recommendations.forEach((rec, i) => {
+      if (y > 275) { doc.addPage(); y = 18; }
+      const text = `${i + 1}. ${rec.text || rec.title || rec}`;
+      const lines = doc.splitTextToSize(text, 180);
+      doc.text(lines, 14, y);
+      y += lines.length * 4.5 + 3;
+    });
+  }
+
+  doc.save(`recommendations_${todayStr()}.pdf`);
 }
 
 async function loadAllData() {
