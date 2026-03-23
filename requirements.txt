@@ -8,3 +8,8 @@ boto3>=1.26.0
 
 # PostgreSQL (Yandex Managed)
 psycopg2-binary>=2.9.0
+
+# API server
+flask>=3.0.0
+flask-cors>=4.0.0
+python-dotenv>=1.0.0
