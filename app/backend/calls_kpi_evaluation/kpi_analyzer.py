@@ -390,6 +390,10 @@ class CallKPIAnalyzer:
                        max_items: int = 3) -> List[Dict]:
         """
         Ищет паттерны в сегментах и возвращает evidence с цитатами и таймстемпами.
+        Три уровня поиска:
+        1. В каждом сегменте по отдельности
+        2. В парах соседних сегментов (фраза разбита на 2 части)
+        3. По склеенному тексту — находим позицию совпадения и возвращаем ближайший сегмент
         """
         if not segments:
             segments = self.segments
@@ -398,6 +402,8 @@ class CallKPIAnalyzer:
 
         evidence = []
         seen_indices = set()
+
+        # Уровень 1: поиск в отдельных сегментах
         for pattern in patterns:
             for i, seg in enumerate(segments):
                 if i in seen_indices:
@@ -411,6 +417,48 @@ class CallKPIAnalyzer:
                     seen_indices.add(i)
                     if len(evidence) >= max_items:
                         return evidence
+
+        # Уровень 2: поиск в парах соседних сегментов
+        if not evidence:
+            for pattern in patterns:
+                for i in range(len(segments) - 1):
+                    if i in seen_indices or (i + 1) in seen_indices:
+                        continue
+                    combined = segments[i].get("text", "") + " " + segments[i + 1].get("text", "")
+                    if re.search(pattern, combined.lower()):
+                        evidence.append({
+                            "quote": combined.strip(),
+                            "timestamp": self._fmt_ts(segments[i].get("start", 0)),
+                        })
+                        seen_indices.add(i)
+                        seen_indices.add(i + 1)
+                        if len(evidence) >= max_items:
+                            return evidence
+
+        # Уровень 3: поиск по склеенному тексту, возврат ближайшего сегмента
+        if not evidence:
+            # Строим карту позиций: для каждого символа в склеенном тексте знаем индекс сегмента
+            seg_texts = [seg.get("text", "") for seg in segments]
+            joined = " ".join(seg_texts).lower()
+            char_to_seg = []
+            for i, txt in enumerate(seg_texts):
+                char_to_seg.extend([i] * len(txt))
+                if i < len(seg_texts) - 1:
+                    char_to_seg.append(i)  # пробел-разделитель
+
+            for pattern in patterns:
+                m = re.search(pattern, joined)
+                if m:
+                    seg_idx = char_to_seg[m.start()] if m.start() < len(char_to_seg) else len(segments) - 1
+                    if seg_idx not in seen_indices:
+                        evidence.append({
+                            "quote": segments[seg_idx].get("text", "").strip(),
+                            "timestamp": self._fmt_ts(segments[seg_idx].get("start", 0)),
+                        })
+                        seen_indices.add(seg_idx)
+                        if len(evidence) >= max_items:
+                            return evidence
+
         return evidence
 
     def analyze(self, transcript: str, segments: Optional[List[Dict]] = None) -> Dict:
@@ -433,15 +481,6 @@ class CallKPIAnalyzer:
         text = transcript.strip()
         text_lower = text.lower()
 
-        # Разбиваем на части для позиционного анализа
-        lines = text.split('\n')
-        total_lines = len(lines) if lines else 1
-        first_third_end = max(1, total_lines // 3)
-        last_block_start = max(0, total_lines - 10)
-
-        first_third = '\n'.join(lines[:first_third_end]).lower()
-        last_block = '\n'.join(lines[last_block_start:]).lower()
-
         # Разбиваем сегменты на позиционные части
         total_segs = len(self.segments)
         if total_segs > 0:
@@ -452,6 +491,29 @@ class CallKPIAnalyzer:
         else:
             self.first_third_segments = []
             self.last_block_segments = []
+
+        # Разбиваем текст на части для позиционного анализа
+        # Если есть сегменты — строим first_third/last_block из них,
+        # чтобы позиции текста и сегментов совпадали
+        if self.first_third_segments:
+            first_third = ' '.join(
+                seg.get("text", "") for seg in self.first_third_segments
+            ).lower()
+        else:
+            lines = text.split('\n')
+            total_lines = len(lines) if lines else 1
+            first_third_end = max(1, total_lines // 3)
+            first_third = '\n'.join(lines[:first_third_end]).lower()
+
+        if self.last_block_segments:
+            last_block = ' '.join(
+                seg.get("text", "") for seg in self.last_block_segments
+            ).lower()
+        else:
+            lines = text.split('\n')
+            total_lines = len(lines) if lines else 1
+            last_block_start = max(0, total_lines - 10)
+            last_block = '\n'.join(lines[last_block_start:]).lower()
 
         # ═══ ЭТАП 1: УСТАНОВЛЕНИЕ КОНТАКТА ═══
         self._check_privetstvie(first_third)
