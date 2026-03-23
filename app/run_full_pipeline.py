@@ -95,7 +95,7 @@ def main():
             print("Using local video:", video_path)
         else:
             try:
-                from app.backend.speech_processor import get_video_path_from_bucket
+                from app.backend.text_extraction import get_video_path_from_bucket
                 print("=== DOWNLOADING VIDEO FROM BUCKET ===")
                 video_path = get_video_path_from_bucket(local_dir=str(DATA_DIR))
             except Exception as e:
@@ -234,8 +234,8 @@ def main():
     # --- Extract audio from video ---
     ogg_path = Path(dirs["text"]) / "audio.ogg"
     print("\n=== EXTRACTING AUDIO ===")
-    from app.backend.speech_processor import _extract_audio_to_ogg
-    if not _extract_audio_to_ogg(video_path, ogg_path):
+    from app.backend.text_extraction import extract_audio_to_ogg
+    if not extract_audio_to_ogg(video_path, ogg_path):
         print("Warning: ffmpeg failed or not installed. Skipping text extraction/analysis.", file=sys.stderr)
         print("Pipeline (frames + emotion) completed. Install ffmpeg and re-run for text.", file=sys.stderr)
         if session_id:
