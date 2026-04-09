@@ -11,7 +11,7 @@ from pathlib import Path
 from typing import Optional, List
 
 import requests as http_requests
-from fastapi import FastAPI, UploadFile, File, HTTPException, BackgroundTasks
+from fastapi import FastAPI, UploadFile, File, Form, HTTPException, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
@@ -56,6 +56,7 @@ def list_analyses():
             "traffic_light": r.get("traffic_light", ""),
             "status": r.get("pipeline_status", ""),
             "duration_sec": r.get("duration_sec", 0),
+            "contract_number": r.get("contract_number", ""),
         })
     return results
 
@@ -361,6 +362,7 @@ def get_operator(operator_id: int):
                 "video_id": c.get("video_id", ""),
                 "score_percentage": c.get("score_percentage", 0),
                 "traffic_light": c.get("traffic_light", ""),
+                "contract_number": c.get("contract_number", ""),
                 "created_at": c.get("created_at").isoformat() if c.get("created_at") else "",
             }
             for c in calls
@@ -403,6 +405,32 @@ def delete_operator(operator_id: int):
     repo._execute("DELETE FROM operators WHERE operator_id = %s", (operator_id,))
     repo._commit()
     return {"deleted": operator_id}
+
+
+@app.delete("/api/analyses/{session_id}")
+def delete_analysis(session_id: int):
+    """Remove a session and its KPI results."""
+    repo = get_repo()
+    repo._execute("DELETE FROM kpi_results WHERE session_id = %s", (session_id,))
+    repo._execute("DELETE FROM sessions WHERE session_id = %s", (session_id,))
+    repo._commit()
+    return {"deleted": session_id}
+
+
+@app.post("/api/analyses/{session_id}/rerun")
+def rerun_analysis(session_id: int):
+    """Re-run the AI evaluation for an existing session."""
+    repo = get_repo()
+    session = repo._fetchone("SELECT * FROM sessions WHERE session_id = %s", (session_id,))
+    if not session:
+        raise HTTPException(status_code=404, detail="Session not found")
+    repo._execute(
+        "UPDATE sessions SET pipeline_status = %s WHERE session_id = %s",
+        ("pending", session_id),
+    )
+    repo._execute("DELETE FROM kpi_results WHERE session_id = %s", (session_id,))
+    repo._commit()
+    return {"session_id": session_id, "status": "pending", "video_id": session.get("video_id")}
 
 
 # ─────────────────────────────────────────────
@@ -468,8 +496,35 @@ def _run_pipeline(video_path: str):
         traceback.print_exc()
 
 
+def _run_pipeline_with_contract(video_path: str, contract_number: str, operator_id: str):
+    """Run the full pipeline and save contract number to the session."""
+    try:
+        from app.run_full_pipeline import main as run_pipeline
+        run_pipeline(video_path)
+    except Exception:
+        traceback.print_exc()
+
+    # Save contract_number to the session
+    if contract_number:
+        try:
+            repo = get_repo()
+            video_id = Path(video_path).stem
+            repo._execute(
+                "UPDATE sessions SET contract_number = %s WHERE video_id = %s",
+                (contract_number, video_id),
+            )
+            repo._commit()
+        except Exception:
+            traceback.print_exc()
+
+
 @app.post("/api/upload")
-async def upload_video(background_tasks: BackgroundTasks, file: UploadFile = File(...)):
+async def upload_video(
+    background_tasks: BackgroundTasks,
+    file: UploadFile = File(...),
+    contract_number: str = Form(""),
+    operator_id: str = Form(""),
+):
     """Upload a video file and start pipeline processing."""
     upload_dir = Path("data/uploads")
     upload_dir.mkdir(parents=True, exist_ok=True)
@@ -479,7 +534,10 @@ async def upload_video(background_tasks: BackgroundTasks, file: UploadFile = Fil
         content = await file.read()
         f.write(content)
 
-    background_tasks.add_task(_run_pipeline, str(file_path))
+    # Save contract_number to session after pipeline creates it
+    background_tasks.add_task(
+        _run_pipeline_with_contract, str(file_path), contract_number, operator_id
+    )
 
     return {"status": "processing", "filename": file.filename, "path": str(file_path)}
 
@@ -491,10 +549,50 @@ async def upload_video(background_tasks: BackgroundTasks, file: UploadFile = Fil
 YANDEX_GPT_URL = "https://llm.api.cloud.yandex.net/foundationModels/v1/completion"
 
 SYSTEM_PROMPT = (
-    "Ты — AI-ассистент системы контроля качества звонков СДЭК. "
-    "Ты помогаешь менеджерам и супервайзерам анализировать результаты оценки звонков, "
-    "объяснять критерии KPI, давать рекомендации по улучшению качества обслуживания. "
-    "Отвечай кратко и по делу на русском языке."
+    "Ты — AI-ассистент системы контроля качества звонков СДЭК (CDEK Quality Control). "
+    "Ты помогаешь менеджерам и супервайзерам пользоваться системой, анализировать результаты оценки звонков, "
+    "объяснять критерии KPI и давать рекомендации по улучшению качества обслуживания. "
+    "Отвечай кратко и по делу на русском языке.\n\n"
+    "## Разделы системы и навигация (меню слева):\n\n"
+    "### КОНТРОЛЬ КАЧЕСТВА\n"
+    "1. **Загрузка встреч** — загрузка видеозаписей звонков для анализа. "
+    "Нужно выбрать файл (mp4/webm/avi/mov/mkv), указать менеджера из выпадающего списка и нажать «Загрузить и начать анализ». "
+    "Система автоматически: извлечёт аудио → распознает речь (Whisper) → разделит на реплики → оценит по KPI через AI. "
+    "Прогресс обработки отображается в реальном времени с шагами пайплайна.\n"
+    "2. **Аналитика** — главный дашборд. Показывает: общее количество проанализированных звонков, средний балл, "
+    "распределение оценок (зелёный/жёлтый/красный), тренд оценок по дням, таблицу всех анализов с возможностью "
+    "открыть детальный отчёт по каждому звонку. Есть экспорт в Excel, CSV и PDF.\n\n"
+    "### ДЛЯ РУКОВОДИТЕЛЯ\n"
+    "3. **Аналитика менеджеров** — сводная статистика по каждому менеджеру: средний балл, количество звонков, "
+    "динамика по датам, сравнение менеджеров между собой. Можно фильтровать по отделу и периоду. Экспорт доступен.\n"
+    "4. **Рекомендации** — автоматически сгенерированные рекомендации на основе анализа звонков. "
+    "Разделены по приоритету (высокий/средний/низкий) и категориям. Показывают конкретные проблемы и шаги для улучшения.\n\n"
+    "### УПРАВЛЕНИЕ\n"
+    "5. **Структура компании** — справочник менеджеров/операторов. Можно добавлять, редактировать и удалять сотрудников. "
+    "У каждого сотрудника: ФИО, отдел (Отдел поддержки / Отдел договоров), должность (Менеджер / Руководитель). "
+    "По клику на менеджера открывается карточка с историей звонков и персональной статистикой.\n"
+    "6. **Конструктор чек-листов** — настройка критериев KPI для оценки звонков. "
+    "4 вкладки: Основные (список критериев с весами), Тюнинг (настройка порогов), Поля (какие поля извлекать из разговора), "
+    "Светофор (настройка цветовых зон: зелёный/жёлтый/красный).\n"
+    "7. **Настройки** — конфигурация системы: ключи API (YandexGPT, Whisper), пороги оценок, уведомления.\n\n"
+    "### ИНСТРУМЕНТЫ\n"
+    "8. **AI-ассистент** — это ты! Чат для вопросов по работе системы.\n"
+    "9. **Журнал обработок** — таблица со всеми загруженными и обработанными файлами: имя файла, дата, менеджер, статус, оценка.\n\n"
+    "## Как работает оценка звонков:\n"
+    "- Видео загружается → из него извлекается аудиодорожка (FFmpeg)\n"
+    "- Аудио отправляется на распознавание речи (Whisper)\n"
+    "- Транскрипт разделяется на реплики менеджера и клиента\n"
+    "- AI (YandexGPT) оценивает разговор по каждому критерию KPI из чек-листа\n"
+    "- Каждый критерий получает оценку «Да» или «Нет» с цитатой-доказательством из разговора\n"
+    "- Итоговая оценка = сумма баллов выполненных критериев / максимально возможный балл × 100%\n"
+    "- Светофор: зелёный (≥80%), жёлтый (50-79%), красный (<50%)\n\n"
+    "## Частые вопросы:\n"
+    "- Чтобы загрузить звонок: раздел «Загрузка встреч» → выбрать файл → выбрать менеджера → нажать кнопку загрузки\n"
+    "- Чтобы посмотреть результат: раздел «Аналитика» → найти звонок в таблице → нажать «Отчёт»\n"
+    "- Чтобы добавить менеджера: раздел «Структура компании» → кнопка «Добавить менеджера»\n"
+    "- Чтобы изменить критерии оценки: раздел «Конструктор чек-листов»\n"
+    "- Чтобы сравнить менеджеров: раздел «Аналитика менеджеров»\n"
+    "- Чтобы скачать отчёт: на страницах «Аналитика» или «Аналитика менеджеров» нажать кнопку экспорта (Excel/CSV/PDF)\n"
 )
 
 

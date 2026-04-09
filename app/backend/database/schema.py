@@ -74,6 +74,8 @@ TABLES = [
         detector            TEXT    NOT NULL DEFAULT 'yunet_2023mar',
         emotion_model       TEXT    NOT NULL DEFAULT 'onnx_ferplus',
 
+        contract_number     TEXT,
+
         processed_at        TIMESTAMP NOT NULL DEFAULT NOW(),
         pipeline_status     TEXT NOT NULL DEFAULT 'pending'
             CHECK (pipeline_status IN ('pending', 'running', 'completed', 'failed'))
@@ -327,7 +329,7 @@ VIEWS = [
     """
     CREATE OR REPLACE VIEW v_session_summary AS
     SELECT
-        s.session_id, s.video_id, s.duration_sec, s.processed_at, s.pipeline_status,
+        s.session_id, s.video_id, s.duration_sec, s.processed_at, s.pipeline_status, s.contract_number,
         ke.overall_score, ke.score_percentage, ke.traffic_light, ke.overall_status,
         (SELECT COUNT(*) FROM persons p WHERE p.session_id = s.session_id) AS person_count,
         (SELECT COUNT(*) FROM transcript_segments ts WHERE ts.session_id = s.session_id) AS segment_count
@@ -414,6 +416,17 @@ def init_db(conn) -> None:
 
     for ddl in TABLES:
         cur.execute(ddl)
+
+    # Migrations: add columns that may not exist in older databases
+    _migrations = [
+        "ALTER TABLE sessions ADD COLUMN IF NOT EXISTS contract_number TEXT",
+    ]
+    for m in _migrations:
+        try:
+            cur.execute(m)
+        except Exception:
+            conn.rollback()
+
     for ddl in INDEXES:
         cur.execute(ddl)
     for ddl in VIEWS:
