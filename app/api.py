@@ -11,7 +11,7 @@ from pathlib import Path
 from typing import Optional, List
 
 import requests as http_requests
-from fastapi import FastAPI, UploadFile, File, Form, HTTPException, BackgroundTasks
+from fastapi import FastAPI, UploadFile, File, Form, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
@@ -19,6 +19,7 @@ from pydantic import BaseModel
 
 from app.backend.database.schema import get_connection
 from app.backend.database.repository import PipelineRepository
+from app.worker import celery_app, process_video, get_task_id, _store_task_id
 
 app = FastAPI(title="CDEK Quality Control API", version="1.0.0")
 
@@ -46,13 +47,13 @@ def list_analyses():
     rows = repo.get_session_summary()
     results = []
     for r in rows:
+        processed = r.get("processed_at") or r.get("created_at")
         results.append({
             "session_id": r["session_id"],
             "video_id": r.get("video_id", ""),
-            "manager": r.get("operator_name") or "—",
-            "date": r.get("created_at", datetime.now()).strftime("%d.%m.%Y") if r.get("created_at") else "",
-            "time": r.get("created_at", datetime.now()).strftime("%H:%M") if r.get("created_at") else "",
-            "score": r.get("score_percentage", 0),
+            "manager_name": r.get("operator_name") or "Неизвестно",
+            "processed_at": processed.isoformat() if processed else None,
+            "score_percentage": r.get("score_percentage", 0),
             "traffic_light": r.get("traffic_light", ""),
             "status": r.get("pipeline_status", ""),
             "duration_sec": r.get("duration_sec", 0),
@@ -443,11 +444,37 @@ def pipeline_status(video_id: str):
     repo = get_repo()
     session = repo.get_session_by_video_id(video_id)
     if not session:
+        for vid in [video_id, video_id.rsplit(".", 1)[0]]:
+            session = repo.get_session_by_video_id(vid)
+            if session:
+                break
+    if not session:
         return {"status": "not_found", "video_id": video_id}
+
+    db_status = session.get("pipeline_status", "unknown")
+
+    # Enrich with current step label from Celery task state
+    step = None
+    pct = None
+    task_id = get_task_id(video_id)
+    if task_id and db_status == "running":
+        try:
+            result = celery_app.AsyncResult(task_id)
+            if result.state == "PROGRESS" and isinstance(result.info, dict):
+                step = result.info.get("step")
+                pct = result.info.get("pct")
+            elif result.state == "STARTED":
+                step = "Запуск пайплайна..."
+                pct = 5
+        except Exception:
+            pass
+
     return {
-        "status": session.get("pipeline_status", "unknown"),
+        "status": db_status,
         "session_id": session.get("session_id"),
         "video_id": video_id,
+        "step": step,
+        "pct": pct,
     }
 
 
@@ -489,11 +516,64 @@ def score_distribution():
 
 def _run_pipeline(video_path: str):
     """Run the full pipeline in background."""
+    video_id = Path(video_path).stem
     try:
+        import sys, json
         from app.run_full_pipeline import main as run_pipeline
-        run_pipeline(video_path)
+        # main() reads video path from sys.argv
+        original_argv = sys.argv
+        sys.argv = ["run_full_pipeline", video_path]
+        try:
+            run_pipeline()
+        finally:
+            sys.argv = original_argv
+
+        # After pipeline completes, read KPI JSON and update DB
+        try:
+            repo = get_repo()
+            session = repo.get_session_by_video_id(video_id)
+            if session:
+                sid = session["session_id"]
+                kpi_path = Path(f"data/{video_id}/kpi/kpi_evaluation.json")
+                if kpi_path.exists():
+                    kpi_data = json.loads(kpi_path.read_text(encoding="utf-8"))
+                    score = kpi_data.get("overall_score", 0)
+                    max_score = kpi_data.get("max_possible_score", 100)
+                    pct = kpi_data.get("score_percentage", 0)
+                    status = kpi_data.get("overall_status", "")
+                    light = kpi_data.get("traffic_light", "")
+                    # Update session with KPI results
+                    repo._execute(
+                        """UPDATE sessions SET pipeline_status = 'completed'
+                           WHERE session_id = %s""", (sid,))
+                    # Insert or update kpi_evaluations
+                    repo._execute(
+                        """INSERT INTO kpi_evaluations
+                           (session_id, overall_score, max_possible_score,
+                            score_percentage, overall_status, traffic_light)
+                           VALUES (%s, %s, %s, %s, %s, %s)
+                           ON CONFLICT (session_id) DO UPDATE SET
+                            overall_score = EXCLUDED.overall_score,
+                            max_possible_score = EXCLUDED.max_possible_score,
+                            score_percentage = EXCLUDED.score_percentage,
+                            overall_status = EXCLUDED.overall_status,
+                            traffic_light = EXCLUDED.traffic_light""",
+                        (sid, score, max_score, pct, status, light))
+                    repo._commit()
+                else:
+                    repo.update_session_status(sid, "completed")
+        except Exception:
+            traceback.print_exc()
     except Exception:
         traceback.print_exc()
+        # Mark as failed
+        try:
+            repo = get_repo()
+            session = repo.get_session_by_video_id(video_id)
+            if session:
+                repo.update_session_status(session["session_id"], "failed")
+        except Exception:
+            pass
 
 
 def _run_pipeline_with_contract(video_path: str, contract_number: str, operator_id: str):
@@ -520,12 +600,11 @@ def _run_pipeline_with_contract(video_path: str, contract_number: str, operator_
 
 @app.post("/api/upload")
 async def upload_video(
-    background_tasks: BackgroundTasks,
     file: UploadFile = File(...),
     contract_number: str = Form(""),
     operator_id: str = Form(""),
 ):
-    """Upload a video file and start pipeline processing."""
+    """Upload a video file and dispatch pipeline task to Celery worker."""
     upload_dir = Path("data/uploads")
     upload_dir.mkdir(parents=True, exist_ok=True)
 
@@ -534,12 +613,40 @@ async def upload_video(
         content = await file.read()
         f.write(content)
 
-    # Save contract_number to session after pipeline creates it
-    background_tasks.add_task(
-        _run_pipeline_with_contract, str(file_path), contract_number, operator_id
-    )
+    video_id = Path(file.filename).stem
 
-    return {"status": "processing", "filename": file.filename, "path": str(file_path)}
+    # Create or update session in DB with 'running' status so polling works
+    try:
+        repo = get_repo()
+        existing = repo.get_session_by_video_id(video_id)
+        if existing:
+            repo.update_session_status(existing["session_id"], "running")
+            if contract_number:
+                repo._execute(
+                    "UPDATE sessions SET contract_number = %s WHERE video_id = %s",
+                    (contract_number, video_id))
+                repo._commit()
+        else:
+            repo._execute(
+                """INSERT INTO sessions (video_id, video_path, pipeline_status,
+                   fps, frame_count, width, height, duration_sec, contract_number)
+                   VALUES (%s, %s, 'running', 0, 0, 0, 0, 0, %s)
+                   RETURNING session_id""",
+                (video_id, str(file_path), contract_number or None))
+            repo._commit()
+    except Exception:
+        traceback.print_exc()
+
+    # Dispatch to Celery worker
+    task = process_video.delay(str(file_path))
+    _store_task_id(video_id, task.id)
+
+    return {
+        "status": "processing",
+        "video_id": video_id,
+        "filename": file.filename,
+        "task_id": task.id,
+    }
 
 
 # ─────────────────────────────────────────────

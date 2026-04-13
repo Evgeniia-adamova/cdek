@@ -8,3 +8,7 @@ boto3>=1.26.0
 
 # PostgreSQL (Yandex Managed)
 psycopg2-binary>=2.9.0
+
+# Celery task queue + Redis broker/backend
+celery[redis]>=5.3.0
+redis>=5.0.0

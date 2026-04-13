@@ -2483,29 +2483,38 @@ function startAnalysis() {
 
       // Step 2: Queue
       bar.style.width = '30%'; pct.textContent = '30%';
-      label.textContent = 'Файл в очереди...';
+      label.textContent = 'Файл передан в очередь обработки...';
       document.getElementById('step-queue').style.opacity = '1';
 
       // Poll pipeline status
       let pollCount = 0;
-      const maxPolls = 120; // 10 min max
+      const maxPolls = 360; // 30 min max
       const pollInterval = setInterval(() => {
         pollCount++;
         fetch(API_BASE + '/api/pipeline-status/' + videoId)
           .then(r => r.json())
           .then(status => {
             if (status.status === 'running') {
-              const p = Math.min(30 + Math.floor(pollCount / maxPolls * 60), 90);
+              // Use real pct/step from Celery if available, else time-based fallback
+              const realPct = status.pct;
+              const realStep = status.step;
+              const p = realPct != null
+                ? Math.max(30, realPct)
+                : Math.min(30 + Math.floor(pollCount / maxPolls * 60), 90);
               bar.style.width = p + '%'; pct.textContent = p + '%';
-              if (p < 50) {
+
+              if (realStep) {
+                label.textContent = realStep;
+              } else if (p < 50) {
                 label.textContent = 'Извлечение кадров и распознавание лиц...';
               } else if (p < 70) {
                 label.textContent = 'Транскрипция речи...';
-                document.getElementById('step-transcribe').style.opacity = '1';
               } else {
                 label.textContent = 'Анализ ИИ по критериям...';
-                document.getElementById('step-analyze').style.opacity = '1';
               }
+
+              if (p >= 55) document.getElementById('step-transcribe').style.opacity = '1';
+              if (p >= 80) document.getElementById('step-analyze').style.opacity = '1';
               time.textContent = `~${Math.max(1, Math.ceil((maxPolls - pollCount) * 5))} сек.`;
             } else if (status.status === 'completed') {
               clearInterval(pollInterval);
