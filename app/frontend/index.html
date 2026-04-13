@@ -2515,7 +2515,8 @@ function startAnalysis() {
 
               if (p >= 55) document.getElementById('step-transcribe').style.opacity = '1';
               if (p >= 80) document.getElementById('step-analyze').style.opacity = '1';
-              time.textContent = `~${Math.max(1, Math.ceil((maxPolls - pollCount) * 5))} сек.`;
+              const elapsed = Math.floor(pollCount * 5 / 60);
+              time.textContent = elapsed > 0 ? `${elapsed} мин. в обработке` : 'Обрабатывается...';
             } else if (status.status === 'completed') {
               clearInterval(pollInterval);
               bar.style.width = '100%'; pct.textContent = '100%';
