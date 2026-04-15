@@ -92,6 +92,18 @@ def process_video(self, video_path: str):
     try:
         from app.run_full_pipeline import main as run_pipeline
         run_pipeline()
+        # Guarantee status=completed even if pipeline's internal DB update failed
+        try:
+            from app.backend.database.schema import get_connection
+            from app.backend.database.repository import PipelineRepository
+            conn = get_connection()
+            repo = PipelineRepository(conn)
+            session = repo.get_session_by_video_id(video_id)
+            if session and session.get("pipeline_status") != "completed":
+                repo.update_session_status(session["session_id"], "completed")
+            conn.close()
+        except Exception:
+            pass
         return {"status": "completed", "video_id": video_id}
     except Exception as exc:
         traceback.print_exc()
