@@ -9,6 +9,7 @@ Requires Redis (set REDIS_URL in .env).
 
 import os
 import sys
+import shutil
 import traceback
 from pathlib import Path
 
@@ -77,6 +78,21 @@ STEPS = [
 ]
 
 
+def _cleanup_after_pipeline(video_path: str, video_id: str):
+    """Delete local video file and extracted frames to free disk space.
+    Called after pipeline completes — video is already archived to S3."""
+    try:
+        Path(video_path).unlink(missing_ok=True)
+    except Exception:
+        pass
+    frames_dir = PROJECT_ROOT / "logs" / video_id
+    try:
+        if frames_dir.exists():
+            shutil.rmtree(frames_dir)
+    except Exception:
+        pass
+
+
 @celery_app.task(bind=True, name="cdek.process_video")
 def process_video(self, video_path: str):
     """Run the full CDEK analysis pipeline for a single video."""
@@ -122,3 +138,4 @@ def process_video(self, video_path: str):
         raise
     finally:
         sys.argv = original_argv
+        _cleanup_after_pipeline(video_path, video_id)

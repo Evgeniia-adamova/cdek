@@ -6,10 +6,13 @@ Serves data from PostgreSQL to the frontend dashboard.
 import os
 import json
 import traceback
+import threading
 from datetime import datetime
 from pathlib import Path
 from typing import Optional, List
 
+import boto3
+from botocore.client import Config
 import requests as http_requests
 from fastapi import FastAPI, UploadFile, File, Form, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -34,6 +37,32 @@ app.add_middleware(
 def get_repo() -> PipelineRepository:
     conn = get_connection()
     return PipelineRepository(conn)
+
+
+# ─────────────────────────────────────────────
+# S3 STORAGE
+# ─────────────────────────────────────────────
+
+def _s3_client():
+    return boto3.client(
+        "s3",
+        endpoint_url="https://storage.yandexcloud.net",
+        aws_access_key_id=os.environ.get("YANDEX_S3_ACCESS_KEY_ID"),
+        aws_secret_access_key=os.environ.get("YANDEX_S3_SECRET_ACCESS_KEY"),
+        config=Config(signature_version="s3v4"),
+        region_name="ru-central1",
+    )
+
+
+def _upload_to_s3_background(local_path: str, filename: str):
+    """Upload a file to S3 in a background thread (non-blocking)."""
+    def _do():
+        try:
+            bucket = os.environ.get("YANDEX_S3_BUCKET")
+            _s3_client().upload_file(local_path, bucket, f"uploads/{filename}")
+        except Exception:
+            traceback.print_exc()
+    threading.Thread(target=_do, daemon=True).start()
 
 
 # ─────────────────────────────────────────────
@@ -612,6 +641,9 @@ async def upload_video(
     with open(file_path, "wb") as f:
         content = await file.read()
         f.write(content)
+
+    # Archive to S3 in background — local copy is cleaned up by worker after processing
+    _upload_to_s3_background(str(file_path), file.filename)
 
     video_id = Path(file.filename).stem
 
