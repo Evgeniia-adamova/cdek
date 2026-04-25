@@ -161,15 +161,30 @@ def main():
                 if pid:
                     all_person_labels.add(pid)
 
-        session_id = repo.create_session(
-            video_id=video_id, video_path=meta.get("video_path"),
-            fps=meta["fps"], frame_count=meta["frame_count"],
-            width=meta["width"], height=meta["height"],
-            duration_sec=meta["duration_sec"],
-            interval_sec=config.get("interval_sec", 10.0),
-            match_threshold=config.get("match_threshold", 0.55),
-            detector=config.get("detector", "yunet_2023mar"),
-        )
+        # Reuse session created by upload handler (same video_id) instead of
+        # inserting a duplicate, which would fail the UNIQUE constraint and leave
+        # session_id=None, causing all DB writes (including KPI) to be skipped.
+        existing = repo.get_session_by_video_id(video_id)
+        if existing:
+            session_id = existing["session_id"]
+            repo._execute(
+                """UPDATE sessions SET fps=%s, frame_count=%s, width=%s, height=%s,
+                   duration_sec=%s, video_path=%s, pipeline_status='running'
+                   WHERE session_id=%s""",
+                (meta["fps"], meta["frame_count"], meta["width"], meta["height"],
+                 meta["duration_sec"], meta.get("video_path"), session_id),
+            )
+            repo._commit()
+        else:
+            session_id = repo.create_session(
+                video_id=video_id, video_path=meta.get("video_path"),
+                fps=meta["fps"], frame_count=meta["frame_count"],
+                width=meta["width"], height=meta["height"],
+                duration_sec=meta["duration_sec"],
+                interval_sec=config.get("interval_sec", 10.0),
+                match_threshold=config.get("match_threshold", 0.55),
+                detector=config.get("detector", "yunet_2023mar"),
+            )
         label_to_id = repo.insert_persons(session_id, sorted(all_person_labels))
 
         frames_data = [{
