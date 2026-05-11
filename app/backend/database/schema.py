@@ -68,7 +68,7 @@ TABLES = [
 
         interval_sec        DOUBLE PRECISION NOT NULL DEFAULT 10.0,
         frames_per_interval INTEGER NOT NULL DEFAULT 6,
-        max_frames          INTEGER NOT NULL DEFAULT 1200,
+        max_frames          INTEGER NOT NULL DEFAULT 0,
         expected_people     INTEGER NOT NULL DEFAULT 2,
         match_threshold     DOUBLE PRECISION NOT NULL DEFAULT 0.55,
         detector            TEXT    NOT NULL DEFAULT 'yunet_2023mar',

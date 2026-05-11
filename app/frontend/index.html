@@ -756,6 +756,20 @@
       </div>
     </div>
 
+    <!-- Emotion Summary Card -->
+    <div class="card" style="padding:24px; margin-bottom:24px;" id="dash-emotion-card">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; flex-wrap:wrap; gap:10px;">
+        <div>
+          <h2 class="section-heading" style="margin:0 0 4px;">Эмоциональный фон переговоров</h2>
+          <p style="font-size:14px; color:var(--gray); margin:0;">Распределение итоговых эмоций (видео + аудио) по всем сессиям</p>
+        </div>
+        <i data-lucide="smile" style="width:20px; height:20px; color:var(--dark-green);"></i>
+      </div>
+      <div id="dash-emotion-body">
+        <p style="text-align:center; color:var(--gray); padding:16px 0;">Данные появятся после анализа звонков</p>
+      </div>
+    </div>
+
     <!-- Analysis Results -->
     <div class="card" style="padding:24px;">
       <div style="margin-bottom:16px;">
@@ -1546,6 +1560,14 @@
       <h2 style="font-size:18px; font-weight:600; color:var(--black); margin:0 0 14px; letter-spacing:-0.2px;">Приоритетные действия</h2>
       <div id="rec-priority-container" style="display:flex; flex-direction:column; gap:12px;">
         <div class="card" style="padding:20px; text-align:center; color:var(--gray);">Рекомендации появятся после анализа звонков</div>
+      </div>
+    </div>
+
+    <!-- Emotion summary in recommendations -->
+    <div style="margin-bottom:28px;">
+      <h2 style="font-size:18px; font-weight:600; color:var(--black); margin:0 0 14px; letter-spacing:-0.2px;">Эмоциональный климат</h2>
+      <div id="rec-emotion-container">
+        <div class="card" style="padding:20px; text-align:center; color:var(--gray);">Данные появятся после анализа звонков</div>
       </div>
     </div>
 
@@ -2967,6 +2989,184 @@ async function loadRecommendations() {
 }
 
 // =============================================
+// EMOTION SUMMARY
+// =============================================
+
+const EMOTION_LABELS_RU = {
+  neutral: 'Нейтральный', happiness: 'Радость', surprise: 'Удивление',
+  sadness: 'Грусть', anger: 'Злость', disgust: 'Отвращение',
+  fear: 'Страх', contempt: 'Презрение',
+  very_positive: 'Очень позитивный', positive: 'Позитивный',
+  negative: 'Негативный', very_negative: 'Очень негативный',
+  NEUTRAL: 'Нейтральный', POSITIVE: 'Позитивный', NEGATIVE: 'Негативный',
+};
+
+const EMOTION_COLORS = {
+  very_positive: '#9fe870', positive: '#cdffad',
+  neutral: '#e8ebe6', negative: '#ffc091',
+  very_negative: '#d03238', happiness: '#9fe870', surprise: '#ffd11a',
+  sadness: '#aac4e0', anger: '#d03238', disgust: '#b5a0e0',
+  fear: '#ffc091', contempt: '#c8c8c8',
+  NEUTRAL: '#e8ebe6', POSITIVE: '#9fe870', NEGATIVE: '#ffc091',
+};
+
+function emotionLabel(key) { return EMOTION_LABELS_RU[key] || key; }
+function emotionColor(key) { return EMOTION_COLORS[key] || '#e8ebe6'; }
+
+async function loadEmotionSummary() {
+  try {
+    const res = await fetch(API_BASE + '/api/emotion-summary');
+    if (!res.ok) return;
+    const data = await res.json();
+
+    renderDashboardEmotions(data);
+    renderRecommendationEmotions(data);
+  } catch (e) {
+    console.warn('API /api/emotion-summary unavailable', e);
+  }
+}
+
+function renderDashboardEmotions(data) {
+  const el = document.getElementById('dash-emotion-body');
+  if (!el) return;
+  if (!data.has_data) {
+    el.innerHTML = '<p style="text-align:center; color:var(--gray); padding:16px 0;">Данные появятся после анализа звонков</p>';
+    return;
+  }
+
+  const combined = data.combined || [];
+  const video = data.video || [];
+  const audio = data.audio || [];
+
+  function barRow(item) {
+    const color = emotionColor(item.label);
+    const textColor = ['#9fe870','#cdffad','#ffd11a'].includes(color) ? 'var(--dark-green)' : '#333';
+    return `
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+        <span style="width:130px; font-size:13px; color:var(--warm-dark); font-weight:500; flex-shrink:0;">${emotionLabel(item.label)}</span>
+        <div style="flex:1; height:18px; background:var(--light); border-radius:9999px; overflow:hidden;">
+          <div style="width:${item.pct}%; height:100%; background:${color}; border-radius:9999px; transition:width 0.5s;"></div>
+        </div>
+        <span style="width:44px; text-align:right; font-size:13px; font-weight:700; color:${textColor};">${item.pct}%</span>
+      </div>`;
+  }
+
+  el.innerHTML = `
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px; flex-wrap:wrap;">
+      <div>
+        <p style="font-size:12px; font-weight:600; color:var(--gray); text-transform:uppercase; letter-spacing:0.5px; margin:0 0 10px;">Итоговая (видео + аудио)</p>
+        ${combined.map(barRow).join('')}
+      </div>
+      <div>
+        <p style="font-size:12px; font-weight:600; color:var(--gray); text-transform:uppercase; letter-spacing:0.5px; margin:0 0 10px;">По видео (выражения лица)</p>
+        ${video.map(barRow).join('')}
+      </div>
+      <div>
+        <p style="font-size:12px; font-weight:600; color:var(--gray); text-transform:uppercase; letter-spacing:0.5px; margin:0 0 10px;">По аудио (тональность речи)</p>
+        ${audio.map(barRow).join('')}
+      </div>
+    </div>
+    ${data.manager_valence && data.manager_valence.length ? `
+    <div style="margin-top:20px; border-top:1px solid var(--light); padding-top:16px;">
+      <p style="font-size:12px; font-weight:600; color:var(--gray); text-transform:uppercase; letter-spacing:0.5px; margin:0 0 10px;">Средняя эмоциональная валентность менеджеров (−1 негатив / +1 позитив)</p>
+      <div style="display:flex; flex-wrap:wrap; gap:10px;">
+        ${data.manager_valence.map(m => {
+          const v = m.avg_valence;
+          const col = v > 0.2 ? 'var(--dark-green)' : v < -0.2 ? 'var(--danger)' : 'var(--gray)';
+          return `<div style="padding:8px 14px; background:var(--mint); border-radius:12px; font-size:13px; font-weight:600; color:${col};">${m.name}: ${v > 0 ? '+' : ''}${v.toFixed(2)}</div>`;
+        }).join('')}
+      </div>
+    </div>` : ''}
+  `;
+}
+
+function renderRecommendationEmotions(data) {
+  const el = document.getElementById('rec-emotion-container');
+  if (!el) return;
+  if (!data.has_data) {
+    el.innerHTML = '<div class="card" style="padding:20px; text-align:center; color:var(--gray);">Данные появятся после анализа звонков</div>';
+    return;
+  }
+
+  const combined = data.combined || [];
+  const dominant = combined[0];
+  const negative = combined.filter(c => ['negative','very_negative'].includes(c.label));
+  const negPct = negative.reduce((s, c) => s + c.pct, 0);
+  const positive = combined.filter(c => ['positive','very_positive'].includes(c.label));
+  const posPct = positive.reduce((s, c) => s + c.pct, 0);
+
+  const cards = [];
+
+  if (negPct > 30) {
+    cards.push({
+      border: 'var(--danger)', bg: 'rgba(208,50,56,0.04)', icon: 'frown',
+      iconCol: 'var(--danger)', title: 'Повышенный негативный эмоциональный фон',
+      badge: `${negPct.toFixed(0)}% негативных эмоций`,
+      badgeBg: 'rgba(208,50,56,0.1)', badgeCol: '#991B1B',
+      text: `В ${negPct.toFixed(0)}% интервалов переговоров зафиксированы негативные эмоции. Рекомендуется провести тренинг по управлению эмоциональным состоянием и работе со сложными клиентами.`,
+    });
+  }
+
+  if (posPct > 50) {
+    cards.push({
+      border: 'var(--green)', bg: 'var(--mint)', icon: 'smile',
+      iconCol: 'var(--dark-green)', title: 'Позитивный эмоциональный климат',
+      badge: `${posPct.toFixed(0)}% позитивных эмоций`,
+      badgeBg: 'rgba(159,232,112,0.2)', badgeCol: 'var(--dark-green)',
+      text: `Большинство интервалов (${posPct.toFixed(0)}%) характеризуются позитивным эмоциональным фоном. Это свидетельствует о высоком уровне клиентоориентированности команды.`,
+    });
+  }
+
+  if (data.manager_valence && data.manager_valence.length) {
+    const worst = data.manager_valence.filter(m => m.avg_valence < -0.1);
+    if (worst.length) {
+      cards.push({
+        border: 'var(--warning)', bg: 'rgba(255,209,26,0.06)', icon: 'alert-triangle',
+        iconCol: '#D97706', title: 'Менеджеры с негативной валентностью',
+        badge: 'Требует внимания', badgeBg: 'rgba(255,209,26,0.15)', badgeCol: '#92400E',
+        text: `У ${worst.map(m => m.name).join(', ')} зафиксирована отрицательная средняя валентность. Рекомендуется индивидуальный коучинг по позитивному общению.`,
+      });
+    }
+    const best = data.manager_valence.filter(m => m.avg_valence > 0.3);
+    if (best.length) {
+      cards.push({
+        border: 'var(--green)', bg: 'var(--mint)', icon: 'award',
+        iconCol: 'var(--dark-green)', title: 'Эмоциональные лидеры команды',
+        badge: 'Пример для коллег', badgeBg: 'rgba(159,232,112,0.2)', badgeCol: 'var(--dark-green)',
+        text: `${best.map(m => m.name).join(', ')} демонстрируют стабильно позитивный эмоциональный тон. Их практики можно использовать как эталон при обучении новых сотрудников.`,
+      });
+    }
+  }
+
+  if (!cards.length && dominant) {
+    cards.push({
+      border: 'var(--gray)', bg: 'rgba(14,15,12,0.02)', icon: 'bar-chart-2',
+      iconCol: 'var(--gray)', title: 'Эмоциональный фон — в норме',
+      badge: '', badgeBg: '', badgeCol: '',
+      text: `Преобладающая эмоция: «${emotionLabel(dominant.label)}» (${dominant.pct}%). Общий эмоциональный климат переговоров стабилен.`,
+    });
+  }
+
+  el.innerHTML = `<div style="display:flex; flex-direction:column; gap:12px;">${cards.map(c => `
+    <div class="card" style="padding:20px; border-left:4px solid ${c.border}; background:${c.bg};">
+      <div style="display:flex; align-items:flex-start; gap:14px;">
+        <div style="width:40px; height:40px; background:${c.bg}; border:1.5px solid ${c.border}; border-radius:9999px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+          <i data-lucide="${c.icon}" style="width:18px; height:18px; color:${c.iconCol};"></i>
+        </div>
+        <div>
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px; flex-wrap:wrap;">
+            <span style="font-size:15px; font-weight:600; color:var(--black);">${c.title}</span>
+            ${c.badge ? `<span class="badge" style="background:${c.badgeBg}; color:${c.badgeCol};">${c.badge}</span>` : ''}
+          </div>
+          <p style="font-size:14px; color:var(--warm-dark); margin:0;">${c.text}</p>
+        </div>
+      </div>
+    </div>`).join('')}</div>`;
+
+  lucide.createIcons();
+}
+
+// =============================================
 // COMPANY STRUCTURE
 // =============================================
 
@@ -3756,6 +3956,7 @@ async function loadAllData() {
     loadManagers(),
     loadScoreDynamics(),
     loadRecommendations(),
+    loadEmotionSummary(),
   ]);
   applyScoreColors();
 }

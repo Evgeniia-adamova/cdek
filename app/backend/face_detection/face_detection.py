@@ -1602,7 +1602,7 @@ def run_step4(
     output_dir: str = "extracted_frames_v3_dense",
     interval_sec: float = 10.0,
     frames_per_interval: int = 6,
-    max_frames: Optional[int] = 1200,
+    max_frames: Optional[int] = None,
     manifest_path: Optional[str] = None,
 ) -> Dict[str, Any]:
     metadata = read_video_metadata(video_path)

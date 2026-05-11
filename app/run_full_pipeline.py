@@ -124,7 +124,7 @@ def main():
         output_dir=dirs["frames"],
         interval_sec=10.0,
         frames_per_interval=6,
-        max_frames=1200,
+        max_frames=None,
         manifest_path=os.path.join(dirs["face_detection"], "frame_manifest.json"),
     )
     run_step2(

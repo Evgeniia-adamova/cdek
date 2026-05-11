@@ -56,7 +56,7 @@ class PipelineRepository:
         video_path: str = None,
         interval_sec: float = 10.0,
         frames_per_interval: int = 6,
-        max_frames: int = 1200,
+        max_frames: int = 0,
         expected_people: int = 2,
         match_threshold: float = 0.55,
         detector: str = "yunet_2023mar",

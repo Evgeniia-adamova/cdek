@@ -327,6 +327,94 @@ def recommendations():
 
 
 # ─────────────────────────────────────────────
+# EMOTION SUMMARY
+# ─────────────────────────────────────────────
+
+@app.get("/api/emotion-summary")
+def emotion_summary():
+    """Aggregated emotion distribution across all sessions for the dashboard."""
+    repo = get_repo()
+
+    # Combined emotions (video + audio fused)
+    combined_rows = repo._fetchall(
+        """SELECT combined_emotion, COUNT(*) AS cnt
+           FROM combined_emotions
+           WHERE combined_emotion IS NOT NULL AND combined_emotion <> ''
+           GROUP BY combined_emotion
+           ORDER BY cnt DESC"""
+    )
+    combined_total = sum(r["cnt"] for r in combined_rows)
+
+    # Dominant video emotions across all interval_emotions
+    video_rows = repo._fetchall(
+        """SELECT dominant_emotion, COUNT(*) AS cnt
+           FROM interval_emotions
+           WHERE dominant_emotion IS NOT NULL AND dominant_emotion <> ''
+           GROUP BY dominant_emotion
+           ORDER BY cnt DESC"""
+    )
+    video_total = sum(r["cnt"] for r in video_rows)
+
+    # Audio sentiment from transcript_segments
+    audio_rows = repo._fetchall(
+        """SELECT sentiment_label, COUNT(*) AS cnt
+           FROM transcript_segments
+           WHERE sentiment_label IS NOT NULL AND sentiment_label <> ''
+           GROUP BY sentiment_label
+           ORDER BY cnt DESC"""
+    )
+    audio_total = sum(r["cnt"] for r in audio_rows)
+
+    # Avg combined valence per session (linked to manager name)
+    manager_emotion = repo._fetchall(
+        """SELECT o.name AS manager_name,
+                  ROUND(AVG(ce.combined_valence)::numeric, 3) AS avg_valence,
+                  COUNT(DISTINCT ce.session_id) AS sessions
+           FROM combined_emotions ce
+           JOIN session_operators so ON so.session_id = ce.session_id
+           JOIN operators o ON o.operator_id = so.operator_id
+           GROUP BY o.name
+           ORDER BY avg_valence DESC"""
+    )
+
+    def to_pct(rows, total):
+        return [
+            {"label": r["dominant_emotion"] if "dominant_emotion" in r else (r.get("combined_emotion") or r.get("sentiment_label", "")),
+             "count": r["cnt"],
+             "pct": round(r["cnt"] / total * 100, 1) if total else 0}
+            for r in rows
+        ]
+
+    combined_list = [
+        {"label": r["combined_emotion"], "count": r["cnt"],
+         "pct": round(r["cnt"] / combined_total * 100, 1) if combined_total else 0}
+        for r in combined_rows
+    ]
+    video_list = [
+        {"label": r["dominant_emotion"], "count": r["cnt"],
+         "pct": round(r["cnt"] / video_total * 100, 1) if video_total else 0}
+        for r in video_rows
+    ]
+    audio_list = [
+        {"label": r["sentiment_label"], "count": r["cnt"],
+         "pct": round(r["cnt"] / audio_total * 100, 1) if audio_total else 0}
+        for r in audio_rows
+    ]
+
+    return {
+        "combined": combined_list,
+        "video": video_list,
+        "audio": audio_list,
+        "manager_valence": [
+            {"name": r["manager_name"], "avg_valence": float(r["avg_valence"]) if r["avg_valence"] is not None else 0,
+             "sessions": r["sessions"]}
+            for r in manager_emotion
+        ],
+        "has_data": combined_total > 0 or video_total > 0,
+    }
+
+
+# ─────────────────────────────────────────────
 # OPERATORS (Company Structure CRUD)
 # ─────────────────────────────────────────────
 
