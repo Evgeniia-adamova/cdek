@@ -3,8 +3,6 @@ Text analysis module: diarization + sentiment on transcript segments.
 """
 from app.backend.text_analysis.text_analysis import (
     load_segments,
-    diarize_audio,
-    assign_speaker_to_segment,
     run_sentiment_ru,
     run_diarize_sentiment,
     main,
@@ -12,8 +10,6 @@ from app.backend.text_analysis.text_analysis import (
 
 __all__ = [
     "load_segments",
-    "diarize_audio",
-    "assign_speaker_to_segment",
     "run_sentiment_ru",
     "run_diarize_sentiment",
     "main",
