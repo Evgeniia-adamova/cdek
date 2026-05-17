@@ -198,9 +198,11 @@ def _diarize_with_pyannote(audio_path: Path, hf_token: str) -> List[Dict[str, An
     # Load audio without torchcodec/FFmpeg, pass as waveform dict to pyannote
     audio_input = _load_audio_waveform(audio_path)
     diarization = pipeline(audio_input, num_speakers=2)
+    # pyannote 3.3+ returns DiarizeOutput; older versions return Annotation directly
+    annotation = diarization.speaker_diarization if hasattr(diarization, "speaker_diarization") else diarization
     return [
         {"start": turn.start, "end": turn.end, "speaker": speaker}
-        for turn, _, speaker in diarization.itertracks(yield_label=True)
+        for turn, _, speaker in annotation.itertracks(yield_label=True)
     ]
 
 
