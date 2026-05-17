@@ -613,7 +613,7 @@ def score_distribution():
     rows = repo.get_session_summary()
     buckets = {"0-20": 0, "21-40": 0, "41-60": 0, "61-80": 0, "81-100": 0}
     for r in rows:
-        pct = r.get("score_percentage", 0)
+        pct = r.get("score_percentage") or 0
         if pct <= 20:
             buckets["0-20"] += 1
         elif pct <= 40:
