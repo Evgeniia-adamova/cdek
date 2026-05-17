@@ -129,7 +129,7 @@ def _patch_compat() -> None:
         try:
             import lightning.fabric.utilities.cloud_io as _lf
             if hasattr(_lf, "_load"):
-                _lf._load = lambda path, map_location=None: _load_compat(path, map_location=map_location)
+                _lf._load = lambda path, map_location=None, **kwargs: _load_compat(path, map_location=map_location)
         except Exception:
             pass
 
