@@ -4,6 +4,7 @@ transformers>=4.30.0
 
 # Speaker diarization via pyannote (requires HUGGINGFACE_TOKEN in .env)
 pyannote.audio>=3.1.0
+soundfile>=0.12.0
 # Bundled FFmpeg binaries for audio decoding (OGG Opus) without system FFmpeg
 imageio-ffmpeg>=0.4.0
 
