@@ -440,8 +440,8 @@
       <div class="table-header" style="background:#2d6a4f;">v_session_summary</div>
       <div class="table-body">
         <div class="col-row" style="font-size:11px; color:#666; flex-direction:column; align-items:flex-start; gap:2px; padding:8px 14px;">
-          <span>sessions JOIN kpi_evaluations JOIN session_operators JOIN operators</span>
-          <span style="margin-top:4px; color:#888;">session_id, video_id, operator_name, score_percentage, traffic_light, created_at, contract_number</span>
+          <span>sessions LEFT JOIN kpi_evaluations</span>
+          <span style="margin-top:4px; color:#888;">session_id, video_id, duration_sec, processed_at, pipeline_status, contract_number, overall_score, max_possible_score, score_percentage, traffic_light, overall_status, person_count, segment_count</span>
         </div>
       </div>
     </div>
