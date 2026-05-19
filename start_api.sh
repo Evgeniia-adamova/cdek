@@ -5,5 +5,5 @@ set -e
 cd "$(dirname "$0")"
 source .env 2>/dev/null || true
 
-echo "Starting FastAPI server on port 80..."
-uvicorn app.api:app --host 0.0.0.0 --port 80 --workers 2
+echo "Starting FastAPI server on port 8000..."
+uvicorn app.api:app --host 127.0.0.1 --port 8000 --workers 1
