@@ -228,7 +228,7 @@ def score_dynamics():
     rows = repo.get_session_summary()
     daily: dict = {}
     for r in rows:
-        dt = r.get("created_at")
+        dt = r.get("processed_at") or r.get("created_at")
         if not dt:
             continue
         day = dt.strftime("%Y-%m-%d")
