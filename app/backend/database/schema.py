@@ -332,10 +332,13 @@ VIEWS = [
     SELECT
         s.session_id, s.video_id, s.duration_sec, s.processed_at, s.pipeline_status, s.contract_number,
         ke.overall_score, ke.max_possible_score, ke.score_percentage, ke.traffic_light, ke.overall_status,
+        o.name AS operator_name, o.operator_id,
         (SELECT COUNT(*) FROM persons p WHERE p.session_id = s.session_id) AS person_count,
         (SELECT COUNT(*) FROM transcript_segments ts WHERE ts.session_id = s.session_id) AS segment_count
     FROM sessions s
     LEFT JOIN kpi_evaluations ke ON ke.session_id = s.session_id
+    LEFT JOIN session_operators so ON so.session_id = s.session_id AND so.role = 'manager'
+    LEFT JOIN operators o ON o.operator_id = so.operator_id
     """,
     """
     CREATE OR REPLACE VIEW v_emotion_timeline AS

@@ -535,6 +535,25 @@ def delete_analysis(session_id: int):
     return {"deleted": session_id}
 
 
+@app.patch("/api/analyses/{session_id}/operator")
+def set_session_operator(session_id: int, operator_id: int):
+    """Link an operator to an existing session (creates or replaces the manager link)."""
+    repo = get_repo()
+    session = repo._fetchone("SELECT session_id FROM sessions WHERE session_id = %s", (session_id,))
+    if not session:
+        raise HTTPException(status_code=404, detail="Session not found")
+    operator = repo._fetchone("SELECT operator_id FROM operators WHERE operator_id = %s", (operator_id,))
+    if not operator:
+        raise HTTPException(status_code=404, detail="Operator not found")
+    repo._execute(
+        """INSERT INTO session_operators (session_id, operator_id, role)
+           VALUES (%s, %s, 'manager')
+           ON CONFLICT (session_id, operator_id) DO NOTHING""",
+        (session_id, operator_id))
+    repo._commit()
+    return {"session_id": session_id, "operator_id": operator_id, "role": "manager"}
+
+
 @app.post("/api/analyses/{session_id}/rerun")
 def rerun_analysis(session_id: int):
     """Re-run the AI evaluation for an existing session."""
@@ -736,24 +755,40 @@ async def upload_video(
     video_id = Path(file.filename).stem
 
     # Create or update session in DB with 'running' status so polling works
+    session_id = None
     try:
         repo = get_repo()
         existing = repo.get_session_by_video_id(video_id)
         if existing:
-            repo.update_session_status(existing["session_id"], "running")
+            session_id = existing["session_id"]
+            repo.update_session_status(session_id, "running")
             if contract_number:
                 repo._execute(
                     "UPDATE sessions SET contract_number = %s WHERE video_id = %s",
                     (contract_number, video_id))
                 repo._commit()
         else:
-            repo._execute(
+            cur = repo._execute(
                 """INSERT INTO sessions (video_id, video_path, pipeline_status,
                    fps, frame_count, width, height, duration_sec, contract_number)
                    VALUES (%s, %s, 'running', 0, 0, 0, 0, 0, %s)
                    RETURNING session_id""",
                 (video_id, str(file_path), contract_number or None))
+            row = cur.fetchone()
+            if row:
+                session_id = row[0]
             repo._commit()
+
+        if session_id and operator_id:
+            try:
+                repo._execute(
+                    """INSERT INTO session_operators (session_id, operator_id, role)
+                       VALUES (%s, %s, 'manager')
+                       ON CONFLICT (session_id, operator_id) DO NOTHING""",
+                    (session_id, int(operator_id)))
+                repo._commit()
+            except Exception:
+                traceback.print_exc()
     except Exception:
         traceback.print_exc()
 
