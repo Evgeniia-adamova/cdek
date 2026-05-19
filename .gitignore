@@ -30,5 +30,6 @@ models/
 
 # IDE / OS
 .idea/
+.vscode/
 .DS_Store
 Thumbs.db
