@@ -326,11 +326,12 @@ INDEXES = [
 ]
 
 VIEWS = [
+    "DROP VIEW IF EXISTS v_session_summary",
     """
-    CREATE OR REPLACE VIEW v_session_summary AS
+    CREATE VIEW v_session_summary AS
     SELECT
         s.session_id, s.video_id, s.duration_sec, s.processed_at, s.pipeline_status, s.contract_number,
-        ke.overall_score, ke.score_percentage, ke.traffic_light, ke.overall_status,
+        ke.overall_score, ke.max_possible_score, ke.score_percentage, ke.traffic_light, ke.overall_status,
         (SELECT COUNT(*) FROM persons p WHERE p.session_id = s.session_id) AS person_count,
         (SELECT COUNT(*) FROM transcript_segments ts WHERE ts.session_id = s.session_id) AS segment_count
     FROM sessions s
