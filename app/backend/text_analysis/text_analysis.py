@@ -98,6 +98,9 @@ def _patch_compat() -> None:
     """Patch torchaudio 2.x and huggingface_hub 1.x API breaks vs pyannote 3.x."""
     import collections
     import functools
+    import warnings
+    # suppress torchcodec/FFmpeg load noise — torchcodec is not needed (we pass waveforms directly)
+    warnings.filterwarnings("ignore", message="torchcodec is not installed correctly")
 
     # --- torchaudio 2.x removed APIs ---
     import torchaudio
