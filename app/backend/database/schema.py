@@ -45,6 +45,12 @@ def get_connection():
             str(PROJECT_ROOT / "certs" / "root.crt"),
         ),
         options="-c search_path=public",
+        # Keep the connection alive during long pipeline runs (multi-hour videos).
+        # Without keepalives, Yandex Managed PG drops idle connections after ~10min.
+        keepalives=1,
+        keepalives_idle=60,
+        keepalives_interval=10,
+        keepalives_count=5,
     )
     conn.autocommit = False
     return conn

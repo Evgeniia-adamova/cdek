@@ -10,6 +10,7 @@ Requires Redis (set REDIS_URL in .env).
 import os
 import sys
 import shutil
+import tempfile
 import traceback
 from pathlib import Path
 
@@ -85,7 +86,7 @@ def _cleanup_after_pipeline(video_path: str, video_id: str):
         Path(video_path).unlink(missing_ok=True)
     except Exception:
         pass
-    frames_dir = PROJECT_ROOT / "logs" / video_id
+    frames_dir = Path(tempfile.gettempdir()) / "MT_frames" / video_id
     try:
         if frames_dir.exists():
             shutil.rmtree(frames_dir)
