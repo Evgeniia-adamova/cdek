@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Схема базы данных — CDEK Quality Control</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f7f8f5;
+      color: #0e0f0c;
+      padding: 40px;
+    }
+    h1 { font-size: 24px; font-weight: 700; margin-bottom: 6px; color: #163300; }
+    .subtitle { font-size: 14px; color: #666; margin-bottom: 32px; }
+
+    .legend {
+      display: flex; gap: 24px; flex-wrap: wrap; margin-bottom: 28px;
+      padding: 16px 20px; background: white;
+      border-radius: 12px; border: 1px solid #e0e0dc;
+    }
+    .legend-item { display: flex; align-items: center; gap: 8px; font-size: 13px; }
+    .legend-dot { width: 14px; height: 14px; border-radius: 3px; flex-shrink: 0; }
+
+    .diagram-wrapper {
+      background: white; border-radius: 16px;
+      border: 1px solid #e0e0dc; padding: 32px;
+      overflow-x: auto;
+    }
+
+    /* Table boxes */
+    .erd { display: flex; flex-wrap: wrap; gap: 28px; align-items: flex-start; }
+    .table-box {
+      border: 2px solid #c8dab8; border-radius: 12px; min-width: 220px;
+      overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    .table-header {
+      padding: 10px 14px; font-size: 13px; font-weight: 700;
+      color: white; letter-spacing: 0.3px;
+    }
+    .table-header.session  { background: #163300; }
+    .table-header.vision   { background: #1d4f91; }
+    .table-header.emotion  { background: #7b3f8c; }
+    .table-header.speech   { background: #b45309; }
+    .table-header.kpi      { background: #0f4c38; }
+    .table-header.org      { background: #374151; }
+
+    .table-body { padding: 8px 0; }
+    .col-row {
+      display: flex; align-items: center; gap: 8px;
+      padding: 4px 14px; font-size: 12px; line-height: 1.5;
+    }
+    .col-row:hover { background: #f0f4ec; }
+    .col-key {
+      font-size: 10px; font-weight: 700; padding: 2px 5px;
+      border-radius: 4px; flex-shrink: 0; letter-spacing: 0.3px;
+    }
+    .pk  { background: #fef9c3; color: #713f12; border: 1px solid #fde047; }
+    .fk  { background: #dbeafe; color: #1d4091; border: 1px solid #93c5fd; }
+    .pfk { background: #fce7f3; color: #831843; border: 1px solid #f9a8d4; }
+    .col-name { flex: 1; color: #333; font-weight: 500; }
+    .col-type { color: #888; font-size: 11px; }
+
+    .divider { height: 1px; background: #e8ebe6; margin: 4px 0; }
+
+    /* Relationship lines legend */
+    .rel-table { margin-top: 32px; width: 100%; border-collapse: collapse; font-size: 13px; }
+    .rel-table th {
+      text-align: left; padding: 8px 12px; background: #f0f4ec;
+      border-bottom: 2px solid #c8dab8; font-weight: 600; color: #163300;
+    }
+    .rel-table td { padding: 6px 12px; border-bottom: 1px solid #e8ebe6; }
+    .rel-table tr:last-child td { border-bottom: none; }
+    .ref-badge {
+      font-size: 11px; padding: 2px 8px; border-radius: 9999px; font-weight: 600;
+    }
+    .cascade { background: #fee2e2; color: #991b1b; }
+    .restrict { background: #dbeafe; color: #1e40af; }
+
+    .section-title {
+      font-size: 16px; font-weight: 700; color: #163300;
+      margin: 36px 0 14px; border-left: 4px solid #9fe870;
+      padding-left: 12px;
+    }
+
+    @media print {
+      body { padding: 20px; background: white; }
+      .diagram-wrapper { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+
+<h1>Схема базы данных</h1>
+<p class="subtitle">Система контроля качества переговоров СДЭК — 17 таблиц, связанных по сессионному идентификатору</p>
+
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:#163300;"></div> Сессии / ядро</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#1d4f91;"></div> Видеоанализ (лица)</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#7b3f8c;"></div> Эмоции (видео + аудио)</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#b45309;"></div> Речь и транскрипция</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#0f4c38;"></div> KPI-оценка</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#374151;"></div> Операторы / структура</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#fef9c3; border:1px solid #fde047;"></div>
+    <span class="col-key pk" style="font-size:11px;">PK</span> Первичный ключ</div>
+  <div class="legend-item">
+    <span class="col-key fk" style="font-size:11px;">FK</span> Внешний ключ</div>
+  <div class="legend-item">
+    <span class="col-key pfk" style="font-size:11px;">PK+FK</span> Составной ключ</div>
+</div>
+
+<div class="diagram-wrapper">
+
+  <p class="section-title">Ядро: сессия, участники, кадры</p>
+  <div class="erd">
+
+    <!-- sessions -->
+    <div class="table-box">
+      <div class="table-header session">sessions</div>
+      <div class="table-body">
+        <div class="col-row"><span class="col-key pk">PK</span><span class="col-name">session_id</span><span class="col-type">SERIAL</span></div>
+        <div class="divider"></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">video_id</span><span class="col-type">TEXT UNIQUE</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">video_path</span><span class="col-type">TEXT</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">fps, frame_count</span><span class="col-type">NUMERIC</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">width, height</span><span class="col-type">INTEGER</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">duration_sec</span><span class="col-type">FLOAT</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">interval_sec</span><span class="col-type">FLOAT DEFAULT 10</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">frames_per_interval</span><span class="col-type">INT DEFAULT 6</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">expected_people</span><span class="col-type">INT DEFAULT 2</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">detector, emotion_model</span><span class="col-type">TEXT</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">contract_number</span><span class="col-type">TEXT</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">processed_at</span><span class="col-type">TIMESTAMP</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">pipeline_status</span><span class="col-type">TEXT CHECK</span></div>
+      </div>
+    </div>
+
+    <!-- persons -->
+    <div class="table-box">
+      <div class="table-header vision">persons</div>
+      <div class="table-body">
+        <div class="col-row"><span class="col-key pk">PK</span><span class="col-name">person_id</span><span class="col-type">SERIAL</span></div>
+        <div class="divider"></div>
+        <div class="col-row"><span class="col-key fk">FK</span><span class="col-name">session_id</span><span class="col-type">→ sessions</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">person_label</span><span class="col-type">TEXT</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">total_samples</span><span class="col-type">INTEGER</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">dominant_emotion</span><span class="col-type">TEXT</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">dominant_share</span><span class="col-type">FLOAT</span></div>
+        <div class="col-row" style="font-size:11px; color:#888; padding-top:2px;"><span style="width:28px;"></span><span>UNIQUE(session_id, person_label)</span></div>
+      </div>
+    </div>
+
+    <!-- frames -->
+    <div class="table-box">
+      <div class="table-header vision">frames</div>
+      <div class="table-body">
+        <div class="col-row"><span class="col-key pk">PK</span><span class="col-name">frame_id</span><span class="col-type">SERIAL</span></div>
+        <div class="divider"></div>
+        <div class="col-row"><span class="col-key fk">FK</span><span class="col-name">session_id</span><span class="col-type">→ sessions</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">sample_index</span><span class="col-type">INTEGER</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">frame_index</span><span class="col-type">INTEGER</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">timestamp_sec</span><span class="col-type">FLOAT</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">image_path</span><span class="col-type">TEXT</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">interval_id</span><span class="col-type">INTEGER</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">face_count</span><span class="col-type">INTEGER</span></div>
+        <div class="col-row" style="font-size:11px; color:#888; padding-top:2px;"><span style="width:28px;"></span><span>UNIQUE(session_id, sample_index)</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="section-title">Видеоанализ: детекция лиц и эмоции</p>
+  <div class="erd">
+
+    <!-- face_detections -->
+    <div class="table-box">
+      <div class="table-header vision">face_detections</div>
+      <div class="table-body">
+        <div class="col-row"><span class="col-key pk">PK</span><span class="col-name">detection_id</span><span class="col-type">SERIAL</span></div>
+        <div class="divider"></div>
+        <div class="col-row"><span class="col-key fk">FK</span><span class="col-name">frame_id</span><span class="col-type">→ frames</span></div>
+        <div class="col-row"><span class="col-key fk">FK</span><span class="col-name">person_id</span><span class="col-type">→ persons</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">bbox_x, bbox_y, bbox_w, bbox_h</span><span class="col-type">INT</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">center_x, center_y</span><span class="col-type">FLOAT</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">area, confidence</span><span class="col-type">NUMERIC</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">match_score</span><span class="col-type">FLOAT</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">crop_path</span><span class="col-type">TEXT</span></div>
+      </div>
+    </div>
+
+    <!-- emotion_predictions -->
+    <div class="table-box">
+      <div class="table-header emotion">emotion_predictions</div>
+      <div class="table-body">
+        <div class="col-row"><span class="col-key pk">PK</span><span class="col-name">prediction_id</span><span class="col-type">SERIAL</span></div>
+        <div class="divider"></div>
+        <div class="col-row"><span class="col-key fk">FK</span><span class="col-name">detection_id</span><span class="col-type">→ face_detections</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">emotion</span><span class="col-type">TEXT</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">confidence</span><span class="col-type">FLOAT</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">probabilities</span><span class="col-type">JSONB</span></div>
+        <div class="col-row" style="font-size:11px; color:#888; padding-top:2px;"><span style="width:28px;"></span><span>8 классов FERPlus ONNX</span></div>
+      </div>
+    </div>
+
+    <!-- interval_emotions -->
+    <div class="table-box">
+      <div class="table-header emotion">interval_emotions</div>
+      <div class="table-body">
+        <div class="col-row"><span class="col-key pk">PK</span><span class="col-name">id</span><span class="col-type">SERIAL</span></div>
+        <div class="divider"></div>
+        <div class="col-row"><span class="col-key fk">FK</span><span class="col-name">session_id</span><span class="col-type">→ sessions</span></div>
+        <div class="col-row"><span class="col-key fk">FK</span><span class="col-name">person_id</span><span class="col-type">→ persons</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">interval_id</span><span class="col-type">INTEGER</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">frame_count, total_detections</span><span class="col-type">INT</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">emotion_counts</span><span class="col-type">JSONB</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">dominant_emotion</span><span class="col-type">TEXT</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">valence_score</span><span class="col-type">FLOAT [−1, +1]</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">avg_confidence</span><span class="col-type">FLOAT</span></div>
+        <div class="col-row" style="font-size:11px; color:#888; padding-top:2px;"><span style="width:28px;"></span><span>UNIQUE(session_id, person_id, interval_id)</span></div>
+      </div>
+    </div>
+
+    <!-- combined_emotions -->
+    <div class="table-box">
+      <div class="table-header emotion">combined_emotions</div>
+      <div class="table-body">
+        <div class="col-row"><span class="col-key pk">PK</span><span class="col-name">id</span><span class="col-type">SERIAL</span></div>
+        <div class="divider"></div>
+        <div class="col-row"><span class="col-key fk">FK</span><span class="col-name">session_id</span><span class="col-type">→ sessions</span></div>
+        <div class="col-row"><span class="col-key fk">FK</span><span class="col-name">person_id</span><span class="col-type">→ persons</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">interval_id</span><span class="col-type">INTEGER</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">video_emotion, video_valence</span><span class="col-type">TEXT / FLOAT</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">audio_sentiment, audio_valence</span><span class="col-type">TEXT / FLOAT</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">combined_emotion</span><span class="col-type">TEXT CHECK</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">combined_valence</span><span class="col-type">FLOAT [−1, +1]</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">video_weight=0.6, audio_weight=0.4</span><span class="col-type">FLOAT</span></div>
+        <div class="col-row" style="font-size:11px; color:#888; padding-top:2px;"><span style="width:28px;"></span><span>UNIQUE(session_id, person_id, interval_id)</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="section-title">Речевой анализ: диаризация и транскрипция</p>
+  <div class="erd">
+
+    <!-- speakers -->
+    <div class="table-box">
+      <div class="table-header speech">speakers</div>
+      <div class="table-body">
+        <div class="col-row"><span class="col-key pk">PK</span><span class="col-name">speaker_id</span><span class="col-type">SERIAL</span></div>
+        <div class="divider"></div>
+        <div class="col-row"><span class="col-key fk">FK</span><span class="col-name">session_id</span><span class="col-type">→ sessions</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">speaker_label</span><span class="col-type">TEXT</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">role</span><span class="col-type">TEXT</span></div>
+        <div class="col-row" style="font-size:11px; color:#888; padding-top:2px;"><span style="width:28px;"></span><span>UNIQUE(session_id, speaker_label)</span></div>
+      </div>
+    </div>
+
+    <!-- transcript_segments -->
+    <div class="table-box">
+      <div class="table-header speech">transcript_segments</div>
+      <div class="table-body">
+        <div class="col-row"><span class="col-key pk">PK</span><span class="col-name">segment_id</span><span class="col-type">SERIAL</span></div>
+        <div class="divider"></div>
+        <div class="col-row"><span class="col-key fk">FK</span><span class="col-name">session_id</span><span class="col-type">→ sessions</span></div>
+        <div class="col-row"><span class="col-key fk">FK</span><span class="col-name">speaker_id</span><span class="col-type">→ speakers</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">start_sec, end_sec</span><span class="col-type">FLOAT</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">text</span><span class="col-type">TEXT</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">sentiment_label</span><span class="col-type">TEXT CHECK</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">sentiment_score</span><span class="col-type">FLOAT</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">interval_id</span><span class="col-type">INTEGER</span></div>
+        <div class="col-row" style="font-size:11px; color:#888; padding-top:2px;"><span style="width:28px;"></span><span>RuBERT: positive / neutral / negative</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="section-title">KPI-оценка: критерии и результаты</p>
+  <div class="erd">
+
+    <!-- kpi_categories -->
+    <div class="table-box">
+      <div class="table-header kpi">kpi_categories</div>
+      <div class="table-body">
+        <div class="col-row"><span class="col-key pk">PK</span><span class="col-name">category_id</span><span class="col-type">SERIAL</span></div>
+        <div class="divider"></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">name</span><span class="col-type">TEXT UNIQUE</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">display_order</span><span class="col-type">INTEGER</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">max_score</span><span class="col-type">INTEGER</span></div>
+      </div>
+    </div>
+
+    <!-- kpi_criteria -->
+    <div class="table-box">
+      <div class="table-header kpi">kpi_criteria</div>
+      <div class="table-body">
+        <div class="col-row"><span class="col-key pk">PK</span><span class="col-name">criterion_id</span><span class="col-type">SERIAL</span></div>
+        <div class="divider"></div>
+        <div class="col-row"><span class="col-key fk">FK</span><span class="col-name">category_id</span><span class="col-type">→ kpi_categories</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">key</span><span class="col-type">TEXT UNIQUE</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">name, description</span><span class="col-type">TEXT</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">max_score</span><span class="col-type">INTEGER</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">display_order</span><span class="col-type">INTEGER</span></div>
+      </div>
+    </div>
+
+    <!-- kpi_evaluations -->
+    <div class="table-box">
+      <div class="table-header kpi">kpi_evaluations</div>
+      <div class="table-body">
+        <div class="col-row"><span class="col-key pk">PK</span><span class="col-name">evaluation_id</span><span class="col-type">SERIAL</span></div>
+        <div class="divider"></div>
+        <div class="col-row"><span class="col-key fk">FK</span><span class="col-name">session_id</span><span class="col-type">→ sessions UNIQUE</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">checklist_name</span><span class="col-type">TEXT</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">overall_score</span><span class="col-type">INTEGER</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">score_percentage</span><span class="col-type">FLOAT</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">traffic_light</span><span class="col-type">TEXT CHECK</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">summary, detailed_summary</span><span class="col-type">TEXT</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">evaluated_at</span><span class="col-type">TIMESTAMP</span></div>
+      </div>
+    </div>
+
+    <!-- kpi_evaluation_items -->
+    <div class="table-box">
+      <div class="table-header kpi">kpi_evaluation_items</div>
+      <div class="table-body">
+        <div class="col-row"><span class="col-key pk">PK</span><span class="col-name">item_id</span><span class="col-type">SERIAL</span></div>
+        <div class="divider"></div>
+        <div class="col-row"><span class="col-key fk">FK</span><span class="col-name">evaluation_id</span><span class="col-type">→ kpi_evaluations</span></div>
+        <div class="col-row"><span class="col-key fk">FK</span><span class="col-name">criterion_id</span><span class="col-type">→ kpi_criteria</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">score</span><span class="col-type">INTEGER</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">status</span><span class="col-type">TEXT CHECK (Да/Нет)</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">details</span><span class="col-type">TEXT</span></div>
+        <div class="col-row" style="font-size:11px; color:#888; padding-top:2px;"><span style="width:28px;"></span><span>UNIQUE(evaluation_id, criterion_id)</span></div>
+      </div>
+    </div>
+
+    <!-- kpi_category_scores -->
+    <div class="table-box">
+      <div class="table-header kpi">kpi_category_scores</div>
+      <div class="table-body">
+        <div class="col-row"><span class="col-key pk">PK</span><span class="col-name">id</span><span class="col-type">SERIAL</span></div>
+        <div class="divider"></div>
+        <div class="col-row"><span class="col-key fk">FK</span><span class="col-name">evaluation_id</span><span class="col-type">→ kpi_evaluations</span></div>
+        <div class="col-row"><span class="col-key fk">FK</span><span class="col-name">category_id</span><span class="col-type">→ kpi_categories</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">total_score, max_score</span><span class="col-type">INTEGER</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">percentage</span><span class="col-type">FLOAT</span></div>
+        <div class="col-row" style="font-size:11px; color:#888; padding-top:2px;"><span style="width:28px;"></span><span>UNIQUE(evaluation_id, category_id)</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="section-title">Организационная структура</p>
+  <div class="erd">
+
+    <!-- operators -->
+    <div class="table-box">
+      <div class="table-header org">operators</div>
+      <div class="table-body">
+        <div class="col-row"><span class="col-key pk">PK</span><span class="col-name">operator_id</span><span class="col-type">SERIAL</span></div>
+        <div class="divider"></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">name</span><span class="col-type">TEXT</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">employee_id</span><span class="col-type">TEXT UNIQUE</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">department</span><span class="col-type">TEXT</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">created_at</span><span class="col-type">TIMESTAMP</span></div>
+      </div>
+    </div>
+
+    <!-- session_operators -->
+    <div class="table-box">
+      <div class="table-header org">session_operators</div>
+      <div class="table-body">
+        <div class="col-row"><span class="col-key pfk">PK+FK</span><span class="col-name">session_id</span><span class="col-type">→ sessions</span></div>
+        <div class="col-row"><span class="col-key pfk">PK+FK</span><span class="col-name">operator_id</span><span class="col-type">→ operators</span></div>
+        <div class="divider"></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">role</span><span class="col-type">TEXT DEFAULT 'company_representative'</span></div>
+        <div class="col-row" style="font-size:11px; color:#888; padding-top:2px;"><span style="width:28px;"></span><span>PRIMARY KEY(session_id, operator_id)</span></div>
+      </div>
+    </div>
+
+    <!-- recommendations -->
+    <div class="table-box">
+      <div class="table-header org">recommendations</div>
+      <div class="table-body">
+        <div class="col-row"><span class="col-key pk">PK</span><span class="col-name">recommendation_id</span><span class="col-type">SERIAL</span></div>
+        <div class="divider"></div>
+        <div class="col-row"><span class="col-key fk">FK</span><span class="col-name">session_id</span><span class="col-type">→ sessions</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">category</span><span class="col-type">TEXT</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">priority</span><span class="col-type">INTEGER</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">text</span><span class="col-type">TEXT</span></div>
+        <div class="col-row"><span class="col-key" style="width:28px;"></span><span class="col-name">created_at</span><span class="col-type">TIMESTAMP</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Relationship table -->
+  <p class="section-title">Справочник внешних ключей</p>
+  <table class="rel-table">
+    <thead>
+      <tr>
+        <th>Таблица (откуда)</th>
+        <th>Колонка</th>
+        <th>Ссылается на</th>
+        <th>Колонка</th>
+        <th>ON DELETE</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>persons</td><td>session_id</td><td>sessions</td><td>session_id</td><td><span class="ref-badge cascade">CASCADE</span></td></tr>
+      <tr><td>frames</td><td>session_id</td><td>sessions</td><td>session_id</td><td><span class="ref-badge cascade">CASCADE</span></td></tr>
+      <tr><td>face_detections</td><td>frame_id</td><td>frames</td><td>frame_id</td><td><span class="ref-badge cascade">CASCADE</span></td></tr>
+      <tr><td>face_detections</td><td>person_id</td><td>persons</td><td>person_id</td><td><span class="ref-badge cascade">CASCADE</span></td></tr>
+      <tr><td>emotion_predictions</td><td>detection_id</td><td>face_detections</td><td>detection_id</td><td><span class="ref-badge cascade">CASCADE</span></td></tr>
+      <tr><td>interval_emotions</td><td>session_id</td><td>sessions</td><td>session_id</td><td><span class="ref-badge cascade">CASCADE</span></td></tr>
+      <tr><td>interval_emotions</td><td>person_id</td><td>persons</td><td>person_id</td><td><span class="ref-badge cascade">CASCADE</span></td></tr>
+      <tr><td>speakers</td><td>session_id</td><td>sessions</td><td>session_id</td><td><span class="ref-badge cascade">CASCADE</span></td></tr>
+      <tr><td>transcript_segments</td><td>session_id</td><td>sessions</td><td>session_id</td><td><span class="ref-badge cascade">CASCADE</span></td></tr>
+      <tr><td>transcript_segments</td><td>speaker_id</td><td>speakers</td><td>speaker_id</td><td><span class="ref-badge cascade">CASCADE</span></td></tr>
+      <tr><td>combined_emotions</td><td>session_id</td><td>sessions</td><td>session_id</td><td><span class="ref-badge cascade">CASCADE</span></td></tr>
+      <tr><td>combined_emotions</td><td>person_id</td><td>persons</td><td>person_id</td><td><span class="ref-badge cascade">CASCADE</span></td></tr>
+      <tr><td>kpi_criteria</td><td>category_id</td><td>kpi_categories</td><td>category_id</td><td><span class="ref-badge cascade">CASCADE</span></td></tr>
+      <tr><td>kpi_evaluations</td><td>session_id</td><td>sessions</td><td>session_id</td><td><span class="ref-badge cascade">CASCADE</span></td></tr>
+      <tr><td>kpi_evaluation_items</td><td>evaluation_id</td><td>kpi_evaluations</td><td>evaluation_id</td><td><span class="ref-badge cascade">CASCADE</span></td></tr>
+      <tr><td>kpi_evaluation_items</td><td>criterion_id</td><td>kpi_criteria</td><td>criterion_id</td><td><span class="ref-badge restrict">RESTRICT</span></td></tr>
+      <tr><td>kpi_category_scores</td><td>evaluation_id</td><td>kpi_evaluations</td><td>evaluation_id</td><td><span class="ref-badge cascade">CASCADE</span></td></tr>
+      <tr><td>kpi_category_scores</td><td>category_id</td><td>kpi_categories</td><td>category_id</td><td><span class="ref-badge restrict">RESTRICT</span></td></tr>
+      <tr><td>session_operators</td><td>session_id</td><td>sessions</td><td>session_id</td><td><span class="ref-badge cascade">CASCADE</span></td></tr>
+      <tr><td>session_operators</td><td>operator_id</td><td>operators</td><td>operator_id</td><td><span class="ref-badge restrict">RESTRICT</span></td></tr>
+      <tr><td>recommendations</td><td>session_id</td><td>sessions</td><td>session_id</td><td><span class="ref-badge cascade">CASCADE</span></td></tr>
+    </tbody>
+  </table>
+
+  <!-- Views -->
+  <p class="section-title">Представления (Views)</p>
+  <div class="erd">
+    <div class="table-box" style="border-color:#9fe870;">
+      <div class="table-header" style="background:#2d6a4f;">v_session_summary</div>
+      <div class="table-body">
+        <div class="col-row" style="font-size:11px; color:#666; flex-direction:column; align-items:flex-start; gap:2px; padding:8px 14px;">
+          <span>sessions LEFT JOIN kpi_evaluations</span>
+          <span style="margin-top:4px; color:#888;">session_id, video_id, duration_sec, processed_at, pipeline_status, contract_number, overall_score, max_possible_score, score_percentage, traffic_light, overall_status, person_count, segment_count</span>
+        </div>
+      </div>
+    </div>
+    <div class="table-box" style="border-color:#9fe870;">
+      <div class="table-header" style="background:#2d6a4f;">v_emotion_timeline</div>
+      <div class="table-body">
+        <div class="col-row" style="font-size:11px; color:#666; flex-direction:column; align-items:flex-start; gap:2px; padding:8px 14px;">
+          <span>combined_emotions JOIN persons</span>
+          <span style="margin-top:4px; color:#888;">session_id, person_label, interval_id, video_emotion, audio_sentiment, combined_emotion, combined_valence</span>
+        </div>
+      </div>
+    </div>
+    <div class="table-box" style="border-color:#9fe870;">
+      <div class="table-header" style="background:#2d6a4f;">v_kpi_detail</div>
+      <div class="table-body">
+        <div class="col-row" style="font-size:11px; color:#666; flex-direction:column; align-items:flex-start; gap:2px; padding:8px 14px;">
+          <span>kpi_evaluation_items JOIN kpi_evaluations JOIN kpi_criteria JOIN kpi_categories</span>
+          <span style="margin-top:4px; color:#888;">session_id, category_name, criterion_name, score, max_score, status, details</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<p style="margin-top:24px; font-size:12px; color:#aaa; text-align:center;">
+  PostgreSQL · 17 таблиц · 3 представления · 26 индексов · Все дочерние записи удаляются каскадно при удалении сессии
+</p>
+
+</body>
+</html>

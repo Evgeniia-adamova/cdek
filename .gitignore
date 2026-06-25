@@ -1,0 +1,35 @@
+# Local env with secrets (copy from .env.example, never commit)
+.env
+
+# SSL certificates
+certs/
+
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+venv/
+.venv/
+env/
+
+# Pipeline outputs (per-video folders are generated, not tracked)
+data/*/
+!data/.gitkeep
+logs/*/
+!logs/.gitkeep
+models/
+
+# Video files
+*.mp4
+*.avi
+*.mov
+*.webm
+*.mkv
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
